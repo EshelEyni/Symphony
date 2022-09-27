@@ -1,0 +1,149 @@
+.cp-1-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.cp-main-container {
+    display: grid;
+    grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    height: 45px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #313131;
+
+    }
+
+    & .clip-play-btn {
+        display: none;
+        padding: 10px;
+    }
+
+    & .clip-dp-btn {
+        display: none;
+        padding: 10px;
+
+    }
+
+    .fa-regular.fa-heart {
+        visibility: hidden;
+    }
+
+    :hover {
+        visibility: visible;
+    }
+
+    &:hover {
+        .clip-play-btn {
+            display: unset;
+            padding-right: 10px;
+            font-size: 13px;
+            max-width: 28.3px;
+        }
+
+        .clip-num {
+            display: none;
+        }
+
+        .clip-dp-btn {
+            display: unset;
+            font-size: 16px;
+            margin: 3px;
+            padding: 10px;
+        }
+        .fa-regular.fa-heart{
+            visibility: visible;
+        }
+
+    }
+
+    @include for-mobile-layout {
+
+        .artist-name,
+        .added {
+            display: none;
+        }
+
+        display: grid;
+        grid-template-columns: 311px 1fr minmax(50px, 1fr);
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        height: 42.3px;
+    }
+
+    .clip-num {
+        padding: 10px;
+        max-width: 28.3px;
+    }
+
+
+    .clip-img {
+        width: rem(40px);
+        height: rem(40px);
+    }
+
+
+    .clip-title {
+        border-bottom: 1px solid transparent;
+        padding: 0 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+}
+
+.like.symbol {
+    background: none;
+    border: none;
+    font-size: 18px;
+    width: 10%;
+    margin-right: 20px;
+
+    @include for-mobile-layout {
+        font-size: 16px;
+
+    }
+}
+
+.album,
+.artist-name {
+    text-align: start;
+}
+
+.album {
+    margin-left: 12px;
+}
+
+.added,
+.date {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.cp-2-container {
+    text-align: right;
+}
+
+.blink {
+    animation: blink-animation 1s steps(2, start);
+    -webkit-animation: blink-animation 1s steps(2, start);
+  }
+  @keyframes blink-animation {
+    to {
+      background-color: lightblue;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+        background-color: unset;
+    }
+  }

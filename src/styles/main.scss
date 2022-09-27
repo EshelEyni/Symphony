@@ -1,0 +1,45 @@
+// Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
+
+// Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/base";
+@import "basics/links";
+@import "basics/forms";
+
+
+// Views
+@import "views/about-us";
+@import "views/home-page";
+@import "views/symphony-app";
+@import "views/review-app";
+@import "views/stations-details";
+@import "views/user-profile";
+@import "views/login";
+@import "views/signup";
+@import "views/search";
+@import "views/queue";
+@import "views/about";
+@import "views/liked-songs";
+@import "views/library.scss";
+
+// Components
+@import "cmps/app-header";
+@import "cmps/media-player";
+@import "cmps/user-msg";
+@import "cmps/side-bar";
+@import "views/search-bar";
+@import "views/user-search-result";
+@import "cmps/station-list";
+@import "cmps/my-station-edit";
+@import "cmps/station-preview.scss";
+@import "cmps/liked-songs-preview.scss";
+@import "cmps/clip-preview.scss";
+@import "cmps/clip-dropdown.scss";
+@import "cmps/profile-preview.scss";
+@import "cmps/tag-list.scss";
+@import "cmps/tag-preview.scss";

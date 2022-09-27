@@ -1,0 +1,166 @@
+.app-header-container {
+    position: sticky;
+    display: flex;
+    grid-row: 1;
+    top: 0;
+    justify-content: space-between;
+    height: 60px;
+    z-index: 1;
+    align-items: center;
+
+    @include for-mobile-layout {
+        z-index: 0;
+    }
+
+    @include for-wide-layout {
+        width: 100%;
+    }
+}
+
+.pagination-btn-container {
+    &>* {
+        cursor: pointer;
+    }
+}
+
+.guest-mode-container a {
+    color: #fff;
+
+}
+
+.guest-mode-links-bar {
+    gap: 5px;
+    margin-inline-end: 10px;
+
+    &>* {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.guest-btn-container {
+    gap: 5px;
+    margin-inline-start: 10px;
+    margin-inline-end: 20px;
+
+    &>* {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.user-btn-container {
+    gap: 15px;
+    margin-inline-start: 5px;
+
+    @include for-narrow-layout {}
+
+}
+
+.user-profile-dropdown {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 160px;
+    height: 250px;
+    gap: 12px;
+    margin: 5px;
+    background-color: #222222;
+    padding: 10px;
+    margin-inline-end: 20px;
+    z-index: 20;
+
+    &>*:hover {
+        background-color: #757575;
+        cursor: pointer;
+    }
+}
+
+// .shadow-screen {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     // background-color: red;
+//     // cursor: pointer;
+//     opacity: 0;
+//     // pointer-events: none;
+//     transition: opacity .6s;
+//     z-index: 10;
+// }
+
+.user-profile-dropdown a,
+.logout-link {
+    color: rgb(201, 201, 201);
+    padding: 5px;
+}
+
+.profile-pic {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+
+    @include for-mobile-layout {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+.user-profile,
+.upgrade {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+    background: #121212;
+    background-color: #000;
+    font-size: 14px;
+    border-radius: 25px;
+    margin-inline-end: 20px;
+    justify-content: center;
+    color: rgb(201, 201, 201);
+
+    @include for-mobile-layout {
+        height: 30px;
+        max-width: 70px;
+        font-size: 11px;
+        gap: 0;
+    }
+
+    @include for-narrow-layout {}
+
+    &:hover {
+        background-color: rgb(44, 44, 44);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+}
+
+.arrow {
+    background: #121212;
+    background-color: #000;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    display: none;
+
+    @include for-mobile-layout {
+        display: none;
+    }
+}
+
+.pagination-btn-container {
+    &>* {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        margin: 10px;
+        color: rgb(172, 170, 170);
+    }
+
+    @include for-narrow-layout {
+        margin-inline-start: 30px;
+    }
+}

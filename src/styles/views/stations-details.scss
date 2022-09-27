@@ -1,0 +1,174 @@
+.my-sd-details {
+    &>* {
+        color: white;
+        padding-inline-start: 15px;
+    }
+
+}
+
+.creator-and-playlist-data {
+    font-size: 0.80em;
+}
+
+.dropdown-pl {
+    transition: all 0.5s;
+}
+
+.my-sd-h1 {
+    text-indent: -6px;
+    margin-inline-start: 0;
+    font-size: 6.25rem;
+    letter-spacing: -5px;
+
+    @include for-mobile-layout {
+        font-size: 1.875rem;
+        letter-spacing: -1px;
+        text-indent: -2px;
+        margin-bottom: 15px;
+    }
+}
+
+.my-sd-img {
+    width: rem(250px);
+    height: 100%;
+
+    @include for-mobile-layout {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+.fa-solid {
+    font-size: 1.5rem;
+    color: rgb(172, 170, 170);
+    padding: 8px;
+}
+
+.pl-img-input {
+    display: none;
+}
+
+.canvas {
+    display: none;
+}
+
+.title {
+
+    @include for-mobile-layout {
+        left: 0;
+    }
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
+    align-items: center;
+
+    @include for-mobile-layout {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.album,
+.date {
+    @include for-mobile-layout {
+        display: none;
+    }
+}
+
+.title,
+.album,
+.date,
+.clock {
+    font-size: 14px;
+}
+
+.clock,
+.duration {
+    // display: flex;
+    text-align: right;
+    width: 55%;
+}
+
+ul {
+    padding: 0;
+}
+
+.loading-img {
+    border-radius: 50%;
+}
+
+.dropdown-clip {
+    &>* {
+        font-size: rem(14px);
+    }
+}
+
+.search-res-container {
+    flex-direction: column;
+
+    @include for-mobile-layout {
+        // width: 80%;
+        text-align: center;
+        display: grid;
+    }
+}
+
+.search-res-content-container {
+    padding: 10px;
+    // width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.my-sd-user-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sb-header {
+    @include for-mobile-layout {
+        font-size: 17px;
+        margin-left: 20px;
+    }
+}
+
+.sb-container {
+
+    input {
+        padding-inline-start: 6px;
+    }
+
+    @include for-mobile-layout {
+        // display: flex;
+    }
+}
+
+.ms-clips-container {
+    &>ul {
+        margin: 0px;
+    }
+}
+
+
+.admin-btns {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    &>* {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: none;
+        background-color: #1db954;
+        color: black;
+    }
+}

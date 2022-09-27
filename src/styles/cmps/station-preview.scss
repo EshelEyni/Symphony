@@ -1,0 +1,38 @@
+.station-preview {
+    border-radius: 15px;
+    height: 100%;
+    padding: 15px;
+    background-color: #181818;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-y: hidden;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        @include aspect-ratio(1, 1);
+        width: 100%;
+        margin-bottom: 10px;
+        box-shadow: 0px 7px 24px -2px #000000;
+        border-radius: 5px;
+    }
+
+    .desc-container {
+        h4 {
+            padding-bottom: 16px;
+        }
+
+        p {
+            color: #a7a7a7;
+        }
+    }
+}
