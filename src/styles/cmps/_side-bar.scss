@@ -11,7 +11,7 @@
     z-index: 20;
 
     @include for-mobile-layout {
-        display: flex;
+        display: contents;
         flex-direction: row;
         width: 100%;
         position: relative;
@@ -28,6 +28,7 @@
 
     @include for-wide-layout {
         width: 250px;
+
     }
 }
 
@@ -119,8 +120,8 @@
         -webkit-text-fill-color: transparent;
         margin: auto 0;
         display: flex;
-       justify-content: space-evenly;
-       letter-spacing: 0.1em;
+        justify-content: space-evenly;
+        letter-spacing: 0.1em;
     }
 
     @include for-mobile-layout {

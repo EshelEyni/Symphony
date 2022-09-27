@@ -1,4 +1,5 @@
 export const setAdminMode = (station) => {
+    station.createdBy = 'Admin'
     return station
 }
 
@@ -10,17 +11,11 @@ export const setArtistStation = (station) => {
     return station
 }
 
-// export const getArtistStations = (stations) => {
-//     return stations.filter(station => station.isArtist)
-// }
+export const getArtistStations = (stations) => {
+    return stations.filter(station => station.isArtist)
+}
 
 export const addTag = (station) => {
     station.tags.push(prompt('Enter tag...'))
-    return station
-}
-
-
-export const addDesc = (station) => {
-    station.desc = (prompt('Enter desc...'))
     return station
 }

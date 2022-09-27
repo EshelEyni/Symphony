@@ -5,8 +5,6 @@ import { useSelector } from 'react-redux'
 import { updateUser } from '../store/user.actions'
 import { addStation, loadStations } from '../store/station.actions'
 import { useEffect } from 'react'
-import { disable } from 'workbox-navigation-preload'
-import { storageService } from '../services/async-storage.service'
 
 export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) => {
     const user = useSelector(state => state.userModule.user)
@@ -15,7 +13,7 @@ export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) =>
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(loadStations())
+        dispatch(loadStations(user?._id))
     }, [isSearch])
 
     const handleSearchChange = async ({ target }) => {
@@ -23,15 +21,26 @@ export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) =>
         if (setIsSearch) setIsSearch(true)
         if (setSearchTerm) await setSearchTerm(target.value)
         let searchResults = await searchService.getClips(target.value)
-        searchResults = searchResults.splice(0, 12)
-
+        searchResults = searchResults.splice(0, 15)
         let searchAlreadySaved = stations.find(searchRes => searchRes.isSearch === true && searchRes.name === target.value)
-
         if (!searchAlreadySaved) {
-            let newSearchList = searchService.setNewSearchList(searchResults,user, target.value)
-            dispatch(addStation(newSearchList))
-        }
 
+            const clip = searchResults[0]
+            let newSearch = {
+                name: target.value,
+                imgUrl: clip.img.url,
+                createdBy: {
+                    _id: user._id,
+                    fullname: user.fullname,
+                    imgUrl: user.imgUrl
+                },
+                isSearch: true,
+                clips: searchResults || [],
+            }
+            user.recentlySearched.push(newSearch)
+            dispatch(updateUser(user))
+            dispatch(addStation(newSearch))
+        }
 
         setClips(searchResults)
     }
@@ -39,13 +48,13 @@ export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) =>
     return (
         <form
             action=''
-            onSubmit={(e) => e.preventDefault()}
             className='search-form'>
-            <button className="fas fa-search search-btn"></button>
+                <button className="fas fa-search search-btn"></button>
             <input
+                onSubmit={false}
                 type='text'
                 name='search-bar'
-                placeholder='What do you want do listen to?'
+                placeholder= 'What do you want do listen to?'
                 onChange={utilService.debounce(handleSearchChange, 2000)}
                 className='search-bar'
                 autoFocus />

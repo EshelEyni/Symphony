@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { onLogout } from '../store/user.actions'
 import pic from '../assets/img/blank-user.png'
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export const AppHeader = () => {
     const user = useSelector(state => state.userModule.user)
@@ -28,7 +26,7 @@ export const AppHeader = () => {
             },
         },
     })
-    
+
     return (
         <div
             style={{ backgroundColor: bgColor }}
@@ -38,23 +36,9 @@ export const AppHeader = () => {
                     onClick={() => setUserClicked(false)}
                 ></div>
             }
-            <div className='pagination-btn-container flex'>
-                <ThemeProvider theme={theme}>
-                    <button
-                        onClick={() => navigate(-1)}
-                        className='arrow'><ArrowBackIosNewIcon sx={{
-                            fontSize: '18px',
-                        }} /></button>
-                </ThemeProvider>
-
-                <ThemeProvider theme={theme}>
-                    <button
-                        onClick={() => navigate(1)}
-                        className='arrow'><ArrowForwardIosIcon sx={{
-                            fontSize: '18px',
-                        }} /></button>
-                </ThemeProvider>
-            </div>
+            {/* <div className='pagination-btn-container flex'>
+        
+            </div> */}
 
 
             <div className='app-header-user-links-container flex'>
@@ -69,7 +53,6 @@ export const AppHeader = () => {
                             <NavLink to='/login' >Log in</NavLink>
                         </div>
                     </div>}
-
 
                 {user && <div className='user-btn-container flex'>
                     <div className='user-profile'

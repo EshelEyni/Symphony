@@ -7,7 +7,13 @@
 
 .cp-main-container {
     display: grid;
-    grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
+    // grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
+    // grid-template-columns:800px 10fr 1fr 1fr minmax(50px, 1fr);
+    grid-template-columns: 800px 8fr 2fr 1fr minmax(50px, 1fr);
+
+    // grid-template-columns: 800px 10fr 2.5fr 1fr minmax(50px, 1fr);
+
+
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -52,12 +58,15 @@
         }
 
         .clip-dp-btn {
-            display: unset;
+            display: flex;
             font-size: 16px;
-            margin: 3px;
+            margin-right: 5px;
+            margin-bottom: 4px;
             padding: 10px;
+            text-align: center;
         }
-        .fa-regular.fa-heart{
+
+        .fa-regular.fa-heart {
             visibility: visible;
         }
 
@@ -106,11 +115,10 @@
     border: none;
     font-size: 18px;
     width: 10%;
-    margin-right: 20px;
+    padding-right: 25px;
 
     @include for-mobile-layout {
         font-size: 16px;
-
     }
 }
 
@@ -126,24 +134,67 @@
 .added,
 .date {
     text-align: left;
-    margin-left: 10px;
+}
+
+.date {
+    margin-left: 0px;
 }
 
 .cp-2-container {
     text-align: right;
+
+    @include for-mobile-layout {}
 }
 
 .blink {
     animation: blink-animation 1s steps(2, start);
     -webkit-animation: blink-animation 1s steps(2, start);
-  }
-  @keyframes blink-animation {
+}
+
+@keyframes blink-animation {
     to {
-      background-color: lightblue;
+        background-color: lightblue;
     }
-  }
-  @-webkit-keyframes blink-animation {
+}
+
+@-webkit-keyframes blink-animation {
     to {
         background-color: unset;
     }
-  }
+}
+
+.playlist-btns {
+    display: flex;
+    gap: 35px;
+    height: 170px;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.6) 100%);
+    
+    @include for-mobile-layout {
+        height: 60px;
+        gap: 20px;
+    }
+
+    .play-btn {
+        transform: scale(1.1);
+        background: #1ed760;
+        transition: 0.4s;
+        width: 3.125rem;
+        height: 3.125rem;
+        font-size: 1.2rem;
+
+        @include for-mobile-layout {
+            width: 2.75rem;
+            height: 2.75rem;
+            font-size: 1rem;
+        }
+    }
+
+    .clip-dp-btn {
+        background: none;
+        border: none;
+        padding: 10px;
+        font-size: 25px;
+    }
+}

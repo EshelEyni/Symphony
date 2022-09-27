@@ -9,6 +9,7 @@
     border-top: 1px solid #282828;
     padding: 0 10px;
     z-index: 30;
+    border-radius: 8px;
 
     @include for-mobile-layout {
         bottom: 75px;
@@ -44,6 +45,10 @@ input[type="range"] {
     -webkit-appearance: none;
     background-color: #4d4d4d;
     height: 4px;
+
+    @include for-mobile-layout {
+        height: 2px;
+    }
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -94,9 +99,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 .track-time {
     font-size: 12px;
-    // width: 40px;
     padding: 8px;
-    
+
     @include for-mobile-layout {
         display: none;
     }
@@ -123,8 +127,6 @@ input[type="range"]::-webkit-slider-thumb {
         border-radius: 23px;
         cursor: pointer;
         background: #434343;
-        // box-shadow: -500px 0 0 500px #1db954;
-
     }
 
     &:hover {
@@ -208,6 +210,13 @@ input[type="range"]::-webkit-slider-thumb {
     justify-content: flex-start;
     gap: 10px;
     width: 50px;
+    align-items: center;
+
+    .like.symbol {
+        @include for-mobile-layout {
+            display: none;
+        }
+    }
 
     @include for-mobile-layout {
         position: absolute;
@@ -243,7 +252,6 @@ input[type="range"]::-webkit-slider-thumb {
     color: rgb(172, 170, 170);
 
     &:hover {
-        // color: white;
         cursor: pointer;
     }
 

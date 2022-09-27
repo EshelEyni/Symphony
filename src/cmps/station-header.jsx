@@ -10,7 +10,7 @@ import { StationDropdown } from "./station-dropdown"
 import { StationEdit } from "./station-edit"
 
 export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, LikedSongLogo }) => {
-    const user = useSelector(state=> state.userModule.user)
+    const user = useSelector(state => state.userModule.user)
     const [imgUrl, setImgUrl] = useState(station.imgUrl || defaultImg)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
@@ -63,16 +63,17 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
                 }
             </div>
         </div>
-
+        <div className='playlist-btns'
+            style={{ backgroundColor: bgColor ? bgColor : '#121212' }}>
+            <button className='play-btn fas fa-play playing'></button>
+            <button className='clip-dp-btn fa-solid fa-ellipsis' onClick={() => setIsDropdown(!isDropdown)}></button>
+        </div>
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
             className='pl-container'>
             {station._id !== 'liked-station' &&
                 <div className="sd-btns-container">
                     {/* <LikesBtns /> */}
-                    <i
-                        onClick={() => setIsDropdown(!isDropdown)}
-                        className='fa-solid fa-ellipsis'></i>
                 </div>
             }
 

@@ -44,23 +44,23 @@ export const Search = () => {
     return (
         <div className='search-main-container'>
             <div className="search-filter-btns flex">
-                <button onClick={() => {
+                <button className='search-filter-btn' onClick={() => {
                     setFilterBy([])
                 }}>All</button>
 
-                <button onClick={() => {
+                <button className='search-filter-btn' onClick={() => {
                     setFilterBy([...searchService.toggleFilterBy(filterBy, 'songs')])
                 }}>Songs</button>
 
-                <button onClick={() => {
+                <button className='search-filter-btn' onClick={() => {
                     setFilterBy([...searchService.toggleFilterBy(filterBy, 'playlists')])
                 }}>Playlists</button>
 
-                <button onClick={() => {
+                <button className='search-filter-btn' onClick={() => {
                     setFilterBy([...searchService.toggleFilterBy(filterBy, 'artists')])
                 }}>Artists</button>
 
-                <button onClick={() => {
+                <button className='search-filter-btn' onClick={() => {
                     setFilterBy([...searchService.toggleFilterBy(filterBy, 'profiles')])
                 }}>Profiles</button>
             </div>

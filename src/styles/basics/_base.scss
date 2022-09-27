@@ -6,24 +6,34 @@ html {
     font-family: circular;
     line-height: 1.6;
     height: 100%;
-    overflow: hidden;
 }
 
 body {
-    margin: 0 auto;
+    margin: 0;
     background-color: #121212;
     color: #fff;
     height: 100%;
-    overflow: scroll;
 }
 
 body::-webkit-scrollbar {
-    width: 0.8em;
+    width: 0.6em;
+
+    @include for-mobile-layout {
+        width: 0.4em;
+    }
 }
 
 body::-webkit-scrollbar-thumb {
     background-color: #666;
     border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(19, 19, 19, 0.3);
 }
 
 .main {
@@ -48,9 +58,8 @@ h1 {
     color: white;
     font-size: 22px;
     text-align: left;
-    margin: 30px auto 10px 20px;
+    margin: 30px 25px 10px 20px
 }
-
 
 .shadow-screen {
     position: fixed;
@@ -66,6 +75,10 @@ h1 {
 
 .hr-navbar {
     margin: 0 10px;
+
+    @include for-mobile-layout {
+        display: none;
+    }
 }
 
 hr {

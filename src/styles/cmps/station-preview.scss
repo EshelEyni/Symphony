@@ -18,6 +18,41 @@
         padding: 0;
     }
 
+    .station {
+        &:hover {
+            .play-btn {
+                opacity: 1;
+                transform: scale(1.1);
+                background: #1ed760;
+                transition: 0.4s;
+            }
+        }
+    }
+
+    .img-container {
+        height: 180px;
+img{
+    width: 160px;
+    height: 145px;
+}
+        .play-btn {
+            display: unset;
+            opacity: 0;
+            position: relative;
+            text-align: center;
+            bottom: 70px;
+            left: 105px;
+            transition: 0.4s;
+            width: 45px;
+            height: 45px;
+
+            @include for-mobile-layout {
+                display: none;
+            }
+        }
+    }
+
+
     img {
         @include aspect-ratio(1, 1);
         width: 100%;

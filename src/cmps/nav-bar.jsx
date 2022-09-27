@@ -43,7 +43,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                     {!isHomeClicked &&
                         <div className='symbol home-icon'><HomeOutlinedIcon
                             sx={{
-                                fontSize: '24px',
+                                fontSize: '26px',
                             }} /></div>
                     }
 
@@ -63,7 +63,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 <ThemeProvider theme={theme}>
                     <div className='symbol search'><ScreenSearchDesktopOutlinedIcon
                         sx={{
-                            fontSize: '24px'
+                            fontSize: '26px'
                         }} /></div>
                     <div className='symbol search'><ScreenSearchDesktopRoundedIcon /></div>
                     <div className='text'>Search</div>
@@ -79,7 +79,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                     <ThemeProvider theme={theme}>
                         <div className='symbol'> <LibraryMusicOutlinedIcon
                             sx={{
-                                fontSize: '24px'
+                                fontSize: '26px'
                             }} /></div>
 
                         <div className='symbol'><LibraryMusicIcon /></div>
@@ -94,7 +94,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 <li onClick={isAddStation ? onAddStation : null}>
                     <ThemeProvider theme={theme}>
                         <div className='symbol plus'><AddBoxIcon sx={{
-                            fontSize: '24px'
+                            fontSize: '26px'
                         }} /> </div>
                         {/* <div className='symbol plus'><AddBoxIcon /></div> */}
                     </ThemeProvider>
@@ -112,7 +112,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 <li>
                     <ThemeProvider theme={theme}>
                         <div className='symbol heart'> <FavoriteBorderIcon sx={{
-                            fontSize: '24px'
+                            fontSize: '26px'
                         }} /></div>
                         <div className='symbol heart'><FavoriteIcon /></div>
                     </ThemeProvider>
@@ -135,7 +135,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 <ThemeProvider theme={theme}>
                     <div className='symbol'> <LibraryMusicOutlinedIcon
                         sx={{
-                            fontSize: '24px'
+                            fontSize: '26px'
                         }} /></div>
                 </ThemeProvider>
                 <div className='text-library'>Library</div>
@@ -148,7 +148,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 onClick={() => setLoginMsg('150px')}>
                 <ThemeProvider theme={theme}>
                     <div className='symbol plus'><AddBoxIcon sx={{
-                        fontSize: '24px'
+                        fontSize: '26px'
                     }} /> </div>
                 </ThemeProvider>
                 <div className='text-create'>Create Playlist</div>
@@ -161,7 +161,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 onClick={() => setLoginMsg('210px')}>
                 <ThemeProvider theme={theme}>
                     <div className='symbol heart'> <FavoriteBorderIcon sx={{
-                        fontSize: '24px'
+                        fontSize: '26px'
                     }} /></div>
                 </ThemeProvider>
                 <div className='text-liked'>Liked Songs</div>
