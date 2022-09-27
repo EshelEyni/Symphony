@@ -23,7 +23,7 @@ function setupSocketAPI(http) {
             }
             socket.join(stationId)
             socket.currStation = stationId
-            console.log('socket', socket)
+            // console.log('socket', socket)
             socket.to(socket.currStation).emit('TEST','WORKING SOCKET')
         })
         socket.on('user-formated-playlist', ({ _id, currClips }) => {

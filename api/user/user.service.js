@@ -82,7 +82,7 @@ async function add(user) {
             password: user.password,
             fullname: user.fullname,
             imgUrl: null,
-            createdStationsIds: [],
+            createdStations: [],
             likedStations: [],
             likedSongs: [],
             followers: [],
