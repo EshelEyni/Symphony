@@ -5,15 +5,10 @@ import { LikedSongsPreview } from './liked-songs-preview'
 
 export const StationList = ({ stations, isArtistList }) => {
     const user = useSelector(state => state.userModule.user)
-    // const params = window.location.href
-
-
-    // const checkParam = () => {
-    //     return params.includes('library')
-    // }
+    const params = window.location.href
 
     return <section className='station-list grid'>
-        {/* {checkParam() && <LikedSongsPreview user={user} />} */}
+        {params.includes('library') && <LikedSongsPreview user={user} />}
         {stations?.map((station, idx) => <div
             key={'home-page-station-' + idx}>
             <StationPreview station={station} />

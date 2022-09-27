@@ -39,12 +39,14 @@ async function getClips(term) {
 
 
     const cleaner = /\([^\)]*\)|\[[^\]]*\]/g
-    const emojiCleaner = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
+    const emojiCleaner = /(\u00a9|\u00ae|HD|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
+    const apostrophe = /&#39/g
+    const symbolsCleaner = /[`~!@#$%^&*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
 
     clips = clips.data.items
     clips = clips.map(clip => ({
         _id: clip.id.videoId,
-        title: clip.snippet.title.replaceAll(cleaner, '').trim().replaceAll(emojiCleaner, '').trim(),
+        title: clip.snippet.title.replaceAll(cleaner, '').trim().replaceAll(emojiCleaner, '').trim().replaceAll(apostrophe, '\'').trim().replaceAll(symbolsCleaner, '').trim(),
         img: {
             url: clip.snippet.thumbnails.default.url,
             width: clip.snippet.thumbnails.default.width,
@@ -128,7 +130,7 @@ function getProfilesBySearchTerm(stations, users, searchTerm) {
     return users.map(user => {
 
         // Filters out user without saved playlists
-        if (user.createdStationsIds.length === 0) return
+        if (!user.createdStationsIds) return
 
         // Gets stations created by users
         let userCreatedStationsIds = new Set(user.createdStationsIds)

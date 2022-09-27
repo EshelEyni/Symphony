@@ -68,7 +68,7 @@ const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
                 className='clip-dp-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
-                {(isDropdownClip && station.createdBy) && <ClipDropdown
+                {(isDropdownClip) && <ClipDropdown
                     station={station}
                     onRemoveClip={onRemoveClip}
                     clip={clip}

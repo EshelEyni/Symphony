@@ -19,6 +19,7 @@ export const StationPreview = ({ station }) => {
     }
 
     return <article className='station-preview' >
+        
         <Link to={'/station/' + station._id}>
             <div className='station'>
                 <div className='img-container'>
