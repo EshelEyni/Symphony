@@ -65,12 +65,10 @@ export const Library = () => {
                 <button className="btn" onClick={() => onAddStation()}>Create playlist</button>
             </div>}
 
-            {userStations && userStations.length !== 0 && <div className="main-stations-container">
-                <div className='station-list grid'>
-                    <LikedSongsPreview user={user} />
-                    <StationList stations={userStations} />
-                </div>
-            </div>}
+            {userStations && userStations.length !== 0 &&
+                <div className='main-stations-container'>
+                        <StationList stations={userStations} />
+                </div>}
 
         </div>
     )

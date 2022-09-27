@@ -15,8 +15,7 @@ export const LikedSongsPreview = ({ user }) => {
     const goToLikedSongs = () => {
         navigate('/liked')
     }
-
-    return <div className="liked-songs" onClick={() => goToLikedSongs()}>
+    return <div className="liked-songs " onClick={() => goToLikedSongs()}>
         <div className="inner-liked-container flex column space-around">
             <div className="songs-list-preview"><p>{getSongs()}</p></div>
             <div>

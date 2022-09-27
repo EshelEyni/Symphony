@@ -16,7 +16,7 @@ import { LikesBtns } from './likes-btn.jsx'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
-    const user = useSelector(state=> state.userModule.user)
+    const user = useSelector(state => state.userModule.user)
     let currClip = useSelector(state => state.mediaPlayerModule.currClip)
     let currPlaylist = useSelector(state => state.mediaPlayerModule.currPlaylist)
 

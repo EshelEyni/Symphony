@@ -3,10 +3,10 @@
     height: 40px;
     border-radius: 2rem;
     margin: 10px;
-    position: fixed;
+    position: absolute;
     z-index: 3;
     top: 0;
-    left: 21.5%;
+    left: 16%;
     background-color: white;
     display: flex;
     padding-left: 45px;
@@ -22,13 +22,14 @@
 
 .search-btn {
     position: fixed;
-    left: 22.5%;
+    left: 17.5%;
     top: 20px;
     color: rgba(0, 0, 0, 0.637);
     font-size: 20px;
-    z-index: 40;
+    z-index: 10;
     border: none;
     background: none;
+
     @include for-mobile-layout {
         left: 8%;
 
@@ -46,4 +47,17 @@
     overflow-y: scroll;
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
-  }
+}
+
+.search-filter-btns {
+    padding: 10px;
+}
+
+.search-filter-btn {
+    border-radius: 20px;
+    background-color: #181818;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+}

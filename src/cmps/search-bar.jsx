@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { updateUser } from '../store/user.actions'
 import { addStation, loadStations } from '../store/station.actions'
 import { useEffect } from 'react'
-import { disable } from 'workbox-navigation-preload'
+
 export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) => {
     const loggedInUser = useSelector(state => state.userModule.user)
     const stations = useSelector(state => state.stationModule.stations)
@@ -40,13 +40,13 @@ export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) =>
     return (
         <form
             action=''
-            onSubmit={(e) => e.preventDefault()}
             className='search-form'>
-            <button className="fas fa-search search-btn"></button>
+                <button className="fas fa-search search-btn"></button>
             <input
+                onSubmit={false}
                 type='text'
                 name='search-bar'
-                placeholder='What do you want do listen to?'
+                placeholder= 'What do you want do listen to?'
                 onChange={utilService.debounce(handleSearchChange, 2000)}
                 className='search-bar'
                 autoFocus />

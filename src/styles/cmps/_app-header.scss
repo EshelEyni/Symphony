@@ -17,15 +17,14 @@
     }
 }
 
-.pagination-btn-container {
-    &>* {
-        cursor: pointer;
-    }
-}
-
 .guest-mode-container a {
     color: #fff;
-
+    display: flex;
+    // gap: 15px;
+    // // margin-inline-start: 5px;
+    // position: relative;
+    // // top: 10px;
+    // left: 20px;
 }
 
 .guest-mode-links-bar {
@@ -52,9 +51,13 @@
 .user-btn-container {
     gap: 15px;
     margin-inline-start: 5px;
+    position: absolute;
+    top: 10px;
+    right: 0;
 
-    @include for-narrow-layout {}
-
+    @include for-mobile-layout {
+        top: 15px;
+    }
 }
 
 .user-profile-dropdown {
@@ -62,7 +65,7 @@
     top: 65px;
     right: 0;
     width: 160px;
-    height: 250px;
+    height: 200px;
     gap: 12px;
     margin: 5px;
     background-color: #222222;
@@ -75,20 +78,6 @@
         cursor: pointer;
     }
 }
-
-// .shadow-screen {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     // background-color: red;
-//     // cursor: pointer;
-//     opacity: 0;
-//     // pointer-events: none;
-//     transition: opacity .6s;
-//     z-index: 10;
-// }
 
 .user-profile-dropdown a,
 .logout-link {
@@ -107,60 +96,32 @@
     }
 }
 
-.user-profile,
-.upgrade {
-    gap: 5px;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 100px;
-    background: #121212;
-    background-color: #000;
-    font-size: 14px;
-    border-radius: 25px;
-    margin-inline-end: 20px;
-    justify-content: center;
-    color: rgb(201, 201, 201);
+.user-profile{
+gap: 5px;
+display: flex;
+align-items: center;
+height: 40px;
+width: 100px;
+background: #121212;
+background-color: #000;
+font-size: 14px;
+border-radius: 25px;
+margin-inline-end: 20px;
+justify-content: center;
+color: rgb(201, 201, 201);
 
-    @include for-mobile-layout {
-        height: 30px;
-        max-width: 70px;
-        font-size: 11px;
-        gap: 0;
-    }
-
-    @include for-narrow-layout {}
-
-    &:hover {
-        background-color: rgb(44, 44, 44);
-        cursor: pointer;
-        transition: 0.3s;
-    }
+@include for-mobile-layout {
+    height: 30px;
+    max-width: 70px;
+    font-size: 11px;
+    gap: 0;
 }
 
-.arrow {
-    background: #121212;
-    background-color: #000;
-    border: none;
-    color: white;
-    border-radius: 50%;
-    display: none;
+@include for-narrow-layout {}
 
-    @include for-mobile-layout {
-        display: none;
-    }
+&:hover {
+    background-color: rgb(44, 44, 44);
+    cursor: pointer;
+    transition: 0.3s;
 }
-
-.pagination-btn-container {
-    &>* {
-        height: 35px;
-        width: 35px;
-        border-radius: 50%;
-        margin: 10px;
-        color: rgb(172, 170, 170);
-    }
-
-    @include for-narrow-layout {
-        margin-inline-start: 30px;
-    }
 }

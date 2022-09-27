@@ -19,10 +19,13 @@ export const StationPreview = ({ station }) => {
     }
 
     return <article className='station-preview' >
+        
         <Link to={'/station/' + station._id}>
-            <div>
+            <div className='station'>
                 <div className='img-container'>
                     <img src={station.imgUrl} alt={station['logo-desc']} />
+                    <button className={'play-btn ' + ('fas fa-play playing')}
+                        onClick={onPlayClip}></button>
                 </div>
                 <div className='desc-container flex column space-between'>
                     <div>
@@ -36,7 +39,5 @@ export const StationPreview = ({ station }) => {
                 </div>
             </div>
         </Link>
-        <button className={'play-btn ' + ('fas fa-play playing')}
-            onClick={onPlayClip}></button>
     </article>
 }

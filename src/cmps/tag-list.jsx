@@ -14,7 +14,7 @@ export const TagsList = ({ stations }) => {
     useEffect(() => {
         // dispatch(loadStations())
         let tagList = new Set()
-        stations.forEach(station => {
+        stations?.forEach(station => {
             const { tags } = station
             if (tags !== null && tags?.length > 0) {
                 tags.forEach(tag => tagList.add(tag))

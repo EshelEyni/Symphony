@@ -1,13 +1,12 @@
 .main-stations-container {
     align-items: center;
-    padding: 10px 20px;
 }
 
 .station-list {
     grid-template-columns: repeat(auto-fill, minmax(187px, 1fr));
     grid-template-rows: 1fr;
     gap: 15px;
-
+    padding: 25px;
 
     .station-preview {
         border-radius: 15px;
@@ -15,20 +14,10 @@
         padding: 15px;
         background-color: #181818;
         justify-content: space-between;
+
         &:hover {
             background-color: rgb(49, 49, 49);
             transition: all 0.5s;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p {
-            margin: 0;
-            padding: 0;
         }
 
         img {
@@ -54,10 +43,13 @@
     @include for-mobile-layout {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
-        padding-bottom: 200px;
     }
 }
 
 .green {
     color: #1ed760;
+}
+
+.browse {
+    margin-left: 25px;
 }

@@ -29,8 +29,9 @@
 }
 
 .my-sd-img {
-    width: rem(250px);
+    width: rem(300px);
     height: 100%;
+    padding: 30px;
 
     @include for-mobile-layout {
         height: 200px;
@@ -61,8 +62,9 @@
 
 .header-container {
     display: grid;
-    grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
+    grid-template-columns: 800px 8fr 2.5fr 1fr minmax(50px, 1fr);
     align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.6),#121212);
 
     @include for-mobile-layout {
         display: flex;
@@ -86,9 +88,14 @@
 
 .clock,
 .duration {
-    // display: flex;
     text-align: right;
     width: 55%;
+}
+
+.clock {
+    @include for-mobile-layout {
+        margin-right: 60px;
+    }
 }
 
 ul {
@@ -152,11 +159,14 @@ ul {
 }
 
 .ms-clips-container {
+    &>*:first-child{
+        // background: rgb(2,0,36);
+        // background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%);
+    }
     &>ul {
         margin: 0px;
     }
 }
-
 
 .admin-btns {
     display: flex;

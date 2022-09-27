@@ -24,9 +24,22 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
         return currBgcolor
     }
 
+    // const { color, borderRadius, cursor } = dndStyle
+
+    console.log('station:', station)
+    console.log('clip:', clip)
+    console.log('isCreatedAt:', isCreatedAt)
+
+const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
+
+
     return <li
         style={{
-            backgroundColor: getBgcolor(),
+            // backgroundColor: getBgcolor(),
+            // background: "linear-gradient(to right, #4880EC, #019CAD)",
+            // linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%);
+            // background: `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`,
+            background: `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`,
             color: dndStyle?.color,
             borderRadius: dndStyle?.borderRadius,
             cursor: dndStyle?.cursor,
@@ -55,7 +68,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
                 className='clip-dp-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
-                {(isDropdownClip && station.createdBy) && <ClipDropdown
+                {(isDropdownClip) && <ClipDropdown
                     station={station}
                     onRemoveClip={onRemoveClip}
                     clip={clip}
