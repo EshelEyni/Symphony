@@ -10,7 +10,7 @@ export const LikesBtns = ({ clip }) => {
 
     const onLikeSong = (clip) => {
         clip.LikedAt = new Date(getDate()).toLocaleDateString()
-        user?.likedSongs.push(clip)
+        user?.likedSongs.push(clip._id)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' added to liked songs')))
         setTimeout(() => {
@@ -19,7 +19,7 @@ export const LikesBtns = ({ clip }) => {
     }
 
     const onDisLikeSong = (clipId) => {
-        user.likedSongs = user.likedSongs.filter(song => song._id !== clipId)
+        user.likedSongs = user.likedSongs.filter(songId => songId !== clipId)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' removed from your liked songs')))
         setTimeout(() => {

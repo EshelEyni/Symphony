@@ -13,17 +13,14 @@ import { addStation } from '../store/station.actions'
 export const Library = () => {
     const user = useSelector(state => state.userModule.user)
     let stations = useSelector(state => state.stationModule.stations)
-    let [userStations, setUserStations] = useState(null)
+    let userStations = stations.filter(station => (station.createdBy._id === user._id && !station.isSearch))
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    // const isUserStations = stations.filter(station => station?.createdBy?._id === user?._id)
-
     useEffect(() => {
         dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
-        userStations = stations.filter(station => (station.createdBy._id === user._id && !station.isSearch))
-        setUserStations(userStations)
+        
     }, [])
 
     const onAddStation = () => {

@@ -14,7 +14,7 @@ export const userService = {
     update,
     updateFollowers,
     setRecentlyPlayed,
-    updateUserStation
+    // updateUserStation
 }
 
 function getUsers() {
@@ -71,14 +71,14 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-function setRecentlyPlayed(user, clip) {
-    user.recentlyPlayed.unshift(clip)
-}
-
-function updateUserStation(user, station) {
-    const stationId = station._id
-    const currIdx = user.createdStations.findIndex(station => station._id === stationId)
-    user.createdStations[currIdx] = station
+async function setRecentlyPlayed(user, clip) {
+    if (!user) return
+    let recentPlayed = _loadFromStorage('recentPlayed') || []
+    recentPlayed.unshift(clip)
+    if (recentPlayed.length > 8) {
+        recentPlayed.splice(8, 1)
+    }
+    _saveToStorage('recentPlayed', recentPlayed)
 }
 
 export const msg = (itemName, txt) => {
@@ -86,3 +86,12 @@ export const msg = (itemName, txt) => {
 }
 
 export const clearMsg = { class: 'hidden', msg: '' }
+
+function _saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
+}
+
+function _loadFromStorage(key) {
+    var val = localStorage.getItem(key)
+    return JSON.parse(val)
+}

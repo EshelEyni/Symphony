@@ -27,7 +27,7 @@ export const ProfilesList = ({ filterBy, searchTerm }) => {
                     user={user} />
             })}
 
-            {profilesList.length === 0 &&
+            {profilesList?.length === 0 &&
                 <p>
                     No Profiles were found...
                 </p>

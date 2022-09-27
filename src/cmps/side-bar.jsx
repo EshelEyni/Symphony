@@ -13,7 +13,7 @@ import { save } from '../services/station.service'
 export const SideBar = () => {
     const stations = useSelector(state => state.stationModule.stations)
     let [userStations, setUserStations] = useState(null)
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     let [isLoginMsg, setIsLoginMsg] = useState(false)
@@ -21,11 +21,11 @@ export const SideBar = () => {
 
     useEffect(() => {
         dispatch(loadStations())
-    }, [user])
+    }, [loggedInUser])
 
     useEffect(() => {
-        if (user) {
-            userStations = stations.filter(station => (station?.createdBy?._id === user?._id && !station.isSearch)).reverse()
+        if (loggedInUser) {
+            userStations = stations.filter(station => (station?.createdBy?._id === loggedInUser?._id && !station.isSearch)).reverse()
             setUserStations(userStations)
             setIsAddStation(true)
         }
@@ -33,22 +33,22 @@ export const SideBar = () => {
 
 
     const onAddStation = async () => {
-        if (!user) return
+        if (!loggedInUser) return
         setIsAddStation(false)
 
-        // when connecting to backend change this object        
         let newStation = {
             name: 'My Playlist #' + ((userStations?.length + 1) || 1),
             createdBy: {
-                _id: user._id,
-                fullname: user.fullname,
-                imgUrl: user.imgUrl
+                _id: loggedInUser._id,
+                fullname: loggedInUser.fullname,
+                imgUrl: loggedInUser.imgUrl
             }
         }
         const addedStation = await save(newStation)
+        console.log('addedStation', addedStation)
         dispatch(addStation(addedStation))
-        user.createdStations.push(addedStation._id)
-        dispatch(updateUser(user))
+        loggedInUser.createdStations.push(addedStation._id)
+        dispatch(updateUser(loggedInUser))
         navigate('/station/' + addedStation._id)
     }
 
@@ -73,10 +73,10 @@ export const SideBar = () => {
                 setIsLoginMsg={setIsLoginMsg}
                 isAddStation={isAddStation}
                 onAddStation={onAddStation}
-                user={user}
+                user={loggedInUser}
             />
             <hr className='hr-navbar' />
-            {(userStations && user) &&
+            {(userStations && loggedInUser) &&
                 <DragDropContext onDragEnd={onHandleDragEnd}>
                     <Droppable droppableId='user-stations-container'>
                         {(provided) => (

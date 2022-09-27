@@ -82,8 +82,9 @@ function getTitle(str) {
 }
 
 async function setNewSearchList(searchResults, user, listName) {
+    if (!user) return
     const clip = searchResults[0]
-    let recentSearchedIds = _loadFromStorage('recentSearchedIds') || []
+    let recentSearchedIds = _loadFromStorage('recentSearched') || []
     let newSearchList = {
         name: listName,
         imgUrl: clip.img.url,
@@ -100,10 +101,9 @@ async function setNewSearchList(searchResults, user, listName) {
 
     if (recentSearchedIds.length > 8) {
         const stationToRemove = recentSearchedIds.splice(8, 1)
-        console.log('stationToRemove', stationToRemove)
         await remove(stationToRemove[0])
     }
-    _saveToStorage('recentSearchedIds', recentSearchedIds)
+    _saveToStorage('recentSearched', recentSearchedIds)
     return newSearchList
 }
 
@@ -124,14 +124,15 @@ function getStationsBySearchTerm(stations, searchTerm, isArtist) {
 }
 
 function getProfilesBySearchTerm(stations, users, searchTerm) {
+    if (!users.length) return
     searchTerm = searchTerm.toLowerCase()
     return users.map(user => {
 
         // Filters out user without saved playlists
-        if (user.createdStationsIds.length === 0) return
+        if (user.createdStations?.length === 0) return
 
         // Gets stations created by users
-        let userCreatedStationsIds = new Set(user.createdStationsIds)
+        let userCreatedStationsIds = new Set(user.createdStations)
         let userCreatedStations = []
         for (let y = 0; y < stations.length; y++) {
             if (userCreatedStationsIds.has(stations[y]._id)) {

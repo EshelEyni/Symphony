@@ -1,5 +1,10 @@
 export const setAdminMode = (station) => {
+    station.createdBy.fullname = 'Symphony'
+    station.createdBy.username = 'Symphony Admin'
+    station.createdBy._id = 'A101'
+
     return station
+
 }
 
 export const setArtistStation = (station) => {

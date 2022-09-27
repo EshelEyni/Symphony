@@ -10,6 +10,7 @@ import { handleDragEnd } from '../services/dragg.service'
 import { ClipListHeader } from '../cmps/clip-list-header'
 import { ProfilesList } from '../cmps/profile-list'
 import { userService } from '../services/user.service'
+import { loadStations } from '../store/station.actions'
 
 
 export const UserProfile = () => {
@@ -19,9 +20,12 @@ export const UserProfile = () => {
     const params = useParams()
     let [clips, setClips] = useState(user?.recentlyPlayed)
     const dispatch = useDispatch()
-
+    
+    console.log('user', user)
+    
     useEffect(() => {
         loadUser(user, params.id)
+        dispatch(loadStations())
     }, [params])
 
     const loadUser = async (user, paramsId) => {

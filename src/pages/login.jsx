@@ -23,11 +23,9 @@ export const Login = () => {
     const handleChange = ({ target }) => {
         const { value, name } = target
         setUser({ ...user, [name]: value })
-        console.log('user', user)
     }
     
     const onHandleSubmit = async (ev) => {
-        console.log('user2', user)
         ev.preventDefault()
         dispatch(onLogin(user))
         const isLogin = await userService.login(user)

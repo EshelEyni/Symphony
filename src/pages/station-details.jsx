@@ -89,14 +89,15 @@ export const StationDetails = () => {
     }
 
     const onRemoveStation = () => {
-        navigate('/library')
         dispatch(removeStation(station._id))
         dispatch(setUserMsg(msg(station.name, ' removed from your library')))
         setTimeout(() => {
             dispatch(setUserMsg(clearMsg))
         }, 2500)
-        user.createdStations = user.createdStations.filter(playlist => playlist._id !== station._id)
+        user.createdStations = user.createdStations.filter(playlistId => playlistId !== station._id)
+        console.log('user.createdStations', user.createdStations)
         dispatch(updateUser(user))
+        navigate('/library')
     }
 
     const onRemoveClip = (ev, clipId, clipTitle) => {
@@ -158,12 +159,12 @@ export const StationDetails = () => {
                 />
                 {/********************************* Admin Control  *********************************/}
 
-                {/* <div className="admin-btns">
+                <div className="admin-btns">
                     <button onClick={() => onSetAdminMode(station)}>Set Admin Mode</button>
                     <button onClick={() => onAddTag(station)}>Add Tag</button>
                     <button onClick={() => addDesc(station)}>Add Desc</button>
                     <button onClick={() => onSetArtistStation(station)}>Set Artist Mode</button>
-                </div> */}
+                </div>
 
 
                 {/********************************* Admin Control  *********************************/}

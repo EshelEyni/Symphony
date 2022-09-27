@@ -15,7 +15,6 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const dispatch = useDispatch()
-    console.log(isUserStation)
 
     useEffect(() => {
         setImgUrl(station.imgUrl)

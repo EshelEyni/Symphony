@@ -12,6 +12,7 @@ import { useSelector } from "react-redux"
 
 export const ProfileHeader = ({ user, setUser }) => {
     const loggedInUser = useSelector(state => state.userModule.user)
+    let stations = useSelector(state => state.stationModule.stations)
 
     const [imgUrl, setImgUrl] = useState(user.imgUrl)
     const [isDropdown, setIsDropdown] = useState(false)
