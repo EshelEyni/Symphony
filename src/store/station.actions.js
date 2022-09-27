@@ -52,7 +52,7 @@ export function removeStation(stationId) {
 export function addStation(station) {
     return async (dispatch) => {
         try {
-            dispatch(getActionAddStation(station))
+           await dispatch(getActionAddStation(station))
             console.log('Added Station', station)
             return station
         } catch (err) {

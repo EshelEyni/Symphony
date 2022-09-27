@@ -55,7 +55,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
                 className='clip-dp-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
-                {(isDropdownClip && station.createdBy) && <ClipDropdown
+                {(isDropdownClip) && <ClipDropdown
                     station={station}
                     onRemoveClip={onRemoveClip}
                     clip={clip}

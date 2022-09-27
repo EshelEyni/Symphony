@@ -1,8 +1,36 @@
-.dropdown-clip{
+.dropdown-clip,
+.dropdown-list {
     position: absolute;
-    height: 100px;
-    width: 100px;
     z-index: 20;
     background-color: #313131;
     transform: translate(-100%);
+
+    ul {
+        padding: 5px;
+        width: max-content;
+    }
+
+    ul>li,
+    .dropdown-list {
+        font-size: rem(10px);
+        width: max-content;
+        height: fit-content;
+    }
+
+    .dropdown-list {
+        bottom: 0px;
+        
+        display: none;
+    }
+
+
+
+    .add-to-station:hover {
+        color: green;
+
+        .dropdown-list {
+            left: 0;
+            display: block;
+        }
+    }
 }
