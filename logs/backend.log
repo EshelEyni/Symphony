@@ -3523,3 +3523,142 @@
 27/09/2022, 16:48:27 - INFO - Socket disconnected [id: undefined]
 27/09/2022, 16:48:31 - DEBUG - Getting Stations
 27/09/2022, 16:48:32 - DEBUG - Getting Stations
+9/27/2022, 5:02:08 PM - INFO - Server is running on port: 3030
+9/27/2022, 5:04:03 PM - DEBUG - Getting Stations
+9/27/2022, 5:04:34 PM - ERROR - while finding station   | {}
+9/27/2022, 5:04:34 PM - ERROR - Failed to get station | {}
+9/27/2022, 5:05:11 PM - ERROR - while finding station   | {}
+9/27/2022, 5:05:11 PM - ERROR - Failed to get station | {}
+9/27/2022, 5:05:18 PM - ERROR - while finding station   | {}
+9/27/2022, 5:05:18 PM - ERROR - Failed to get station | {}
+9/27/2022, 5:50:06 PM - DEBUG - Getting Stations
+9/27/2022, 5:56:34 PM - INFO - Server is running on port: 3030
+9/27/2022, 6:52:59 PM - INFO - Server is running on port: 3030
+9/27/2022, 6:53:03 PM - INFO - New connected socket [id: CMEy16NjJ0YjLdhwAAAB]
+9/27/2022, 6:53:06 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 6:53:06 PM - INFO - New connected socket [id: w8pTIeJdTA7oQz02AAAD]
+9/27/2022, 6:53:07 PM - DEBUG - Getting Stations
+9/27/2022, 6:53:23 PM - DEBUG - auth.service - login with username: dasha
+9/27/2022, 6:53:23 PM - DEBUG - auth.service - login with username: dasha
+9/27/2022, 6:53:23 PM - ERROR - Failed to Login Invalid username or password
+9/27/2022, 6:53:23 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 6:53:23 PM - ERROR - Failed to Login Invalid username or password
+9/27/2022, 6:53:24 PM - DEBUG - Getting Stations
+9/27/2022, 6:53:24 PM - INFO - New connected socket [id: JxGgIG74V0oLf4gDAAAF]
+9/27/2022, 6:53:39 PM - DEBUG - auth.service - login with username: Daria Marchashov
+9/27/2022, 6:53:39 PM - DEBUG - auth.service - login with username: Daria Marchashov
+9/27/2022, 6:53:40 PM - INFO - User login:  | {"_id":"6331d7a4d93f14f68195f4eb","username":"Daria Marchashov","fullname":"Daria Marchashov","imgUrl":null,"likedStations":[],"likedSongs":[],"followers":[],"following":[],"isAdmin":true,"createdStationsIds":[]}
+9/27/2022, 6:53:40 PM - INFO - User login:  | {"_id":"6331d7a4d93f14f68195f4eb","username":"Daria Marchashov","fullname":"Daria Marchashov","imgUrl":null,"likedStations":[],"likedSongs":[],"followers":[],"following":[],"isAdmin":true,"createdStationsIds":[]}
+9/27/2022, 6:53:40 PM - DEBUG - Getting Stations
+9/27/2022, 7:02:58 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:02:59 PM - INFO - New connected socket [id: LSEyiY3spWtR8GT6AAAH]
+9/27/2022, 7:02:59 PM - DEBUG - Getting Stations
+9/27/2022, 7:05:23 PM - DEBUG - Getting Stations
+9/27/2022, 7:05:23 PM - DEBUG - Getting Stations
+9/27/2022, 7:10:04 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:10:04 PM - INFO - New connected socket [id: WZ4ekra7OhC9p8HAAAAJ]
+9/27/2022, 7:10:05 PM - DEBUG - Getting Stations
+9/27/2022, 7:11:56 PM - DEBUG - Getting Stations
+9/27/2022, 7:11:56 PM - DEBUG - Getting Stations
+9/27/2022, 7:12:01 PM - DEBUG - Getting Stations
+9/27/2022, 7:12:08 PM - DEBUG - Getting Stations
+9/27/2022, 7:16:23 PM - DEBUG - Getting Stations
+9/27/2022, 7:16:23 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:14 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:20 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:23:21 PM - INFO - New connected socket [id: teHuImVDb9U1ywvNAAAL]
+9/27/2022, 7:23:21 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:21 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:26 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:23:28 PM - INFO - New connected socket [id: tMoChAF-3tVCOGH7AAAN]
+9/27/2022, 7:23:29 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:30 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:36 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:23:36 PM - DEBUG - Getting Stations
+9/27/2022, 7:23:36 PM - INFO - New connected socket [id: KEhWsJNP5Js3dxaCAAAP]
+9/27/2022, 7:23:46 PM - DEBUG - Getting Stations
+9/27/2022, 7:24:53 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:24:54 PM - INFO - New connected socket [id: XttaKpAgo3krSVr-AAAR]
+9/27/2022, 7:24:54 PM - DEBUG - Getting Stations
+9/27/2022, 7:24:59 PM - DEBUG - Getting Stations
+9/27/2022, 7:25:15 PM - DEBUG - Getting Stations
+9/27/2022, 7:25:20 PM - DEBUG - Getting Stations
+9/27/2022, 7:25:21 PM - DEBUG - Getting Stations
+9/27/2022, 7:26:22 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:26:23 PM - INFO - New connected socket [id: f17ry-pqwsY4NUGCAAAT]
+9/27/2022, 7:26:23 PM - DEBUG - Getting Stations
+9/27/2022, 7:26:27 PM - DEBUG - Getting Stations
+9/27/2022, 7:26:30 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:26:30 PM - DEBUG - Getting Stations
+9/27/2022, 7:26:30 PM - INFO - New connected socket [id: 8NKLMX8Us60G5ZNSAAAV]
+9/27/2022, 7:30:45 PM - DEBUG - Getting Stations
+9/27/2022, 7:30:48 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:30:48 PM - INFO - New connected socket [id: fqgJr01NuQSNxiAzAAAX]
+9/27/2022, 7:30:49 PM - DEBUG - Getting Stations
+9/27/2022, 7:32:03 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:32:05 PM - INFO - New connected socket [id: PcPQF9nmcP037i1gAAAZ]
+9/27/2022, 7:32:06 PM - DEBUG - Getting Stations
+9/27/2022, 7:32:32 PM - DEBUG - Getting Stations
+9/27/2022, 7:33:26 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:33:31 PM - INFO - New connected socket [id: 37VAP1XcKB65R4UpAAAb]
+9/27/2022, 7:33:31 PM - DEBUG - Getting Stations
+9/27/2022, 7:33:32 PM - DEBUG - Getting Stations
+9/27/2022, 7:33:47 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:33:48 PM - INFO - New connected socket [id: z9v9pw0rw2ijYBp-AAAd]
+9/27/2022, 7:33:49 PM - DEBUG - Getting Stations
+9/27/2022, 7:33:49 PM - DEBUG - Getting Stations
+9/27/2022, 7:34:00 PM - DEBUG - Getting Stations
+9/27/2022, 7:34:34 PM - DEBUG - Getting Stations
+9/27/2022, 7:34:46 PM - DEBUG - Getting Stations
+9/27/2022, 7:36:29 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:36:36 PM - INFO - New connected socket [id: 9VdwS6D7iX6CJltTAAAf]
+9/27/2022, 7:36:36 PM - DEBUG - Getting Stations
+9/27/2022, 7:36:37 PM - DEBUG - Getting Stations
+9/27/2022, 7:36:38 PM - DEBUG - Getting Stations
+9/27/2022, 7:37:56 PM - DEBUG - Getting Stations
+9/27/2022, 7:38:35 PM - DEBUG - Getting Stations
+9/27/2022, 7:38:40 PM - DEBUG - Getting Stations
+9/27/2022, 7:48:20 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 7:48:23 PM - INFO - New connected socket [id: 5QdpQ4l0HuupAxb0AAAh]
+9/27/2022, 7:48:24 PM - DEBUG - Getting Stations
+9/27/2022, 7:59:28 PM - DEBUG - Getting Stations
+9/27/2022, 8:03:21 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 8:03:27 PM - INFO - New connected socket [id: lwocc0gPMQEfP65iAAAj]
+9/27/2022, 8:03:27 PM - DEBUG - Getting Stations
+9/27/2022, 8:03:52 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 8:03:56 PM - INFO - New connected socket [id: _pK1jNSlpxh4Js2hAAAl]
+9/27/2022, 8:03:57 PM - DEBUG - Getting Stations
+9/27/2022, 8:05:40 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 8:05:42 PM - INFO - New connected socket [id: nOW-v8dh15u9-EEWAAAn]
+9/27/2022, 8:05:42 PM - DEBUG - Getting Stations
+9/27/2022, 8:05:59 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 8:06:01 PM - INFO - New connected socket [id: GrFG2U1_IArUfrr1AAAp]
+9/27/2022, 8:06:01 PM - DEBUG - Getting Stations
+9/27/2022, 8:19:05 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 8:19:07 PM - INFO - New connected socket [id: bAnPT_CeHlCs8Sm5AAAr]
+9/27/2022, 8:19:07 PM - DEBUG - Getting Stations
+9/27/2022, 9:30:02 PM - DEBUG - Getting Stations
+9/27/2022, 9:30:03 PM - DEBUG - Getting Stations
+9/27/2022, 9:32:27 PM - DEBUG - Getting Stations
+9/27/2022, 9:35:45 PM - DEBUG - Getting Stations
+9/27/2022, 9:35:45 PM - DEBUG - Getting Stations
+9/27/2022, 9:35:48 PM - DEBUG - Getting Stations
+9/27/2022, 9:36:24 PM - DEBUG - Getting Stations
+9/27/2022, 10:00:25 PM - DEBUG - Getting Stations
+9/27/2022, 10:00:25 PM - DEBUG - Getting Stations
+9/27/2022, 10:16:17 PM - DEBUG - Getting Stations
+9/27/2022, 10:17:39 PM - DEBUG - Getting Stations
+9/27/2022, 10:18:05 PM - DEBUG - Getting Stations
+9/27/2022, 10:28:27 PM - DEBUG - Getting Stations
+9/27/2022, 10:28:43 PM - DEBUG - Getting Stations
+9/27/2022, 10:29:01 PM - DEBUG - Getting Stations
+9/27/2022, 10:29:09 PM - DEBUG - Getting Stations
+9/27/2022, 10:29:17 PM - DEBUG - Getting Stations
+9/27/2022, 10:29:18 PM - DEBUG - Getting Stations
+9/27/2022, 11:08:33 PM - DEBUG - Getting Stations
+9/27/2022, 11:08:34 PM - DEBUG - Getting Stations
+9/27/2022, 11:22:35 PM - INFO - Socket disconnected [id: undefined]
+9/27/2022, 11:22:37 PM - INFO - New connected socket [id: lv93UQ9-3vpEx7m1AAAt]
+9/27/2022, 11:22:38 PM - DEBUG - Getting Stations
+9/27/2022, 11:22:39 PM - DEBUG - Getting Stations
+9/27/2022, 11:22:39 PM - DEBUG - Getting Stations
