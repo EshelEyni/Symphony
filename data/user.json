@@ -1,0 +1,58 @@
+[{
+    "username": "Alexander Hlebnikov",
+    "fullname": "Alexander Hlebnikov",
+    "password": 123,
+    "isAdmin": true,
+    "imgUrl": null,
+    "createdStations": [],
+    "likedStations": [],
+    "likedSongs": [],
+    "recentlyPlayed": [],
+    "recentlySearched": [],
+    "followers": [],
+    "following": []
+},
+{
+    "username": "Eshel Eyni",
+    "fullname": "Eshel Eyni",
+    "password": 123,
+    "isAdmin": true,
+    "imgUrl": null,
+    "createdStations": [],
+    "likedStations": [],
+    "likedSongs": [],
+    "recentlyPlayed": [],
+    "recentlySearched": [],
+    "followers": [],
+    "following": []
+},
+{
+    "username": "Daria Marchashov",
+    "fullname": "Daria Marchashov",
+    "password": 123,
+    "isAdmin": true,
+    "imgUrl": null,
+    "createdStations": [],
+    "likedStations": [],
+    "likedSongs": [],
+    "recentlyPlayed": [],
+    "recentlySearched": [],
+    "followers": [],
+    "following": []
+},
+{
+    "_id": "u101",
+    "username": "user101",
+    "isAdmin": false,
+    "fullname": "user101",
+    "password": 123,
+    "imgUrl": null,
+    "createdStations": [],
+    "likedStations": [],
+    "likedSongs": [],
+    "recentlyPlayed": [],
+    "recentlySearched": [],
+    "followers": [],
+    "following": []
+}
+]
