@@ -31,7 +31,7 @@ export const AppHeader = () => {
 
     return (
         <div
-            // style={{ backgroundColor: bgColor }}
+            style={{ backgroundColor: bgColor }}
             className='app-header-container full flex'>
             {/* {isUserClicked &&
                 <div className='shadow-screen'

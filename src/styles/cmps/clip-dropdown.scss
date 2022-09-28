@@ -1,6 +1,5 @@
-.dropdown-clip,
-.dropdown-list {
-    // position: absolute;
+.dropdown-clip {
+    position: absolute;
     z-index: 20;
     background-color: #202020;
     transform: translate(-100%);
@@ -42,8 +41,8 @@
     .dropdown-list {
         position: absolute;
         background-color: #1f1f1f;
-        left: -103px;
-        bottom: 60px;
+        bottom: 0;
+        left:-105px;
         display: none;
     }
 
