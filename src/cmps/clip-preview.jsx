@@ -18,7 +18,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
     let [isDropdownClip, setIsDropdownClip] = useState(false)
     let [isClicked, setIsClicked] = useState()
 
-    
+
     useEffect(() => {
         if (!currClip || !currPlaylist) return
         if (clip._id === currClip._id) {
@@ -95,7 +95,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
             <div className='cp-2-container flex'>
                 {user && <LikesBtns clip={clip} station={station} />}
-                {getDuration(clip.duration)}
+                {clip.duration ? getDuration(clip.duration) : ''}
             </div>
 
             <i

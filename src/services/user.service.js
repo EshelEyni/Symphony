@@ -78,29 +78,32 @@ function getLoggedinUser() {
 
 async function setRecentlyPlayed(clip) {
 
-    const loggedinUser = getLoggedinUser()
-    
+    const loggedInUser = getLoggedinUser()
     // Prevent at save guest mode
-    if (!loggedinUser) return
-
+    if (!loggedInUser) return
     const newRecentPlayedClips = {
-        userId: loggedinUser._id, clips: []
+        userId: loggedInUser._id, clips: []
     }
-
     let recentlyPlayed = _loadFromStorage('recentlyPlayed') || newRecentPlayedClips
 
     // If a diffrent user as connected to the same broswer
-    if (loggedinUser._id !== recentlyPlayed.userId) recentlyPlayed = newRecentPlayedClips
-    recentlyPlayed.clips = recentlyPlayed.clips.filter(clip => clip !== null)
-    let clipsIds = recentlyPlayed.clips.map(clip => clip._id)
+    if (loggedInUser._id !== recentlyPlayed.userId) recentlyPlayed = newRecentPlayedClips
 
+    // Prevents entering a defected clip 
+    recentlyPlayed.clips = recentlyPlayed.clips.filter(clip => clip !== null)
+
+    // Prevents inserting the same clip
+    let clipsIds = recentlyPlayed.clips.map(clip => clip._id)
     if (clipsIds.includes(clip._id)) return
+
+    // Insers violable clip
     recentlyPlayed.clips.unshift(clip)
 
     // Deletes the 11th added clip
     if (recentlyPlayed.clips.length > 10) {
         recentlyPlayed.clips.splice(10, 1)
     }
+
     _saveToStorage('recentlyPlayed', recentlyPlayed)
 }
 

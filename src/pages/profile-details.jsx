@@ -11,6 +11,7 @@ import { ClipListHeader } from '../cmps/clip-list-header'
 import { ProfilesList } from '../cmps/profile-list'
 import { userService } from '../services/user.service'
 import { loadStations } from '../store/station.actions'
+import { storageService } from '../services/async-storage.service'
 
 
 export const UserProfile = () => {
@@ -18,10 +19,10 @@ export const UserProfile = () => {
     const users = useSelector(state => state.userModule.users)
     let [user, setUser] = useState()
     const params = useParams()
-    let [clips, setClips] = useState(user?.recentlyPlayed)
+    let [reacentlyPlayedClips, setRecentlyPlayedClips] = useState()
     const dispatch = useDispatch()
-    
-    
+
+
     useEffect(() => {
         loadUser(user, params.id)
         dispatch(loadStations())
@@ -33,7 +34,9 @@ export const UserProfile = () => {
         } else {
             user = userService.getLoggedinUser()
         }
-        setClips(user.recentlyPlayed)
+        const recentlyPlayed = storageService.loadFromStorage('recentlyPlayed')
+        setRecentlyPlayedClips(recentlyPlayed?.clips)
+        console.log('',)
         setUser(user)
     }
 
@@ -43,10 +46,11 @@ export const UserProfile = () => {
     }
 
     const onHandleDragEnd = (res) => {
-        clips = handleDragEnd(res, clips)
-        setClips(clips)
-        user.recentlyPlayed = clips
-        dispatch(updateUser(user))
+        reacentlyPlayedClips = handleDragEnd(res, reacentlyPlayedClips)
+        setRecentlyPlayedClips(reacentlyPlayedClips)
+        storageService.save('recentlyPlayed', {
+            userId: loggedInUser._id, clips: []
+        })
     }
 
 
@@ -61,7 +65,7 @@ export const UserProfile = () => {
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {loggedInUser._id === params.id &&
+                    {(loggedInUser._id === params.id && reacentlyPlayedClips) &&
                         <div className="personal-profile-content">
                             <h1>Recently Played</h1>
                             <ClipListHeader />
@@ -73,7 +77,7 @@ export const UserProfile = () => {
                                             provided={provided}
                                             clipKey={'recently-played'}
                                             // station={station}
-                                            clips={clips}
+                                            clips={reacentlyPlayedClips}
                                             onPlayClip={onPlayClip}
                                         />)}
                                 </Droppable>

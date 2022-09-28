@@ -36,7 +36,7 @@ export const MediaPlayer = () => {
 
         if (!prevClip && currClip || prevClip?._id !== currClip?._id) {
             dispatch(setIsPlaying(true))
-            onLoad()
+            // onLoad()
         }
     }, [currClip])
 
@@ -61,6 +61,7 @@ export const MediaPlayer = () => {
             currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
             currClip = currPlaylist?.clips[currIdx]
             dispatch(setClip(currClip))
+            console.log('currClip onLoad', currClip)
             dispatch(setPlaylist(currPlaylist))
         }
     }

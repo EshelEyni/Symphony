@@ -3,7 +3,7 @@ import { userService } from '../services/user.service'
 
 export function setClip(clip) {
     if (clip) {
-        console.log(' userService.setRecentlyPlayed(clip)', clip)
+        storageService.save('prevClip', clip)
         userService.setRecentlyPlayed(clip)
     }
     return async (dispatch) => {

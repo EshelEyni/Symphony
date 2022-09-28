@@ -38,6 +38,7 @@ export const StationPreview = ({ station }) => {
             clearInterval(mediaPlayerInterval)
             dispatch(setPlaylist(station))
             dispatch(setClip(clip))
+            console.log('clip StationPreview', clip)
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
