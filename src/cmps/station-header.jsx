@@ -52,8 +52,8 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
             <div className='my-sd-details'>
                 <h1 className='my-sd-h1'>{station.name}</h1>
                 <div className='desc-container'>{station.desc}</div>
-                {isUserStation ? <HeaderDetails creator={station.createdBy.fullname} clips={station.clips} /> :
-                    <HeaderDetails creator={station.createdBy.username} clips={station.clips} />}
+                {/* {isUserStation ? <HeaderDetails creator={station.createdBy.fullname} clips={station.clips} /> :
+                    <HeaderDetails creator={station.createdBy.username} clips={station.clips} />} */}
             </div>
         </div>
         <div className='playlist-btns'
