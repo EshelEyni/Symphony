@@ -5,9 +5,9 @@ export const defaultImg = 'https://res.cloudinary.com/dng9sfzqt/image/upload/v16
 export const getTotalSongDur = (songs) => {
     let secCollector = 0
     songs.forEach(song => {
-        secCollector += song.duration.hours * 3600
-        secCollector += song.duration.min * 60
-        secCollector += song.duration.sec
+        secCollector += song.duration?.hours * 3600
+        secCollector += song.duration?.min * 60
+        secCollector += song.duration?.sec
     })
     let hours = Math.floor(secCollector / 3600)
     let minutes = Math.floor((secCollector - (hours * 3600)) / 60)

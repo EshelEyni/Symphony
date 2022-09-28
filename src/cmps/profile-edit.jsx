@@ -49,6 +49,7 @@ export const ProfileEdit = ({ user, setUser, setMainImg, setIsEdit }) => {
             </div>
 
             <div className='ms-edit-main-container flex'>
+                <button className='btn-close'>X</button>
                 <div className='pl-img-container'>
                     <label htmlFor='pl-edit-img'>
                         <img
