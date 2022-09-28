@@ -25,8 +25,8 @@ export function SearchList({ station, setStation, clips, type, onPlayClip, playt
         setStation({ ...station })
         dispatch(updateStation(station))
 
-        // userService.updateUserStation(user, station)
-        // dispatch(updateUser(user))
+        userService.updateUserStation(user, station)
+        dispatch(updateUser(user))
 
         dispatch(setUserMsg(msg(addedClip.title, ' added to ' + station.name)))
         setTimeout(async () => {

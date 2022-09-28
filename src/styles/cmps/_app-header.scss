@@ -71,9 +71,10 @@
     background-color: #222222;
     padding: 10px;
     margin-inline-end: 20px;
-    z-index: 20;
-
-   a:hover {
+    z-index: 30;
+    
+    a:hover {
+       z-index: 30;
         background-color: #757575;
         cursor: pointer;
     }

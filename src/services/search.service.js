@@ -53,7 +53,7 @@ async function getClips(term) {
             height: clip.snippet.thumbnails.default.height,
         },
         artist: clip.snippet.channelTitle,
-        likedByUsers: []
+        // likedByUsers: []
     }))
 
     let str = ''
@@ -112,17 +112,18 @@ async function setNewSearchList(searchResults, user, listName) {
 }
 
 function getStationsBySearchTerm(stations, searchTerm, isArtist) {
-    if (isArtist) stations = stations.filter(station => station.isArtist === true)
+    stations = isArtist ? stations.filter(station => station.isArtist) : stations.filter(station => !station.isArtist)
+
     if (searchTerm) {
         searchTerm = searchTerm.toLowerCase()
         return stations.map(station => {
             station.matchedTerms = 0
-            for (let x = 0; x < station.clips?.length; x++) {
+            for (let x = 0; x < station.clips?.length; x++) { // For each
                 if (station.clips[x].title.toLowerCase().includes(searchTerm)) station.matchedTerms++
             }
             return station
         }).filter(station => {
-            return (station?.matchedTerms !== 0 && station?.isSearch !== true)
+            return (station?.matchedTerms > 0 && !station?.isSearch)
         }).sort((a, b) => b?.matchedTerms - a?.matchedTerms)
     }
 }
@@ -156,7 +157,6 @@ function getProfilesBySearchTerm(stations, users, searchTerm) {
         .filter(user => user !== undefined)
         .sort((a, b) => b.matchedTerms - a.matchedTerms)
 }
-
 
 function toggleFilterBy(filterBy, currCategory) {
     if (filterBy.includes(currCategory)) {

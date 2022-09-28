@@ -1,21 +1,35 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-// import { Link } from "react-router-dom"
 import { defaultImg, checkImg } from "../services/station.service"
 import { uploadImg } from "../services/upload.service"
 import { updateStation } from "../store/station.actions"
-// import { LikesBtns } from "./likes-btn"
 import { StationDropdown } from "./station-dropdown"
 import { StationEdit } from "./station-edit"
 import { HeaderDetails } from "./header-details"
 
-export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, LikedSongLogo, isAdminMode, setAdminMode }) => {
+export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, onTogglePlay, LikedSongLogo, isAdminMode, setAdminMode }) => {
+    let { currPlaylist, currClip, isPlaying } = useSelector(state => state.mediaPlayerModule)
     const user = useSelector(state => state.userModule.user)
     const [imgUrl, setImgUrl] = useState(station.imgUrl || defaultImg)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
+    let [isClicked, setIsClicked] = useState()
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (!currClip || !currPlaylist) return
+        if (station._id === currPlaylist._id) {
+            setIsClicked(isPlaying)
+        }
+    }, [isPlaying])
+
+    const getCurrPlayedClip = () => {
+        let clip = null
+        if (currPlaylist._id === station._id) clip = currClip
+        else clip = station.clips[0]
+        return clip
+    }
 
     useEffect(() => {
         setImgUrl(station.imgUrl)
@@ -58,14 +72,18 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
         </div>
         <div className='playlist-btns'
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}>
-            <button className='play-btn fas fa-play playing'></button>
-            <button className='clip-dp-btn fa-solid fa-ellipsis' onClick={() => setIsDropdown(!isDropdown)}></button>
+            <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                onClick={() => {
+                    setIsClicked(!isClicked)
+                    onTogglePlay(getCurrPlayedClip(), isClicked)
+                }}></button>
             {user?.isAdmin &&
                 <span
                     className="admin-state-btn"
                     onClick={() => setAdminMode(!isAdminMode)}
                 >⭐</span>
             }
+            <button className='clip-dp-btn fa-solid fa-ellipsis' onClick={() => setIsDropdown(!isDropdown)}></button>
         </div>
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}

@@ -8,14 +8,14 @@ export const checkLoading = (img) => {
 }
 
 
-export function getFilteredList(usersList, loggedInUser, filterBy, stations, searchTerm) {
-    if(!loggedInUser) return
-    usersList = usersList.filter(user => user._id !== loggedInUser._id)
+export function getFilteredUsersList(users, loggedInUser, filterBy, stations, searchTerm) {
+    if (!loggedInUser) return
+    const usersList = users.filter(user => user._id !== loggedInUser._id)
+    let filterdUsersList = []
     switch (filterBy) {
-
         case 'likes':
             const loggedInUserLikedSongsIds = new Set(loggedInUser.likedSongs?.map(likedSong => likedSong._id))
-            return usersList.map(user => {
+            filterdUsersList = usersList.map(user => {
                 let matchedLikes = 0
                 for (let y = 0; y < user.likedSongs.length; y++) {
                     if (loggedInUserLikedSongsIds.has(user.likedSongs[y]._id)) {
@@ -24,23 +24,26 @@ export function getFilteredList(usersList, loggedInUser, filterBy, stations, sea
                 }
                 return { ...user, matchedLikes }
             })
-                .filter(user => user.matchedLikes !== 0)
+                .filter(user => user.matchedLikes > 0)
                 .sort((a, b) => b.matchedLikes - a.matchedLikes)
 
+            return filterdUsersList
         case 'searchTerm':
             return searchService.getProfilesBySearchTerm(stations, usersList, searchTerm)
 
         case 'following':
-            return loggedInUser.following?.map(followedProfileId => {
-                return usersList.find(user => user._id === followedProfileId)
+            loggedInUser.following?.forEach(followedProfileId => {
+                const currUser = usersList.find(user => user._id === followedProfileId)
+                if (!currUser) return
+                filterdUsersList.push(currUser)
             })
-
+            return filterdUsersList
         case 'followers':
-            return loggedInUser.followers?.map(followerProfileId => {
+            filterdUsersList = loggedInUser.followers?.map(followerProfileId => {
                 return usersList.find(user => user._id === followerProfileId)
             })
-
+            return filterdUsersList
         default:
-            return usersList
+            return filterdUsersList
     }
 }

@@ -1,21 +1,33 @@
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getDuration } from '../services/clip.service'
 import { LikesBtns } from './likes-btn'
 import { ClipDropdown } from './clip-dropdown'
 import { defaultBgcolor } from '../services/bg-color.service'
 import { useParams } from 'react-router-dom'
+import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
+import { useDispatch } from 'react-redux'
+import { storageService } from '../services/async-storage.service'
 const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664042770/Symphny/ezgif.com-gif-maker_2_fjbpjm.gif'
 
-export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onRemoveClip, bgColor, dndStyle, onAddClip }) => {
+export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, bgColor, dndStyle }) => {
+    let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
 
     const user = useSelector(state => state.userModule.user)
-    const currClip = useSelector(state => state.mediaPlayerModule.currClip)
-    const isPlaying = useSelector(state => state.mediaPlayerModule.isPlaying)
     const params = window.location.href
     let [isDropdownClip, setIsDropdownClip] = useState(false)
+    let [isClicked, setIsClicked] = useState()
+
+    
+    useEffect(() => {
+        if (!currClip || !currPlaylist) return
+        if (clip._id === currClip._id) {
+            setIsClicked(isPlaying)
+        }
+    }, [isPlaying])
 
     const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
+    const dispatch = useDispatch()
 
     const getBgcolor = () => {
         let currBgcolor = defaultBgcolor
@@ -24,9 +36,36 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
         return currBgcolor
     }
 
+    const onTogglePlay = async (clip, isClicked) => {
+        console.log('clip', clip)
+        if (!isClicked) {
+            dispatch(setIsPlaying(false))
+            clearInterval(mediaPlayerInterval)
+            dispatch(setPlaylist(station))
+            dispatch(setClip(clip))
+            dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
+            playerFunc.playVideo()
+        }
+        if (isClicked) {
+            clearInterval(mediaPlayerInterval)
+            playerFunc.pauseVideo()
+        }
+        dispatch(setIsPlaying(!isPlaying))
+    }
 
-    const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
-
+    const getTime = async () => {
+        const time = await playerFunc.getCurrentTime()
+        storageService.put('currTime', time)
+        dispatch(setCurrTime(time))
+        if (currTime > clipLength - 1.5) {
+            const currIdx = currPlaylist.clips.indexOf(currClip)
+            let nextIdx = currIdx + 1
+            if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
+            currClip = currPlaylist.clips[nextIdx]
+        }
+        dispatch(setClip(currClip))
+        dispatch(setIsPlaying(true))
+    }
 
     return <li
         style={{
@@ -40,8 +79,11 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
         className={'clip-preview-container '}>
         <div className='cp-main-container'>
             <div className='cp-1-container'>
-                <i className={'clip-play-btn fas fa-play playing'}
-                    onClick={() => onPlayClip(clip)}></i>
+                <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                    onClick={() => {
+                        setIsClicked(!isClicked)
+                        onTogglePlay(clip, isClicked)
+                    }}></i>
                 {/* {currClip._id === clip._id && <img className='' src={equalizer} alt='clip-img' />} */}
                 <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
                 <img className='clip-img' src={clip.img?.url} alt='clip-img' />
@@ -62,6 +104,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
 
                 {(isDropdownClip) && <ClipDropdown
                     station={station}
+                    setIsDropdownClip={setIsDropdownClip}
                     onRemoveClip={onRemoveClip}
                     clip={clip}
                 />}
