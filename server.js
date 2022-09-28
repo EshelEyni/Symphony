@@ -36,11 +36,13 @@ app.all('*', setupAsyncLocalStorage)
 const stationRoutes = require('./api/station/station.routes')
 const userRoutes = require('./api/user/user.routes')
 const authRoutes = require('./api/auth/auth.routes')
+const songRoutes = require('./api/songs/song.routes')
 const {setupSocketAPI} = require('./services/socket.service')
 
 app.use('/api/station', stationRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/song',songRoutes)
 setupSocketAPI(http)
 
 // app.get('/**', (req, res) => {

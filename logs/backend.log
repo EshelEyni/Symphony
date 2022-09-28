@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 11/09/2022, 18:59:22 - INFO - Server is running on port: 3030
 11/09/2022, 19:01:58 - INFO - Server is running on port: 3030
 11/09/2022, 19:02:31 - INFO - Server is running on port: 3030
@@ -4237,3 +4238,5 @@
 9/28/2022, 12:47:53 PM - DEBUG - Getting Stations
 9/28/2022, 12:48:22 PM - INFO - New connected socket [id: rxthkOuYuYiRCkJ6AAAz]
 9/28/2022, 12:48:22 PM - INFO - Socket disconnected [id: undefined]
+=======
+>>>>>>> 95e679de076cf935b8ec60f4d97ca9ddbb800ef0
