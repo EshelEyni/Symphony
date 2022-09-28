@@ -1,9 +1,9 @@
-.dropdown-clip {
-    position: absolute;
+.dropdown-clip,
+.dropdown-list {
+    // position: absolute;
     z-index: 20;
     background-color: #202020;
     transform: translate(-100%);
-    position: absolute;
     top: 50px;
     width: 170px;
     height: 180px;
@@ -26,6 +26,7 @@
     }
 
     .add-to-station {
+        position: absolute;
         width: max-content;
         height: fit-content;
         text-align: start;
@@ -55,6 +56,7 @@
         color: white;
         background-color: #757575;
         cursor: pointer;
+        height: 30px;
 
         .dropdown-list {
             display: block;
