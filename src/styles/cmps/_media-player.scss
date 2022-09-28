@@ -89,7 +89,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
 
     @include for-mobile-layout {
-        width: 70%;
+        width: 60%;
     }
 
     &:hover {
@@ -233,8 +233,7 @@ input[type="range"]::-webkit-slider-thumb {
 
     @include for-mobile-layout {
         font-size: 10px;
-        padding-left: 40px;
-        margin: 0;
+        padding-left: 30px;
     }
 
     .fa-heart {

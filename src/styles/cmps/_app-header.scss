@@ -51,7 +51,7 @@
 .user-btn-container {
     gap: 15px;
     margin-inline-start: 5px;
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 0;
 
@@ -62,7 +62,7 @@
 
 .user-profile-dropdown {
     position: absolute;
-    top: 65px;
+    top: 35px;
     right: 0;
     width: 160px;
     height: 200px;
@@ -73,7 +73,7 @@
     margin-inline-end: 20px;
     z-index: 20;
 
-    &>*:hover {
+   a:hover {
         background-color: #757575;
         cursor: pointer;
     }
@@ -96,32 +96,30 @@
     }
 }
 
-.user-profile{
-gap: 5px;
-display: flex;
-align-items: center;
-height: 40px;
-width: 100px;
-background: #121212;
-background-color: #000;
-font-size: 14px;
-border-radius: 25px;
-margin-inline-end: 20px;
-justify-content: center;
-color: rgb(201, 201, 201);
+.user-profile {
+    gap: 5px;
+    padding: 2px 7px;
+    display: flex;
+    align-items: center;
+    background: #121212;
+    background-color: #000;
+    font-size: 13px;
+    border-radius: 25px;
+    margin-inline-end: 20px;
+    justify-content: center;
+    color: rgb(201, 201, 201);
 
-@include for-mobile-layout {
-    height: 30px;
-    max-width: 70px;
-    font-size: 11px;
-    gap: 0;
-}
+    @include for-mobile-layout {
+        height: 30px;
+        font-size: 10px;
+        margin-inline-end: 10px;
+    }
 
-@include for-narrow-layout {}
+    @include for-narrow-layout {}
 
-&:hover {
-    background-color: rgb(44, 44, 44);
-    cursor: pointer;
-    transition: 0.3s;
-}
+    &:hover {
+        background-color: rgb(44, 44, 44);
+        cursor: pointer;
+        transition: 0.3s;
+    }
 }

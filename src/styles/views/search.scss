@@ -12,11 +12,13 @@
     padding-left: 45px;
 
     @include for-mobile-layout {
-        width: 65%;
+        width: 55%;
+        height: 35px;
         text-align: center;
-        left: 15px;
-        padding-left: 15px;
-
+        left: 10px;
+        top: 3px;
+        padding-left: 17px;
+        font-size: 13px;
     }
 }
 
@@ -31,14 +33,35 @@
     background: none;
 
     @include for-mobile-layout {
-        left: 8%;
-
+        left: 6%;
+        top: 23px;
+        font-size: 13px;
     }
 }
 
 .search-filter-btns {
-    margin-inline-start: 20px;
+    padding: 5px 10px;
     gap: 10px;
+
+    @include for-mobile-layout {
+        // padding: 0;
+        gap: 5px;
+    }
+}
+
+.search-filter-btn {
+    border-radius: 25px;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    margin: 5px;
+    font-family: circular;
+
+    @include for-mobile-layout {
+        margin: 3px;
+        font-size: 12px;
+    }
 }
 
 .scroller {
@@ -47,17 +70,4 @@
     overflow-y: scroll;
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
-}
-
-.search-filter-btns {
-    padding: 10px;
-}
-
-.search-filter-btn {
-    border-radius: 20px;
-    background-color: #181818;
-    color: white;
-    border: none;
-    padding: 5px;
-    margin: 5px;
 }
