@@ -85,7 +85,6 @@ export const StationDetails = () => {
                 })
         }
     }
-
     const onRemoveStation = () => {
         dispatch(removeStation(station._id))
         dispatch(setUserMsg(msg(station.name, ' removed from your library')))

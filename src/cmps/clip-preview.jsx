@@ -94,7 +94,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
             <div className='artist-name'>{clip.artist}</div>
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
             <div className='cp-2-container flex'>
-                {user && <LikesBtns clip={clip} />}
+                {user && <LikesBtns clip={clip} station={station} />}
                 {getDuration(clip.duration)}
             </div>
 
