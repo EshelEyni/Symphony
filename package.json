@@ -27,6 +27,7 @@
     "sass": "^1.54.9",
     "socket.io": "^4.5.2",
     "socket.io-client": "^4.5.2",
+    "songlyrics": "^2.4.4",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.4",
     "workbox-broadcast-update": "^6.5.4",

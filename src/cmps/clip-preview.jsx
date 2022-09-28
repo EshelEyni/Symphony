@@ -24,11 +24,6 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
         return currBgcolor
     }
 
-    // const { color, borderRadius, cursor } = dndStyle
-
-    console.log('station:', station)
-    console.log('clip:', clip)
-    console.log('isCreatedAt:', isCreatedAt)
 
 const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
 
@@ -36,9 +31,6 @@ const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
     return <li
         style={{
             // backgroundColor: getBgcolor(),
-            // background: "linear-gradient(to right, #4880EC, #019CAD)",
-            // linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%);
-            // background: `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`,
             background: `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`,
             color: dndStyle?.color,
             borderRadius: dndStyle?.borderRadius,
@@ -52,7 +44,7 @@ const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
                     onClick={() => onPlayClip(clip)}></i>
                 {/* {currClip._id === clip._id && <img className='' src={equalizer} alt='clip-img' />} */}
                 <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
-                <img className='clip-img' src={clip.img.url} alt='clip-img' />
+                <img className='clip-img' src={clip.img?.url} alt='clip-img' />
                 <div className='clip-title'>
                     {clip.title}
                 </div>

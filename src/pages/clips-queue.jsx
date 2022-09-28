@@ -6,8 +6,7 @@ import { queueBgcolor } from '../services/bg-color.service'
 import { setHeaderBgcolor } from '../store/app-header.actions'
 
 export const ClipsQueue = () => {
-    let currPlaylist = useSelector(state => state.mediaPlayerModule.currPlaylist)
-    let currClip = useSelector(state => state.mediaPlayerModule.currClip)
+    let { currClip, currPlaylist } = useSelector(state => state.mediaPlayerModule)
     const dispatch = useDispatch()
 
 
@@ -27,12 +26,12 @@ export const ClipsQueue = () => {
                     <ClipPreview
                         type={'queue-clip'}
                         clip={currClip}
-                        idx={currPlaylist.indexOf(currClip)}
+                        idx={currPlaylist.clips.indexOf(currClip)}
                         clipNum={1} />
                 </div>}
                 <h2>Next up</h2>
                 {currPlaylist.map((clip, idx) => {
-                    if (idx === currPlaylist.indexOf(currClip)) return
+                    if (idx === currPlaylist.clips.indexOf(currClip)) return
                     else {
                         return <ClipPreview
                             type={'queue-clip'}

@@ -10,10 +10,6 @@
     // grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
     // grid-template-columns:800px 10fr 1fr 1fr minmax(50px, 1fr);
     grid-template-columns: 800px 8fr 2fr 1fr minmax(50px, 1fr);
-
-    // grid-template-columns: 800px 10fr 2.5fr 1fr minmax(50px, 1fr);
-
-
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -73,14 +69,13 @@
     }
 
     @include for-mobile-layout {
-
         .artist-name,
         .added {
             display: none;
         }
 
         display: grid;
-        grid-template-columns: 311px 1fr minmax(50px, 1fr);
+        grid-template-columns: 266px 1fr minmax(50px, 1fr);
         width: 100%;
         justify-content: space-between;
         align-items: center;

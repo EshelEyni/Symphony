@@ -10,6 +10,7 @@ export const HeaderDetails = ({ creator, clips }) => {
   clips = params.includes('liked') ? user.likedSongs : clips
   const path = creator === 'Symphony' ? '/' : `/user-profile/${user._id}`
 
+
   return <div><p className="creator-and-playlist-data">
     <Link
       to={path}

@@ -13,7 +13,7 @@ export function ClipListHeader({ bgColor, station }) {
             className='header-container flex'>
             <h1 className='title'># TITLE</h1>
             <h1 className='album'>ARTIST</h1>
-            <h1 className='date'>{((params.includes('liked')) || station.createdBy._id === user._id) && 'DATE ADDED'}</h1>
+            <h1 className='date'>{((params.includes('liked')) || station?.createdBy?._id === user?._id) && 'DATE ADDED'}</h1>
             <h1 className='clock'><AccessTimeOutlinedIcon /></h1>
         </div>
     )

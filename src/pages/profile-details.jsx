@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { updateUser } from '../store/user.actions'
 import { ProfileHeader } from '../cmps/profile-header'
 import { DraggableClipList } from '../cmps/draggable-clip-list'
-import { playClip, setPlaylist } from '../store/media-player.actions'
+import { setClip, setPlaylist } from '../store/media-player.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { handleDragEnd } from '../services/dragg.service'
 import { ClipListHeader } from '../cmps/clip-list-header'
@@ -21,7 +21,6 @@ export const UserProfile = () => {
     let [clips, setClips] = useState(user?.recentlyPlayed)
     const dispatch = useDispatch()
     
-    console.log('user', user)
     
     useEffect(() => {
         loadUser(user, params.id)
@@ -39,7 +38,7 @@ export const UserProfile = () => {
     }
 
     const onPlayClip = (clip) => {
-        dispatch(playClip(clip))
+        dispatch(setClip(clip))
         dispatch(setPlaylist(user.recentlyPlayed))
     }
 

@@ -1,27 +1,22 @@
-export const setAdminMode = (station) => {
-    return station
-
-}
-
 export const setArtistStation = (station) => {
     const clip = station.clips[0]
     station.name = clip.artist
     station.imgUrl = clip.img.url
     station.isArtist = true
+    console.log('station', station)
     return station
 }
-
-// export const getArtistStations = (stations) => {
-//     return stations.filter(station => station.isArtist)
-// }
 
 export const addTag = (station) => {
-    station.tags.push(prompt('Enter tag...'))
+    const tag = prompt('Enter tag...')
+    if (!tag) return alert('Can not enter an empty tag...')
+    station.tags.push(tag)
     return station
 }
 
-
 export const addDesc = (station) => {
-    station.desc = (prompt('Enter desc...'))
+    const desc = prompt('Enter desc...')
+    if (!desc) return alert('Can not enter an empty description...')
+    station.desc = (desc)
     return station
 }

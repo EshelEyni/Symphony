@@ -5,6 +5,7 @@ import YouTube from 'react-youtube';
 import { defaultHeaderBgcolor } from '../services/bg-color.service'
 import { createMiniMediaPlayer } from '../services/media-player.service';
 import { setHeaderBgcolor } from '../store/app-header.actions';
+
 export const About = () => {
     const dispatch = useDispatch()
 

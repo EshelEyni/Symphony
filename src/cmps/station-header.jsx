@@ -10,7 +10,7 @@ import { StationDropdown } from "./station-dropdown"
 import { StationEdit } from "./station-edit"
 import { HeaderDetails } from "./header-details"
 
-export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, LikedSongLogo }) => {
+export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, LikedSongLogo, isAdminMode, setAdminMode }) => {
     const user = useSelector(state => state.userModule.user)
     const [imgUrl, setImgUrl] = useState(station.imgUrl || defaultImg)
     const [isDropdown, setIsDropdown] = useState(false)
@@ -28,8 +28,6 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
         setImgUrl(currImgUrl)
         dispatch(updateStation(station))
     }
-
-    const isAdmin = station.createdBy === 'Admin' ? true : false
 
     return <div className='my-sd-header'>
         <div
@@ -52,14 +50,22 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
             <div className='my-sd-details'>
                 <h1 className='my-sd-h1'>{station.name}</h1>
                 <div className='desc-container'>{station.desc}</div>
-                {/* {isUserStation ? <HeaderDetails creator={station.createdBy.fullname} clips={station.clips} /> :
-                    <HeaderDetails creator={station.createdBy.username} clips={station.clips} />} */}
+                {isUserStation ? <HeaderDetails
+                    creator={station.createdBy.fullname} clips={station.clips} /> :
+                    <HeaderDetails
+                        creator={station.createdBy.username} clips={station.clips} />}
             </div>
         </div>
         <div className='playlist-btns'
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}>
             <button className='play-btn fas fa-play playing'></button>
             <button className='clip-dp-btn fa-solid fa-ellipsis' onClick={() => setIsDropdown(!isDropdown)}></button>
+            {user?.isAdmin &&
+                <span
+                    className="admin-state-btn"
+                    onClick={() => setAdminMode(!isAdminMode)}
+                >⭐</span>
+            }
         </div>
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
@@ -71,9 +77,9 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
             }
 
             {isDropdown && <StationDropdown
+                isAdminMode={isAdminMode}
                 isDropdown={isDropdown}
                 setIsDropdown={setIsDropdown}
-                isAdmin={isAdmin}
                 isUserStation={isUserStation}
                 setIsEdit={setIsEdit}
                 onRemoveStation={onRemoveStation}

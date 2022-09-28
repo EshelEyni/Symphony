@@ -10,7 +10,6 @@ export const Signup = () => {
     const users = useSelector(state => state.userModule.users)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    console.log('users', users)
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(defaultHeaderBgcolor))

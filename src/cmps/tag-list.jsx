@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { loadStations } from "../store/station.actions"
 import { TagsPreview } from "./tag-preview"
 
 export const TagsList = ({ stations }) => {
-
-    // let stations = useSelector(state => state.stationModule.stations)
     let [tagListToDisplay, setTagsListToDisplay] = useState([])
-    const dispatch = useDispatch()
-
 
     useEffect(() => {
-        // dispatch(loadStations())
         let tagList = new Set()
         stations?.forEach(station => {
             const { tags } = station

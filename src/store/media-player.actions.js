@@ -1,13 +1,16 @@
 import { storageService } from '../services/async-storage.service'
+import { userService } from '../services/user.service'
 
-export function playClip(clip, boolean) {
-    storageService.put('prevClip', clip)
+export function setClip(clip) {
+    if (clip) {
+        storageService.put('prevClip', clip)
+        userService.setRecentlyPlayed(clip)
+    }
     return async (dispatch) => {
         try {
             dispatch({ type: 'SET_CLIP', clip })
-            dispatch({ type: 'SET_IS_PLAYING', boolean })
         } catch (err) {
-            console.log('Cannot login', err)
+            console.log('Cannot play media', err)
         }
     }
 }
@@ -23,3 +26,62 @@ export function setPlaylist(playlist) {
     }
 }
 
+export function setIsPlaying(isPlaying) {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: 'SET_IS_PLAYING', isPlaying })
+        } catch (err) {
+            console.log('Cannot set media player', err)
+        }
+    }
+}
+
+export function setCurrTime(currTime) {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: 'SET_CURR_TIME', currTime })
+        } catch (err) {
+            console.log('Cannot set current time', err)
+        }
+    }
+}
+
+export function setMediaPlayerInterval(interval) {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: 'SET_MEDIA_PLAYER_INTERVAL', interval })
+        } catch (err) {
+            console.log('Cannot set media player interval', err)
+        }
+    }
+}
+
+export function setPlayerFunc(playerFunc) {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: 'SET_PLAYER_FUNC', playerFunc })
+        } catch (err) {
+            console.log('Cannot set media player function', err)
+        }
+    }
+}
+
+export function setClipLength(clipLength) {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: 'SET_CLIP_LENGTH', clipLength })
+        } catch (err) {
+            console.log('Cannot set clip length', err)
+        }
+    }
+}
+
+// export function setStationClick(isStationClicked) {
+//     return async (dispatch) => {
+//         try {
+//             dispatch({ type: 'SET_STATION_CLICKED', isStationClicked })
+//         } catch (err) {
+//             console.log('Cannot set clip length', err)
+//         }
+//     }
+// }

@@ -18,7 +18,14 @@
         padding: 0;
     }
 
+    a {
+        display: flex;
+        justify-content: center;
+    }
+
     .station {
+
+
         &:hover {
             .play-btn {
                 opacity: 1;
@@ -31,10 +38,25 @@
 
     .img-container {
         height: 180px;
-img{
-    width: 160px;
-    height: 145px;
-}
+        width: auto;
+
+        @include for-mobile-layout {
+            height: 150px;
+            width: 140px;
+
+        }
+
+        img {
+            width: 160px;
+            height: 145px;
+
+            @include for-mobile-layout {
+                width: 140px;
+                height: 125px;
+
+            }
+        }
+
         .play-btn {
             display: unset;
             opacity: 0;
@@ -69,5 +91,9 @@ img{
         p {
             color: #a7a7a7;
         }
+    }
+
+    @include for-mobile-layout {
+        width: 175px;
     }
 }

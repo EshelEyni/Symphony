@@ -21,13 +21,12 @@
         }
 
         img {
-            @include aspect-ratio(1, 1);
-            width: 100%;
-            margin-bottom: 10px;
-            box-shadow: 0px 7px 24px -2px #000000;
-            border-radius: 5px;
+            // @include aspect-ratio(1, 1);
+            // width: 100%;
+            // margin-bottom: 10px;
+            // box-shadow: 0px 7px 24px -2px #000000;
+            // border-radius: 5px;
         }
-
 
         .desc-container {
             h4 {
@@ -43,6 +42,8 @@
     @include for-mobile-layout {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
+        gap: 15px 8px;
+
     }
 }
 
