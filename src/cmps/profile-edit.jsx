@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { useEffect } from 'react'
 import { updateStation } from '../store/station.actions'
 import { uploadImg } from '../services/upload.service'
-import { loadingImg ,checkLoading, defaultImg} from '../services/profile-service'
+import { loadingImg, checkLoading, defaultImg } from '../services/profile-service'
 import { updateUser } from '../store/user.actions'
 
 
@@ -45,9 +45,9 @@ export const ProfileEdit = ({ user, setUser, setMainImg, setIsEdit }) => {
 
     return (
         <div className='ms-edit-container'>
-            <div
-                onClick={() => setIsEdit(false)}
-            ><i className='fa-regular fa-rectangle-xmark'></i></div>
+            <div onClick={() => setIsEdit(false)}>
+            </div>
+
             <div className='ms-edit-main-container flex'>
                 <div className='pl-img-container'>
                     <label htmlFor='pl-edit-img'>
@@ -74,7 +74,7 @@ export const ProfileEdit = ({ user, setUser, setMainImg, setIsEdit }) => {
                         id='name'
                     />
                     <button
-                        className='btn-save-toy'
+                        className='btn-edit-save'
                     >Save</button>
                 </form>
             </div>

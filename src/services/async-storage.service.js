@@ -5,7 +5,8 @@ export const storageService = {
     put,
     remove,
     postMany,
-    loadFromStorage
+    loadFromStorage,
+    save
 }
 
 
@@ -33,7 +34,7 @@ function post(entityType, newEntity) {
             console.log('entities', entities)
 
             entities.push(newEntity)
-            _save(entityType, entities)
+            save(entityType, entities)
             return newEntity
         })
 }
@@ -43,7 +44,7 @@ function put(entityType, updatedEntity) {
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
             entities.splice(idx, 1, updatedEntity)
-            _save(entityType, entities)
+            save(entityType, entities)
             return updatedEntity
         })
 }
@@ -53,11 +54,11 @@ function remove(entityType, entityId) {
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === entityId)
             entities.splice(idx, 1)
-            _save(entityType, entities)
+            save(entityType, entities)
         })
 }
 
-function _save(entityType, entities) {
+function save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
@@ -76,7 +77,7 @@ function _makeId(length = 5) {
 }
 
 function postMany(entityType, entities) {
-    _save(entityType, entities)
+    save(entityType, entities)
     return Promise.resolve(entities)
 }
 

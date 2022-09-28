@@ -69,7 +69,6 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
 
     return <li
         style={{
-            // backgroundColor: getBgcolor(),
             background: `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`,
             color: dndStyle?.color,
             borderRadius: dndStyle?.borderRadius,
@@ -101,7 +100,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
             <div className='cp-2-container flex'>
                 {user && <LikesBtns clip={clip} station={station} />}
-                {getDuration(clip.duration)}
+                {clip.duration ? getDuration(clip.duration) : ''}
             </div>
 
             <i
