@@ -69,6 +69,7 @@
     }
 
     @include for-mobile-layout {
+
         .artist-name,
         .added {
             display: none;
@@ -87,6 +88,17 @@
         padding: 10px;
         max-width: 28.3px;
     }
+
+    .clip-equalizer {
+        padding: 10px;
+        max-width: 28.3px;
+
+        img {
+            width: 150%;
+        }
+    }
+
+
 
 
     .clip-img {
@@ -158,6 +170,7 @@
     }
 }
 
+
 .playlist-btns {
     display: flex;
     gap: 35px;
@@ -165,7 +178,7 @@
     align-items: center;
     padding: 30px;
     background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.6) 100%);
-    
+
     @include for-mobile-layout {
         height: 60px;
         gap: 20px;

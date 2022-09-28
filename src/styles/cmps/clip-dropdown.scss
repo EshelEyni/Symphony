@@ -1,5 +1,4 @@
-.dropdown-clip,
-.dropdown-list {
+.dropdown-clip {
     position: absolute;
     z-index: 20;
     background-color: #202020;
@@ -29,13 +28,16 @@
 
     ul>li,
     .dropdown-list {
-        // padding: 5px;
+        padding: 5px;
         width: max-content;
         height: fit-content;
     }
 
     .dropdown-list {
-        bottom: 0px;
+        position: absolute;
+        background-color: #1f1f1f;
+        left: -103px;
+        bottom: 60px;
         display: none;
     }
 
@@ -48,10 +50,8 @@
         color: green;
 
         .dropdown-list {
-            left: 0;
             display: block;
             height: fit-content;
-
         }
     }
 }

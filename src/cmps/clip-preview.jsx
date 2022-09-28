@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getDuration } from '../services/clip.service'
 import { LikesBtns } from './likes-btn'
 import { ClipDropdown } from './clip-dropdown'
@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
 import { useDispatch } from 'react-redux'
 import { storageService } from '../services/async-storage.service'
-const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664042770/Symphny/ezgif.com-gif-maker_2_fjbpjm.gif'
+const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664386983/Symphny/ezgif.com-gif-maker_cbbaoz.gif'
 
 export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, bgColor, dndStyle }) => {
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
@@ -18,7 +18,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
     let [isDropdownClip, setIsDropdownClip] = useState(false)
     let [isClicked, setIsClicked] = useState()
 
-    
+
     useEffect(() => {
         if (!currClip || !currPlaylist) return
         if (clip._id === currClip._id) {
@@ -79,13 +79,19 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
         className={'clip-preview-container '}>
         <div className='cp-main-container'>
             <div className='cp-1-container'>
-                <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                    onClick={() => {
-                        setIsClicked(!isClicked)
-                        onTogglePlay(clip, isClicked)
-                    }}></i>
-                {/* {currClip._id === clip._id && <img className='' src={equalizer} alt='clip-img' />} */}
-                <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
+
+                {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} alt='clip-img' /></div> :
+                    <React.Fragment>
+                        <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                            onClick={() => {
+                                setIsClicked(!isClicked)
+                                onTogglePlay(clip, isClicked)
+                            }}></i>
+                        <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
+                    </React.Fragment>
+                }
+
+
                 <img className='clip-img' src={clip.img?.url} alt='clip-img' />
                 <div className='clip-title'>
                     {clip.title}
