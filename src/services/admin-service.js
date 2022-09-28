@@ -1,9 +1,7 @@
 export const setArtistStation = (station) => {
     const clip = station.clips[0]
     station.name = clip.artist
-    station.imgUrl = clip.img.url
     station.isArtist = true
-    console.log('station', station)
     return station
 }
 

@@ -6,6 +6,7 @@ import { StationList } from '../cmps/station-list.jsx'
 import { defaultHeaderBgcolor } from '../services/bg-color.service'
 import { getStationByTag } from '../services/station.service.js'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
+import { loadStations } from '../store/station.actions.js'
 
 export const SymphonyApp = () => {
     let stations = useSelector(state => state.stationModule.stations)
@@ -13,6 +14,7 @@ export const SymphonyApp = () => {
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
+        dispatch(loadStations())
     }, [])
 
     return (
