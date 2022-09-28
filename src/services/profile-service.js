@@ -6,6 +6,7 @@ export const defaultImg = 'https://res.cloudinary.com/dng9sfzqt/image/upload/v16
 export const checkLoading = (img) => {
     return img === defaultImg ? 'rotate' : ''
 }
+ 
 
 
 export function getFilteredUsersList(users, loggedInUser, filterBy, stations, searchTerm) {
