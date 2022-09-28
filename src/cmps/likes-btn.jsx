@@ -4,13 +4,14 @@ import { getDate, isLiked } from "../services/clip.service"
 import { clearMsg, msg } from "../services/user.service"
 import { setUserMsg, updateUser } from "../store/user.actions"
 
-export const LikesBtns = ({ clip }) => {
+export const LikesBtns = ({ clip ,station}) => {
     const user = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
 
     const onLikeSong = (clip) => {
+        if (user.likedSongs.find(song => song._id === clip._id )) return
         clip.LikedAt = new Date(getDate()).toLocaleDateString()
-        user?.likedSongs.push(clip._id)
+        user?.likedSongs.push(clip)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' added to liked songs')))
         setTimeout(() => {
@@ -30,17 +31,16 @@ export const LikesBtns = ({ clip }) => {
     return (
 
         <div className="like-btn-container">
-            {isLiked(user, clip?._id) ? <button
+            {isLiked(user, clip) ? <button
                 className='like symbol fas fa-heart green'
                 onClick={() => onDisLikeSong(clip._id)}>
             </button> : <button
                 className='like symbol fa-regular fa-heart'
                 onClick={() => onLikeSong(clip)}>
-            </button>}
-        </div>
+            </button>
+            }
+        </div >
     )
-
-
 }
 
 

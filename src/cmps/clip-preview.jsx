@@ -25,7 +25,7 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onPlayClip, onR
     }
 
 
-const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
+    const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
 
 
     return <li
@@ -52,7 +52,7 @@ const bgcStr = `linear-dradient(to right,${getBgcolor()},${getBgcolor()})`
             <div className='artist-name'>{clip.artist}</div>
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
             <div className='cp-2-container flex'>
-                {user && <LikesBtns clip={clip} />}
+                {user && <LikesBtns clip={clip} station={station} />}
                 {getDuration(clip.duration)}
             </div>
 

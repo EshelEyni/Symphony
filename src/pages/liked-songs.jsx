@@ -12,21 +12,27 @@ import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { likedSongsBgcolor } from '../services/bg-color.service.js'
 import { setRecentlyPlayed, userService } from '../services/user.service.js'
 
+
+
 export const LikedSongs = () => {
     const user = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
-    let [clips, setClips] = useState(user.likedSongs)
-
+    let [clips, setClips] = useState()
+ 
     useEffect(() => {
+        setClip(user.likedSongs)
         dispatch(setHeaderBgcolor(likedSongsBgcolor))
-        setClips(user.likedSongs)
-    }, [user])
+    }, [])
 
-    const likedSongsStation = {
-        _id: 'liked-station',
-        name: 'Liked songs',
-        desc: 'your liked songs',
-        createdBy: { fullname: user.fullname }
+
+
+    const station = {
+        name: "Liked Songs",
+        imgUrl: LikedSongLogo,
+        clips: user.likedSongs,
+        createdBy: {
+            fullname: user.fullname
+        }
     }
 
     const onHandleDragEnd = (res) => {
@@ -38,7 +44,7 @@ export const LikedSongs = () => {
 
     const onPlayClip = (clip) => {
         dispatch(setClip(clip))
-        dispatch(setPlaylist(user))
+        dispatch(setPlaylist(station))
         dispatch(updateUser(user))
     }
 
@@ -49,7 +55,9 @@ export const LikedSongs = () => {
                     bgColor={likedSongsBgcolor}
                     isUserStation={true}
                     LikedSongLogo={LikedSongLogo}
-                    station={likedSongsStation}
+                    clips={station.clips}
+                    station={station}
+                    user={user.username}
                 />
             </div>
             <div className='ms-clips-container'>
@@ -64,8 +72,8 @@ export const LikedSongs = () => {
                                 bgColor={likedSongsBgcolor}
                                 provided={provided}
                                 clipKey={'liked-clip'}
-                                station={likedSongsStation}
-                                clips={clips}
+                                station={station}
+                                clips={station.clips}
                                 onPlayClip={onPlayClip}
                             />)}
                     </Droppable>
@@ -73,5 +81,7 @@ export const LikedSongs = () => {
             </div>
         </div >
     )
+
+
 
 }
