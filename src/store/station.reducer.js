@@ -21,7 +21,7 @@ export function stationReducer(state = initialState, action) {
         case 'UPDATE_MY_STATION':
             return {
                 ...state,
-                stations: state.stations.map(myStation => myStation._id === action.station._id ? action.station : myStation)
+                stations: state.stations.map(station => station._id === action.station._id ? action.station : station)
             }
         default:
             return state

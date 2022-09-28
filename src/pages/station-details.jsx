@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { defaultImg, getById } from '../services/station.service.js'
 import { SearchBar } from '../cmps/search-bar'
 import { removeStation, updateStation } from '../store/station.actions'
-import { setClip, setPlaylist } from '../store/media-player.actions.js'
+import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions.js'
 import { computeColor } from '../services/bg-color.service.js'
 import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
@@ -18,19 +18,21 @@ import { SearchList } from '../cmps/search-list.jsx'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { addDesc, addTag, setAdminMode, setArtistStation } from '../services/admin-service.js'
 import { socketService, USER_FORMATED_PLAYLIST, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
+import { storageService } from '../services/async-storage.service.js'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const stations = useSelector(state => state.stationModule.stations)
+    let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const params = useParams()
     const [station, setStation] = useState()
+    const params = useParams()
     const [imgUrl, setImgUrl] = useState()
     let [searchClips, setSearchClips] = useState([])
     let [playtlistClips, setPlaytlistClips] = useState([])
-    let [clipLength, setClipLength] = useState()
     let [bgColor, setBgcolor] = useState()
     let [isAdminMode, setAdminMode] = useState(false)
 
@@ -76,7 +78,6 @@ export const StationDetails = () => {
         setStation(station)
         setImgUrl(station?.imgUrl || defaultImg)
         setPlaytlistClips(station?.clips)
-        setClipLength(clipLength)
         if (station?.imgUrl) {
             computeColor(station?.imgUrl)
                 .then(color => {
@@ -84,7 +85,6 @@ export const StationDetails = () => {
                 })
         }
     }
-
     const onRemoveStation = () => {
         dispatch(removeStation(station._id))
         dispatch(setUserMsg(msg(station.name, ' removed from your library')))
@@ -108,11 +108,43 @@ export const StationDetails = () => {
     }
 
     const onPlayClip = (clip) => {
-        const { clips } = station
         dispatch(setClip(clip))
         dispatch(setPlaylist(station))
         dispatch(updateUser(user))
     }
+
+
+    const onTogglePlay = async (clip, isClicked) => {
+        console.log('clip', clip)
+        if (!isClicked) {
+            dispatch(setIsPlaying(false))
+            clearInterval(mediaPlayerInterval)
+            dispatch(setPlaylist(station))
+            dispatch(setClip(clip))
+            dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
+            playerFunc.playVideo()
+        }
+        if (isClicked) {
+            clearInterval(mediaPlayerInterval)
+            playerFunc.pauseVideo()
+        }
+        dispatch(setIsPlaying(!isPlaying))
+    }
+
+    const getTime = async () => {
+        const time = await playerFunc.getCurrentTime()
+        storageService.put('currTime', time)
+        dispatch(setCurrTime(time))
+        if (currTime > clipLength - 1.5) {
+            const currIdx = currPlaylist.clips.indexOf(currClip)
+            let nextIdx = currIdx + 1
+            if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
+            currClip = currPlaylist.clips[nextIdx]
+        }
+        dispatch(setClip(currClip))
+        dispatch(setIsPlaying(true))
+    }
+
 
     const onHandleDragEnd = (res) => {
         let { clips } = station
@@ -156,6 +188,7 @@ export const StationDetails = () => {
                 <StationHeader
                     isAdminMode={isAdminMode}
                     setAdminMode={setAdminMode}
+                    onTogglePlay={onTogglePlay}
                     bgColor={bgColor}
                     imgUrl={imgUrl}
                     isUserStation={station?.createdBy?._id === user?._id}
@@ -163,6 +196,7 @@ export const StationDetails = () => {
                     onRemoveStation={onRemoveStation}
                     setStation={setStation}
                 />
+
                 {/********************************* Admin Control  *********************************/}
                 {isAdminMode &&
                     <div className="admin-control-set">
@@ -172,9 +206,6 @@ export const StationDetails = () => {
                         <button onClick={() => onSetArtistStation(station)}>Set Artist Mode</button>
                     </div>
                 }
-
-
-                {/********************************* Admin Control  *********************************/}
 
 
                 <div className='ms-clips-container'>

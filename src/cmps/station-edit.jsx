@@ -1,12 +1,15 @@
 import { useDispatch } from 'react-redux'
 import { useRef, useState } from 'react'
 import { useEffect } from 'react'
-import { updateStation } from '../store/station.actions'
+import { loadStations, updateStation } from '../store/station.actions'
 import { uploadImg } from '../services/upload.service'
 import { loadingImg } from '../services/station.service'
+import { updateUser } from '../store/user.actions'
+import { useSelector } from 'react-redux'
 
 
 export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit }) => {
+    const loggedInUser = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
     const [imgUrl, setImgUrl] = useState()
     let [updatedStation, setUpdatedStation] = useState({ ...currStation })
@@ -34,8 +37,9 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
 
     const onUpdateStation = (ev) => {
         ev.preventDefault()
-        dispatch(updateStation(updatedStation))
         setCurrStation(updatedStation)
+        dispatch(updateStation(updatedStation))
+        dispatch(updateUser(loggedInUser))
         setMainImg(imgUrl)
         setIsEdit(false)
     }

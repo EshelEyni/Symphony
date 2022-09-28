@@ -24,7 +24,7 @@ export const MediaPlayer = () => {
     let [currVolume, setCurrVolume] = useState()
     let [playbackMode, setPlaybackMode] = useState('default-mode')
     let [isSwitchClip, setIsSwitchClip] = useState(true)
-    let [currThumbPos, setCurrThumbPos] = useState(43)
+    let [thumbPos, setThumbPos] = useState(currTime)
 
     useEffect(() => {
         const prevClip = storageService.loadFromStorage('prevClip')?.[0]
@@ -144,7 +144,8 @@ export const MediaPlayer = () => {
         currTime = await playerFunc.getCurrentTime()
         storageService.put('currTime', currTime)
         dispatch(setCurrTime(currTime))
-        setCurrThumbPos(currTime++)
+        const currThumbPos = thumbPos + currTime
+        setThumbPos(currThumbPos)
         if (currTime > clipLength - 1.5) switchClipByPlaybackMode(playbackMode)
     }
 
@@ -189,6 +190,8 @@ export const MediaPlayer = () => {
         dispatch(setCurrTime(currTime + skipNum))
         playerFunc.seekTo(currTime + skipNum)
     }
+
+
 
     return (
 
@@ -277,9 +280,10 @@ export const MediaPlayer = () => {
                     <label htmlFor='stream-line-input'></label>
                     <span className='track-time'>{getTimeFormat(currTime || 0)}</span>
 
-                    {/* Experiment Thumb */}
+                    {/*****************************************************************  Experiment Thumb **************************************************************/}
                     {/* <div
-                        style={{ left: currThumbPos }}
+                        style={{ left: currTime < 5 ? 45 : currTime++ }}
+                        title={currTime}
                         className="thumb">
                     </div> */}
 
@@ -287,6 +291,7 @@ export const MediaPlayer = () => {
                         name='stream-line'
                         className='stream-line-input'
                         size='medium'
+                        title={currTime}
                         value={currTime || 0}
                         max={+clipLength || 0}
                         onChange={handleChange}

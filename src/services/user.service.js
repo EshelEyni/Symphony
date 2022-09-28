@@ -14,7 +14,7 @@ export const userService = {
     update,
     updateFollowers,
     setRecentlyPlayed,
-    // updateUserStation
+    updateUserStation
 }
 
 function getUsers() {
@@ -37,6 +37,11 @@ async function update(user) {
     return user
 }
 
+function updateUserStation(user, station) {
+    const stationId = station._id
+    const currIdx = user.createdStations.findIndex(station => station._id === stationId)
+    user.createdStations[currIdx] = station
+}
 
 async function updateFollowers(user) {
     user = await httpService.put(`user/followers/${user._id}`, user)

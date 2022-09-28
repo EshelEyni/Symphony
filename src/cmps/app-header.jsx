@@ -13,6 +13,8 @@ export const AppHeader = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    console.log('isUserClicked', isUserClicked)
+
     const logout = () => {
         dispatch(onLogout())
         setUserClicked(false)
@@ -31,11 +33,11 @@ export const AppHeader = () => {
         <div
             // style={{ backgroundColor: bgColor }}
             className='app-header-container full flex'>
-            {isUserClicked &&
+            {/* {isUserClicked &&
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
                 ></div>
-            }
+            } */}
 
             <div className='app-header-user-links-container flex'>
                 {!user &&
@@ -60,7 +62,8 @@ export const AppHeader = () => {
                     {isUserClicked &&
                         <div className='user-profile-dropdown flex column'>
                             <NavLink to={'/user-profile/' + user._id}
-                                onClick={() => setUserClicked(false)}>Profile</NavLink>
+                                onClick={() => setUserClicked(false)}
+                                >Profile</NavLink>
                             <NavLink to='/about'
                                 onClick={() => setUserClicked(false)}>About</NavLink>
                             <NavLink to='/download'

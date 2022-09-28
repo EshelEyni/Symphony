@@ -9,8 +9,9 @@ export const LikesBtns = ({ clip }) => {
     const dispatch = useDispatch()
 
     const onLikeSong = (clip) => {
+        if (user.likedSongs.find(song => song._id === clip._id )) return
         clip.LikedAt = new Date(getDate()).toLocaleDateString()
-        user?.likedSongs.push(clip._id)
+        user?.likedSongs.push(clip)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' added to liked songs')))
         setTimeout(() => {
@@ -19,7 +20,7 @@ export const LikesBtns = ({ clip }) => {
     }
 
     const onDisLikeSong = (clipId) => {
-        user.likedSongs = user.likedSongs.filter(songId => songId !== clipId)
+        user.likedSongs = user.likedSongs.filter(song => song._id !== clipId)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' removed from your liked songs')))
         setTimeout(() => {
@@ -30,17 +31,16 @@ export const LikesBtns = ({ clip }) => {
     return (
 
         <div className="like-btn-container">
-            {isLiked(user, clip?._id) ? <button
+            {isLiked(user, clip._id) ? <button
                 className='like symbol fas fa-heart green'
                 onClick={() => onDisLikeSong(clip._id)}>
             </button> : <button
                 className='like symbol fa-regular fa-heart'
                 onClick={() => onLikeSong(clip)}>
-            </button>}
-        </div>
+            </button>
+            }
+        </div >
     )
-
-
 }
 
 
