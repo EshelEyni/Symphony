@@ -53,7 +53,7 @@ async function getClips(term) {
             height: clip.snippet.thumbnails.default.height,
         },
         artist: clip.snippet.channelTitle,
-        likedByUsers: []
+        // likedByUsers: []
     }))
 
     let str = ''

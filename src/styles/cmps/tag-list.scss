@@ -1,8 +1,158 @@
 .tags-list {
-    grid-template-columns: repeat(auto-fit, 150px);
-    margin: 20px;
-    gap: 10px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
+    gap: 15px;
+
+    &>*:nth-child(1) {
+        background-color: rgb(78, 114, 204);
+    }
+
+    &>*:nth-child(2) {
+        background-color: rgb(142, 217, 236);
+    }
+
+    &>*:nth-child(3) {
+        background-color: rgb(37, 190, 119);
+    }
+
+    &>*:nth-child(4) {
+        background-color: rgb(180, 180, 180);
+    }
+
+    &>*:nth-child(5) {
+        background-color: rgba(248, 198, 158, 0.884);
+    }
+
+    &>*:nth-child(6) {
+        background-color: rgb(232, 17, 91);
+    }
+
+    &>*:nth-child(7) {
+        background-color: rgba(180, 248, 201, 0.842);
+    }
+
+    &>*:nth-child(8) {
+        background-color: rgb(204, 107, 78);
+    }
+
+    &>*:nth-child(9) {
+        background-color: rgb(223, 215, 104);
+    }
+
+    &>*:nth-child(10) {
+        background-color: rgba(75, 186, 250, 0.541);
+    }
+
+    &>*:nth-child(11) {
+        background-color: rgba(158, 108, 240, 0.774);
+    }
+
+    &>*:nth-child(12) {
+        background-color: rgba(245, 166, 252, 0.767);
+    }
+
+    &>*:nth-child(13) {
+        background-color: rgba(78, 67, 238, 0.418);
+    }
+
+    &>*:nth-child(14) {
+        background-color: rgba(239, 252, 124, 0.836);
+    }
+
+    &>*:nth-child(15) {
+        background-color: rgba(190, 190, 190, 0.767);
+    }
+
+    &>*:nth-child(16) {
+        background-color: rgb(228, 167, 214);
+    }
+
+    &>*:nth-child(17) {
+        background-color: rgba(166, 252, 223, 0.767);
+    }
+
+    &>*:nth-child(18) {
+        background-color: rgba(248, 247, 175, 0.918);
+    }
+
+    &>*:nth-child(19) {
+        background-color: rgba(101, 142, 255, 0.767);
+    }
+
+    &>*:nth-child(20) {
+        background-color: rgba(252, 107, 82, 0.767);
+    }
+
+    &>*:nth-child(21) {
+        background-color: rgba(252, 166, 166, 0.767);
+    }
+
+    &>*:nth-child(22) {
+        background-color: rgba(225, 166, 252, 0.651);
+    }
+
+    &>*:nth-child(23) {
+        background-color: rgba(186, 252, 166, 0.767);
+    }
+
+    &>*:nth-child(24) {
+        background-color: rgba(252, 158, 96, 0.767);
+    }
+
+    &>*:nth-child(25) {
+        background-color: rgba(182, 166, 252, 0.685);
+    }
+
+    &>*:nth-child(26) {
+        background-color: rgba(245, 232, 114, 0.767);
+    }
+
+    &>*:nth-child(27) {
+        background-color: rgba(221, 85, 255, 0.767);
+    }
+
+    &>*:nth-child(28) {
+        background-color: rgba(220, 255, 210, 0.87);
+    }
+
+    @include for-mobile-layout {}
+
+    .tag-preview-container {
+        position: relative;
+        padding: 20px;
+        height: 210px;
+        width: 190px;
+        border-radius: 10px;
+        overflow: hidden;
+
+        @include for-mobile-layout {
+            height: 200px;
+            width: 180px;
+        }
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    .tag-preview-img {
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+        transform: rotate(25deg) translate(18%, 2%);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        opacity: 0.8;
+    }
+
     @include for-mobile-layout {
-        // margin: 20px 48px;
+        grid-template-columns: 0fr 0fr;
+        grid-template-rows: 1fr;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }

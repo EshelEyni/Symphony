@@ -81,7 +81,7 @@ export const Search = () => {
                         You haven't search anything yet...
 
                     <div className="tag-list-container">
-                        <h1>Browse all</h1>
+                        <h1 className='browse-all'>Browse all</h1>
                         <TagsList stations={stations} />
                     </div>
                 </div>

@@ -45,8 +45,9 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
         <div className='ms-edit-container'>
             <div
                 onClick={() => setIsEdit(false)}
-            ><i className='fa-regular fa-rectangle-xmark'></i></div>
+            ></div>
             <div className='ms-edit-main-container flex'>
+                <button className='btn-close'></button>
                 <div className='pl-img-container'>
                     <label htmlFor='pl-edit-img'>
                         <img
@@ -63,7 +64,7 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
                     className='ms-edit-form flex column'
                     onSubmit={onUpdateStation}>
                     <input
-                        className='ms-edit-input'
+                        className='ms-edit-input-name'
                         ref={inputRef}
                         defaultValue={currStation.name}
                         onChange={handleChange}
@@ -82,7 +83,7 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
                         id='name'
                     />
                     <button
-                        className='btn-save-toy'
+                        className='btn-edit-save'
                     >Save</button>
                 </form>
             </div>

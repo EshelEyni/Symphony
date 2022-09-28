@@ -45,6 +45,7 @@ input[type="range"] {
     -webkit-appearance: none;
     background-color: #4d4d4d;
     height: 4px;
+    border-radius: 25px;
 
     @include for-mobile-layout {
         height: 2px;
@@ -60,7 +61,7 @@ input[type="range"]::-webkit-slider-thumb {
     background: #1db954;
     height: 12px;
     width: 12px;
-    border-radius: 23px;
+    border-radius:50%;
     box-shadow: -500px 0 0 500px #ffffff;
 }
 
@@ -160,7 +161,6 @@ input[type="range"]::-webkit-slider-thumb {
     }
 }
 
-
 .action-btn,
 .sound-btn {
     font-size: 1rem;
@@ -171,7 +171,6 @@ input[type="range"]::-webkit-slider-thumb {
     &:hover {
         color: white;
     }
-
 }
 
 .sound-btn {
