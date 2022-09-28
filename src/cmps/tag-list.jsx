@@ -16,9 +16,15 @@ export const TagsList = ({ stations }) => {
         setTagsListToDisplay(tagList)
     }, [stations])
 
+    const arrayOfTagsImg=[
+        'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
+''
+    ]
+
     return <section className='tags-list grid'>
         {tagListToDisplay.map((tag, idx) => <TagsPreview
             key={'tag' + idx}
-            tag={tag} />)}
+            tag={tag} 
+            idx={idx}/>)}
     </section>
 }

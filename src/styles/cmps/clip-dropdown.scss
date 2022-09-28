@@ -9,7 +9,7 @@
     width: 170px;
     height: 180px;
     gap: 12px;
-    padding: 10px;
+    padding: 5px;
     background-color: #1f1f1f;
     font-family: circular;
     z-index: 20;
@@ -19,17 +19,22 @@
     }
 
     li,
-    ul {
-        gap: 12px;
-        padding: 5px;
+    p {
+        padding: 10px;
         width: max-content;
         height: fit-content;
         text-align: start;
     }
 
+    .add-to-station {
+        width: max-content;
+        height: fit-content;
+        text-align: start;
+        padding: 10px;
+    }
+
     ul>li,
     .dropdown-list {
-        // padding: 5px;
         width: max-content;
         height: fit-content;
     }
@@ -45,7 +50,9 @@
     }
 
     .add-to-station:hover {
-        color: green;
+        color: white;
+        background-color: #757575;
+        cursor: pointer;
 
         .dropdown-list {
             left: 0;
