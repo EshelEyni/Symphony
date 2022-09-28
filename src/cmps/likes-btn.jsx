@@ -4,7 +4,7 @@ import { getDate, isLiked } from "../services/clip.service"
 import { clearMsg, msg } from "../services/user.service"
 import { setUserMsg, updateUser } from "../store/user.actions"
 
-export const LikesBtns = ({ clip ,station}) => {
+export const LikesBtns = ({ clip }) => {
     const user = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
 
@@ -20,7 +20,7 @@ export const LikesBtns = ({ clip ,station}) => {
     }
 
     const onDisLikeSong = (clipId) => {
-        user.likedSongs = user.likedSongs.filter(songId => songId !== clipId)
+        user.likedSongs = user.likedSongs.filter(song => song._id !== clipId)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' removed from your liked songs')))
         setTimeout(() => {
@@ -31,7 +31,7 @@ export const LikesBtns = ({ clip ,station}) => {
     return (
 
         <div className="like-btn-container">
-            {isLiked(user, clip) ? <button
+            {isLiked(user, clip._id) ? <button
                 className='like symbol fas fa-heart green'
                 onClick={() => onDisLikeSong(clip._id)}>
             </button> : <button
