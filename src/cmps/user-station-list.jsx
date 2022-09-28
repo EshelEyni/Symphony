@@ -1,9 +1,18 @@
+import { useEffect } from "react"
 import { Draggable } from "react-beautiful-dnd"
+import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { defaultGreenColor } from '../services/bg-color.service'
 
 
-export const UserStationList = ({ userStations, provided, style }) => {
+export const UserStationList = ({ userStations, setUserStations, provided, style }) => {
+    const stations = useSelector(state => state.stationModule.stations)
+
+    useEffect(() => {
+        setUserStations(userStations)
+    }, [stations])
+
+
     return (<ul
         className='user-stations-container'
         {...provided.droppableProps}

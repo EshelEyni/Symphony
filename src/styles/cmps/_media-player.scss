@@ -109,6 +109,7 @@ input[type="range"]::-webkit-slider-thumb {
 .thumb {
     top: 55px;
     height: 15px;
+    // margin-inline-start: 45px;
     width: 15px;
     position: absolute;
     border-radius: 50%;

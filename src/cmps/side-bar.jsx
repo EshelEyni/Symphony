@@ -22,11 +22,11 @@ export const SideBar = () => {
     useEffect(() => {
         dispatch(loadStations())
     }, [loggedInUser])
-
+    
     useEffect(() => {
         if (loggedInUser) {
-            userStations = stations.filter(station => (station?.createdBy?._id === loggedInUser?._id && !station.isSearch)).reverse()
-            setUserStations(userStations)
+            const updatedUserStations = stations.filter(station => (station?.createdBy?._id === loggedInUser?._id && !station.isSearch)).reverse()
+            setUserStations(updatedUserStations)
             setIsAddStation(true)
         }
     }, [stations])
@@ -81,6 +81,7 @@ export const SideBar = () => {
                         {(provided) => (
                             <UserStationList
                                 provided={provided}
+                                setUserStations={setUserStations}
                                 userStations={userStations} />
                         )}
                     </Droppable>

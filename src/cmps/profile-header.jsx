@@ -14,20 +14,19 @@ export const ProfileHeader = ({ user, setUser }) => {
     const loggedInUser = useSelector(state => state.userModule.user)
     let stations = useSelector(state => state.stationModule.stations)
 
-    const [imgUrl, setImgUrl] = useState(user.imgUrl)
+    const [profileImgUrl, setProfileImgUrl] = useState()
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [isFollowedProfile, setIsFollowedProfile] = useState(checkIsFollowedProfile())
     const dispatch = useDispatch()
 
-    const users = useSelector(state => state.userModule.users)
-
-
+    // const users = useSelector(state => state.userModule.users)
     const isLoggedInUserProfile = loggedInUser._id === user._id
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(profileBgcolor))
-    }, [])
+        setProfileImgUrl(user.imgUrl)
+    }, [user])
 
     function checkIsFollowedProfile() {
         if (loggedInUser?.following?.find(profileId => profileId === user?._id)) return true
@@ -35,9 +34,9 @@ export const ProfileHeader = ({ user, setUser }) => {
     }
 
     const onUploadImg = async (ev) => {
-        setImgUrl(defaultImg)
+        setProfileImgUrl(defaultImg)
         const currImgUrl = await uploadImg(ev)
-        setImgUrl(currImgUrl)
+        setProfileImgUrl(currImgUrl)
         user.imgUrl = currImgUrl
         dispatch(updateUser(user))
     }
@@ -66,8 +65,8 @@ export const ProfileHeader = ({ user, setUser }) => {
             {<div className='pl-img-container'>
                 <label htmlFor='profile-img'>
                     <img
-                        className={'profile-img ' + checkLoading(imgUrl)}
-                        src={imgUrl ? imgUrl : pic}
+                        className={'profile-img ' + checkLoading(profileImgUrl)}
+                        src={profileImgUrl ? profileImgUrl : pic}
                         alt='profile-img' />
                 </label>
                 <input
@@ -107,7 +106,7 @@ export const ProfileHeader = ({ user, setUser }) => {
                 setUser={setUser}
                 setIsDropdown={setIsDropdown}
                 setIsEdit={setIsEdit}
-                setMainImg={setImgUrl}
+                setMainImg={setProfileImgUrl}
             />}
         </div>
     </div>

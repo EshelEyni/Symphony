@@ -186,9 +186,16 @@ ul {
     }
 }
 
-.admin-state-btn{
+.admin-state-btn {
+    font-size: 32px;
     cursor: pointer;
 }
+
+.clip-dp-btn {
+    height: 32px;
+    width: 32px;
+}
+
 .admin-control-set {
     position: absolute;
     display: flex;
