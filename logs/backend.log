@@ -1,0 +1,901 @@
+28/09/2022, 12:48:31 - INFO - Server is running on port: 3030
+28/09/2022, 12:48:32 - INFO - New connected socket [id: 5UG8YvMu5LU2yGPbAAAB]
+28/09/2022, 12:49:09 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 12:49:10 - INFO - New connected socket [id: hycHwQsSCr9u_pGkAAAD]
+28/09/2022, 12:49:10 - DEBUG - Getting Stations
+28/09/2022, 12:49:16 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 12:49:17 - DEBUG - Getting Stations
+28/09/2022, 12:49:17 - INFO - New connected socket [id: 8uSWn7G3-IcKBDCDAAAF]
+28/09/2022, 12:49:28 - DEBUG - Getting Stations
+28/09/2022, 12:49:29 - DEBUG - Getting Stations
+28/09/2022, 12:59:48 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 12:59:50 - INFO - New connected socket [id: WoH-yPT_q55GW6aEAAAH]
+28/09/2022, 12:59:50 - DEBUG - Getting Stations
+28/09/2022, 13:04:21 - DEBUG - Getting Stations
+28/09/2022, 13:05:40 - DEBUG - Getting Stations
+28/09/2022, 13:05:48 - DEBUG - Getting Stations
+28/09/2022, 13:13:25 - INFO - Socket is leaving topic 63326b98d46a2109e88afa74 [id: WoH-yPT_q55GW6aEAAAH]
+28/09/2022, 13:13:26 - DEBUG - Getting Stations
+28/09/2022, 13:13:34 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:13:34 - INFO - New connected socket [id: 5PoI_uf0ZXGVEkiIAAAJ]
+28/09/2022, 13:13:35 - DEBUG - Getting Stations
+28/09/2022, 13:14:38 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:14:39 - INFO - New connected socket [id: 1iupNbFDlCfHwItsAAAL]
+28/09/2022, 13:14:39 - DEBUG - Getting Stations
+28/09/2022, 13:15:50 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:15:51 - INFO - New connected socket [id: 266xLA-xUVlAqgjxAAAN]
+28/09/2022, 13:15:51 - DEBUG - Getting Stations
+28/09/2022, 13:17:09 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:17:10 - INFO - New connected socket [id: 5hHQcK_Knj3lQYoXAAAP]
+28/09/2022, 13:17:10 - DEBUG - Getting Stations
+28/09/2022, 13:18:57 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:18:59 - DEBUG - Getting Stations
+28/09/2022, 13:18:59 - INFO - New connected socket [id: n7tWqvMNFnmK1QrDAAAR]
+28/09/2022, 13:19:56 - DEBUG - Getting Stations
+28/09/2022, 13:19:59 - DEBUG - Getting Stations
+28/09/2022, 13:20:15 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:20:17 - INFO - New connected socket [id: Ar69MO0Bwk8ECurjAAAT]
+28/09/2022, 13:20:17 - DEBUG - Getting Stations
+28/09/2022, 13:20:19 - DEBUG - Getting Stations
+28/09/2022, 13:20:28 - DEBUG - Getting Stations
+28/09/2022, 13:20:44 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:20:46 - DEBUG - Getting Stations
+28/09/2022, 13:20:46 - INFO - New connected socket [id: s1Ri4VjOitlectPSAAAV]
+28/09/2022, 13:20:47 - DEBUG - Getting Stations
+28/09/2022, 13:21:38 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:21:40 - INFO - New connected socket [id: 5019qwc2gAevZ54_AAAX]
+28/09/2022, 13:21:40 - DEBUG - Getting Stations
+28/09/2022, 13:21:41 - DEBUG - Getting Stations
+28/09/2022, 13:23:27 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:23:28 - INFO - New connected socket [id: xEXOsdzAzLPuZMFIAAAZ]
+28/09/2022, 13:23:28 - DEBUG - Getting Stations
+28/09/2022, 13:23:29 - DEBUG - Getting Stations
+28/09/2022, 13:24:45 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:24:45 - INFO - New connected socket [id: 4IdnCGp7ZXh_xxYnAAAb]
+28/09/2022, 13:24:46 - DEBUG - Getting Stations
+28/09/2022, 13:24:46 - DEBUG - Getting Stations
+28/09/2022, 13:24:50 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:24:51 - DEBUG - Getting Stations
+28/09/2022, 13:24:51 - INFO - New connected socket [id: JdJPg4A1boTu-746AAAd]
+28/09/2022, 13:24:52 - DEBUG - Getting Stations
+28/09/2022, 13:25:35 - DEBUG - Getting Stations
+28/09/2022, 13:28:03 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:28:03 - INFO - New connected socket [id: _7KDRk-u4AagWHc-AAAf]
+28/09/2022, 13:28:03 - DEBUG - Getting Stations
+28/09/2022, 13:29:20 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:29:20 - INFO - New connected socket [id: vxYMZKBu4w95qH99AAAh]
+28/09/2022, 13:29:21 - DEBUG - Getting Stations
+28/09/2022, 13:30:58 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:31:02 - INFO - New connected socket [id: gFL1qA-2NM2N8jplAAAj]
+28/09/2022, 13:31:02 - DEBUG - Getting Stations
+28/09/2022, 13:31:30 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:31:32 - INFO - New connected socket [id: -nJ0-FeMAUnrg94xAAAl]
+28/09/2022, 13:31:32 - DEBUG - Getting Stations
+28/09/2022, 13:33:18 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:33:19 - DEBUG - Getting Stations
+28/09/2022, 13:33:19 - INFO - New connected socket [id: r2ZAlYcykd-MWWq8AAAn]
+28/09/2022, 13:33:30 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 13:33:30 - INFO - New connected socket [id: qKIimQwGnfcLbHsRAAAp]
+28/09/2022, 13:33:31 - DEBUG - Getting Stations
+28/09/2022, 14:03:12 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:03:13 - INFO - New connected socket [id: wRHoqwCN2MM27zxYAAAr]
+28/09/2022, 14:03:13 - DEBUG - Getting Stations
+28/09/2022, 14:19:34 - INFO - Socket is leaving topic 63326c62d46a2109e88afa75 [id: wRHoqwCN2MM27zxYAAAr]
+28/09/2022, 14:19:34 - DEBUG - Getting Stations
+28/09/2022, 14:19:38 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:19:39 - INFO - New connected socket [id: UP1aDMK9BZ-tN0j1AAAt]
+28/09/2022, 14:19:39 - DEBUG - Getting Stations
+28/09/2022, 14:20:49 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:20:50 - DEBUG - Getting Stations
+28/09/2022, 14:20:50 - INFO - New connected socket [id: RmTXS3IAZH5ffOL0AAAv]
+28/09/2022, 14:26:26 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:26:26 - DEBUG - Getting Stations
+28/09/2022, 14:26:26 - INFO - New connected socket [id: ROpz46obpjztrYpMAAAx]
+28/09/2022, 14:26:41 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:26:42 - INFO - New connected socket [id: KDxw8FeKKgM1pmV7AAAz]
+28/09/2022, 14:26:42 - DEBUG - Getting Stations
+28/09/2022, 14:27:09 - DEBUG - Getting Stations
+28/09/2022, 14:27:13 - INFO - Socket is leaving topic 63326b98d46a2109e88afa74 [id: KDxw8FeKKgM1pmV7AAAz]
+28/09/2022, 14:29:34 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:29:34 - INFO - New connected socket [id: U5XYevWAovnmWKUuAAA1]
+28/09/2022, 14:29:35 - DEBUG - Getting Stations
+28/09/2022, 14:32:40 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:32:41 - INFO - New connected socket [id: Yx8pInuC7taRuVTUAAA3]
+28/09/2022, 14:32:41 - DEBUG - Getting Stations
+28/09/2022, 14:33:10 - DEBUG - Getting Stations
+28/09/2022, 14:33:15 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:33:16 - DEBUG - Getting Stations
+28/09/2022, 14:33:16 - INFO - New connected socket [id: U31-lk-gvGpev-fNAAA5]
+28/09/2022, 14:35:16 - DEBUG - Getting Stations
+28/09/2022, 14:35:29 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:35:30 - INFO - New connected socket [id: O5OT0Ms7G6x2XIPgAAA7]
+28/09/2022, 14:35:30 - DEBUG - Getting Stations
+28/09/2022, 14:37:25 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:37:25 - INFO - New connected socket [id: v3g11c9pejJbbn2MAAA9]
+28/09/2022, 14:37:25 - DEBUG - Getting Stations
+28/09/2022, 14:37:59 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:38:00 - INFO - New connected socket [id: trpAqv2xTRYWBbKRAAA_]
+28/09/2022, 14:38:00 - DEBUG - Getting Stations
+28/09/2022, 14:38:36 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:38:37 - DEBUG - Getting Stations
+28/09/2022, 14:38:37 - INFO - New connected socket [id: 2kBVSBaDvm4IBov_AABB]
+28/09/2022, 14:39:39 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:39:39 - INFO - New connected socket [id: tofltGdq4r80qya4AABD]
+28/09/2022, 14:39:39 - DEBUG - Getting Stations
+28/09/2022, 14:40:16 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:40:17 - DEBUG - Getting Stations
+28/09/2022, 14:40:17 - INFO - New connected socket [id: 0ZBK_0yxbgMlOhceAABF]
+28/09/2022, 14:41:27 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:41:28 - INFO - New connected socket [id: sj0bM8cF1p7rOuYGAABH]
+28/09/2022, 14:41:28 - DEBUG - Getting Stations
+28/09/2022, 14:44:39 - DEBUG - Getting Stations
+28/09/2022, 14:44:39 - INFO - New connected socket [id: ke2d7W6-fX3risYuAABJ]
+28/09/2022, 14:44:54 - DEBUG - Getting Stations
+28/09/2022, 14:45:28 - INFO - New chat msg from socket [id: sj0bM8cF1p7rOuYGAABH], emitting to topic 63341fca2098bdeacbe06d29
+28/09/2022, 14:45:34 - INFO - New chat msg from socket [id: sj0bM8cF1p7rOuYGAABH], emitting to topic 63341fca2098bdeacbe06d29
+28/09/2022, 14:46:04 - INFO - New chat msg from socket [id: sj0bM8cF1p7rOuYGAABH], emitting to topic 63341fca2098bdeacbe06d29
+28/09/2022, 14:48:10 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:48:11 - INFO - New connected socket [id: YHIEilDNfQVw9ejnAABL]
+28/09/2022, 14:48:11 - DEBUG - Getting Stations
+28/09/2022, 14:49:02 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:49:03 - INFO - New connected socket [id: gbw18MPNEvSR4B0wAABN]
+28/09/2022, 14:49:03 - DEBUG - Getting Stations
+28/09/2022, 14:50:23 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:50:24 - DEBUG - Getting Stations
+28/09/2022, 14:50:24 - INFO - New connected socket [id: xzDDqArkFG6eBfnZAABP]
+28/09/2022, 14:51:01 - DEBUG - Getting Stations
+28/09/2022, 14:51:02 - DEBUG - Getting Stations
+28/09/2022, 14:51:04 - DEBUG - Getting Stations
+28/09/2022, 14:51:11 - DEBUG - Getting Stations
+28/09/2022, 14:51:11 - DEBUG - Getting Stations
+28/09/2022, 14:51:14 - DEBUG - Getting Stations
+28/09/2022, 14:51:52 - DEBUG - Getting Stations
+28/09/2022, 14:54:06 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:55:11 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 14:55:12 - DEBUG - Getting Stations
+28/09/2022, 14:55:12 - INFO - New connected socket [id: pr-OUuFBZyit_2cWAABR]
+28/09/2022, 14:55:12 - DEBUG - Getting Stations
+28/09/2022, 15:01:27 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 15:01:27 - INFO - New connected socket [id: ZMonTSiInjskApfmAABT]
+28/09/2022, 15:01:28 - DEBUG - Getting Stations
+28/09/2022, 15:28:24 - DEBUG - Getting Stations
+28/09/2022, 15:28:24 - DEBUG - Getting Stations
+28/09/2022, 15:28:37 - DEBUG - Getting Stations
+28/09/2022, 15:30:37 - DEBUG - Getting Stations
+28/09/2022, 15:30:38 - DEBUG - Getting Stations
+28/09/2022, 15:30:38 - DEBUG - Getting Stations
+28/09/2022, 15:38:20 - DEBUG - Getting Stations
+28/09/2022, 15:38:21 - DEBUG - Getting Stations
+28/09/2022, 15:38:21 - DEBUG - Getting Stations
+28/09/2022, 15:39:10 - DEBUG - Getting Stations
+28/09/2022, 15:41:03 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 15:41:04 - DEBUG - Getting Stations
+28/09/2022, 15:41:04 - INFO - New connected socket [id: 77hXpXb9rxLuw5goAABV]
+28/09/2022, 15:41:11 - DEBUG - Getting Stations
+28/09/2022, 15:47:49 - DEBUG - Getting Stations
+28/09/2022, 15:47:50 - DEBUG - Getting Stations
+28/09/2022, 15:48:01 - DEBUG - Getting Stations
+28/09/2022, 15:49:18 - DEBUG - Getting Stations
+28/09/2022, 15:49:18 - DEBUG - Getting Stations
+28/09/2022, 15:49:19 - DEBUG - Getting Stations
+28/09/2022, 15:49:19 - DEBUG - Getting Stations
+28/09/2022, 15:49:27 - DEBUG - Getting Stations
+28/09/2022, 15:49:28 - DEBUG - Getting Stations
+28/09/2022, 15:49:50 - DEBUG - Getting Stations
+28/09/2022, 15:52:11 - INFO - New connected socket [id: _J4252Qo3_Ylfg4dAABX]
+28/09/2022, 15:52:11 - DEBUG - Getting Stations
+28/09/2022, 15:52:13 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 15:53:10 - DEBUG - Getting Stations
+28/09/2022, 15:53:11 - DEBUG - Getting Stations
+28/09/2022, 15:53:18 - DEBUG - Getting Stations
+28/09/2022, 15:54:47 - DEBUG - Getting Stations
+28/09/2022, 15:54:48 - DEBUG - Getting Stations
+28/09/2022, 15:54:48 - DEBUG - Getting Stations
+28/09/2022, 15:56:27 - DEBUG - Getting Stations
+28/09/2022, 15:56:27 - DEBUG - Getting Stations
+28/09/2022, 15:56:28 - DEBUG - Getting Stations
+28/09/2022, 16:03:41 - DEBUG - Getting Stations
+28/09/2022, 16:03:41 - DEBUG - Getting Stations
+28/09/2022, 16:03:47 - DEBUG - Getting Stations
+28/09/2022, 16:05:05 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 16:05:06 - DEBUG - Getting Stations
+28/09/2022, 16:05:06 - INFO - New connected socket [id: t_iEzcV_NhbVJzfsAABZ]
+28/09/2022, 16:05:58 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 16:05:59 - DEBUG - Getting Stations
+28/09/2022, 16:05:59 - INFO - New connected socket [id: H1O08YQsIa33quPJAABb]
+28/09/2022, 16:13:15 - DEBUG - Getting Stations
+28/09/2022, 16:41:22 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 16:41:23 - DEBUG - Getting Stations
+28/09/2022, 16:41:23 - INFO - New connected socket [id: 9zpKdColAmWOsZfUAABd]
+28/09/2022, 16:44:06 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 16:44:07 - INFO - New connected socket [id: eWhjIgiW64uUXRm-AABf]
+28/09/2022, 16:44:07 - DEBUG - Getting Stations
+28/09/2022, 17:11:11 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:11:12 - DEBUG - Getting Stations
+28/09/2022, 17:11:12 - INFO - New connected socket [id: hfd9Wo6w1c29VHRJAABh]
+28/09/2022, 17:11:14 - DEBUG - Getting Stations
+28/09/2022, 17:11:15 - DEBUG - Getting Stations
+28/09/2022, 17:11:15 - DEBUG - Getting Stations
+28/09/2022, 17:11:15 - DEBUG - Getting Stations
+28/09/2022, 17:13:00 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:13:00 - INFO - New connected socket [id: uSlgKXmfwsngVHOAAABj]
+28/09/2022, 17:13:00 - DEBUG - Getting Stations
+28/09/2022, 17:14:09 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:14:10 - DEBUG - Getting Stations
+28/09/2022, 17:14:10 - INFO - New connected socket [id: 0gQtQWJ3y7ODyZFlAABl]
+28/09/2022, 17:17:27 - DEBUG - Getting Stations
+28/09/2022, 17:17:28 - DEBUG - Getting Stations
+28/09/2022, 17:17:28 - DEBUG - Getting Stations
+28/09/2022, 17:17:29 - DEBUG - Getting Stations
+28/09/2022, 17:18:22 - DEBUG - Getting Stations
+28/09/2022, 17:19:53 - DEBUG - Getting Stations
+28/09/2022, 17:19:55 - DEBUG - Getting Stations
+28/09/2022, 17:19:56 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:19:57 - INFO - New connected socket [id: ye7_MxX0oUFPy9eVAABn]
+28/09/2022, 17:19:57 - DEBUG - Getting Stations
+28/09/2022, 17:19:58 - DEBUG - Getting Stations
+28/09/2022, 17:19:58 - DEBUG - Getting Stations
+28/09/2022, 17:19:59 - DEBUG - Getting Stations
+28/09/2022, 17:19:59 - DEBUG - Getting Stations
+28/09/2022, 17:20:03 - DEBUG - Getting Stations
+28/09/2022, 17:20:03 - DEBUG - Getting Stations
+28/09/2022, 17:20:04 - DEBUG - Getting Stations
+28/09/2022, 17:20:04 - DEBUG - Getting Stations
+28/09/2022, 17:21:22 - DEBUG - Getting Stations
+28/09/2022, 17:21:22 - DEBUG - Getting Stations
+28/09/2022, 17:21:22 - DEBUG - Getting Stations
+28/09/2022, 17:21:23 - DEBUG - Getting Stations
+28/09/2022, 17:21:33 - DEBUG - Getting Stations
+28/09/2022, 17:22:11 - ERROR - while finding user undefined | {}
+28/09/2022, 17:22:11 - ERROR - Failed to get user | {}
+28/09/2022, 17:22:11 - DEBUG - Getting Stations
+28/09/2022, 17:22:15 - DEBUG - Getting Stations
+28/09/2022, 17:22:16 - DEBUG - Getting Stations
+28/09/2022, 17:24:27 - DEBUG - Getting Stations
+28/09/2022, 17:24:27 - DEBUG - Getting Stations
+28/09/2022, 17:27:06 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:27:06 - INFO - New connected socket [id: zl1A_GV4jQgsrwy6AABp]
+28/09/2022, 17:27:06 - DEBUG - Getting Stations
+28/09/2022, 17:27:07 - DEBUG - Getting Stations
+28/09/2022, 17:32:37 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:32:38 - DEBUG - Getting Stations
+28/09/2022, 17:32:38 - INFO - New connected socket [id: pK4tetWOmT_UzniGAABr]
+28/09/2022, 17:32:39 - DEBUG - Getting Stations
+28/09/2022, 17:33:03 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:33:03 - INFO - New connected socket [id: ByC0fQOozODJfE2NAABt]
+28/09/2022, 17:33:03 - DEBUG - Getting Stations
+28/09/2022, 17:33:04 - DEBUG - Getting Stations
+28/09/2022, 17:33:47 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:33:48 - DEBUG - Getting Stations
+28/09/2022, 17:33:48 - INFO - New connected socket [id: _UZ2ZCg9i0cz1gSkAABv]
+28/09/2022, 17:33:49 - DEBUG - Getting Stations
+28/09/2022, 17:33:49 - DEBUG - Getting Stations
+28/09/2022, 17:33:50 - DEBUG - Getting Stations
+28/09/2022, 17:33:50 - DEBUG - Getting Stations
+28/09/2022, 17:33:51 - DEBUG - Getting Stations
+28/09/2022, 17:38:02 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:38:04 - DEBUG - Getting Stations
+28/09/2022, 17:38:04 - INFO - New connected socket [id: ncu8HcD9NHC7mfH7AABy]
+28/09/2022, 17:38:04 - DEBUG - Getting Stations
+28/09/2022, 17:38:39 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:38:41 - DEBUG - Getting Stations
+28/09/2022, 17:38:41 - INFO - New connected socket [id: U3Afkp1qgSpm4KxyAAB0]
+28/09/2022, 17:38:42 - DEBUG - Getting Stations
+28/09/2022, 17:39:03 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:39:04 - INFO - New connected socket [id: _fsFEVumTlsp1DOHAAB2]
+28/09/2022, 17:39:04 - DEBUG - Getting Stations
+28/09/2022, 17:39:05 - DEBUG - Getting Stations
+28/09/2022, 17:46:53 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:46:54 - INFO - New connected socket [id: n-Ba0DvwgPBM5tDVAAB4]
+28/09/2022, 17:46:55 - DEBUG - Getting Stations
+28/09/2022, 17:47:40 - DEBUG - Getting Stations
+28/09/2022, 17:48:09 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:48:10 - INFO - New connected socket [id: QRqDIlPGp7g-t5s9AAB6]
+28/09/2022, 17:48:10 - DEBUG - Getting Stations
+28/09/2022, 17:48:11 - DEBUG - Getting Stations
+28/09/2022, 17:55:09 - DEBUG - Getting Stations
+28/09/2022, 17:55:09 - DEBUG - Getting Stations
+28/09/2022, 17:55:13 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:55:14 - DEBUG - Getting Stations
+28/09/2022, 17:55:14 - INFO - New connected socket [id: YPlxDrwt0STYq9yAAAB8]
+28/09/2022, 17:55:14 - DEBUG - Getting Stations
+28/09/2022, 17:56:12 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 17:56:12 - INFO - New connected socket [id: 7UAlQ5_zMqfdUSE9AAB-]
+28/09/2022, 17:56:13 - DEBUG - Getting Stations
+28/09/2022, 17:56:13 - DEBUG - Getting Stations
+28/09/2022, 17:56:42 - DEBUG - Getting Stations
+28/09/2022, 17:57:09 - DEBUG - Getting Stations
+28/09/2022, 17:57:09 - DEBUG - Getting Stations
+28/09/2022, 17:57:16 - DEBUG - Getting Stations
+28/09/2022, 17:59:07 - INFO - Socket is leaving topic 63341fca2098bdeacbe06d29 [id: 7UAlQ5_zMqfdUSE9AAB-]
+28/09/2022, 17:59:07 - DEBUG - Getting Stations
+28/09/2022, 18:01:05 - DEBUG - Getting Stations
+28/09/2022, 18:04:17 - DEBUG - Getting Stations
+28/09/2022, 18:06:48 - DEBUG - Getting Stations
+28/09/2022, 18:06:48 - DEBUG - Getting Stations
+28/09/2022, 18:06:49 - DEBUG - Getting Stations
+28/09/2022, 18:06:50 - DEBUG - Getting Stations
+28/09/2022, 18:06:50 - DEBUG - Getting Stations
+28/09/2022, 18:06:51 - DEBUG - Getting Stations
+28/09/2022, 18:06:51 - DEBUG - Getting Stations
+28/09/2022, 18:06:52 - DEBUG - Getting Stations
+28/09/2022, 18:06:52 - DEBUG - Getting Stations
+28/09/2022, 18:06:53 - DEBUG - Getting Stations
+28/09/2022, 18:06:53 - DEBUG - Getting Stations
+28/09/2022, 18:06:54 - DEBUG - Getting Stations
+28/09/2022, 18:06:54 - DEBUG - Getting Stations
+28/09/2022, 18:06:55 - DEBUG - Getting Stations
+28/09/2022, 18:06:55 - DEBUG - Getting Stations
+28/09/2022, 18:06:56 - DEBUG - Getting Stations
+28/09/2022, 18:06:56 - DEBUG - Getting Stations
+28/09/2022, 18:06:57 - DEBUG - Getting Stations
+28/09/2022, 18:06:57 - DEBUG - Getting Stations
+28/09/2022, 18:06:58 - DEBUG - Getting Stations
+28/09/2022, 18:06:58 - DEBUG - Getting Stations
+28/09/2022, 18:06:58 - DEBUG - Getting Stations
+28/09/2022, 18:06:59 - DEBUG - Getting Stations
+28/09/2022, 18:06:59 - DEBUG - Getting Stations
+28/09/2022, 18:06:59 - DEBUG - Getting Stations
+28/09/2022, 18:07:00 - DEBUG - Getting Stations
+28/09/2022, 18:07:00 - DEBUG - Getting Stations
+28/09/2022, 18:07:01 - DEBUG - Getting Stations
+28/09/2022, 18:07:01 - DEBUG - Getting Stations
+28/09/2022, 18:07:02 - DEBUG - Getting Stations
+28/09/2022, 18:07:02 - DEBUG - Getting Stations
+28/09/2022, 18:07:02 - DEBUG - Getting Stations
+28/09/2022, 18:07:03 - DEBUG - Getting Stations
+28/09/2022, 18:07:03 - DEBUG - Getting Stations
+28/09/2022, 18:07:04 - DEBUG - Getting Stations
+28/09/2022, 18:07:04 - DEBUG - Getting Stations
+28/09/2022, 18:07:04 - DEBUG - Getting Stations
+28/09/2022, 18:07:05 - DEBUG - Getting Stations
+28/09/2022, 18:07:05 - DEBUG - Getting Stations
+28/09/2022, 18:07:06 - DEBUG - Getting Stations
+28/09/2022, 18:07:06 - DEBUG - Getting Stations
+28/09/2022, 18:07:07 - DEBUG - Getting Stations
+28/09/2022, 18:07:07 - DEBUG - Getting Stations
+28/09/2022, 18:07:07 - DEBUG - Getting Stations
+28/09/2022, 18:07:08 - DEBUG - Getting Stations
+28/09/2022, 18:07:08 - DEBUG - Getting Stations
+28/09/2022, 18:07:09 - DEBUG - Getting Stations
+28/09/2022, 18:07:09 - DEBUG - Getting Stations
+28/09/2022, 18:07:09 - DEBUG - Getting Stations
+28/09/2022, 18:07:10 - DEBUG - Getting Stations
+28/09/2022, 18:07:10 - DEBUG - Getting Stations
+28/09/2022, 18:07:11 - DEBUG - Getting Stations
+28/09/2022, 18:07:11 - DEBUG - Getting Stations
+28/09/2022, 18:07:11 - DEBUG - Getting Stations
+28/09/2022, 18:07:12 - DEBUG - Getting Stations
+28/09/2022, 18:07:12 - DEBUG - Getting Stations
+28/09/2022, 18:07:12 - DEBUG - Getting Stations
+28/09/2022, 18:07:13 - DEBUG - Getting Stations
+28/09/2022, 18:07:13 - DEBUG - Getting Stations
+28/09/2022, 18:07:14 - DEBUG - Getting Stations
+28/09/2022, 18:07:14 - DEBUG - Getting Stations
+28/09/2022, 18:07:15 - DEBUG - Getting Stations
+28/09/2022, 18:07:15 - DEBUG - Getting Stations
+28/09/2022, 18:07:16 - DEBUG - Getting Stations
+28/09/2022, 18:07:16 - DEBUG - Getting Stations
+28/09/2022, 18:07:16 - DEBUG - Getting Stations
+28/09/2022, 18:07:17 - DEBUG - Getting Stations
+28/09/2022, 18:07:17 - DEBUG - Getting Stations
+28/09/2022, 18:07:18 - DEBUG - Getting Stations
+28/09/2022, 18:07:18 - DEBUG - Getting Stations
+28/09/2022, 18:07:18 - DEBUG - Getting Stations
+28/09/2022, 18:07:19 - DEBUG - Getting Stations
+28/09/2022, 18:07:19 - DEBUG - Getting Stations
+28/09/2022, 18:07:20 - DEBUG - Getting Stations
+28/09/2022, 18:07:20 - DEBUG - Getting Stations
+28/09/2022, 18:07:20 - DEBUG - Getting Stations
+28/09/2022, 18:07:21 - DEBUG - Getting Stations
+28/09/2022, 18:07:21 - DEBUG - Getting Stations
+28/09/2022, 18:07:22 - DEBUG - Getting Stations
+28/09/2022, 18:07:22 - DEBUG - Getting Stations
+28/09/2022, 18:07:22 - DEBUG - Getting Stations
+28/09/2022, 18:07:23 - DEBUG - Getting Stations
+28/09/2022, 18:07:23 - DEBUG - Getting Stations
+28/09/2022, 18:07:24 - DEBUG - Getting Stations
+28/09/2022, 18:07:24 - DEBUG - Getting Stations
+28/09/2022, 18:07:25 - DEBUG - Getting Stations
+28/09/2022, 18:07:25 - DEBUG - Getting Stations
+28/09/2022, 18:07:26 - DEBUG - Getting Stations
+28/09/2022, 18:07:26 - DEBUG - Getting Stations
+28/09/2022, 18:07:26 - DEBUG - Getting Stations
+28/09/2022, 18:07:27 - DEBUG - Getting Stations
+28/09/2022, 18:07:27 - DEBUG - Getting Stations
+28/09/2022, 18:07:27 - DEBUG - Getting Stations
+28/09/2022, 18:07:28 - DEBUG - Getting Stations
+28/09/2022, 18:07:28 - DEBUG - Getting Stations
+28/09/2022, 18:07:28 - DEBUG - Getting Stations
+28/09/2022, 18:07:29 - DEBUG - Getting Stations
+28/09/2022, 18:07:30 - DEBUG - Getting Stations
+28/09/2022, 18:07:30 - DEBUG - Getting Stations
+28/09/2022, 18:07:30 - DEBUG - Getting Stations
+28/09/2022, 18:07:31 - DEBUG - Getting Stations
+28/09/2022, 18:07:31 - DEBUG - Getting Stations
+28/09/2022, 18:07:32 - DEBUG - Getting Stations
+28/09/2022, 18:07:32 - DEBUG - Getting Stations
+28/09/2022, 18:07:32 - DEBUG - Getting Stations
+28/09/2022, 18:07:33 - DEBUG - Getting Stations
+28/09/2022, 18:07:33 - DEBUG - Getting Stations
+28/09/2022, 18:07:34 - DEBUG - Getting Stations
+28/09/2022, 18:07:34 - DEBUG - Getting Stations
+28/09/2022, 18:07:35 - DEBUG - Getting Stations
+28/09/2022, 18:07:35 - DEBUG - Getting Stations
+28/09/2022, 18:07:35 - DEBUG - Getting Stations
+28/09/2022, 18:07:36 - DEBUG - Getting Stations
+28/09/2022, 18:07:36 - DEBUG - Getting Stations
+28/09/2022, 18:07:37 - DEBUG - Getting Stations
+28/09/2022, 18:07:37 - DEBUG - Getting Stations
+28/09/2022, 18:07:37 - DEBUG - Getting Stations
+28/09/2022, 18:07:38 - DEBUG - Getting Stations
+28/09/2022, 18:07:38 - DEBUG - Getting Stations
+28/09/2022, 18:07:38 - DEBUG - Getting Stations
+28/09/2022, 18:07:39 - DEBUG - Getting Stations
+28/09/2022, 18:07:40 - DEBUG - Getting Stations
+28/09/2022, 18:07:40 - DEBUG - Getting Stations
+28/09/2022, 18:07:40 - DEBUG - Getting Stations
+28/09/2022, 18:07:40 - DEBUG - Getting Stations
+28/09/2022, 18:07:41 - DEBUG - Getting Stations
+28/09/2022, 18:07:42 - DEBUG - Getting Stations
+28/09/2022, 18:07:42 - DEBUG - Getting Stations
+28/09/2022, 18:07:42 - DEBUG - Getting Stations
+28/09/2022, 18:07:43 - DEBUG - Getting Stations
+28/09/2022, 18:07:43 - DEBUG - Getting Stations
+28/09/2022, 18:07:44 - DEBUG - Getting Stations
+28/09/2022, 18:07:44 - DEBUG - Getting Stations
+28/09/2022, 18:07:44 - DEBUG - Getting Stations
+28/09/2022, 18:07:45 - DEBUG - Getting Stations
+28/09/2022, 18:07:45 - DEBUG - Getting Stations
+28/09/2022, 18:07:46 - DEBUG - Getting Stations
+28/09/2022, 18:07:46 - DEBUG - Getting Stations
+28/09/2022, 18:07:47 - DEBUG - Getting Stations
+28/09/2022, 18:07:47 - DEBUG - Getting Stations
+28/09/2022, 18:07:48 - DEBUG - Getting Stations
+28/09/2022, 18:07:48 - DEBUG - Getting Stations
+28/09/2022, 18:07:49 - DEBUG - Getting Stations
+28/09/2022, 18:07:49 - DEBUG - Getting Stations
+28/09/2022, 18:07:50 - DEBUG - Getting Stations
+28/09/2022, 18:07:50 - DEBUG - Getting Stations
+28/09/2022, 18:07:51 - DEBUG - Getting Stations
+28/09/2022, 18:07:51 - DEBUG - Getting Stations
+28/09/2022, 18:07:52 - DEBUG - Getting Stations
+28/09/2022, 18:07:52 - DEBUG - Getting Stations
+28/09/2022, 18:07:52 - DEBUG - Getting Stations
+28/09/2022, 18:07:53 - DEBUG - Getting Stations
+28/09/2022, 18:07:53 - DEBUG - Getting Stations
+28/09/2022, 18:07:53 - DEBUG - Getting Stations
+28/09/2022, 18:07:54 - DEBUG - Getting Stations
+28/09/2022, 18:07:54 - DEBUG - Getting Stations
+28/09/2022, 18:07:55 - DEBUG - Getting Stations
+28/09/2022, 18:07:55 - DEBUG - Getting Stations
+28/09/2022, 18:07:55 - DEBUG - Getting Stations
+28/09/2022, 18:07:56 - DEBUG - Getting Stations
+28/09/2022, 18:07:58 - DEBUG - Getting Stations
+28/09/2022, 18:07:58 - DEBUG - Getting Stations
+28/09/2022, 18:07:58 - DEBUG - Getting Stations
+28/09/2022, 18:07:59 - DEBUG - Getting Stations
+28/09/2022, 18:07:59 - DEBUG - Getting Stations
+28/09/2022, 18:08:00 - DEBUG - Getting Stations
+28/09/2022, 18:08:00 - DEBUG - Getting Stations
+28/09/2022, 18:08:00 - DEBUG - Getting Stations
+28/09/2022, 18:08:01 - DEBUG - Getting Stations
+28/09/2022, 18:08:01 - DEBUG - Getting Stations
+28/09/2022, 18:08:02 - DEBUG - Getting Stations
+28/09/2022, 18:08:02 - DEBUG - Getting Stations
+28/09/2022, 18:08:02 - DEBUG - Getting Stations
+28/09/2022, 18:08:03 - DEBUG - Getting Stations
+28/09/2022, 18:08:03 - DEBUG - Getting Stations
+28/09/2022, 18:08:03 - DEBUG - Getting Stations
+28/09/2022, 18:08:04 - DEBUG - Getting Stations
+28/09/2022, 18:08:04 - DEBUG - Getting Stations
+28/09/2022, 18:08:04 - DEBUG - Getting Stations
+28/09/2022, 18:08:05 - DEBUG - Getting Stations
+28/09/2022, 18:08:05 - DEBUG - Getting Stations
+28/09/2022, 18:08:05 - DEBUG - Getting Stations
+28/09/2022, 18:08:06 - DEBUG - Getting Stations
+28/09/2022, 18:08:06 - DEBUG - Getting Stations
+28/09/2022, 18:08:06 - DEBUG - Getting Stations
+28/09/2022, 18:08:07 - DEBUG - Getting Stations
+28/09/2022, 18:08:07 - DEBUG - Getting Stations
+28/09/2022, 18:08:08 - DEBUG - Getting Stations
+28/09/2022, 18:08:08 - DEBUG - Getting Stations
+28/09/2022, 18:08:09 - DEBUG - Getting Stations
+28/09/2022, 18:08:09 - DEBUG - Getting Stations
+28/09/2022, 18:08:09 - DEBUG - Getting Stations
+28/09/2022, 18:08:10 - DEBUG - Getting Stations
+28/09/2022, 18:08:10 - DEBUG - Getting Stations
+28/09/2022, 18:08:11 - DEBUG - Getting Stations
+28/09/2022, 18:08:11 - DEBUG - Getting Stations
+28/09/2022, 18:08:12 - DEBUG - Getting Stations
+28/09/2022, 18:08:12 - DEBUG - Getting Stations
+28/09/2022, 18:08:13 - DEBUG - Getting Stations
+28/09/2022, 18:08:13 - DEBUG - Getting Stations
+28/09/2022, 18:08:13 - DEBUG - Getting Stations
+28/09/2022, 18:08:14 - DEBUG - Getting Stations
+28/09/2022, 18:08:14 - DEBUG - Getting Stations
+28/09/2022, 18:08:14 - DEBUG - Getting Stations
+28/09/2022, 18:08:15 - DEBUG - Getting Stations
+28/09/2022, 18:08:15 - DEBUG - Getting Stations
+28/09/2022, 18:08:16 - DEBUG - Getting Stations
+28/09/2022, 18:08:16 - DEBUG - Getting Stations
+28/09/2022, 18:08:16 - DEBUG - Getting Stations
+28/09/2022, 18:08:17 - DEBUG - Getting Stations
+28/09/2022, 18:08:17 - DEBUG - Getting Stations
+28/09/2022, 18:08:18 - DEBUG - Getting Stations
+28/09/2022, 18:08:18 - DEBUG - Getting Stations
+28/09/2022, 18:08:18 - DEBUG - Getting Stations
+28/09/2022, 18:08:19 - DEBUG - Getting Stations
+28/09/2022, 18:08:19 - DEBUG - Getting Stations
+28/09/2022, 18:08:19 - DEBUG - Getting Stations
+28/09/2022, 18:08:20 - DEBUG - Getting Stations
+28/09/2022, 18:08:20 - DEBUG - Getting Stations
+28/09/2022, 18:08:20 - DEBUG - Getting Stations
+28/09/2022, 18:08:21 - DEBUG - Getting Stations
+28/09/2022, 18:08:21 - DEBUG - Getting Stations
+28/09/2022, 18:08:22 - DEBUG - Getting Stations
+28/09/2022, 18:08:22 - DEBUG - Getting Stations
+28/09/2022, 18:08:22 - DEBUG - Getting Stations
+28/09/2022, 18:08:22 - DEBUG - Getting Stations
+28/09/2022, 18:08:24 - DEBUG - Getting Stations
+28/09/2022, 18:08:24 - DEBUG - Getting Stations
+28/09/2022, 18:08:24 - DEBUG - Getting Stations
+28/09/2022, 18:08:25 - DEBUG - Getting Stations
+28/09/2022, 18:08:25 - DEBUG - Getting Stations
+28/09/2022, 18:08:25 - DEBUG - Getting Stations
+28/09/2022, 18:08:28 - DEBUG - Getting Stations
+28/09/2022, 18:08:28 - DEBUG - Getting Stations
+28/09/2022, 18:08:29 - DEBUG - Getting Stations
+28/09/2022, 18:08:29 - DEBUG - Getting Stations
+28/09/2022, 18:08:29 - DEBUG - Getting Stations
+28/09/2022, 18:08:30 - DEBUG - Getting Stations
+28/09/2022, 18:08:30 - DEBUG - Getting Stations
+28/09/2022, 18:08:30 - DEBUG - Getting Stations
+28/09/2022, 18:08:33 - DEBUG - Getting Stations
+28/09/2022, 18:08:33 - DEBUG - Getting Stations
+28/09/2022, 18:08:34 - DEBUG - Getting Stations
+28/09/2022, 18:08:34 - DEBUG - Getting Stations
+28/09/2022, 18:08:37 - DEBUG - Getting Stations
+28/09/2022, 18:08:38 - DEBUG - Getting Stations
+28/09/2022, 18:08:38 - DEBUG - Getting Stations
+28/09/2022, 18:08:40 - DEBUG - Getting Stations
+28/09/2022, 18:08:41 - DEBUG - Getting Stations
+28/09/2022, 18:08:41 - DEBUG - Getting Stations
+28/09/2022, 18:08:41 - DEBUG - Getting Stations
+28/09/2022, 18:08:42 - DEBUG - Getting Stations
+28/09/2022, 18:08:42 - DEBUG - Getting Stations
+28/09/2022, 18:08:43 - DEBUG - Getting Stations
+28/09/2022, 18:08:43 - DEBUG - Getting Stations
+28/09/2022, 18:08:43 - DEBUG - Getting Stations
+28/09/2022, 18:08:44 - DEBUG - Getting Stations
+28/09/2022, 18:08:44 - DEBUG - Getting Stations
+28/09/2022, 18:08:44 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:08:45 - DEBUG - Getting Stations
+28/09/2022, 18:08:45 - DEBUG - Getting Stations
+28/09/2022, 18:08:46 - DEBUG - Getting Stations
+28/09/2022, 18:08:46 - INFO - New connected socket [id: P5cM2Y4SfaoKgZpGAACA]
+28/09/2022, 18:08:47 - DEBUG - Getting Stations
+28/09/2022, 18:08:47 - DEBUG - Getting Stations
+28/09/2022, 18:08:48 - DEBUG - Getting Stations
+28/09/2022, 18:08:49 - DEBUG - Getting Stations
+28/09/2022, 18:08:49 - DEBUG - Getting Stations
+28/09/2022, 18:08:49 - DEBUG - Getting Stations
+28/09/2022, 18:08:50 - DEBUG - Getting Stations
+28/09/2022, 18:08:50 - DEBUG - Getting Stations
+28/09/2022, 18:08:50 - DEBUG - Getting Stations
+28/09/2022, 18:08:51 - DEBUG - Getting Stations
+28/09/2022, 18:08:51 - DEBUG - Getting Stations
+28/09/2022, 18:08:51 - DEBUG - Getting Stations
+28/09/2022, 18:08:52 - DEBUG - Getting Stations
+28/09/2022, 18:08:52 - DEBUG - Getting Stations
+28/09/2022, 18:08:52 - DEBUG - Getting Stations
+28/09/2022, 18:08:52 - DEBUG - Getting Stations
+28/09/2022, 18:08:53 - DEBUG - Getting Stations
+28/09/2022, 18:08:53 - DEBUG - Getting Stations
+28/09/2022, 18:08:53 - DEBUG - Getting Stations
+28/09/2022, 18:08:54 - DEBUG - Getting Stations
+28/09/2022, 18:08:54 - DEBUG - Getting Stations
+28/09/2022, 18:08:55 - DEBUG - Getting Stations
+28/09/2022, 18:08:55 - DEBUG - Getting Stations
+28/09/2022, 18:08:56 - DEBUG - Getting Stations
+28/09/2022, 18:08:56 - DEBUG - Getting Stations
+28/09/2022, 18:08:56 - DEBUG - Getting Stations
+28/09/2022, 18:08:57 - DEBUG - Getting Stations
+28/09/2022, 18:08:57 - DEBUG - Getting Stations
+28/09/2022, 18:08:58 - DEBUG - Getting Stations
+28/09/2022, 18:08:58 - DEBUG - Getting Stations
+28/09/2022, 18:08:59 - DEBUG - Getting Stations
+28/09/2022, 18:08:59 - DEBUG - Getting Stations
+28/09/2022, 18:08:59 - DEBUG - Getting Stations
+28/09/2022, 18:09:00 - DEBUG - Getting Stations
+28/09/2022, 18:09:00 - DEBUG - Getting Stations
+28/09/2022, 18:09:01 - DEBUG - Getting Stations
+28/09/2022, 18:09:01 - DEBUG - Getting Stations
+28/09/2022, 18:09:02 - DEBUG - Getting Stations
+28/09/2022, 18:09:02 - DEBUG - Getting Stations
+28/09/2022, 18:09:03 - DEBUG - Getting Stations
+28/09/2022, 18:09:03 - DEBUG - Getting Stations
+28/09/2022, 18:09:03 - DEBUG - Getting Stations
+28/09/2022, 18:09:04 - DEBUG - Getting Stations
+28/09/2022, 18:09:04 - DEBUG - Getting Stations
+28/09/2022, 18:09:05 - DEBUG - Getting Stations
+28/09/2022, 18:09:05 - DEBUG - Getting Stations
+28/09/2022, 18:09:05 - DEBUG - Getting Stations
+28/09/2022, 18:09:06 - DEBUG - Getting Stations
+28/09/2022, 18:09:06 - DEBUG - Getting Stations
+28/09/2022, 18:09:06 - DEBUG - Getting Stations
+28/09/2022, 18:09:07 - DEBUG - Getting Stations
+28/09/2022, 18:09:07 - DEBUG - Getting Stations
+28/09/2022, 18:09:08 - DEBUG - Getting Stations
+28/09/2022, 18:09:08 - DEBUG - Getting Stations
+28/09/2022, 18:09:08 - DEBUG - Getting Stations
+28/09/2022, 18:09:09 - DEBUG - Getting Stations
+28/09/2022, 18:09:09 - DEBUG - Getting Stations
+28/09/2022, 18:09:10 - DEBUG - Getting Stations
+28/09/2022, 18:09:10 - DEBUG - Getting Stations
+28/09/2022, 18:09:11 - DEBUG - Getting Stations
+28/09/2022, 18:09:11 - DEBUG - Getting Stations
+28/09/2022, 18:09:16 - DEBUG - Getting Stations
+28/09/2022, 18:09:16 - DEBUG - Getting Stations
+28/09/2022, 18:09:17 - DEBUG - Getting Stations
+28/09/2022, 18:09:17 - DEBUG - Getting Stations
+28/09/2022, 18:09:18 - DEBUG - Getting Stations
+28/09/2022, 18:09:18 - DEBUG - Getting Stations
+28/09/2022, 18:09:18 - DEBUG - Getting Stations
+28/09/2022, 18:09:19 - DEBUG - Getting Stations
+28/09/2022, 18:09:19 - DEBUG - Getting Stations
+28/09/2022, 18:09:20 - DEBUG - Getting Stations
+28/09/2022, 18:09:20 - DEBUG - Getting Stations
+28/09/2022, 18:09:20 - DEBUG - Getting Stations
+28/09/2022, 18:09:21 - DEBUG - Getting Stations
+28/09/2022, 18:09:23 - DEBUG - Getting Stations
+28/09/2022, 18:09:23 - DEBUG - Getting Stations
+28/09/2022, 18:09:24 - DEBUG - Getting Stations
+28/09/2022, 18:09:24 - DEBUG - Getting Stations
+28/09/2022, 18:09:25 - DEBUG - Getting Stations
+28/09/2022, 18:09:25 - DEBUG - Getting Stations
+28/09/2022, 18:09:25 - DEBUG - Getting Stations
+28/09/2022, 18:09:26 - DEBUG - Getting Stations
+28/09/2022, 18:09:26 - DEBUG - Getting Stations
+28/09/2022, 18:09:26 - DEBUG - Getting Stations
+28/09/2022, 18:09:26 - DEBUG - Getting Stations
+28/09/2022, 18:09:27 - DEBUG - Getting Stations
+28/09/2022, 18:09:27 - DEBUG - Getting Stations
+28/09/2022, 18:09:27 - DEBUG - Getting Stations
+28/09/2022, 18:09:28 - DEBUG - Getting Stations
+28/09/2022, 18:09:28 - DEBUG - Getting Stations
+28/09/2022, 18:09:28 - DEBUG - Getting Stations
+28/09/2022, 18:09:29 - DEBUG - Getting Stations
+28/09/2022, 18:09:29 - DEBUG - Getting Stations
+28/09/2022, 18:09:30 - DEBUG - Getting Stations
+28/09/2022, 18:09:30 - DEBUG - Getting Stations
+28/09/2022, 18:09:30 - DEBUG - Getting Stations
+28/09/2022, 18:09:31 - DEBUG - Getting Stations
+28/09/2022, 18:09:31 - DEBUG - Getting Stations
+28/09/2022, 18:09:31 - DEBUG - Getting Stations
+28/09/2022, 18:09:32 - DEBUG - Getting Stations
+28/09/2022, 18:09:32 - DEBUG - Getting Stations
+28/09/2022, 18:09:32 - DEBUG - Getting Stations
+28/09/2022, 18:09:33 - DEBUG - Getting Stations
+28/09/2022, 18:09:33 - DEBUG - Getting Stations
+28/09/2022, 18:09:34 - DEBUG - Getting Stations
+28/09/2022, 18:09:34 - DEBUG - Getting Stations
+28/09/2022, 18:09:35 - DEBUG - Getting Stations
+28/09/2022, 18:09:35 - DEBUG - Getting Stations
+28/09/2022, 18:09:36 - DEBUG - Getting Stations
+28/09/2022, 18:09:36 - DEBUG - Getting Stations
+28/09/2022, 18:09:37 - DEBUG - Getting Stations
+28/09/2022, 18:09:37 - DEBUG - Getting Stations
+28/09/2022, 18:09:38 - DEBUG - Getting Stations
+28/09/2022, 18:09:38 - DEBUG - Getting Stations
+28/09/2022, 18:09:38 - DEBUG - Getting Stations
+28/09/2022, 18:09:39 - DEBUG - Getting Stations
+28/09/2022, 18:09:39 - DEBUG - Getting Stations
+28/09/2022, 18:09:40 - DEBUG - Getting Stations
+28/09/2022, 18:09:40 - DEBUG - Getting Stations
+28/09/2022, 18:09:41 - DEBUG - Getting Stations
+28/09/2022, 18:09:41 - DEBUG - Getting Stations
+28/09/2022, 18:09:42 - DEBUG - Getting Stations
+28/09/2022, 18:09:42 - DEBUG - Getting Stations
+28/09/2022, 18:09:43 - DEBUG - Getting Stations
+28/09/2022, 18:09:43 - DEBUG - Getting Stations
+28/09/2022, 18:09:43 - DEBUG - Getting Stations
+28/09/2022, 18:09:44 - DEBUG - Getting Stations
+28/09/2022, 18:09:44 - DEBUG - Getting Stations
+28/09/2022, 18:09:45 - DEBUG - Getting Stations
+28/09/2022, 18:09:45 - DEBUG - Getting Stations
+28/09/2022, 18:09:45 - DEBUG - Getting Stations
+28/09/2022, 18:09:46 - DEBUG - Getting Stations
+28/09/2022, 18:09:46 - DEBUG - Getting Stations
+28/09/2022, 18:09:46 - DEBUG - Getting Stations
+28/09/2022, 18:09:47 - DEBUG - Getting Stations
+28/09/2022, 18:09:47 - DEBUG - Getting Stations
+28/09/2022, 18:09:48 - DEBUG - Getting Stations
+28/09/2022, 18:09:48 - DEBUG - Getting Stations
+28/09/2022, 18:09:49 - DEBUG - Getting Stations
+28/09/2022, 18:09:49 - DEBUG - Getting Stations
+28/09/2022, 18:09:49 - DEBUG - Getting Stations
+28/09/2022, 18:09:50 - DEBUG - Getting Stations
+28/09/2022, 18:09:50 - DEBUG - Getting Stations
+28/09/2022, 18:09:51 - DEBUG - Getting Stations
+28/09/2022, 18:09:51 - DEBUG - Getting Stations
+28/09/2022, 18:09:52 - DEBUG - Getting Stations
+28/09/2022, 18:09:52 - DEBUG - Getting Stations
+28/09/2022, 18:09:53 - DEBUG - Getting Stations
+28/09/2022, 18:09:53 - DEBUG - Getting Stations
+28/09/2022, 18:09:53 - DEBUG - Getting Stations
+28/09/2022, 18:09:54 - DEBUG - Getting Stations
+28/09/2022, 18:09:54 - DEBUG - Getting Stations
+28/09/2022, 18:09:54 - DEBUG - Getting Stations
+28/09/2022, 18:09:55 - DEBUG - Getting Stations
+28/09/2022, 18:09:55 - DEBUG - Getting Stations
+28/09/2022, 18:09:56 - DEBUG - Getting Stations
+28/09/2022, 18:09:56 - DEBUG - Getting Stations
+28/09/2022, 18:09:57 - DEBUG - Getting Stations
+28/09/2022, 18:09:57 - DEBUG - Getting Stations
+28/09/2022, 18:09:58 - DEBUG - Getting Stations
+28/09/2022, 18:09:58 - DEBUG - Getting Stations
+28/09/2022, 18:09:58 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:09:58 - DEBUG - Getting Stations
+28/09/2022, 18:09:59 - INFO - New connected socket [id: dWb0-hMOFKZ8IlAgAACC]
+28/09/2022, 18:09:59 - DEBUG - Getting Stations
+28/09/2022, 18:10:01 - DEBUG - Getting Stations
+28/09/2022, 18:12:37 - DEBUG - Getting Stations
+28/09/2022, 18:12:46 - DEBUG - Getting Stations
+28/09/2022, 18:22:38 - DEBUG - Getting Stations
+28/09/2022, 18:28:20 - DEBUG - Getting Stations
+28/09/2022, 18:28:20 - DEBUG - Getting Stations
+28/09/2022, 18:28:20 - DEBUG - Getting Stations
+28/09/2022, 18:28:21 - DEBUG - Getting Stations
+28/09/2022, 18:28:21 - DEBUG - Getting Stations
+28/09/2022, 18:28:21 - DEBUG - Getting Stations
+28/09/2022, 18:28:22 - DEBUG - Getting Stations
+28/09/2022, 18:28:22 - DEBUG - Getting Stations
+28/09/2022, 18:28:22 - DEBUG - Getting Stations
+28/09/2022, 18:28:23 - DEBUG - Getting Stations
+28/09/2022, 18:28:23 - DEBUG - Getting Stations
+28/09/2022, 18:32:52 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:32:52 - INFO - New connected socket [id: hzUuOp3aSQjgvmtLAACE]
+28/09/2022, 18:32:53 - DEBUG - Getting Stations
+28/09/2022, 18:33:49 - DEBUG - Getting Stations
+28/09/2022, 18:33:49 - DEBUG - Getting Stations
+28/09/2022, 18:35:04 - DEBUG - Getting Stations
+28/09/2022, 18:35:10 - DEBUG - Getting Stations
+28/09/2022, 18:35:27 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:35:28 - INFO - New connected socket [id: bt8EJwtJSAhGBayrAACG]
+28/09/2022, 18:35:28 - DEBUG - Getting Stations
+28/09/2022, 18:35:28 - ERROR - while finding station 6334695c2098bdeacbe06d34 | {}
+28/09/2022, 18:35:28 - ERROR - Failed to get station | {}
+28/09/2022, 18:35:28 - ERROR - while finding station 6334695c2098bdeacbe06d34 | {}
+28/09/2022, 18:35:28 - ERROR - Failed to get station | {}
+28/09/2022, 18:35:29 - ERROR - while finding station 6334695c2098bdeacbe06d34 | {}
+28/09/2022, 18:35:29 - ERROR - Failed to get station | {}
+28/09/2022, 18:36:03 - DEBUG - Getting Stations
+28/09/2022, 18:36:04 - DEBUG - Getting Stations
+28/09/2022, 18:36:04 - DEBUG - Getting Stations
+28/09/2022, 18:36:04 - DEBUG - Getting Stations
+28/09/2022, 18:36:10 - DEBUG - Getting Stations
+28/09/2022, 18:36:13 - DEBUG - Getting Stations
+28/09/2022, 18:36:16 - DEBUG - Getting Stations
+28/09/2022, 18:36:17 - DEBUG - Getting Stations
+28/09/2022, 18:38:48 - DEBUG - Getting Stations
+28/09/2022, 18:38:48 - DEBUG - Getting Stations
+28/09/2022, 18:38:48 - DEBUG - Getting Stations
+28/09/2022, 18:39:30 - DEBUG - Getting Stations
+28/09/2022, 18:39:30 - DEBUG - Getting Stations
+28/09/2022, 18:39:31 - DEBUG - Getting Stations
+28/09/2022, 18:42:17 - DEBUG - Getting Stations
+28/09/2022, 18:42:18 - DEBUG - Getting Stations
+28/09/2022, 18:42:18 - DEBUG - Getting Stations
+28/09/2022, 18:43:22 - DEBUG - Getting Stations
+28/09/2022, 18:43:22 - DEBUG - Getting Stations
+28/09/2022, 18:43:23 - DEBUG - Getting Stations
+28/09/2022, 18:44:36 - DEBUG - Getting Stations
+28/09/2022, 18:44:36 - DEBUG - Getting Stations
+28/09/2022, 18:44:37 - DEBUG - Getting Stations
+28/09/2022, 18:44:53 - DEBUG - Getting Stations
+28/09/2022, 18:44:53 - DEBUG - Getting Stations
+28/09/2022, 18:44:54 - DEBUG - Getting Stations
+28/09/2022, 18:44:54 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:44:55 - INFO - New connected socket [id: rDsvXbKCBkntueWSAACI]
+28/09/2022, 18:44:55 - DEBUG - Getting Stations
+28/09/2022, 18:44:56 - DEBUG - Getting Stations
+28/09/2022, 18:44:56 - DEBUG - Getting Stations
+28/09/2022, 18:44:56 - DEBUG - Getting Stations
+28/09/2022, 18:44:57 - DEBUG - Getting Stations
+28/09/2022, 18:46:10 - DEBUG - Getting Stations
+28/09/2022, 18:46:10 - DEBUG - Getting Stations
+28/09/2022, 18:46:11 - DEBUG - Getting Stations
+28/09/2022, 18:46:14 - DEBUG - Getting Stations
+28/09/2022, 18:46:14 - ERROR - while finding user undefined | {}
+28/09/2022, 18:46:14 - ERROR - Failed to get user | {}
+28/09/2022, 18:46:46 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:46:46 - INFO - New connected socket [id: oO7FrOS0NS7lLot7AACK]
+28/09/2022, 18:46:46 - DEBUG - Getting Stations
+28/09/2022, 18:46:46 - ERROR - while finding user undefined | {}
+28/09/2022, 18:46:46 - ERROR - Failed to get user | {}
+28/09/2022, 18:46:47 - DEBUG - Getting Stations
+28/09/2022, 18:46:51 - DEBUG - Getting Stations
+28/09/2022, 18:46:51 - DEBUG - Getting Stations
+28/09/2022, 18:46:51 - DEBUG - Getting Stations
+28/09/2022, 18:46:51 - DEBUG - Getting Stations
+28/09/2022, 18:47:44 - DEBUG - Getting Stations
+28/09/2022, 18:47:44 - DEBUG - Getting Stations
+28/09/2022, 18:47:44 - DEBUG - Getting Stations
+28/09/2022, 18:47:55 - DEBUG - Getting Stations
+28/09/2022, 18:48:04 - DEBUG - Getting Stations
+28/09/2022, 18:48:05 - DEBUG - Getting Stations
+28/09/2022, 18:48:06 - DEBUG - Getting Stations
+28/09/2022, 18:48:15 - DEBUG - Getting Stations
+28/09/2022, 18:48:15 - DEBUG - Getting Stations
+28/09/2022, 18:49:49 - DEBUG - Getting Stations
+28/09/2022, 18:49:50 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:49:51 - INFO - New connected socket [id: XO21VYE97B1vd7k1AACM]
+28/09/2022, 18:49:51 - DEBUG - Getting Stations
+28/09/2022, 18:49:51 - DEBUG - Getting Stations
+28/09/2022, 18:49:52 - DEBUG - Getting Stations
+28/09/2022, 18:49:52 - DEBUG - Getting Stations
+28/09/2022, 18:51:51 - DEBUG - Getting Stations
+28/09/2022, 18:51:52 - DEBUG - Getting Stations
+28/09/2022, 18:51:54 - DEBUG - Getting Stations
+28/09/2022, 18:51:57 - DEBUG - Getting Stations
+28/09/2022, 18:51:57 - DEBUG - Getting Stations
+28/09/2022, 18:54:25 - DEBUG - Getting Stations
+28/09/2022, 18:54:25 - DEBUG - Getting Stations
+28/09/2022, 18:54:26 - DEBUG - Getting Stations
+28/09/2022, 18:54:26 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:54:27 - DEBUG - Getting Stations
+28/09/2022, 18:54:27 - INFO - New connected socket [id: xaVIsBBmX-rOY3XTAACO]
+28/09/2022, 18:54:27 - DEBUG - Getting Stations
+28/09/2022, 18:54:28 - DEBUG - Getting Stations
+28/09/2022, 18:54:28 - DEBUG - Getting Stations
+28/09/2022, 18:54:28 - DEBUG - Getting Stations
+28/09/2022, 18:55:15 - DEBUG - Getting Stations
+28/09/2022, 18:55:15 - DEBUG - Getting Stations
+28/09/2022, 18:55:15 - DEBUG - Getting Stations
+28/09/2022, 18:55:37 - DEBUG - Getting Stations
+28/09/2022, 18:55:38 - DEBUG - Getting Stations
+28/09/2022, 18:55:38 - DEBUG - Getting Stations
+28/09/2022, 18:55:40 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 18:55:40 - INFO - New connected socket [id: FG5W6ebYC32WdcARAACQ]
+28/09/2022, 18:55:41 - DEBUG - Getting Stations
+28/09/2022, 18:55:41 - DEBUG - Getting Stations
+28/09/2022, 18:55:41 - DEBUG - Getting Stations
+28/09/2022, 18:55:42 - DEBUG - Getting Stations
+28/09/2022, 18:55:42 - DEBUG - Getting Stations
+28/09/2022, 18:56:26 - DEBUG - Getting Stations
+28/09/2022, 18:56:27 - DEBUG - Getting Stations
+28/09/2022, 18:56:27 - DEBUG - Getting Stations
+28/09/2022, 18:57:40 - DEBUG - Getting Stations
+28/09/2022, 18:57:42 - DEBUG - Getting Stations
+28/09/2022, 18:57:43 - DEBUG - Getting Stations
+28/09/2022, 18:57:45 - DEBUG - Getting Stations
+28/09/2022, 18:58:39 - DEBUG - Getting Stations
+28/09/2022, 18:58:48 - DEBUG - auth.service - login with username: Eshel Eyni
+28/09/2022, 18:58:48 - DEBUG - auth.service - login with username: Eshel Eyni
+28/09/2022, 18:58:49 - INFO - User login:  | {"_id":"6331d78fd93f14f68195f4ea","username":"Eshel Eyni","fullname":"Eshel Eyni","imgUrl":"http://res.cloudinary.com/dng9sfzqt/image/upload/v1664374891/koh1agwrkx5n4migywhw.png","likedStations":[],"likedSongs":["qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg","fJ9rUzIMcZQ","qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg"],"followers":[],"following":["63331df027123045a3033fbc"],"isAdmin":true,"createdStations":["63334c86d0976fdb9a552fda","63335190d0976fdb9a552fdb","63339b35d0976fdb9a552fe4","63339c27d0976fdb9a552fe6","63339d5bd0976fdb9a552fe8","6333c02fd0976fdb9a552feb","63341fca2098bdeacbe06d29","6334591a2098bdeacbe06d2c","633460cb2098bdeacbe06d33"],"recentlyPlayed":[{"_id":"qALEkPoY-Hg","title":"טונה ויסמין מועלם - סהרה","img":{"url":"https://i.ytimg.com/vi/qALEkPoY-Hg/default.jpg","width":120,"height":90},"artist":"Tuna Official","likedByUsers":[],"duration":{"hours":0,"min":4,"sec":32},"createdAt":"9/27/2022"}],"score":null}
+28/09/2022, 18:58:49 - INFO - User login:  | {"_id":"6331d78fd93f14f68195f4ea","username":"Eshel Eyni","fullname":"Eshel Eyni","imgUrl":"http://res.cloudinary.com/dng9sfzqt/image/upload/v1664374891/koh1agwrkx5n4migywhw.png","likedStations":[],"likedSongs":["qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg","fJ9rUzIMcZQ","qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg","qALEkPoY-Hg"],"followers":[],"following":["63331df027123045a3033fbc"],"isAdmin":true,"createdStations":["63334c86d0976fdb9a552fda","63335190d0976fdb9a552fdb","63339b35d0976fdb9a552fe4","63339c27d0976fdb9a552fe6","63339d5bd0976fdb9a552fe8","6333c02fd0976fdb9a552feb","63341fca2098bdeacbe06d29","6334591a2098bdeacbe06d2c","633460cb2098bdeacbe06d33"],"recentlyPlayed":[{"_id":"qALEkPoY-Hg","title":"טונה ויסמין מועלם - סהרה","img":{"url":"https://i.ytimg.com/vi/qALEkPoY-Hg/default.jpg","width":120,"height":90},"artist":"Tuna Official","likedByUsers":[],"duration":{"hours":0,"min":4,"sec":32},"createdAt":"9/27/2022"}],"score":null}
+28/09/2022, 18:58:49 - DEBUG - Getting Stations
+28/09/2022, 18:58:51 - DEBUG - Getting Stations
+28/09/2022, 18:58:51 - DEBUG - Getting Stations
+28/09/2022, 18:58:51 - DEBUG - Getting Stations
+28/09/2022, 18:58:52 - DEBUG - Getting Stations
+28/09/2022, 19:08:05 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 19:08:06 - INFO - New connected socket [id: csppU41N75wgoXU9AACS]
+28/09/2022, 19:08:06 - DEBUG - Getting Stations
+28/09/2022, 19:08:06 - DEBUG - Getting Stations
+28/09/2022, 19:08:07 - DEBUG - Getting Stations
+28/09/2022, 19:08:07 - DEBUG - Getting Stations
+28/09/2022, 19:08:07 - DEBUG - Getting Stations
+28/09/2022, 19:08:10 - DEBUG - Getting Stations
+28/09/2022, 19:08:17 - INFO - Socket disconnected [id: undefined]
+28/09/2022, 19:08:18 - DEBUG - Getting Stations
+28/09/2022, 19:08:18 - INFO - New connected socket [id: 2Nq4-C8DTk9ctOO5AACU]
+28/09/2022, 19:08:18 - DEBUG - Getting Stations
+28/09/2022, 19:08:18 - DEBUG - Getting Stations
+28/09/2022, 19:08:19 - DEBUG - Getting Stations
+28/09/2022, 19:08:19 - DEBUG - Getting Stations
+28/09/2022, 19:08:20 - DEBUG - Getting Stations
+28/09/2022, 19:14:06 - DEBUG - Getting Stations
+28/09/2022, 19:14:07 - DEBUG - Getting Stations
+28/09/2022, 19:14:19 - DEBUG - Getting Stations
