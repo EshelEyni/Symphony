@@ -71,14 +71,32 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-async function setRecentlyPlayed(user, clip) {
-    if (!user) return
-    let recentPlayed = _loadFromStorage('recentPlayed') || []
-    recentPlayed.unshift(clip)
-    if (recentPlayed.length > 8) {
-        recentPlayed.splice(8, 1)
+async function setRecentlyPlayed(clip) {
+
+    const loggedinUser = getLoggedinUser()
+    
+    // Prevent at save guest mode
+    if (!loggedinUser) return
+
+    const newRecentPlayedClips = {
+        userId: loggedinUser._id, clips: []
     }
-    _saveToStorage('recentPlayed', recentPlayed)
+
+    let recentlyPlayed = _loadFromStorage('recentlyPlayed') || newRecentPlayedClips
+
+    // If a diffrent user as connected to the same broswer
+    if (loggedinUser._id !== recentlyPlayed.userId) recentlyPlayed = newRecentPlayedClips
+    recentlyPlayed.clips = recentlyPlayed.clips.filter(clip => clip !== null)
+    let clipsIds = recentlyPlayed.clips.map(clip => clip._id)
+
+    if (clipsIds.includes(clip._id)) return
+    recentlyPlayed.clips.unshift(clip)
+
+    // Deletes the 11th added clip
+    if (recentlyPlayed.clips.length > 10) {
+        recentlyPlayed.clips.splice(10, 1)
+    }
+    _saveToStorage('recentlyPlayed', recentlyPlayed)
 }
 
 export const msg = (itemName, txt) => {

@@ -45,7 +45,6 @@ export const SideBar = () => {
             }
         }
         const addedStation = await save(newStation)
-        console.log('addedStation', addedStation)
         dispatch(addStation(addedStation))
         loggedInUser.createdStations.push(addedStation._id)
         dispatch(updateUser(loggedInUser))

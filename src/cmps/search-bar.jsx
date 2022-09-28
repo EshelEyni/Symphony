@@ -6,7 +6,7 @@ import { updateUser } from '../store/user.actions'
 import { addStation, loadStations } from '../store/station.actions'
 import { useEffect } from 'react'
 
-export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) => {
+export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm, isStationDetails }) => {
     const loggedInUser = useSelector(state => state.userModule.user)
     const stations = useSelector(state => state.stationModule.stations)
     const dispatch = useDispatch()
@@ -29,7 +29,7 @@ export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) =>
             let newSearchList = searchService.setNewSearchList(searchResults, loggedInUser, target.value)
             dispatch(addStation(newSearchList))
         }
-        
+
         // const queryStringParams = `search?q=${target.value}`
         // const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
         // window.history.pushState({ path: newUrl }, '', newUrl)
@@ -37,16 +37,21 @@ export const SearchBar = ({ setClips, isSearch, setIsSearch, setSearchTerm }) =>
         setClips(searchResults)
     }
 
+    const onHandleSubmit = (e) => {
+        e.preventDefault()
+        
+    }
+
     return (
         <form
             action=''
             className='search-form'>
-                <button className="fas fa-search search-btn"></button>
+            {!isStationDetails && <button className="fas fa-search search-btn"></button>}
             <input
-                onSubmit={false}
+                onSubmit={onHandleSubmit}
                 type='text'
                 name='search-bar'
-                placeholder= 'What do you want do listen to?'
+                placeholder='What do you want do listen to?'
                 onChange={utilService.debounce(handleSearchChange, 2000)}
                 className='search-bar'
                 autoFocus />

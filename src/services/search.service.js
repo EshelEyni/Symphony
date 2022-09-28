@@ -101,8 +101,10 @@ async function setNewSearchList(searchResults, user, listName) {
     newSearchList = await save(newSearchList)
     recentSearchedIds.unshift(newSearchList._id)
 
-    if (recentSearchedIds.length > 8) {
-        const stationToRemove = recentSearchedIds.splice(8, 1)
+    if (recentSearchedIds.length > 10) {
+        const stationToRemove = recentSearchedIds.splice(10, 1)
+        console.log('stationToRemove', stationToRemove)
+        console.log('recentSearchedIds', recentSearchedIds)
         await remove(stationToRemove[0])
     }
     _saveToStorage('recentSearched', recentSearchedIds)

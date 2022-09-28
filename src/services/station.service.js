@@ -25,7 +25,7 @@ export const getById = async (stationId) => {
 }
 
 export const remove = async (stationId) => {
-    return httpService.delete(BASE_URL + stationId)
+    return await httpService.delete(BASE_URL + stationId)
 }
 
 export const save = async (station) => {

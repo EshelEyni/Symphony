@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { playClip, setPlaylist } from '../store/media-player.actions.js'
+import { setClip, setPlaylist } from '../store/media-player.actions.js'
 import LikedSongLogo from '../assets/img/likedsongs.png'
 import { ClipListHeader } from '../cmps/clip-list-header'
 import { StationHeader } from '../cmps/station-header'
@@ -37,9 +37,8 @@ export const LikedSongs = () => {
     }
 
     const onPlayClip = (clip) => {
-        dispatch(playClip(clip))
-        dispatch(setPlaylist(user.likedSongs))
-        userService.setRecentlyPlayed(user, clip)
+        dispatch(setClip(clip))
+        dispatch(setPlaylist(user))
         dispatch(updateUser(user))
     }
 

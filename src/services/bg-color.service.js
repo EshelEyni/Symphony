@@ -62,8 +62,10 @@ const pickPrimaryColor = (colorsList) => {
     delete colorCount['#FFFFFF']
     delete colorCount['#F4F4F4']
     delete colorCount['#00080B']
+    delete colorCount['#FAFAFA']
+    delete colorCount['#EAEBE6']
 
-
+    
     //**************************************************************************************************************************//
 
     var primary = Object.keys(colorCount).reduce((prev, cur) => {

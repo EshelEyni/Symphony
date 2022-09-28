@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import YouTube from 'react-youtube'
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { playClip, setPlaylist } from '../store/media-player.actions.js'
+import { setClip, setClipLength, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlayerFunc, setPlaylist } from '../store/media-player.actions.js'
 import { useDispatch } from 'react-redux'
 import QueueMusicRoundedIcon from '@mui/icons-material/QueueMusicRounded'
 import Replay10RoundedIcon from '@mui/icons-material/Replay10Rounded'
@@ -17,15 +17,9 @@ import { LikesBtns } from './likes-btn.jsx'
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.userModule.user)
-    let currClip = useSelector(state => state.mediaPlayerModule.currClip)
-    let currPlaylist = useSelector(state => state.mediaPlayerModule.currPlaylist)
+    let { currClip, currPlaylist, isPlaying, currTime, mediaPlayerInterval, playerFunc, clipLength } = useSelector(state => state.mediaPlayerModule)
 
-    let intervalId = useRef()
-    let [isPlaying, setIsPlaying] = useState(false)
     let [isMute, setIsMute] = useState(false)
-    let [clipLength, setClipLength] = useState()
-    let [playerFunc, setplayerFunc] = useState()
-    let [currTime, setCurrTime] = useState()
     let [prevVolume, setPrevVolume] = useState()
     let [currVolume, setCurrVolume] = useState()
     let [playbackMode, setPlaybackMode] = useState('default-mode')
@@ -33,47 +27,50 @@ export const MediaPlayer = () => {
     let [currThumbPos, setCurrThumbPos] = useState(43)
 
     useEffect(() => {
-        getClipChange()
+        const prevClip = storageService.loadFromStorage('prevClip')?.[0]
+        const currTime = storageService.loadFromStorage('currTime')?.[0]
+        const currVolume = storageService.loadFromStorage('currVolume')?.[0]
+
+        setCurrVolume(currVolume || 35)
+        dispatch(setCurrTime(currTime || 0))
+
+        if (!prevClip && currClip || prevClip?._id !== currClip?._id) {
+            dispatch(setIsPlaying(true))
+            onLoad()
+        }
     }, [currClip])
 
     useEffect(() => {
         if (currClip && isPlaying) {
-            clearInterval(intervalId.current)
-            intervalId.current = setInterval(getTime, 750, playbackMode)
+            clearInterval(mediaPlayerInterval)
+            dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
         }
     }, [playbackMode])
 
-    const getClipChange = async () => {
-        const prevClip = await storageService.loadFromStorage('prevClip')?.[0]
-        if (currClip && currClip?._id !== prevClip?._id) {
-            setIsPlaying(true)
-        }
-        onLoad()
-    }
+    // useEffect(() => {
+    //     if (currClip && isPlaying && mediaPlayerInterval) {
+    //         clearInterval(mediaPlayerInterval)
+    //         dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
+    //     }
+    // }, [isPlaying])
 
-    const onLoad = async () => {
+    const onLoad = () => {
+        // Sets currClip && currPlaylist
         let currIdx = null
         if (currClip) {
-            currIdx = currPlaylist.findIndex((clip) => clip._id === currClip._id)
-            currClip = currPlaylist[currIdx]
-            dispatch(playClip(currClip))
-
+            currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
+            currClip = currPlaylist?.clips[currIdx]
+            dispatch(setClip(currClip))
             dispatch(setPlaylist(currPlaylist))
-            const currTime = await storageService.loadFromStorage('currTime')?.[0]
-            const prevVolume = await storageService.loadFromStorage('prevVolume')?.[0]
-            const currVolume = await storageService.loadFromStorage('currVolume')?.[0]
-            setPrevVolume(prevVolume || 25)
-            setCurrVolume(currVolume || 35)
-            setCurrTime(currTime || 0)
         }
     }
 
     const onPlayClip = async () => {
         if (currClip) {
-            setIsPlaying(true)
-            clearInterval(intervalId.current)
+            dispatch(setIsPlaying(true))
+            clearInterval(mediaPlayerInterval)
             if (currClip) {
-                intervalId.current = setInterval(getTime, 750, playbackMode)
+                dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
                 playerFunc.playVideo()
             }
         }
@@ -81,10 +78,10 @@ export const MediaPlayer = () => {
 
     const onReady = async (event) => {
         playerFunc = event.target
-        clipLength = playerFunc.getDuration()
+        const Length = playerFunc.getDuration()
         playerFunc.setVolume(currVolume)
-        setplayerFunc(playerFunc)
-        setClipLength(clipLength)
+        dispatch(setPlayerFunc(playerFunc))
+        dispatch(setClipLength(Length))
         setCurrVolume(currVolume)
         if (isPlaying) onPlayClip()
     }
@@ -101,15 +98,14 @@ export const MediaPlayer = () => {
         let name = ev.target.name
         let val = ev.target.value
         if (name === 'stream-line') {
-            setCurrTime(val)
+            dispatch(setCurrTime(val))
             storageService.put('currTime', val)
-            setIsPlaying(true)
+            dispatch(setIsPlaying(true))
             playerFunc.seekTo(val)
         }
         if (name === 'volume') {
             setPrevVolume(currVolume)
             setCurrVolume(val)
-            storageService.put('prevVolume', currVolume)
             storageService.put('currVolume', val)
             playerFunc.unMute()
             playerFunc.setVolume(val)
@@ -118,15 +114,16 @@ export const MediaPlayer = () => {
 
     const onTogglePlay = () => {
         if (isPlaying) {
-            clearInterval(intervalId.current)
+            clearInterval(mediaPlayerInterval)
             playerFunc.pauseVideo()
         }
         if (!isPlaying) {
-            intervalId.current = setInterval(getTime, 750, playbackMode)
+            clearInterval(mediaPlayerInterval)
+            dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
             playerFunc.playVideo()
             if (currTime) playerFunc.seekTo(currTime)
         }
-        setIsPlaying(!isPlaying)
+        dispatch(setIsPlaying(!isPlaying))
     }
 
     const toggleMute = () => {
@@ -146,50 +143,50 @@ export const MediaPlayer = () => {
     const getTime = async (playbackMode = 'default-mode') => {
         currTime = await playerFunc.getCurrentTime()
         storageService.put('currTime', currTime)
-        setCurrTime(currTime)
+        dispatch(setCurrTime(currTime))
         setCurrThumbPos(currTime++)
         if (currTime > clipLength - 1.5) switchClipByPlaybackMode(playbackMode)
     }
 
     const switchClipByPlaybackMode = (mode = 'default-mode', time = 0) => {
-        const currIdx = currPlaylist.indexOf(currClip)
+        const currIdx = currPlaylist.clips.indexOf(currClip)
         let nextIdx = currIdx + 1
         switch (mode) {
             case !mode || 'default-mode':
-                if (nextIdx > currPlaylist.length - 1) nextIdx = 0
-                currClip = currPlaylist[nextIdx]
+                if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
+                currClip = currPlaylist.clips[nextIdx]
                 break
             case 'repeat-mode':
-                clearInterval(intervalId.current)
-                intervalId.current = setInterval(getTime, 750, playbackMode)
+                clearInterval(mediaPlayerInterval)
+                dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
                 playerFunc.seekTo(time)
                 onPlayClip()
                 break
             case 'shuffle-mode':
-                nextIdx = utilService.getRandomIntInclusive(0, currPlaylist.length - 1)
+                nextIdx = utilService.getRandomIntInclusive(0, currPlaylist.clips.length - 1)
                 if (nextIdx === currIdx) nextIdx++
-                currClip = currPlaylist[nextIdx]
+                currClip = currPlaylist.clips[nextIdx]
                 break
             default:
         }
-        dispatch(playClip(currClip))
-        setIsPlaying(true)
+        dispatch(setClip(currClip))
+        dispatch(setIsPlaying(true))
     }
 
     const switchClip = (switchNum) => {
         setIsSwitchClip(false)
-        const currIdx = currPlaylist.indexOf(currClip)
+        const currIdx = currPlaylist.clips.indexOf(currClip)
         let nextIdx = currIdx + switchNum
-        if (nextIdx > currPlaylist.length - 1) nextIdx = 0
-        if (nextIdx < 0) nextIdx = currPlaylist.length - 1
-        currClip = currPlaylist[nextIdx]
-        dispatch(playClip(currClip))
-        setIsPlaying(true)
+        if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
+        if (nextIdx < 0) nextIdx = currPlaylist.clips.length - 1
+        currClip = currPlaylist.clips[nextIdx]
+        dispatch(setClip(currClip))
+        dispatch(setIsPlaying(true))
         setIsSwitchClip(true)
     }
 
     const skipTenSec = (skipNum) => {
-        setCurrTime(currTime + skipNum)
+        dispatch(setCurrTime(currTime + skipNum))
         playerFunc.seekTo(currTime + skipNum)
     }
 
@@ -320,7 +317,7 @@ export const MediaPlayer = () => {
                     title={currVolume}
                     name='volume'
                     className='volume-input'
-                    value={currVolume || 50}
+                    value={currVolume || 0}
                     onChange={handleChange}
                     type='range' />
             </div>

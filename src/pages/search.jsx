@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { playClip, setPlaylist } from '../store/media-player.actions.js'
+import { setClip, setPlaylist } from '../store/media-player.actions.js'
 import { SearchBar } from '../cmps/search-bar'
 import { SearchList } from '../cmps/search-list'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
@@ -30,13 +30,11 @@ export const Search = () => {
     }, [])
 
     useEffect(() => {
-        console.log('useEffect');
     }, [filterBy])
 
     const onPlayClip = (clip) => {
-        dispatch(playClip(clip))
+        dispatch(setClip(clip))
         dispatch(setPlaylist(clips))
-        userService.setRecentlyPlayed(loggedInUser, clip)
         dispatch(updateUser(loggedInUser))
     }
 
@@ -78,8 +76,9 @@ export const Search = () => {
                         <StationList stations={stations.filter(station => {
                             return (station?.isSearch === true && station.createdBy._id === loggedInUser._id)
                         }).reverse()} />
-                        You haven't search anything yet...
                     </div>}
+                    div.no-searches-msg
+                        You haven't search anything yet...
 
                     <div className="tag-list-container">
                         <h1>Browse all</h1>

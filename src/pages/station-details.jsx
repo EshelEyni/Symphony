@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { defaultImg, getById } from '../services/station.service.js'
 import { SearchBar } from '../cmps/search-bar'
 import { removeStation, updateStation } from '../store/station.actions'
-import { playClip, setPlaylist } from '../store/media-player.actions.js'
+import { setClip, setPlaylist } from '../store/media-player.actions.js'
 import { computeColor } from '../services/bg-color.service.js'
 import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
@@ -18,7 +18,6 @@ import { SearchList } from '../cmps/search-list.jsx'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { addDesc, addTag, setAdminMode, setArtistStation } from '../services/admin-service.js'
 import { socketService, USER_FORMATED_PLAYLIST, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
-import { LogoDevRounded } from '@mui/icons-material'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
@@ -27,12 +26,13 @@ export const StationDetails = () => {
     const navigate = useNavigate()
 
     const params = useParams()
-    const [station, setStation] = useState('')
+    const [station, setStation] = useState()
     const [imgUrl, setImgUrl] = useState()
     let [searchClips, setSearchClips] = useState([])
     let [playtlistClips, setPlaytlistClips] = useState([])
     let [clipLength, setClipLength] = useState()
     let [bgColor, setBgcolor] = useState()
+    let [isAdminMode, setAdminMode] = useState(false)
 
     const key = user?._id === station?.createdBy?._id ? 'user-clip' : 'clip'
 
@@ -46,7 +46,7 @@ export const StationDetails = () => {
         loadStation(params)
     }, [stations])
 
-    // Supprots color app-header bg
+    // Supports color app-header bg
     useEffect(() => {
         dispatch(setHeaderBgcolor(bgColor))
     }, [bgColor])
@@ -54,11 +54,11 @@ export const StationDetails = () => {
     // Supports socket service
     useEffect(() => {
         // if (user?._id !== station?.createdBy?._id) {
-            socketService.emit(USER_REGISTERED_TO_PLAYLIST, station._id)
+        socketService.emit(USER_REGISTERED_TO_PLAYLIST, station?._id)
 
-            socketService.on('TEST', data => console.log('data', data))
+        socketService.on('TEST', data => console.log('data', data))
 
-            socketService.on(USER_FORMATED_PLAYLIST, stationCreatorUpdate)
+        socketService.on(USER_FORMATED_PLAYLIST, stationCreatorUpdate)
         // }
         return () => {
             socketService.off(USER_REGISTERED_TO_PLAYLIST)
@@ -67,11 +67,8 @@ export const StationDetails = () => {
     }, [user])
 
     const stationCreatorUpdate = (newClipsOrder) => {
-        console.log('newClipsOrder', newClipsOrder)
         setPlaytlistClips([...newClipsOrder])
     }
-
-
 
     const loadStation = async (params) => {
         const id = params.id
@@ -95,7 +92,6 @@ export const StationDetails = () => {
             dispatch(setUserMsg(clearMsg))
         }, 2500)
         user.createdStations = user.createdStations.filter(playlistId => playlistId !== station._id)
-        console.log('user.createdStations', user.createdStations)
         dispatch(updateUser(user))
         navigate('/library')
     }
@@ -113,9 +109,8 @@ export const StationDetails = () => {
 
     const onPlayClip = (clip) => {
         const { clips } = station
-        dispatch(playClip(clip))
-        dispatch(setPlaylist(clips))
-        userService.setRecentlyPlayed(user, clip)
+        dispatch(setClip(clip))
+        dispatch(setPlaylist(station))
         dispatch(updateUser(user))
     }
 
@@ -129,27 +124,38 @@ export const StationDetails = () => {
             currClips: station.clips
         })
     }
-    const onSetAdminMode = (station) => {
-        console.log('station', station)
-        setStation(station)
-        setAdminMode(station)
+
+    const onAdminSaveStation = (station) => {
+        if (station.tags.length === 0) return alert('Please enter tags to station...')
+        if (!station.desc) return alert('Please enter a description to station...')
+        station.createdBy = {
+            _id: 'a101',
+            username: 'Symphony',
+            fullname: 'Symphony'
+        }
+
         dispatch(updateStation(station))
     }
 
     const onSetArtistStation = (station) => {
-        setArtistStation(station)
-        dispatch(updateStation(station))
+        const updatedStation = setArtistStation(station)
+        setStation({ ...updatedStation })
     }
 
     const onAddTag = (station) => {
         addTag(station)
-        dispatch(updateStation(station))
+    }
+
+    const onAddDesc = (station) => {
+        addDesc(station)
     }
 
     return (
         <div className='my-sd-container'>
             {station && <div className='my-sd-main-container'>
                 <StationHeader
+                    isAdminMode={isAdminMode}
+                    setAdminMode={setAdminMode}
                     bgColor={bgColor}
                     imgUrl={imgUrl}
                     isUserStation={station?.createdBy?._id === user?._id}
@@ -158,13 +164,14 @@ export const StationDetails = () => {
                     setStation={setStation}
                 />
                 {/********************************* Admin Control  *********************************/}
-
-                <div className="admin-btns">
-                    <button onClick={() => onSetAdminMode(station)}>Set Admin Mode</button>
-                    <button onClick={() => onAddTag(station)}>Add Tag</button>
-                    <button onClick={() => addDesc(station)}>Add Desc</button>
-                    <button onClick={() => onSetArtistStation(station)}>Set Artist Mode</button>
-                </div>
+                {isAdminMode &&
+                    <div className="admin-control-set">
+                        <button onClick={() => onAdminSaveStation(station)}>Save With Admin Mode</button>
+                        <button onClick={() => onAddTag(station)}>Add Tag</button>
+                        <button onClick={() => onAddDesc(station)}>Add Desc</button>
+                        <button onClick={() => onSetArtistStation(station)}>Set Artist Mode</button>
+                    </div>
+                }
 
 
                 {/********************************* Admin Control  *********************************/}
@@ -209,6 +216,7 @@ export const StationDetails = () => {
                             Let's find something for your playlist
                         </h1>
                         <SearchBar
+                            isStationDetails={true}
                             setClips={setSearchClips}
                         />
                         <SearchList
