@@ -107,12 +107,6 @@ export const StationDetails = () => {
         }, 2500)
     }
 
-    const onPlayClip = (clip) => {
-        dispatch(setClip(clip))
-        dispatch(setPlaylist(station))
-        dispatch(updateUser(user))
-    }
-
 
     const onTogglePlay = async (clip, isClicked) => {
         console.log('clip', clip)
@@ -220,7 +214,7 @@ export const StationDetails = () => {
                             bgColor={bgColor}
                             clips={playtlistClips}
                             station={station}
-                            onPlayClip={onPlayClip}
+                            onTogglePlay={onTogglePlay}
                             onRemoveClip={onRemoveClip}
                         />}
                     {/* --------------------------------------- User Station Only Proporties --------------------------------------- */}
@@ -234,7 +228,7 @@ export const StationDetails = () => {
                                         bgColor={bgColor}
                                         clips={playtlistClips}
                                         station={station}
-                                        onPlayClip={onPlayClip}
+                                        onTogglePlay={onTogglePlay}
                                         onRemoveClip={onRemoveClip}
                                     />)}
                             </Droppable>

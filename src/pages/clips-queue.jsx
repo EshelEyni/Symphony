@@ -8,7 +8,7 @@ import { setHeaderBgcolor } from '../store/app-header.actions'
 export const ClipsQueue = () => {
     let { currClip, currPlaylist } = useSelector(state => state.mediaPlayerModule)
     const dispatch = useDispatch()
-
+    console.log('currPlaylist', currPlaylist)
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(queueBgcolor))
@@ -20,17 +20,17 @@ export const ClipsQueue = () => {
                 Queue
             </h1>
 
-            <ul className='queue-clips-container flex column'>
+            {currPlaylist && <ul className='queue-clips-container flex column'>
                 <h2>Now playing</h2>
-                {currPlaylist && <div>
+                <div>
                     <ClipPreview
                         type={'queue-clip'}
                         clip={currClip}
                         idx={currPlaylist.clips.indexOf(currClip)}
                         clipNum={1} />
-                </div>}
+                </div>
                 <h2>Next up</h2>
-                {currPlaylist.map((clip, idx) => {
+                {currPlaylist.clips.map((clip, idx) => {
                     if (idx === currPlaylist.clips.indexOf(currClip)) return
                     else {
                         return <ClipPreview
@@ -41,7 +41,7 @@ export const ClipsQueue = () => {
                             clipNum={idx + 2} />
                     }
                 })}
-            </ul>
+            </ul>}
         </div>
     )
 }

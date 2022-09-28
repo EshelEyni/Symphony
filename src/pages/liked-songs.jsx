@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setClip, setPlaylist } from '../store/media-player.actions.js'
+import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions.js'
 import LikedSongLogo from '../assets/img/likedsongs.png'
 import { ClipListHeader } from '../cmps/clip-list-header'
 import { StationHeader } from '../cmps/station-header'
@@ -11,11 +11,14 @@ import { updateUser } from '../store/user.actions'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { likedSongsBgcolor } from '../services/bg-color.service.js'
 import { setRecentlyPlayed, userService } from '../services/user.service.js'
+import { storageService } from '../services/async-storage.service.js'
 
 
 
 export const LikedSongs = () => {
     const user = useSelector(state => state.userModule.user)
+    let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
+
     const dispatch = useDispatch()
     let [clips, setClips] = useState()
  
@@ -42,11 +45,44 @@ export const LikedSongs = () => {
         dispatch(updateUser(user))
     }
 
-    const onPlayClip = (clip) => {
-        dispatch(setClip(clip))
-        dispatch(setPlaylist(station))
-        dispatch(updateUser(user))
+    // const onPlayClip = (clip) => {
+    //     dispatch(setClip(clip))
+    //     dispatch(setPlaylist(station))
+    //     dispatch(updateUser(user))
+    // }
+
+    
+    const onTogglePlay = async (clip, isClicked) => {
+        console.log('clip', clip)
+        if (!isClicked) {
+            dispatch(setIsPlaying(false))
+            clearInterval(mediaPlayerInterval)
+            dispatch(setPlaylist(station))
+            dispatch(setClip(clip))
+            dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
+            playerFunc.playVideo()
+        }
+        if (isClicked) {
+            clearInterval(mediaPlayerInterval)
+            playerFunc.pauseVideo()
+        }
+        dispatch(setIsPlaying(!isPlaying))
     }
+
+    const getTime = async () => {
+        const time = await playerFunc.getCurrentTime()
+        storageService.put('currTime', time)
+        dispatch(setCurrTime(time))
+        if (currTime > clipLength - 1.5) {
+            const currIdx = currPlaylist.clips.indexOf(currClip)
+            let nextIdx = currIdx + 1
+            if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
+            currClip = currPlaylist.clips[nextIdx]
+        }
+        dispatch(setClip(currClip))
+        dispatch(setIsPlaying(true))
+    }
+
 
     return (
         <div className='my-sd-container'>
@@ -58,6 +94,7 @@ export const LikedSongs = () => {
                     clips={station.clips}
                     station={station}
                     user={user.username}
+                    onTogglePlay={onTogglePlay}
                 />
             </div>
             <div className='ms-clips-container'>
@@ -74,7 +111,6 @@ export const LikedSongs = () => {
                                 clipKey={'liked-clip'}
                                 station={station}
                                 clips={station.clips}
-                                onPlayClip={onPlayClip}
                             />)}
                     </Droppable>
                 </DragDropContext>

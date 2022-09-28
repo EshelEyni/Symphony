@@ -2,7 +2,7 @@ import { ClipPreview } from "./clip-preview"
 import { Draggable } from "react-beautiful-dnd"
 import { defaultGreenColor } from '../services/bg-color.service'
 
-export const DraggableClipList = ({ clipKey, clips, station, onPlayClip, onRemoveClip, bgColor, provided }) => {
+export const DraggableClipList = ({ clipKey, clips, station, onRemoveClip, bgColor, provided }) => {
 
     return <ul
         className='ms-clips-main-container'
@@ -34,7 +34,6 @@ export const DraggableClipList = ({ clipKey, clips, station, onPlayClip, onRemov
                                 clip={clip}
                                 idx={idx}
                                 station={station}
-                                onPlayClip={onPlayClip}
                                 onRemoveClip={onRemoveClip}
                             />
                         </div>
