@@ -2,5 +2,7 @@
     grid-template-columns: repeat(auto-fit, 150px);
     margin: 20px;
     gap: 10px;
-
+    @include for-mobile-layout {
+        // margin: 20px 48px;
+    }
 }

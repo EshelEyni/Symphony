@@ -36,10 +36,6 @@ export const AppHeader = () => {
                     onClick={() => setUserClicked(false)}
                 ></div>
             }
-            {/* <div className='pagination-btn-container flex'>
-        
-            </div> */}
-
 
             <div className='app-header-user-links-container flex'>
                 {!user &&

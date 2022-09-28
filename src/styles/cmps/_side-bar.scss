@@ -1,6 +1,6 @@
 .sidebar {
     position: fixed;
-    width: 250px;
+    width: 25px;
     height: 100%;
     background: #121212;
     background-color: #000;
@@ -135,12 +135,13 @@
     width: 100%;
     justify-content: space-around;
     padding: 0 40px;
+    z-index: 10;
 
     @include for-mobile-layout {
         display: flex;
         flex-direction: row;
         width: 100%;
-        height: 75px;
+        height: 76px;
         position: fixed;
         bottom: 0;
         align-items: center;
