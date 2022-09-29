@@ -109,6 +109,7 @@
     margin-inline-end: 20px;
     justify-content: center;
     color: rgb(201, 201, 201);
+    width: max-content;
 
     @include for-mobile-layout {
         height: 30px;

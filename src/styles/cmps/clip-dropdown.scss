@@ -42,14 +42,16 @@
     .dropdown-list {
         position: absolute;
         background-color: #1f1f1f;
-        bottom: 0;
-        left:-105px;
+        top: 0px;
+        left:-110px;
         display: none;
     }
 
     li:hover {
         background-color: #757575;
         cursor: pointer;
+        
+
     }
 
     .add-to-station:hover {
