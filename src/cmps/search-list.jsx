@@ -21,8 +21,8 @@ export function SearchList({ station, setStation, clips, type, onPlayClip, playt
             return
         }
         addedClip.createdAt = new Date(getDate()).toLocaleDateString()
-        // station.clips.push(addedClip)
-        setStation({ ...station, clips: [...station.clips, addedClip] })
+        station.clips.push(addedClip)
+        // setStation({ ...station, clips: [...station.clips, addedClip] })
         dispatch(updateStation(station))
 
         userService.updateUserStation(user, station)
