@@ -105,7 +105,7 @@
     }
 
     .logo img {
-        width: 80px;
+        width: 60px;
         -webkit-transform: rotate(345deg);
         -moz-transform: rotate(345deg);
         -ms-transform: rotate(345deg);
@@ -122,6 +122,7 @@
         display: flex;
         justify-content: space-evenly;
         letter-spacing: 0.1em;
+        font-size: 19px;
     }
 
     @include for-mobile-layout {

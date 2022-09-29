@@ -24,8 +24,6 @@
     }
 
     .station {
-
-
         &:hover {
             .play-btn {
                 opacity: 1;
@@ -49,6 +47,7 @@
         img {
             width: 160px;
             height: 145px;
+            object-fit: cover;
 
             @include for-mobile-layout {
                 width: 140px;
