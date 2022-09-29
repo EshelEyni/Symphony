@@ -8,38 +8,51 @@
 @import "basics/helpers";
 @import "basics/layout";
 @import "basics/base";
-@import "basics/links";
-@import "basics/forms";
 
 
 // Views
-@import "views/about-us";
-@import "views/home-page";
+
+// Station Lists:
 @import "views/symphony-app";
-@import "views/review-app";
+@import "views/library.scss";
+@import "views/search";
+
+// Station Lists Details:
 @import "views/stations-details";
+@import "views/liked-songs"; // Check if we can delete this file
+@import "views/queue";
+
+// Profile Related Pages
 @import "views/user-profile";
 @import "views/login";
 @import "views/signup";
-@import "views/search";
-@import "views/queue";
 @import "views/about";
-@import "views/liked-songs";
-@import "views/library.scss";
 
 // Components
+
+// Headers
 @import "cmps/app-header";
-@import "cmps/media-player";
+@import "cmps/station-header";
+@import "cmps/clip-header";
+@import "cmps/profile-preview.scss";
+
 @import "cmps/user-msg";
 @import "cmps/side-bar";
-@import "views/search-bar";
-@import "views/user-search-result";
+@import "cmps/nav-bar";
+
+@import "cmps/station-edit";
 @import "cmps/station-list";
-@import "cmps/my-station-edit";
 @import "cmps/station-preview.scss";
-@import "cmps/liked-songs-preview.scss";
-@import "cmps/clip-preview.scss";
-@import "cmps/clip-dropdown.scss";
-@import "cmps/profile-preview.scss";
+@import "cmps/admin-control-set";
+
+
+@import "cmps/search-list";
+@import "cmps/search-bar";
+@import "cmps/user-search-result";
+
 @import "cmps/tag-list.scss";
 @import "cmps/tag-preview.scss";
+
+@import "cmps/clip-preview.scss";
+@import "cmps/clip-dropdown.scss";
+@import "cmps/media-player";

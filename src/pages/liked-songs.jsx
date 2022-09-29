@@ -97,7 +97,7 @@ export const LikedSongs = () => {
                     onTogglePlay={onTogglePlay}
                 />
             </div>
-            <div className='ms-clips-container'>
+            <div className='station-clips-container'>
                 <ClipListHeader
                     bgColor={likedSongsBgcolor}
                 />

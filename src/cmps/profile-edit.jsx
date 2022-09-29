@@ -48,25 +48,25 @@ export const ProfileEdit = ({ user, setUser, setMainImg, setIsEdit }) => {
             <div onClick={() => setIsEdit(false)}>
             </div>
 
-            <div className='ms-edit-main-container flex'>
+            <div className='station-edit-main-container flex'>
                 <button className='btn-close'>X</button>
                 <div className='pl-img-container'>
                     <label htmlFor='pl-edit-img'>
                         <img
-                            className={'my-sd-img' + checkLoading(imgUrl)}
+                            className={'station-img' + checkLoading(imgUrl)}
                             src={imgUrl}
                             alt='playist-img' />
                     </label>
                     <input
-                        className='pl-img-input'
+                        className='img-input'
                         id='pl-edit-img'
                         onChange={onUploadImgEdit} type='file' />
                 </div>
                 <form
-                    className='ms-edit-form flex column'
+                    className='station-edit-form flex column'
                     onSubmit={onUpdateUser}>
                     <input
-                        className='ms-edit-input'
+                        className='station-edit-input'
                         ref={inputRef}
                         defaultValue={user.fullname}
                         onChange={handleChange}

@@ -64,8 +64,9 @@ export function addStation(station) {
 export function updateStation(stationToUpdate) {
     return async (dispatch) => {
         try {
-            const station = await save(stationToUpdate)
-            dispatch(getActionUpdateStation(station))
+            // const station = await save(stationToUpdate)
+            // dispatch(getActionUpdateStation(station))
+            dispatch(getActionUpdateStation(stationToUpdate))
         }
         catch (err) {
             console.log('Cannot save station', err)

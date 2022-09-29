@@ -77,8 +77,8 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
         }}
 
         className={'clip-preview-container '} >
-        <div className='cp-main-container'>
-            <div className='cp-1-container'>
+        <div className='clip-preview-main-container'>
+            <div className='clip-preview-container-1'>
 
                 {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} alt='clip-img' /></div> :
                     <React.Fragment>
@@ -99,13 +99,13 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
             </div>
             <div className='artist-name'>{clip.artist}</div>
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
-            <div className='cp-2-container flex'>
+            <div className='clip-preview-container-2 flex'>
                 {user && <LikesBtns clip={clip} station={station} />}
                 {clip.duration ? getDuration(clip.duration) : ''}
             </div>
 
             <i
-                className='clip-dp-btn fa-solid fa-ellipsis'
+                className='dropdown-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
                 {(isDropdownClip) && <ClipDropdown

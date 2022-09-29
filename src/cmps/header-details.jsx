@@ -9,10 +9,10 @@ export const HeaderDetails = ({ creator, clips }) => {
   const params = window.location.href
   const path = creator === 'Symphony' ? '/' : `/user-profile/${user._id}`
 
-  return <div><p className="creator-and-playlist-data">
+  return <div><p className="station-header-details-container-2">
     <Link
       to={path}
-      className='my-sd-user-name'>{creator.charAt(0).toUpperCase() + creator.substring(1)} ● </Link>
+      className='station-user-name'>{creator.charAt(0).toUpperCase() + creator.substring(1)} ● </Link>
     Total of {clips?.length} {clips?.length === 1 ? 'song' : 'songs'} {clips && ' ,Total duration: ' + getTotalSongDur(clips)}
   </p>
   </div>

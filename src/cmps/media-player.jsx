@@ -207,12 +207,12 @@ export const MediaPlayer = () => {
                     onReady={onReady} />
             </div>
             {/***************** Symphony Media Player *****************/}
-            <div className='clip-details-container flex'>
+            <div className='media-player-clip-container flex'>
                 {currClip &&
                     <img
-                        className='artist-pic'
+                        className='media-player-clip-img'
                         src={currClip?.img?.url || ''} />}
-                <div className='clip-name flex'>{currClip?.title || ''}{currClip && <LikesBtns clip={currClip} />}</div>
+                <div className='media-player-clip-preview flex'>{currClip?.title || ''}{currClip && <LikesBtns clip={currClip} />}</div>
                 <div className='clip-details'></div>
             </div>
             <div className='mp-controller flex column'>
