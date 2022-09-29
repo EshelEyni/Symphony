@@ -7,6 +7,7 @@ import { updateStation } from "../store/station.actions"
 import { StationDropdown } from "./station-dropdown"
 import { StationEdit } from "./station-edit"
 import { HeaderDetails } from "./header-details"
+import { LikesBtns } from "./likes-btn"
 
 export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, onTogglePlay, LikedSongLogo, isAdminMode, setAdminMode }) => {
     let { currPlaylist, currClip, isPlaying } = useSelector(state => state.mediaPlayerModule)
@@ -14,7 +15,9 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
     const [imgUrl, setImgUrl] = useState(station.imgUrl || defaultImg)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
-    let [isClicked, setIsClicked] = useState()
+    const [isChangedImg, setIsChangedImg] = useState(false)
+
+    let [isClicked, setIsClicked] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -36,10 +39,12 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
     }, [station])
 
     const onUploadImg = async (ev) => {
+        setIsChangedImg(true)
         setImgUrl(defaultImg)
         const currImgUrl = await uploadImg(ev)
         station.imgUrl = currImgUrl
         setImgUrl(currImgUrl)
+        setIsChangedImg(false)
         dispatch(updateStation(station))
     }
 
@@ -49,10 +54,16 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
             className='my-sd-header-main-container flex'>
             {<div className='pl-img-container'>
                 <label htmlFor='pl-img'>
-                    <img
-                        className={'my-sd-img ' + (checkImg(imgUrl) ? 'rotate' : '')}
+                    {!isChangedImg && <img
+                        className={'my-sd-img '}
                         src={LikedSongLogo ? LikedSongLogo : imgUrl}
-                        alt='playist-img' />
+                        alt='playist-img' />}
+                    {isChangedImg &&
+                        <img
+                            className={'my-sd-img ' + (checkImg(imgUrl) ? 'rotate' : '')}
+                            src={LikedSongLogo ? LikedSongLogo : imgUrl}
+                            alt='playist-img' />
+                    }
                 </label>
                 {(isUserStation && !LikedSongLogo) &&
                     <input

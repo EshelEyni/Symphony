@@ -29,13 +29,6 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
     const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
     const dispatch = useDispatch()
 
-    const getBgcolor = () => {
-        let currBgcolor = defaultBgcolor
-        if (bgColor) currBgcolor = bgColor
-        if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
-        return currBgcolor
-    }
-
     const onTogglePlay = async (clip, isClicked) => {
         console.log('clip', clip)
         if (!isClicked) {
@@ -67,15 +60,23 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
         dispatch(setIsPlaying(true))
     }
 
+    // const getBgcolor = () => {
+    //     let currBgcolor = defaultBgcolor
+    //     if (bgColor) currBgcolor = bgColor
+    //     if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
+    //     return currBgcolor
+    // }
+
     return <li
         style={{
+            backgroundColor: dndStyle?.backgroundColor ? dndStyle.backgroundColor : defaultBgcolor,
             background: `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`,
             color: dndStyle?.color,
             borderRadius: dndStyle?.borderRadius,
             cursor: dndStyle?.cursor,
         }}
 
-        className={'clip-preview-container '}>
+        className={'clip-preview-container '} >
         <div className='cp-main-container'>
             <div className='cp-1-container'>
 

@@ -4,12 +4,13 @@
     background-color: #202020;
     transform: translate(-100%);
     top: 50px;
-    width: 170px;
-    height: 180px;
+    width: max-content;
+    height: 150px;
     gap: 12px;
     padding: 5px;
     background-color: #1f1f1f;
     font-family: circular;
+    border-radius: 5px;
     z-index: 20;
 
     &>* {
