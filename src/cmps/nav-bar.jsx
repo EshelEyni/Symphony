@@ -12,6 +12,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { LoginMsg } from './login-msg'
+import LikedSongsLogo from '../../src/assets/img/likedsongs.png'
 
 export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLoginMsg }) => {
 
@@ -106,17 +107,18 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
         {user &&
             <NavLink
                 to={'/liked'}
-                className='link-liked'
+                // className='link-liked'
                 onClick={() => setIsHomeClicked(false)}
             >
                 <li>
-                    <ThemeProvider theme={theme}>
-                        <div className='symbol heart'> <FavoriteBorderIcon sx={{
+                    {/* <ThemeProvider theme={theme}> */}
+                    <div><img className='nav-img-logo' src={LikedSongsLogo} alt="" /></div>
+                        {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
                             fontSize: '26px'
                         }} /></div>
-                        <div className='symbol heart'><FavoriteIcon /></div>
-                    </ThemeProvider>
-                    <div className='text-liked'>Liked Songs</div>
+                        <div className='symbol heart'><FavoriteIcon /></div> */}
+                    {/* </ThemeProvider> */}
+                    <div className='text-liked like-songs'>Liked Songs</div>
                 </li>
             </NavLink>
         }
@@ -157,14 +159,15 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
 
         {!user &&
             <li
-                className='guest-mode-link'
+                // className='guest-mode-link'
                 onClick={() => setLoginMsg('210px')}>
-                <ThemeProvider theme={theme}>
-                    <div className='symbol heart'> <FavoriteBorderIcon sx={{
+                {/* <ThemeProvider theme={theme}> */}
+                <img className='nav-img-logo' src={LikedSongsLogo} alt="" />
+                    {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
                         fontSize: '26px'
-                    }} /></div>
-                </ThemeProvider>
-                <div className='text-liked'>Liked Songs</div>
+                    }} /></div> */}
+                {/* </ThemeProvider> */}
+                <div className='text-liked like-songs'>Liked Songs</div>
             </li>
         }
 
