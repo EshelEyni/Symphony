@@ -89,15 +89,16 @@ async function setRecentlyPlayed(clip) {
     // If a diffrent user as connected to the same broswer
     if (loggedInUser._id !== recentlyPlayed.userId) recentlyPlayed = newRecentPlayedClips
 
-    // Prevents entering a defected clip 
-    recentlyPlayed.clips = recentlyPlayed.clips.filter(clip => clip !== null)
-
+    
     // Prevents inserting the same clip
     let clipsIds = recentlyPlayed.clips.map(clip => clip._id)
     if (clipsIds.includes(clip._id)) return
-
-    // Insers violable clip
+    
+    // Inserts violable clip
     recentlyPlayed.clips.unshift(clip)
+   
+    // Prevents entering a defected clip 
+    recentlyPlayed.clips = recentlyPlayed.clips.filter(clip => clip !== null)
 
     // Deletes the 11th added clip
     if (recentlyPlayed.clips.length > 10) {

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
-import { updateUser } from '../store/user.actions'
+import {  useParams } from 'react-router-dom'
 import { ProfileHeader } from '../cmps/profile-header'
 import { DraggableClipList } from '../cmps/draggable-clip-list'
 import { setClip, setPlaylist } from '../store/media-player.actions'
@@ -12,14 +11,16 @@ import { ProfilesList } from '../cmps/profile-list'
 import { userService } from '../services/user.service'
 import { loadStations } from '../store/station.actions'
 import { storageService } from '../services/async-storage.service'
+import { StationList } from '../cmps/station-list'
 
 
 export const UserProfile = () => {
     const loggedInUser = useSelector(state => state.userModule.user)
-    const users = useSelector(state => state.userModule.users)
+    let stations = useSelector(state => state.stationModule.stations)
     let [user, setUser] = useState()
+    let [userMadeStations, setUserMadeStations] = useState([])
     const params = useParams()
-    let [reacentlyPlayedClips, setRecentlyPlayedClips] = useState()
+    let [recentlyPlayedClips, setRecentlyPlayedClips] = useState()
     const dispatch = useDispatch()
 
 
@@ -27,6 +28,11 @@ export const UserProfile = () => {
         loadUser(user, params.id)
         dispatch(loadStations())
     }, [params])
+
+    useEffect(() => {
+        const currStations = stations.filter(station => station.createdBy._id === loggedInUser._id && !station.isSearch)
+        setUserMadeStations(currStations)
+    }, [stations])
 
     const loadUser = async (user, paramsId) => {
         if (paramsId) {
@@ -36,20 +42,15 @@ export const UserProfile = () => {
         }
         const recentlyPlayed = storageService.loadFromStorage('recentlyPlayed')
         setRecentlyPlayedClips(recentlyPlayed?.clips)
-        console.log('',)
+        console.log('recentlyPlayedClips', recentlyPlayedClips)
         setUser(user)
     }
 
-    const onPlayClip = (clip) => {
-        dispatch(setClip(clip))
-        dispatch(setPlaylist(user.recentlyPlayed))
-    }
-
     const onHandleDragEnd = (res) => {
-        reacentlyPlayedClips = handleDragEnd(res, reacentlyPlayedClips)
-        setRecentlyPlayedClips(reacentlyPlayedClips)
+        recentlyPlayedClips = handleDragEnd(res, recentlyPlayedClips)
+        setRecentlyPlayedClips(recentlyPlayedClips)
         storageService.save('recentlyPlayed', {
-            userId: loggedInUser._id, clips: []
+            userId: loggedInUser._id, clips: recentlyPlayedClips
         })
     }
 
@@ -65,7 +66,7 @@ export const UserProfile = () => {
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {(loggedInUser._id === params.id && reacentlyPlayedClips) &&
+                    {(loggedInUser._id === params.id && recentlyPlayedClips?.length > 0) &&
                         <div className="personal-profile-content">
                             <h1>Recently Played</h1>
                             <ClipListHeader />
@@ -77,8 +78,7 @@ export const UserProfile = () => {
                                             provided={provided}
                                             clipKey={'recently-played'}
                                             // station={station}
-                                            clips={reacentlyPlayedClips}
-                                            onPlayClip={onPlayClip}
+                                            clips={recentlyPlayedClips}
                                         />)}
                                 </Droppable>
                             </DragDropContext>
@@ -101,7 +101,12 @@ export const UserProfile = () => {
                             filterBy={'following'}
                         />
                     </div>
-
+                    <div className="personal-playlist">
+                        <h1>Personal-Playlist</h1>
+                        <StationList
+                            stations={userMadeStations}
+                        />
+                    </div>
                 </div>}
         </div>
     )

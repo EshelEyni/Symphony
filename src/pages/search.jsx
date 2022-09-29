@@ -20,6 +20,7 @@ export const Search = () => {
 
     let [filterBy, setFilterBy] = useState([])
     let [clips, setClips] = useState([])
+    let [recentSearches, setRecentSearches] = useState([])
     const [isSearch, setIsSearch] = useState(false)
     const [searchTerm, setSearchTerm] = useState()
     const dispatch = useDispatch()
@@ -27,7 +28,11 @@ export const Search = () => {
     useEffect(() => {
         dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
         dispatch(loadStations())
-    }, [])
+        const searchStations = stations.filter(station => {
+            return (station?.isSearch === true && station.createdBy._id === loggedInUser._id)
+        }).reverse()
+        setRecentSearches(searchStations)
+    }, [stations])
 
     useEffect(() => {
     }, [filterBy])
@@ -61,6 +66,10 @@ export const Search = () => {
                 <button className='search-filter-btn' onClick={() => {
                     setFilterBy([...searchService.toggleFilterBy(filterBy, 'profiles')])
                 }}>Profiles</button>
+
+                <button className='search-filter-btn' onClick={() => {
+                    setFilterBy([...searchService.toggleFilterBy(filterBy, 'searches')])
+                }}>Recent Searches</button>
             </div>
             <SearchBar
                 setSearchTerm={setSearchTerm}
@@ -73,13 +82,13 @@ export const Search = () => {
                 <div className="search-default-display">
                     {loggedInUser && <div className="recently-search-container">
                         <h1>Recent Searches</h1>
-                        <StationList stations={stations.filter(station => {
-                            return (station?.isSearch === true && station.createdBy._id === loggedInUser._id)
-                        }).reverse()} />
+                        <StationList stations={recentSearches} />
                     </div>}
-                    div.no-searches-msg
-                        You haven't search anything yet...
-
+                    {recentSearches.length === 0 &&
+                        <div className="no-search-msg">
+                            You haven't search anything yet...
+                        </div>
+                    }
                     <div className="tag-list-container">
                         <h1 className='browse-all'>Browse all</h1>
                         <TagsList stations={stations} />
@@ -138,6 +147,15 @@ export const Search = () => {
                                 searchTerm={searchTerm} />
                         </div>
                     }
+
+
+                    {((filterBy.length === 0 || filterBy.includes('searches'))) &&
+                        <div className="search-artist-container">
+                            <h1>Recent Searches</h1>
+                            <StationList
+                                stations={recentSearches} />
+                        </div>}
+                        
                 </div>
             }
         </div >

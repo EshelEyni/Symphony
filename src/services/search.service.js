@@ -112,16 +112,16 @@ async function setNewSearchList(searchResults, user, listName) {
     return newSearchList
 }
 
-function getStationsBySearchTerm(stations, searchTerm, isArtist) {
+function getStationsBySearchTerm(stations, searchTerm, isArtist) { 
     stations = isArtist ? stations.filter(station => station.isArtist) : stations.filter(station => !station.isArtist)
 
     if (searchTerm) {
         searchTerm = searchTerm.toLowerCase()
         return stations.map(station => {
             station.matchedTerms = 0
-            for (let x = 0; x < station.clips?.length; x++) { // For each
-                if (station.clips[x].title.toLowerCase().includes(searchTerm)) station.matchedTerms++
-            }
+            station.clips.forEach(clip => {
+                if (clip?.title.toLowerCase().includes(searchTerm)) station.matchedTerms++
+            })
             return station
         }).filter(station => {
             return (station?.matchedTerms > 0 && !station?.isSearch)
