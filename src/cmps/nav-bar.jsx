@@ -44,12 +44,15 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                     {!isHomeClicked &&
                         <div className='symbol home-icon'><HomeOutlinedIcon
                             sx={{
-                                fontSize: '26px',
+                                fontSize: '30px',
                             }} /></div>
                     }
 
                     {isHomeClicked &&
-                        <div className='symbol home-icon'><HomeIcon /></div>
+                        <div className='symbol home-icon'><HomeIcon
+                            sx={{
+                                fontSize: '30px',
+                            }} /></div>
                     }
                     <div className='text'>Home</div>
                 </ThemeProvider>
@@ -107,18 +110,18 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
         {user &&
             <NavLink
                 to={'/liked'}
-                // className='link-liked'
+                // className='link-liked-songs'
                 onClick={() => setIsHomeClicked(false)}
             >
                 <li>
                     {/* <ThemeProvider theme={theme}> */}
-                    <div><img className='nav-img-logo' src={LikedSongsLogo} alt="" /></div>
-                        {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
+                    <div><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
+                    {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
                             fontSize: '26px'
                         }} /></div>
                         <div className='symbol heart'><FavoriteIcon /></div> */}
                     {/* </ThemeProvider> */}
-                    <div className='text-liked like-songs'>Liked Songs</div>
+                    <div className='like-songs-text'>Liked Songs</div>
                 </li>
             </NavLink>
         }
@@ -162,12 +165,12 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 // className='guest-mode-link'
                 onClick={() => setLoginMsg('210px')}>
                 {/* <ThemeProvider theme={theme}> */}
-                <img className='nav-img-logo' src={LikedSongsLogo} alt="" />
-                    {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
+                <img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" />
+                {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
                         fontSize: '26px'
                     }} /></div> */}
                 {/* </ThemeProvider> */}
-                <div className='text-liked like-songs'>Liked Songs</div>
+                <div className='like-songs-text'>Liked Songs</div>
             </li>
         }
 

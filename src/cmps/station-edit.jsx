@@ -50,25 +50,25 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
             <div
                 onClick={() => setIsEdit(false)}
             ></div>
-            <div className='ms-edit-main-container flex'>
+            <div className='station-edit-main-container flex'>
                 <button className='btn-close'></button>
                 <div className='pl-img-container'>
                     <label htmlFor='pl-edit-img'>
                         <img
-                            className='my-sd-img'
+                            className='station-img'
                             src={imgUrl}
                             alt='playist-img' />
                     </label>
                     <input
-                        className='pl-img-input'
+                        className='img-input'
                         id='pl-edit-img'
                         onChange={onUploadImgEdit} type='file' />
                 </div>
                 <form
-                    className='ms-edit-form flex column'
+                    className='station-edit-form flex column'
                     onSubmit={onUpdateStation}>
                     <input
-                        className='ms-edit-input-name'
+                        className='station-edit-input-name'
                         ref={inputRef}
                         defaultValue={currStation.name}
                         onChange={handleChange}
@@ -77,7 +77,7 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
                         id='name'
                     />
                     <input
-                        className='ms-edit-input'
+                        className='station-edit-input'
                         ref={inputRef}
                         defaultValue={currStation.desc}
                         placeholder='Add an optional description'

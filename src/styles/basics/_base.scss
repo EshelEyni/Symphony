@@ -45,8 +45,7 @@ a {
     cursor: pointer;
 }
 
-button,
-.skip10sec-btn {
+button {
     &:hover {
         cursor: pointer;
         transition: 0.3s;
@@ -58,6 +57,70 @@ h1 {
     font-size: 22px;
     text-align: left;
     margin: 30px 25px 10px 20px
+}
+
+hr {
+    margin: 0;
+}
+
+.fa-solid {
+    font-size: 1.5rem;
+    color: rgb(172, 170, 170);
+    padding: 8px;
+}
+
+
+.img-input {
+    display: none;
+}
+
+.dropdown-btn{
+    height: 32px;
+    width: 32px;
+}
+
+ul {
+    padding: 0;
+}
+
+
+li {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    color: rgb(172, 170, 170);
+    gap: 3px;
+
+    &:hover {
+        color: white;
+    }
+
+    @include for-mobile-layout {
+        display: block;
+    }
+}
+
+hr {
+    border: 1px solid #3a3939;
+}
+
+.symbol {
+    font-size: 18px;
+    margin-right: 18px;
+    color: rgb(172, 170, 170);
+
+    &:hover {
+        // color: rgb(255, 255, 255);
+    }
+
+    @include for-mobile-layout {
+        margin-right: 0;
+    }
+}
+
+.nav-likes-songs-logo {
+    width: 25px;
+    padding-inline-start:3px ;
 }
 
 .shadow-screen {
@@ -72,28 +135,3 @@ h1 {
     cursor: pointer;
 }
 
-.hr-navbar {
-    margin: 0 10px;
-
-    @include for-mobile-layout {
-        display: none;
-    }
-}
-
-hr {
-    margin: 0;
-}
-
-.rotate {
-    animation: rotation 10s infinite linear;
-
-    @keyframes rotation {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(359deg);
-        }
-    }
-}

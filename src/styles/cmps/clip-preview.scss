@@ -1,11 +1,16 @@
-.cp-1-container {
+.clip-preview-container-1 {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
+.dropdown-btn {
+    height: 32px;
+    width: 32px;
+}
 
-.cp-main-container {
+
+.clip-preview-main-container {
     display: grid;
     // grid-template-columns: 650px 9fr 8fr 2fr minmax(50px, 1fr);
     // grid-template-columns:800px 10fr 1fr 1fr minmax(50px, 1fr);
@@ -27,7 +32,7 @@
         padding: 10px;
     }
 
-    & .clip-dp-btn {
+    & .dropdown-btn {
         display: none;
         padding: 10px;
 
@@ -53,7 +58,7 @@
             display: none;
         }
 
-        .clip-dp-btn {
+        .dropdown-btn {
             display: flex;
             font-size: 16px;
             margin-right: 5px;
@@ -147,7 +152,7 @@
     margin-left: 0px;
 }
 
-.cp-2-container {
+.clip-preview-container-2 {
     text-align: right;
 
     @include for-mobile-layout {}
@@ -171,38 +176,3 @@
 }
 
 
-.playlist-btns {
-    display: flex;
-    gap: 35px;
-    height: 150px;
-    align-items: center;
-    padding: 30px;
-    background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.6) 100%);
-
-    @include for-mobile-layout {
-        height: 60px;
-        gap: 20px;
-    }
-
-    .play-btn {
-        transform: scale(1.1);
-        background: #1ed760;
-        transition: 0.4s;
-        width: 3.125rem;
-        height: 3.125rem;
-        font-size: 1.2rem;
-
-        @include for-mobile-layout {
-            width: 2.75rem;
-            height: 2.75rem;
-            font-size: 1rem;
-        }
-    }
-
-    .clip-dp-btn {
-        background: none;
-        border: none;
-        padding: 10px;
-        font-size: 25px;
-    }
-}

@@ -1,7 +1,7 @@
 export const StationDropdown = ({ isDropdown, setIsDropdown, isUserStation, isAdminMode, setIsEdit, onRemoveStation }) => {
 
     return (
-        <ul className='dropdown-pl'>
+        <ul className='station-dropdown'>
             {(isUserStation || isAdminMode) &&
                 <div>
                     <li onClick={() => {

@@ -8,8 +8,9 @@ import { StationDropdown } from "./station-dropdown"
 import { StationEdit } from "./station-edit"
 import { HeaderDetails } from "./header-details"
 import { LikesBtns } from "./likes-btn"
+import { computeColor } from "../services/bg-color.service"
 
-export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation, setStation, onTogglePlay, LikedSongLogo, isAdminMode, setAdminMode }) => {
+export const StationHeader = ({ bgColor, setBgcolor, isUserStation, station, onRemoveStation, setStation, onTogglePlay, LikedSongLogo, isAdminMode, setAdminMode }) => {
     let { currPlaylist, currClip, isPlaying } = useSelector(state => state.mediaPlayerModule)
     const user = useSelector(state => state.userModule.user)
     const [imgUrl, setImgUrl] = useState(station.imgUrl || defaultImg)
@@ -44,6 +45,18 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
         const currImgUrl = await uploadImg(ev)
         station.imgUrl = currImgUrl
         setImgUrl(currImgUrl)
+        computeColor(station?.imgUrl)
+            .then(color => {
+                station.bgColor = color
+                setBgcolor(color)
+            })
+        // if (station?.imgUrl) {
+        //     computeColor(station?.imgUrl)
+        //         .then(color => {
+        //             console.log('#03435C', color)
+        //             setBgcolor(color)
+        //         })
+        // }
         setIsChangedImg(false)
         dispatch(updateStation(station))
     }
@@ -55,25 +68,26 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
             {<div className='pl-img-container'>
                 <label htmlFor='pl-img'>
                     {!isChangedImg && <img
-                        className={'my-sd-img '}
+                        className={'station-img '}
                         src={LikedSongLogo ? LikedSongLogo : imgUrl}
                         alt='playist-img' />}
                     {isChangedImg &&
                         <img
-                            className={'my-sd-img ' + (checkImg(imgUrl) ? 'rotate' : '')}
+                            className={'station-img ' + (checkImg(imgUrl) ? 'rotate' : '')}
                             src={LikedSongLogo ? LikedSongLogo : imgUrl}
                             alt='playist-img' />
                     }
                 </label>
                 {(isUserStation && !LikedSongLogo) &&
                     <input
-                        className='pl-img-input'
+                        className='img-input'
                         id='pl-img'
                         onChange={onUploadImg} type='file' />
                 }</div>}
 
-            <div className='my-sd-details'>
-                <h1 className='my-sd-h1'>{station.name}</h1>
+            <div className='station-header-details-container'>
+                <p>TYPE OF STATION - TO FIX</p>
+                <h1 className='station-header-name-container'>{station.name}</h1>
                 <div className='desc-container'>{station.desc}</div>
                 {isUserStation ? <HeaderDetails
                     creator={station?.createdBy?.fullname} clips={station?.clips} /> :
@@ -94,7 +108,7 @@ export const StationHeader = ({ bgColor, isUserStation, station, onRemoveStation
                     onClick={() => setAdminMode(!isAdminMode)}
                 >⭐</span>
             }
-            <button className='clip-dp-btn fa-solid fa-ellipsis' onClick={() => setIsDropdown(!isDropdown)}></button>
+            <button className='dropdown-btn fa-solid fa-ellipsis' onClick={() => setIsDropdown(!isDropdown)}></button>
         </div>
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}

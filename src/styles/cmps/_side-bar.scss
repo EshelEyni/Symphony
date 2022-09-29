@@ -1,101 +1,3 @@
-.sidebar {
-    position: fixed;
-    width: 25px;
-    height: 100%;
-    background: #121212;
-    background-color: #000;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 10px;
-    z-index: 20;
-
-    @include for-mobile-layout {
-        display: contents;
-        flex-direction: row;
-        width: 100%;
-        position: relative;
-        bottom: 0;
-        align-items: center;
-        z-index: 30;
-        font-size: 10px;
-        text-align: center;
-    }
-
-    @include for-narrow-layout {
-        width: 200px;
-    }
-
-    @include for-wide-layout {
-        width: 250px;
-
-    }
-}
-
-.sidebar a {
-    color: rgb(172, 170, 170);
-    text-decoration: none;
-
-    @include for-narrow-layout {
-        font-size: 14px;
-    }
-
-    @include for-wide-layout {
-        font-size: 16px;
-    }
-}
-
-.library-link,
-.search-link,
-.link-liked,
-.text-create {
-    cursor: pointer;
-
-    &>li {
-        &>:nth-child(2) {
-            display: none;
-        }
-    }
-
-    &.active {
-        &>li {
-            &>:nth-child(1) {
-                display: none;
-            }
-
-            &>:nth-child(2) {
-                display: unset;
-            }
-        }
-    }
-
-    @include for-mobile-layout {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-.guest-mode-link {
-    cursor: pointer;
-}
-
-.link-liked {
-    @include for-mobile-layout {
-        display: none;
-    }
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
 .logo-container {
     display: flex;
 
@@ -130,104 +32,59 @@
     }
 }
 
-
-.nav-list {
-    position: relative;
-    width: 100%;
-    justify-content: space-around;
-    padding: 0 40px;
-    z-index: 10;
+.sidebar {
+    position: fixed;
+    width: 25px;
+    height: 100%;
+    background: #121212;
+    background-color: #000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 10px;
+    z-index: 20;
 
     @include for-mobile-layout {
-        display: flex;
+        display: contents;
         flex-direction: row;
         width: 100%;
-        height: 76px;
-        position: fixed;
+        position: relative;
         bottom: 0;
         align-items: center;
-        margin: 0;
-        background: #121212;
-        background-color: #000;
-    }
-}
-
-li {
-    position: relative;
-    display: flex;
-    padding: 10px;
-    color: rgb(172, 170, 170);
-    gap: 3px;
-
-    &:hover {
-        color: white;
+        z-index: 30;
+        font-size: 10px;
+        text-align: center;
     }
 
-    @include for-mobile-layout {
-        display: block;
-    }
-}
-
-.symbol {
-    font-size: 18px;
-    margin-right: 18px;
-    color: rgb(172, 170, 170);
-
-    &:hover {
-        // color: rgb(255, 255, 255);
+    @include for-narrow-layout {
+        width: 200px;
     }
 
-    @include for-mobile-layout {
-        margin-right: 0;
-    }
-}
+    @include for-wide-layout {
+        width: 250px;
 
-hr {
-    border: 1px solid #3a3939;
-}
-
-.login-first-msg {
-    position: absolute;
-    left: 240px;
-    width: 300px;
-    height: 156px;
-    background-color: #0D72EA;
-    padding: 1rem;
-    // top: 150px;
-    border-radius: 20px;
-
-    .tippy {
-        position: absolute;
-        height: 0;
-        width: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        left: rem(-10px);
-        top: rem(20px);
-        border-right: 10px solid #0D72EA;
     }
 
-    &>*:not(.shadow-screen) {
-        z-index: 20;
-    }
-
-    .login-first-msg-container {
-
-        & .login-first-p-1 {
-            font-size: rem(18px);
-            font-weight: 700;
-            margin: 0px 0px 8px 0px;
+    a {
+        color: rgb(172, 170, 170);
+        text-decoration: none;
+    
+        @include for-narrow-layout {
+            font-size: 14px;
         }
-
-        & .login-first-p-2 {
-            font-size: rem(14px);
-            margin: 0;
+    
+        @include for-wide-layout {
+            font-size: 16px;
         }
     }
+}
 
-    .login-first-btns {
-        justify-content: end;
-        gap: 1rem;
+.sidebar ul { // check if you can put in base?
+    list-style-type: none;
+    padding: 0;
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -241,11 +98,10 @@ hr {
     cursor: pointer;
 }
 
-.nav-img-logo {
-    width: 25px;
-    padding-inline-start:3px ;
-}
+.hr-navbar {
+    margin: 0 10px;
 
-.like-songs {
-    margin-inline-start: 20px;
+    @include for-mobile-layout {
+        display: none;
+    }
 }

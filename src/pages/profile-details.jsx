@@ -30,7 +30,7 @@ export const UserProfile = () => {
     }, [params])
 
     useEffect(() => {
-        const currStations = stations.filter(station => station.createdBy._id === loggedInUser._id && !station.isSearch)
+        const currStations = stations.filter(station => station.createdBy._id === user?._id && !station.isSearch)
         setUserMadeStations(currStations)
     }, [stations])
 

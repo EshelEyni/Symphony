@@ -5,7 +5,7 @@ import { defaultImg, getById } from '../services/station.service.js'
 import { SearchBar } from '../cmps/search-bar'
 import { removeStation, updateStation } from '../store/station.actions'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions.js'
-import { computeColor } from '../services/bg-color.service.js'
+import { computeColor, stationHeaderDefaultBgcolor } from '../services/bg-color.service.js'
 import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { setUserMsg, updateUser } from '../store/user.actions.js'
@@ -40,7 +40,6 @@ export const StationDetails = () => {
 
     useEffect(() => {
         loadStation(params)
-        setBgcolor(bgColor)
     }, [params])
 
     // Supports loading station from create playlist 
@@ -78,12 +77,14 @@ export const StationDetails = () => {
         setStation(station)
         setImgUrl(station?.imgUrl || defaultImg)
         setPlaytlistClips(station?.clips)
-        if (station?.imgUrl) {
-            computeColor(station?.imgUrl)
-                .then(color => {
-                    setBgcolor(color)
-                })
-        }
+        if (station.imgUrl === defaultImg) setBgcolor(stationHeaderDefaultBgcolor)
+        // if (station?.imgUrl) {
+        //     computeColor(station?.imgUrl)
+        //         .then(color => {
+        //             console.log('#03435C', color)
+        //             setBgcolor(color)
+        //         })
+        // }
     }
     const onRemoveStation = () => {
         dispatch(removeStation(station._id))
@@ -184,7 +185,9 @@ export const StationDetails = () => {
                     setAdminMode={setAdminMode}
                     onTogglePlay={onTogglePlay}
                     bgColor={bgColor}
+                    setBgcolor={setBgcolor}
                     imgUrl={imgUrl}
+                    setImgUrl={setImgUrl}
                     isUserStation={station?.createdBy?._id === user?._id}
                     station={station}
                     onRemoveStation={onRemoveStation}
@@ -202,7 +205,7 @@ export const StationDetails = () => {
                 }
 
 
-                <div className='ms-clips-container'>
+                <div className='station-clips-container'>
                     <ClipListHeader
                         bgColor={bgColor}
                         station={station}
@@ -236,8 +239,8 @@ export const StationDetails = () => {
                 </div>
                 <hr />
                 {key === 'user-clip' &&
-                    <div className='sb-container'>
-                        <h1 className='sb-header'>
+                    <div className='station-search-container'>
+                        <h1 className='station-search-header'>
                             Let's find something for your playlist
                         </h1>
                         <SearchBar

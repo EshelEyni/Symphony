@@ -1,0 +1,46 @@
+.title {
+
+    @include for-mobile-layout {
+        left: 0;
+    }
+}
+
+
+.header-container {
+    display: grid;
+    grid-template-columns: 800px 8fr 2.5fr 1fr minmax(50px, 1fr);
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
+
+    @include for-mobile-layout {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+.album,
+.date {
+    @include for-mobile-layout {
+        display: none;
+    }
+}
+
+.title,
+.album,
+.date,
+.clock {
+    font-size: 14px;
+}
+
+.clock,
+.duration {
+    text-align: right;
+    width: 55%;
+}
+
+.clock {
+    @include for-mobile-layout {
+        margin-right: 60px;
+    }
+}

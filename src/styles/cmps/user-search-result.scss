@@ -58,9 +58,3 @@
         height: 42.3px;
     }
 }
-
-.artist-name {
-    @include for-mobile-layout {
-        display: none;
-    }
-}
