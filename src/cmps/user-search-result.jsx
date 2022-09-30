@@ -1,5 +1,5 @@
 
-export const UserSearchResult = ({ clip, onAddClip }) => {
+export const UserSearchResult = ({ currStation, clip, onAddClip }) => {
 
     return (
         <li
@@ -15,7 +15,7 @@ export const UserSearchResult = ({ clip, onAddClip }) => {
             <div>
                 <button
                     className='search-res-add-btn'
-                    onClick={() => onAddClip(clip)}
+                    onClick={() => onAddClip(clip, currStation)}
                 >
                     Add
                 </button>

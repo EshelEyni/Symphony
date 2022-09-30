@@ -4,17 +4,24 @@ import { getDuration } from '../services/clip.service'
 import { LikesBtns } from './likes-btn'
 import { ClipDropdown } from './clip-dropdown'
 import { defaultBgcolor } from '../services/bg-color.service'
-import { useParams } from 'react-router-dom'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
 import { useDispatch } from 'react-redux'
 import { storageService } from '../services/async-storage.service'
 const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664386983/Symphny/ezgif.com-gif-maker_cbbaoz.gif'
 
-export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, bgColor, dndStyle }) => {
+export const ClipPreview = ({
+    station,
+    clip,
+    type,
+    idx,
+    clipNum,
+    onRemoveClip,
+    bgColor,
+    dndStyle }) => {
+
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
 
     const user = useSelector(state => state.userModule.user)
-    const params = window.location.href
     let [isDropdownClip, setIsDropdownClip] = useState(false)
     let [isClicked, setIsClicked] = useState()
 
@@ -66,11 +73,11 @@ export const ClipPreview = ({ clip, type, idx, clipNum, station, onRemoveClip, b
     //     if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
     //     return currBgcolor
     // }
+    // const linearBgc = `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`
 
     return <li
         style={{
-            backgroundColor: dndStyle?.backgroundColor ? dndStyle.backgroundColor : defaultBgcolor,
-            background: `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`,
+            backgroundColor: dndStyle?.backgroundColor,
             color: dndStyle?.color,
             borderRadius: dndStyle?.borderRadius,
             cursor: dndStyle?.cursor,

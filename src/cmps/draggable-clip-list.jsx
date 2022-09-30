@@ -1,15 +1,21 @@
 import { ClipPreview } from "./clip-preview"
 import { Draggable } from "react-beautiful-dnd"
-import { defaultGreenColor } from '../services/bg-color.service'
+import { defaultBlueColor } from '../services/bg-color.service'
 
-export const DraggableClipList = ({ clipKey, clips, station, onRemoveClip, bgColor, provided }) => {
+export const DraggableClipList = ({
+    station,
+    bgColor,
+    currClips,
+    clipKey,
+    onRemoveClip,
+    provided }) => {
 
     return <ul
-        className='ms-clips-main-container'
+        className='station-clips-main-container'
         {...provided.droppableProps}
         ref={provided.innerRef}>
 
-        {clips?.map((clip, idx) => (
+        {currClips?.map((clip, idx) => (
             <Draggable
                 key={clipKey + idx}
                 draggableId={'' + idx}
@@ -17,9 +23,9 @@ export const DraggableClipList = ({ clipKey, clips, station, onRemoveClip, bgCol
                 {(provided, snapshot) => {
                     const style = {
                         ...provided.draggableProps.style,
-                        backgroundColor: snapshot.isDragging ? defaultGreenColor : null,
+                        backgroundColor: snapshot.isDragging ? defaultBlueColor : null,
                         color: snapshot.isDragging ? '#000000' : '',
-                        borderRadius: snapshot.isDragging ? '15px' : '',
+                        // borderRadius: snapshot.isDragging ? '15px' : '',
                         cursor: snapshot.isDragging ? 'grabbing' : 'default'
                     }
                     return (

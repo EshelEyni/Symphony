@@ -3,13 +3,20 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { storageService } from '../services/async-storage.service'
+import { clearMsg, msg } from '../services/user.service'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
+import { removeStation } from '../store/station.actions'
+import { setUserMsg, updateUser } from '../store/user.actions'
 
-export const StationPreview = ({ station }) => {
+export const StationPreview = ({
+    currStation,
+    isSearch }) => {
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
+    const loggedInUser = useSelector(state => state.userModule.user)
+
     let [isClicked, setIsClicked] = useState()
     const dispatch = useDispatch()
-    const stationId = station?._id
+    const stationId = currStation?._id
 
     useEffect(() => {
         if (!currClip || !currPlaylist) return
@@ -30,13 +37,13 @@ export const StationPreview = ({ station }) => {
         // Stops button from navigating to link
         e.stopPropagation()
         e.preventDefault()
-        const clip = station.clips[0]
+        const clip = currStation.clips[0]
 
 
         if (!isClicked) {
             dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
-            dispatch(setPlaylist(station))
+            dispatch(setPlaylist(currStation))
             dispatch(setClip(clip))
             console.log('clip StationPreview', clip)
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
@@ -64,11 +71,29 @@ export const StationPreview = ({ station }) => {
     }
 
 
+    const onRemoveStation = (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+        dispatch(removeStation(currStation._id))
+        dispatch(setUserMsg(msg(currStation.name, ' removed from your library')))
+        setTimeout(() => {
+            dispatch(setUserMsg(clearMsg))
+        }, 2500)
+        const userToUpdate = { ...loggedInUser }
+        userToUpdate.createdStations = userToUpdate.createdStations.filter(playlistId => playlistId !== currStation._id)
+        userToUpdate.recentSearches = userToUpdate.recentSearches.filter(recentSearch => recentSearch._id !== currStation._id)
+        dispatch(updateUser(userToUpdate))
+    }
+
+
     return <article className='station-preview' >
-        <Link to={'/station/' + station._id}>
+        <Link to={'/station/' + currStation._id}>
             <div className='station'>
+                {isSearch && <div className='recent-search-delete-btn-container'>
+                    <i className="fa-solid fa-xmark"
+                        onClick={onRemoveStation}></i> </div>}
                 <div className='img-container'>
-                    <img src={station.imgUrl} alt={station['logo-desc']} />
+                    <img src={currStation.imgUrl} alt={currStation['logo-desc']} />
 
                     <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                         onClick={(e) => {
@@ -78,10 +103,10 @@ export const StationPreview = ({ station }) => {
                 </div>
                 <div className='desc-container '>
                     <div>
-                        <h4>{station.name}</h4>
+                        <h4>{currStation.name}</h4>
                     </div>
                     <div>
-                        <p className='fs14'>{station.desc}</p>
+                        <p className='fs12'>{currStation.desc}</p>
                     </div>
 
 

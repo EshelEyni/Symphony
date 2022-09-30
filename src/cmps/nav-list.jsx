@@ -58,7 +58,7 @@ export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLog
             </li>
         </NavLink>
         <NavLink
-            to='/search'
+            to='/search/'
             className='search-link'
             onClick={() => setIsHomeClicked(false)}
         >

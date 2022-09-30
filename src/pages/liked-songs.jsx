@@ -10,8 +10,8 @@ import { useEffect, useState } from 'react'
 import { updateUser } from '../store/user.actions'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { likedSongsBgcolor } from '../services/bg-color.service.js'
-import { setRecentlyPlayed, userService } from '../services/user.service.js'
 import { storageService } from '../services/async-storage.service.js'
+import LikedSongsLogo from '../../src/assets/img/likedsongs.png'
 
 
 
@@ -94,6 +94,7 @@ export const LikedSongs = () => {
                     clips={station.clips}
                     station={station}
                     user={user.username}
+                    LikedSongsLogo={LikedSongsLogo}
                     onTogglePlay={onTogglePlay}
                 />
             </div>
@@ -103,7 +104,7 @@ export const LikedSongs = () => {
                 />
                 <hr />
                 <DragDropContext onDragEnd={onHandleDragEnd}>
-                    <Droppable droppableId='ms-clips-main-container'>
+                    <Droppable droppableId='station-clips-main-container'>
                         {(provided) => (
                             <DraggableClipList
                                 bgColor={likedSongsBgcolor}
