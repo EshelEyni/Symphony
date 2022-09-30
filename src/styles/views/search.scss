@@ -72,7 +72,6 @@
     scrollbar-width: thin;
 }
 .browse-all{
-    padding: 0 65px;
     @include for-mobile-layout {
        padding: 0;
     }

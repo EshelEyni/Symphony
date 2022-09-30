@@ -1,5 +1,3 @@
-
-
 .nav-list {
     position: relative;
     width: 100%;
@@ -21,7 +19,10 @@
     }
 }
 
-
+.text{
+    margin-left: -5px;
+    margin-top: 3px;
+}
 
 
 .library-link,
@@ -112,6 +113,6 @@
 }
 
 
-.like-songs-text{
+.like-songs-text {
     margin-inline-start: 20px;
 }

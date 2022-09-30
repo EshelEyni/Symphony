@@ -70,7 +70,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                             fontSize: '26px'
                         }} /></div>
                     <div className='symbol search'><ScreenSearchDesktopRoundedIcon /></div>
-                    <div className='text'>Search</div>
+                    <div className='text-search'>Search</div>
                 </ThemeProvider> </li>
         </NavLink>
         {user &&
@@ -100,7 +100,6 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                         <div className='symbol plus'><AddBoxIcon sx={{
                             fontSize: '26px'
                         }} /> </div>
-                        {/* <div className='symbol plus'><AddBoxIcon /></div> */}
                     </ThemeProvider>
                     <div className='text-create'>Create Playlist</div>
                 </li>
@@ -114,13 +113,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 onClick={() => setIsHomeClicked(false)}
             >
                 <li>
-                    {/* <ThemeProvider theme={theme}> */}
                     <div><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
-                    {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
-                            fontSize: '26px'
-                        }} /></div>
-                        <div className='symbol heart'><FavoriteIcon /></div> */}
-                    {/* </ThemeProvider> */}
                     <div className='like-songs-text'>Liked Songs</div>
                 </li>
             </NavLink>
