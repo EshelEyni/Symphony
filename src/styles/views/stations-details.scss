@@ -3,6 +3,11 @@
         font-size: 17px;
         margin-left: 20px;
     }
+
+    @include for-wide-layout {
+        display:grid;
+        
+    }
 }
 
 .station-search-container {

@@ -10,11 +10,14 @@ export function ClipListHeader({ bgColor, station }) {
     return (
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
-            className='header-container flex'>
-            <h1 className='title'># TITLE</h1>
-            <h1 className='album'>ARTIST</h1>
-            <h1 className='date'>{((params.includes('liked')) || station?.createdBy?._id === user?._id) && 'DATE ADDED'}</h1>
-            <h1 className='clock'><AccessTimeOutlinedIcon /></h1>
+            className='clip-header-container'>
+            <div className='num-area'></div>
+            <h1 className='title-area'># TITLE</h1>
+            <h1 className='artist-area'>ARTIST</h1>
+            <h1 className='date-area'>DATE ADDED</h1>
+            <div className='like-area'></div>
+            <h1 className='clock-area'><AccessTimeOutlinedIcon /></h1>
+            <div className='burger-area'></div>
         </div>
     )
 }

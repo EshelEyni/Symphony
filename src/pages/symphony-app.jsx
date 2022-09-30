@@ -62,7 +62,6 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Funk</h1>
                     <Link to={'/tag/Funk'}>SEE ALL</Link>
                 </div>
@@ -71,7 +70,6 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Love</h1>
                     <Link to={'/tag/Love'}>SEE ALL</Link>
                 </div>
@@ -80,7 +78,6 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Dance</h1>
                     <Link to={'/tag/Dance'}>SEE ALL</Link>
                 </div>
@@ -89,7 +86,6 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Israeli</h1>
                     <Link to={'/tag/Israeli'}>SEE ALL</Link>
                 </div>
@@ -98,7 +94,6 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Top songs</h1>
                     <Link to={'/tag/Top songs'}>SEE ALL</Link>
                 </div>
@@ -107,19 +102,17 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Europe</h1>
+                    <Link to={'/tag/Europe'}>SEE ALL</Link>
                 </div>
-                <Link to={'/tag/Europe'}>SEE ALL</Link>
                 <StationList stations={getStationByTag(stations, 'Europe')} />
             </div>
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-
                     <h1>Metal</h1>
+                    <Link to={'/tag/Metal'}>SEE ALL</Link>
                 </div>
-                <Link to={'/tag/Metal'}>SEE ALL</Link>
                 <StationList stations={getStationByTag(stations, 'Metal')} />
             </div>
         </div >
