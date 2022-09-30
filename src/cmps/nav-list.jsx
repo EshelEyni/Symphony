@@ -14,7 +14,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { LoginMsg } from './login-msg'
 import LikedSongsLogo from '../../src/assets/img/likedsongs.png'
 
-export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLoginMsg }) => {
+export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLoginMsg }) => {
 
     // Support Home icom switch - exact does not apply for some reason
     let [isHomeClicked, setIsHomeClicked] = useState(true)
@@ -115,13 +115,13 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
             >
                 <li>
                     {/* <ThemeProvider theme={theme}> */}
-                    <div><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
+                    <div className='symbol'><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
                     {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
                             fontSize: '26px'
                         }} /></div>
                         <div className='symbol heart'><FavoriteIcon /></div> */}
                     {/* </ThemeProvider> */}
-                    <div className='like-songs-text'>Liked Songs</div>
+                    <div className='text'>Liked Songs</div>
                 </li>
             </NavLink>
         }
@@ -165,7 +165,7 @@ export const NavBar = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLogi
                 // className='guest-mode-link'
                 onClick={() => setLoginMsg('210px')}>
                 {/* <ThemeProvider theme={theme}> */}
-                <img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" />
+                <div className='symbol'><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
                 {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
                         fontSize: '26px'
                     }} /></div> */}

@@ -196,7 +196,7 @@ export const MediaPlayer = () => {
 
     return (
 
-        <div className='media-player-container flex'>
+        <div className='media-player-container'>
 
             {/***************** YouTube Media Player *****************/}
             <div className='mp-container'>

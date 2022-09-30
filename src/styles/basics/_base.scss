@@ -1,3 +1,5 @@
+
+
 * {
     box-sizing: border-box;
 }
@@ -17,7 +19,7 @@ body {
 
 body::-webkit-scrollbar {
     width: 0.6em;
-
+ 
     @include for-mobile-layout {
         width: 0.4em;
     }
@@ -105,20 +107,6 @@ hr {
     border: 1px solid #3a3939;
 }
 
-.symbol {
-    font-size: 18px;
-    margin-right: 18px;
-    color: rgb(172, 170, 170);
-
-    &:hover {
-        // color: rgb(255, 255, 255);
-        visibility: visible;
-    }
-
-    @include for-mobile-layout {
-        margin-right: 0;
-    }
-}
 
 .nav-likes-songs-logo {
     width: 25px;
@@ -136,4 +124,5 @@ hr {
     z-index: 10;
     cursor: pointer;
 }
+
 
