@@ -71,7 +71,7 @@ export const UserProfile = () => {
                             <h1>Recently Played</h1>
                             <ClipListHeader />
                             <DragDropContext onDragEnd={onHandleDragEnd}>
-                                <Droppable droppableId='ms-clips-main-container'>
+                                <Droppable droppableId='station-clips-main-container'>
                                     {(provided) => (
                                         <DraggableClipList
                                             // bgColor={bgColor}

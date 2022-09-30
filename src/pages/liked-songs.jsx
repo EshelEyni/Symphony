@@ -103,7 +103,7 @@ export const LikedSongs = () => {
                 />
                 <hr />
                 <DragDropContext onDragEnd={onHandleDragEnd}>
-                    <Droppable droppableId='ms-clips-main-container'>
+                    <Droppable droppableId='stations-clips-main-container'>
                         {(provided) => (
                             <DraggableClipList
                                 bgColor={likedSongsBgcolor}

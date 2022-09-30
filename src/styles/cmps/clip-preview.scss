@@ -1,4 +1,4 @@
-.ms-clips-main-container {
+.station-clips-main-container {
     display: grid;
     gap: 5px;
 
@@ -12,7 +12,6 @@
 .clip-preview-main-container {
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
     padding: 5px;
     font-size: 12px;
     height: 42.3px;
@@ -24,6 +23,10 @@
 
     .title-text {
         padding-inline-start: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
     }
 
     // align-items: center;

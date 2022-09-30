@@ -5,7 +5,7 @@ import { defaultGreenColor } from '../services/bg-color.service'
 export const DraggableClipList = ({ clipKey, clips, station, onRemoveClip, bgColor, provided }) => {
 
     return <ul
-        className='ms-clips-main-container'
+        className='station-clips-main-container'
         {...provided.droppableProps}
         ref={provided.innerRef}>
 
