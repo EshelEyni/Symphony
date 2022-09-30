@@ -47,7 +47,6 @@ export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLog
                                 fontSize: '30px',
                             }} /></div>
                     }
-
                     {isHomeClicked &&
                         <div className='symbol home-icon'><HomeIcon
                             sx={{
@@ -73,83 +72,25 @@ export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLog
                     <div className='text-search'>Search</div>
                 </ThemeProvider> </li>
         </NavLink>
-        {user &&
-            <NavLink
-                to={'/library'}
-                className='library-link'
-                onClick={() => setIsHomeClicked(false)}
-            >
-                <li>
-                    <ThemeProvider theme={theme}>
-                        <div className='symbol'> <LibraryMusicOutlinedIcon
-                            sx={{
-                                fontSize: '26px'
-                            }} /></div>
-
-                        <div className='symbol'><LibraryMusicIcon /></div>
-                    </ThemeProvider>
-                    <div className='text-library'>Library</div>
-                </li>
-            </NavLink>
-        }
-        {user &&
-            <div
-                className='create-link'>
-                <li onClick={isAddStation ? onAddStation : null}>
-                    <ThemeProvider theme={theme}>
-                        <div className='symbol plus'><AddBoxIcon sx={{
-                            fontSize: '26px'
-                        }} /> </div>
-                    </ThemeProvider>
-                    <div className='text-create'>Create Playlist</div>
-                </li>
-            </div>
-        }
-
-        {user &&
-            <NavLink
-                to={'/liked'}
-                // className='link-liked-songs'
-                onClick={() => setIsHomeClicked(false)}
-            >
-                <li>
-                    {/* <ThemeProvider theme={theme}> */}
-                    <div className='symbol'><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
-                    {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
-                            fontSize: '26px'
-                        }} /></div>
-                        <div className='symbol heart'><FavoriteIcon /></div> */}
-                    {/* </ThemeProvider> */}
-                    <div className='text'>Liked Songs</div>
-                </li>
-            </NavLink>
-        }
-
-        {/***************************************** Guest mode properties  *****************************************/}
-
-        {isLoginMsg && <LoginMsg
-            currTop={topLoginMsg}
-            setIsLoginMsg={setIsLoginMsg} />}
-
-        {!user &&
-            <li
-                className='guest-mode-link'
-                onClick={() => setLoginMsg('100px')}
-            >
+        <NavLink
+            onClick={user ? () => setIsHomeClicked(false) : () => setLoginMsg('150px')}
+            to={user ? '/library' : '/'}
+            className='library-link'>
+            <li>
                 <ThemeProvider theme={theme}>
                     <div className='symbol'> <LibraryMusicOutlinedIcon
                         sx={{
                             fontSize: '26px'
                         }} /></div>
+
+                    <div className='symbol'><LibraryMusicIcon /></div>
                 </ThemeProvider>
                 <div className='text-library'>Library</div>
             </li>
-        }
-
-        {!user &&
-            <li
-                className='guest-mode-link'
-                onClick={() => setLoginMsg('150px')}>
+        </NavLink>
+        <div
+            className='create-link'>
+            <li onClick={user ? (isAddStation ? onAddStation : null) : () => setLoginMsg('190px')}>
                 <ThemeProvider theme={theme}>
                     <div className='symbol plus'><AddBoxIcon sx={{
                         fontSize: '26px'
@@ -157,22 +98,25 @@ export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLog
                 </ThemeProvider>
                 <div className='text-create'>Create Playlist</div>
             </li>
-        }
-
-        {!user &&
-            <li
-                // className='guest-mode-link'
-                onClick={() => setLoginMsg('210px')}>
+        </div>
+        <NavLink
+            to={user ? '/liked' : '/'}
+            onClick={user ? () => setIsHomeClicked(false) : () => setLoginMsg('230px')}
+        >
+            <li>
                 {/* <ThemeProvider theme={theme}> */}
                 <div className='symbol'><img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="" /></div>
                 {/* <div className='symbol heart'> <FavoriteBorderIcon sx={{
-                        fontSize: '26px'
-                    }} /></div> */}
+                            fontSize: '26px'
+                        }} /></div>
+                        <div className='symbol heart'><FavoriteIcon /></div> */}
                 {/* </ThemeProvider> */}
-                <div className='like-songs-text'>Liked Songs</div>
+                <div className='text'>Liked Songs</div>
             </li>
-        }
-
+        </NavLink>
+        {/***************************************** Guest mode properties  *****************************************/}
+        {isLoginMsg && <LoginMsg
+            currTop={topLoginMsg}
+            setIsLoginMsg={setIsLoginMsg} />}
     </ul>
-
 }
