@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { ProfileHeader } from '../cmps/profile-header'
 import { DraggableClipList } from '../cmps/draggable-clip-list'
 import { setClip, setPlaylist } from '../store/media-player.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { handleDragEnd } from '../services/dragg.service'
 import { ClipListHeader } from '../cmps/clip-list-header'
-import { ProfilesList } from '../cmps/profile-list'
+import { ProfileList } from '../cmps/profile-list'
 import { userService } from '../services/user.service'
 import { loadStations } from '../store/station.actions'
 import { storageService } from '../services/async-storage.service'
@@ -17,20 +17,22 @@ import { StationList } from '../cmps/station-list'
 export const UserProfile = () => {
     const loggedInUser = useSelector(state => state.userModule.user)
     let stations = useSelector(state => state.stationModule.stations)
-    let [user, setUser] = useState()
+    let [currProfileUser, setCurrProfileUser] = useState()
     let [userMadeStations, setUserMadeStations] = useState([])
     const params = useParams()
     let [recentlyPlayedClips, setRecentlyPlayedClips] = useState()
     const dispatch = useDispatch()
 
+    console.log('currProfileUser', currProfileUser)
+    console.log('loggedInUser', loggedInUser)
 
     useEffect(() => {
-        loadUser(user, params.id)
+        loadUser(currProfileUser, params.id)
         dispatch(loadStations())
     }, [params])
 
     useEffect(() => {
-        const currStations = stations.filter(station => station.createdBy._id === user?._id && !station.isSearch)
+        const currStations = stations.filter(station => station.createdBy._id === currProfileUser?._id && !station.isSearch)
         setUserMadeStations(currStations)
     }, [stations])
 
@@ -43,7 +45,7 @@ export const UserProfile = () => {
         const recentlyPlayed = storageService.loadFromStorage('recentlyPlayed')
         setRecentlyPlayedClips(recentlyPlayed?.clips)
         console.log('recentlyPlayedClips', recentlyPlayedClips)
-        setUser(user)
+        setCurrProfileUser(user)
     }
 
     const onHandleDragEnd = (res) => {
@@ -57,34 +59,38 @@ export const UserProfile = () => {
 
     return (
         <div className='user-profile-container'>
-            {user &&
+            {currProfileUser &&
                 <div className='main-user-profile-container flex column'>
                     <ProfileHeader
-                        user={user}
-                        setUser={setUser}
+                        user={currProfileUser}
+                        setUser={setCurrProfileUser}
                     />
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {(loggedInUser._id === params.id && recentlyPlayedClips?.length > 0) &&
+                    {loggedInUser._id === params.id &&
                         <div className="personal-profile-content">
-                            <h1>Recently Played</h1>
-                            <ClipListHeader />
-                            <DragDropContext onDragEnd={onHandleDragEnd}>
-                                <Droppable droppableId='station-clips-main-container'>
-                                    {(provided) => (
-                                        <DraggableClipList
-                                            // bgColor={bgColor}
-                                            provided={provided}
-                                            clipKey={'recently-played'}
-                                            // station={station}
-                                            clips={recentlyPlayedClips}
-                                        />)}
-                                </Droppable>
-                            </DragDropContext>
+                            {recentlyPlayedClips?.length > 0 &&
+                                <div className="recently-played-container">
+                                    <h1>Recently Played</h1>
+                                    <ClipListHeader />
+                                    <DragDropContext onDragEnd={onHandleDragEnd}>
+                                        <Droppable droppableId='station-clips-main-container'>
+                                            {(provided) => (
+                                                <DraggableClipList
+                                                    // bgColor={bgColor}
+                                                    provided={provided}
+                                                    clipKey={'recently-played'}
+                                                    // station={station}
+                                                    clips={recentlyPlayedClips}
+                                                />)}
+                                        </Droppable>
+                                    </DragDropContext>
+                                </div>}
 
                             <h1>People who like the same music</h1>
-                            <ProfilesList
+                            <ProfileList
+                                currUser={loggedInUser}
                                 filterBy={'likes'} />
                         </div>}
 
@@ -93,16 +99,18 @@ export const UserProfile = () => {
 
                     <div className="followers-following-container">
                         <h1>Followers</h1>
-                        <ProfilesList
+                        <ProfileList
+                            currUser={currProfileUser}
                             filterBy={'followers'}
                         />
                         <h1>Following</h1>
-                        <ProfilesList
+                        <ProfileList
+                            currUser={currProfileUser}
                             filterBy={'following'}
                         />
                     </div>
                     <div className="personal-playlist">
-                        <h1>Personal-Playlist</h1>
+                        <h1>{currProfileUser.fullname} Playlists</h1>
                         <StationList
                             stations={userMadeStations}
                         />

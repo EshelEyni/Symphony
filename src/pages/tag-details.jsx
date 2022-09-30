@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { StationList } from "../cmps/station-list"
-import { getStationByTag } from "../services/station.service"
-import { utilService } from "../services/util.service"
+import { stationService } from "../services/station.service"
 
 export const TagsDetails = () => {
     let stations = useSelector(state => state.stationModule.stations)
@@ -12,7 +11,7 @@ export const TagsDetails = () => {
         className='tag-preview-container flex column'>
         <h1>{params.title}</h1>
         <div className="tag-details-container">
-            <StationList stations={getStationByTag(stations, params.title)} />
+            <StationList stations={stationService.getStationByTag(stations, params.title)} />
         </div>
     </div>
 }

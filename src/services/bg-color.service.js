@@ -4,9 +4,9 @@ export const stationHeaderDefaultBgcolor = '#03435C'
 export const queueBgcolor = '#16BA53'
 export const likedSongsBgcolor = '#4723B3'
 export const defaultGreenColor = '#1db954'
+export const defaultBlueColor = '#3f7ef4'
 export const defaultBgcolor = '#121212'
 export const profileBgcolor = '#474747'
-
 
 export const computeColor = (url) => {
     return new Promise((resolve, reject) => {
@@ -31,7 +31,11 @@ export const computeColor = (url) => {
             var color = pickPrimaryColor(quantColors)
             resolve(color)
         }
-        img.src = url
+        try {
+            img.src = url
+        } catch (error) {
+            reject(error)
+        }
     })
 }
 
@@ -66,6 +70,7 @@ const pickPrimaryColor = (colorsList) => {
     delete colorCount['#00080B']
     delete colorCount['#FAFAFA']
     delete colorCount['#EAEBE6']
+    delete colorCount['#FAF8F7']
 
     
     //**************************************************************************************************************************//

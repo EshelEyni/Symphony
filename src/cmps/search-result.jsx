@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { ClipPreview } from './clip-preview'
 import { UserSearchResult } from './user-search-result'
 
-export function SearchResult({ clip, idx, type, onAddClip, onPlayClip }) {
+export function SearchResult({currStation, clip, idx, type, onAddClip, onPlayClip }) {
     const user = useSelector(state => state.userModule.user)
 
     if (type === 'search-res') {
@@ -14,17 +14,17 @@ export function SearchResult({ clip, idx, type, onAddClip, onPlayClip }) {
                     type={type}
                     clip={clip}
                     idx={idx}
-                    onPlayClip={onPlayClip} 
-                    onAddClip={onAddClip}
-                    />
+                    onPlayClip={onPlayClip}
+                />
             </div>
         )
     }
     if (type === 'user-search-res') {
         return (
-            <UserSearchResult 
-            clip={clip}
-            onAddClip={onAddClip}
+            <UserSearchResult
+                clip={clip}
+                currStation={currStation}
+                onAddClip={onAddClip}
             />
         )
     }

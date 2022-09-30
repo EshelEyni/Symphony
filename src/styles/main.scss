@@ -11,26 +11,21 @@
 
 
 // Views
-
-// Station Lists:
-@import "views/symphony-app";
+@import "views/symphony-app"; // Station Lists
 @import "views/library.scss";
 @import "views/search";
 
 // Station Lists Details:
 @import "views/stations-details";
 @import "views/queue";
-
-// Profile Related Pages
-@import "views/user-profile";
+@import "views/user-profile"; // Profile Related Pages
 @import "views/login";
 @import "views/signup";
 @import "views/about";
 
 // Components
 
-// Headers
-@import "cmps/app-header";
+@import "cmps/app-header"; // Headers
 @import "cmps/station-header";
 @import "cmps/clip-header";
 @import "cmps/profile-preview.scss";

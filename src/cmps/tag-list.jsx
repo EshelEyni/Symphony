@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { TagsPreview } from "./tag-preview"
+import { TagPreview } from "./tag-preview"
 
-export const TagsList = ({ stations }) => {
+export const TagList = ({ stations }) => {
     let [tagListToDisplay, setTagsListToDisplay] = useState([])
 
     useEffect(() => {
@@ -16,13 +16,8 @@ export const TagsList = ({ stations }) => {
         setTagsListToDisplay(tagList)
     }, [stations])
 
-    const arrayOfTagsImg=[
-        'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
-''
-    ]
-
-    return <section className='tags-list grid'>
-        {tagListToDisplay.map((tag, idx) => <TagsPreview
+    return <section className='tag-list grid'>
+        {tagListToDisplay.map((tag, idx) => <TagPreview
             key={'tag' + idx}
             tag={tag} 
             idx={idx}/>)}

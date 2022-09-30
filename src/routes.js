@@ -38,16 +38,16 @@ const routes = [
         component: <UserProfile />,
     },
     {
+        path: '/station/:id',
+        component: <StationDetails />
+    },
+    {
         path: '/liked',
         component: <LikedSongs />,
     },
     {
-        path: '/search',
+        path: '/search/',
         component: <Search />,
-    },
-    {
-        path: '/station/:id',
-        component: <StationDetails />
     },
     {
         path: '/tag/:title',

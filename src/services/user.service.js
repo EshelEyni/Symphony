@@ -39,7 +39,7 @@ async function update(user) {
 
 function updateUserStation(user, station) {
     const stationId = station._id
-    const currIdx = user.createdStations.findIndex(station => station._id === stationId)
+    const currIdx = user?.createdStations.findIndex(station => station._id === stationId)
     user.createdStations[currIdx] = station
 }
 
