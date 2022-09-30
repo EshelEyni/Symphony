@@ -70,7 +70,7 @@ export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLog
                             fontSize: '26px'
                         }} /></div>
                     <div className='symbol search'><ScreenSearchDesktopRoundedIcon /></div>
-                    <div className='text'>Search</div>
+                    <div className='text-search'>Search</div>
                 </ThemeProvider> </li>
         </NavLink>
         {user &&
@@ -100,7 +100,6 @@ export const NavList = ({ user, isLoginMsg, isAddStation, onAddStation, setIsLog
                         <div className='symbol plus'><AddBoxIcon sx={{
                             fontSize: '26px'
                         }} /> </div>
-                        {/* <div className='symbol plus'><AddBoxIcon /></div> */}
                     </ThemeProvider>
                     <div className='text-create'>Create Playlist</div>
                 </li>

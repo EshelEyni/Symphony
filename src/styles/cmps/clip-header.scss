@@ -18,7 +18,6 @@
     }
 }
 
-
 .album,
 .date {
     @include for-mobile-layout {
@@ -31,6 +30,7 @@
 .date,
 .clock {
     font-size: 14px;
+    color: rgb(172, 170, 170);
 }
 
 .clock,
