@@ -3,7 +3,7 @@
     height: 40px;
     border-radius: 2rem;
     margin: 10px;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 0;
     left: 16%;
@@ -40,12 +40,13 @@
 }
 
 .search-filter-btns {
-    padding: 5px 10px;
+    padding: 8px 10px;
     gap: 10px;
+    display: contents;
 
     @include for-mobile-layout {
         // padding: 0;
-        gap: 5px;
+        // gap: 10px;
     }
 }
 
