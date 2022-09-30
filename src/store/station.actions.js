@@ -53,7 +53,6 @@ export function updateStation(stationToUpdate) {
                 type: 'UPDATE_STATION',
                 updatedStation
             })
-            console.log('Updated Station', updatedStation)
         }
         catch (err) {
             console.log('Cannot save station', err)

@@ -12,12 +12,14 @@ export const ProfileList = ({
     searchTerm,
     currUser }) => {
 
-    const usersList = useSelector(state => state.userModule.users)
-    const loggedInUser = useSelector(state => state.userModule.user)
-    const stations = useSelector(state => state.stationModule.stations)
+    // const usersList = useSelector(state => state.userModule.users)
+    // const loggedInUser = useSelector(state => state.userModule.user)
+    // const stations = useSelector(state => state.stationModule.stations)
 
     const dispatch = useDispatch()
-    const ProfileList = getFilteredUsersList(usersList, currUser, filterBy, stations, searchTerm)
+    // const ProfileList = getFilteredUsersList(usersList, currUser, filterBy, stations, searchTerm)
+
+
 
     useEffect(() => {
         dispatch(loadUsers())
@@ -27,6 +29,7 @@ export const ProfileList = ({
     return (
         <div className='profile-list-container flex'>
             {currProfiles?.map((user, idx) => {
+            {/* {ProfileList?.map((user, idx) => { */}
                 return <ProfilePreview
                     key={'profile' + idx}
                     user={user} />

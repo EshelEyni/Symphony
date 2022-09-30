@@ -23,18 +23,17 @@ export const Search = () => {
     let [searchClips, getSearchClips] = useState([])
     let [searchStations, getSearchStations] = useState([])
     let [searchArtist, getSearchArtists] = useState([])
+    let [searchProfiles, getSearchProfiles] = useState([])
     let [currRecentSearches, setCurrRecentSearches] = useState([])
 
     const [isSearch, setIsSearch] = useState(false)
-    const [searchTerm, setSearchTerm] = useState()
+    let [searchParams, setSearchParams] = useSearchParams()
+    const [searchTerm, setSearchTerm] = useState(searchParams.get('keyword'))
+
     const dispatch = useDispatch()
     const params = useParams()
-    let [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        const paramsSearchTerm = searchParams.get("keyword")
-        console.log('paramsSearchTerm', paramsSearchTerm)
-        
         dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
         if (!stations.length) dispatch(loadStations())
         if (!loggedInUser) return
@@ -76,13 +75,14 @@ export const Search = () => {
                     }}>Recent Searches</button>
                 </div>}
             <SearchBar
-                setSearchParams={setSearchParams}
-                searchParams={searchParams}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 setIsSearch={setIsSearch}
+                searchParams={searchParams}
+                setSearchParams={setSearchParams}
                 getSearchArtists={getSearchArtists}
                 getSearchStations={getSearchStations}
+                getSearchProfiles={getSearchProfiles}
                 setSearchClips={getSearchClips} />
 
             {/***************************************** Before a search is made *****************************************/}
@@ -131,8 +131,6 @@ export const Search = () => {
                             <h1>Playlists</h1>
                             <StationList
                                 searchTerm={searchTerm}
-                                // stations={searchService
-                                //     .getStationsBySearchTerm(stations, searchTerm)}
                                 stations={searchStations}
                             />
                         </div>
@@ -143,8 +141,6 @@ export const Search = () => {
                             <h1>Artists</h1>
                             <StationList
                                 isArtistList={true}
-                                // stations={searchService
-                                //     .getStationsBySearchTerm(stations, searchTerm, 'isArtist')} 
                                 stations={searchArtist}
                             />
                         </div>
@@ -154,8 +150,10 @@ export const Search = () => {
                         <div className="search-profiles-container">
                             <h1>Profiles</h1>
                             <ProfileList
-                                filterBy={'searchTerm'}
-                                searchTerm={searchTerm} />
+                                currProfiles={searchProfiles}
+                                // filterBy={'searchTerm'}
+                                // searchTerm={searchTerm} 
+                                />
                         </div>
                     }
 

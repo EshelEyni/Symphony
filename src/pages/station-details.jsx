@@ -34,6 +34,7 @@ export const StationDetails = () => {
     let [currStationClips, setCurrStationsClips] = useState()
     let [stationBgcolor, setStationBgcolor] = useState(stationHeaderDefaultBgcolor)
     let [isAdminMode, setAdminMode] = useState(false)
+    const [searchTerm, setSearchTerm] = useState()
 
     const key = loggedInUser?._id === currStation?.createdBy?._id ? 'user-clip' : 'clip'
 
@@ -74,11 +75,15 @@ export const StationDetails = () => {
         setImgUrl(currStation?.imgUrl || defaultImg)
         setStationBgcolor(currStation.bgColor)
         if (!currStation.bgColor) {
+            console.log('currStation.bgColor', currStation.bgColor)
             computeColor(currStation?.imgUrl)
                 .then(color => {
                     currStation.bgColor = color
                     dispatch(updateStation(currStation))
                     setStationBgcolor(color)
+                })
+                .catch(error => {
+                    console.log('failed to compute color for img: ' + error)
                 })
         }
     }
@@ -95,7 +100,7 @@ export const StationDetails = () => {
     }
 
     const onSaveSearchStation = async () => {
-        const stationToSave = {...currStation}
+        const stationToSave = { ...currStation }
         delete stationToSave._id
         delete stationToSave.isSearch
         console.log('stationToSave', stationToSave)
@@ -254,6 +259,8 @@ export const StationDetails = () => {
                             Let's find something for your playlist
                         </h1>
                         <SearchBar
+                            searchTerm={searchTerm}
+                            setSearchTerm={setSearchTerm}
                             isStationDetails={true}
                             setSearchClips={setSearchClips}
                         />

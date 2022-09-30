@@ -19,6 +19,8 @@ export function SearchList({
     const dispatch = useDispatch()
 
     const onAddClip = async (addedClip, currStation) => {
+
+        
         if (currStation.clips.find(clip => clip._id === addedClip._id)) {
             dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', currStation.name)))
             setTimeout(async () => {

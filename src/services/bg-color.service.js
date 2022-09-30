@@ -31,7 +31,11 @@ export const computeColor = (url) => {
             var color = pickPrimaryColor(quantColors)
             resolve(color)
         }
-        img.src = url
+        try {
+            img.src = url
+        } catch (error) {
+            reject(error)
+        }
     })
 }
 

@@ -1,7 +1,7 @@
 import { searchService } from '../services/search.service'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { updateUser } from '../store/user.actions'
+import { loadUsers, updateUser } from '../store/user.actions'
 import { loadStations } from '../store/station.actions'
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
@@ -14,18 +14,25 @@ export const SearchBar = ({
     setIsSearch,
     searchTerm,
     setSearchTerm,
-    isStationDetails,
     searchParams,
-    setSearchParams }) => {
-
+    setSearchParams,
+    getSearchProfiles,
+    isStationDetails,
+}) => {
 
     let stations = useSelector(state => state.stationModule.stations)
+    const usersList = useSelector(state => state.userModule.users)
+
     const loggedInUser = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
-    // let [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
         dispatch(loadStations())
+        dispatch(loadUsers())
+        if (!isStationDetails) {
+            const paramsSearchTerm = searchParams.get('keyword')
+            if (paramsSearchTerm) handleSearch(paramsSearchTerm)
+        }
     }, [isSearch])
 
 
@@ -34,58 +41,42 @@ export const SearchBar = ({
             setIsSearch(false)
             return
         }
-        if (setSearchTerm) await setSearchTerm(target.value)
         console.log('target.value', target.value)
-        let search;
-
-        if (target.value) {
-            search = {
-                keyword: target.value
-            }
-        } else {
-            search = undefined;
+        if (setSearchTerm) await setSearchTerm(target.value)
+        if (!isStationDetails) {
+            setSearchParams(target.value ? { keyword: target.value } : undefined, { replace: true })
         }
-        setSearchParams(search, { replace: true })
-
-        // const queryStringParams = '#/search?q=' + target.value
-        // const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
-        // window.history.pushState({ path: newUrl }, '', newUrl)
     }
 
-    // const searchHandler = (event) => {
-    //     let search;
-    //     if (event.target.value) {
-    //         search = {
-    //             keyword: event.target.value
-    //         }
-    //     } else {
-    //         search = undefined;
-    //     }
-
-    //     setSearchParams(search, { replace: true });
-
-
     const onHandleSubmit = async (e) => {
-        e.preventDefault()
+        if (e) e.preventDefault()
+        handleSearch(searchTerm)
+    }
 
+    const handleSearch = async (currSearchTerm) => {
         if (setIsSearch) setIsSearch(true)
-        let searchResults = await searchService.getClips(searchTerm)
+        let searchResults = await searchService.getClips(currSearchTerm)
         searchResults = searchResults.splice(0, 12)
-        console.log('searchTerm', searchTerm)
+        console.log('currSearchTerm', currSearchTerm)
         if (loggedInUser) {
             let searchAlreadySaved = loggedInUser.recentSearches
-                .find(recentSearch => recentSearch.title === searchTerm)
+                .find(recentSearch => recentSearch.title === currSearchTerm)
             if (!searchAlreadySaved) {
-                const updatedUser = await searchService.updateUserRecentSearches(searchResults, loggedInUser, searchTerm)
+                const updatedUser = await searchService.updateUserRecentSearches(searchResults, loggedInUser, currSearchTerm)
                 dispatch(updateUser(updatedUser))
             }
         }
-        getSearchStations(searchService
-            .getStationsBySearchTerm(stations, searchTerm))
-        getSearchArtists(searchService
-            .getStationsBySearchTerm(stations, searchTerm, 'isArtist'))
+
         setSearchClips(searchResults)
-        dispatch(loadStations())
+
+        if (!isStationDetails) { // ONLY RENDERED IN THE SEARCH PAGE
+            getSearchStations(searchService
+                .getStationsBySearchTerm(stations, currSearchTerm))
+            getSearchArtists(searchService
+                .getStationsBySearchTerm(stations, currSearchTerm, 'isArtist'))
+            getSearchProfiles(searchService
+                .getProfilesBySearchTerm(stations, usersList, currSearchTerm))
+        }
     }
 
     return (
@@ -99,6 +90,7 @@ export const SearchBar = ({
                 name='search-bar'
                 placeholder='What do you want do listen to?'
                 onChange={handleSearchChange}
+                defaultValue={searchParams?.get('keyword') ? searchParams?.get('keyword') : ''}
                 className='search-bar'
                 autoFocus />
         </form>

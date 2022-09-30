@@ -24,7 +24,7 @@ export const SymphonyApp = () => {
                     <h1>Rock</h1>
                     <Link to={'/tag/Rock'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Rock')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Rock')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -32,14 +32,14 @@ export const SymphonyApp = () => {
                     <h1>Hip Hop</h1>
                     <Link to={'/tag/Hip Hop'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Hip Hop')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Hip Hop')} />
             </div>
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
                     <h1>Soothing</h1>
                     <Link to={'/tag/Soothing'}>SEE ALL</Link>
-                    <StationList stations={getStationByTag(stations, 'Soothing')} />
+                    <StationList stations={stationService.getStationByTag(stations, 'Soothing')} />
                 </div>
             </div>
 
@@ -48,7 +48,7 @@ export const SymphonyApp = () => {
                     <h1>Pop</h1>
                     <Link to={'/tag/Pop'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Pop')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Pop')} />
             </div>
 
 
@@ -57,7 +57,7 @@ export const SymphonyApp = () => {
                     <h1>60s</h1>
                     <Link to={'/tag/60s'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, '60s')} />
+                <StationList stations={stationService.getStationByTag(stations, '60s')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -66,7 +66,7 @@ export const SymphonyApp = () => {
                     <h1>Funk</h1>
                     <Link to={'/tag/Funk'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Funk')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Funk')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -75,7 +75,7 @@ export const SymphonyApp = () => {
                     <h1>Love</h1>
                     <Link to={'/tag/Love'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Love')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Love')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -84,7 +84,7 @@ export const SymphonyApp = () => {
                     <h1>Dance</h1>
                     <Link to={'/tag/Dance'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Dance')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Dance')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -93,7 +93,7 @@ export const SymphonyApp = () => {
                     <h1>Israeli</h1>
                     <Link to={'/tag/Israeli'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Israeli')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Israeli')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -102,7 +102,7 @@ export const SymphonyApp = () => {
                     <h1>Top songs</h1>
                     <Link to={'/tag/Top songs'}>SEE ALL</Link>
                 </div>
-                <StationList stations={getStationByTag(stations, 'Top songs')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Top songs')} />
             </div>
 
             <div className="station-by-tag-container">

@@ -65,6 +65,9 @@ export const StationHeader = ({
                 setBgcolor(color)
                 dispatch(updateStation(stationToUpdate))
             })
+            .catch(error => {
+                console.log('failed to compute color for img: ' + error)
+            })
         setIsChangedImg(false)
     }
 

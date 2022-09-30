@@ -21,10 +21,21 @@ export const stationService = {
 async function query() {
     let stations = await httpService.get(BASE_URL)
     return stations
+    // let statsionByTag = stations.reduce((acc, station) => {
+    //     station.tags.forEach(tag => {
+    //         var sbt = acc[tag] || [];
+    //         sbt.push(station);
+    //         acc[tag] = sbt;
+    //         return acc;
+    //     })
+    // }, {})
+    // return {
+    //     stations,
+    //     statsionByTag
+    // }
 }
 
 async function getById(stationId) {
-    // return storageService.get(STORAGE_KEY, stationId)
     const currStation = await httpService.get(BASE_URL + stationId)
     return currStation
 }
@@ -46,11 +57,6 @@ async function save(stationToSave) {
 function getUserStations(stations, userId, isSearch) {
     if (!stations) return []
     let userStations = stations
-    // return stations
-    //     .filter(station => (station?.createdBy?._id === userId && !station.isSearch))
-    //     .reverse()
-
-
     userStations = isSearch ?
         userStations
             .filter(station => (station.createdBy._id === userId && station.isSearch))
@@ -67,17 +73,13 @@ function getStationByTag(stations, currTag) {
         return station.tags?.includes(currTag)
     })
     return taggedStations
+    // return stations.statsionByTag[currTag] || [];
 }
 
 
-function getArtistStations(stations) {
+function getArtistStations(stations) { // check if we can put to use...
     let artistsStations = stations
         .filter(station => station.isArtist)
-    // if (searchTerm) {
-    //     searchTerm = searchTerm.toLowerCase()
-    //     artistsStations = artistsStations
-    //         .filter(station => station.name.toLowerCase().includes(searchTerm))
-    // }
     return artistsStations
 }
 

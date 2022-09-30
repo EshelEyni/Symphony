@@ -131,25 +131,18 @@ function getStationsBySearchTerm(stations, searchTerm, isArtist) {
 function getProfilesBySearchTerm(stations, users, searchTerm) {
     if (!users.length) return
     searchTerm = searchTerm.toLowerCase()
+    var matchingStatations = new Set(
+        stations
+            .filter(station => station.clips.find(clip => clip.title.toLowerCase().includes(searchTerm) != undefined))
+            .map(station => station._id)
+    );
+    if (matchingStatations.length == 0) return;
+
     return users.map(user => {
-
-        // Filters out user without saved playlists
-        if (user.createdStations?.length === 0) return
-
-        // Gets stations created by users
-        let userCreatedStationsIds = new Set(user.createdStations)
-        let userCreatedStations = []
-        stations.forEach(station => {
-            if (userCreatedStationsIds.has(station._id)) {
-                userCreatedStations.push(station)
-            }
-        })
-
         let matchedTerms = 0
-        userCreatedStations.forEach(station => {
-            station.clips.forEach(clip => {
-                if (clip.title.toLowerCase().includes(searchTerm)) matchedTerms++
-            })
+        user.createdStations.forEach(station => {
+            if (matchingStatations.has(station))
+                matchedTerms++;
         })
         if (!matchedTerms) return
         return { ...user, matchedTerms }

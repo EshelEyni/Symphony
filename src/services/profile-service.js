@@ -33,8 +33,8 @@ export function getFilteredUsersList(users, currUser, filterBy, stations, search
                 .sort((a, b) => b.matchedLikes - a.matchedLikes)
 
             return filterdUsersList
-        case 'searchTerm':
-            return searchService.getProfilesBySearchTerm(stations, usersList, searchTerm)
+        // case 'searchTerm':
+            // return searchService.getProfilesBySearchTerm(stations, usersList, searchTerm)
 
         case 'following':
             currUser.following?.forEach(followedProfileId => {
