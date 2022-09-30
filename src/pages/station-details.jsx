@@ -223,7 +223,7 @@ export const StationDetails = () => {
                     {/* --------------------------------------- User Station Only Proporties --------------------------------------- */}
                     {key === 'user-clip' &&
                         <DragDropContext onDragEnd={onHandleDragEnd}>
-                            <Droppable droppableId='ms-clips-main-container'>
+                            <Droppable droppableId='station-clips-main-container'>
                                 {(provided) => (
                                     <DraggableClipList
                                         clipKey={key}

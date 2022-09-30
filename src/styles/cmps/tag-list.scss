@@ -115,7 +115,9 @@
         background-color: rgba(220, 255, 210, 0.87);
     }
 
-    @include for-mobile-layout {}
+    @include for-mobile-layout {
+        gap: 12px;
+    }
 
     
     h3 {

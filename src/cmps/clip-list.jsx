@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { ClipPreview } from "./clip-preview"
 
 export const ClipList = ({ clipKey, station, clips, onTogglePlay, onRemoveClip, bgColor = null }) => {
-    return <ul className='ms-clips-main-container'>
+    return <ul className='station-clips-main-container'>
         {clips.map((clip, idx) => (
             <ClipPreview
                 key={clipKey + idx}
