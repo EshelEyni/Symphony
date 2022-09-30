@@ -84,6 +84,8 @@ async function add(user) {
             imgUrl: null,
             createdStations: [],
             likedStations: [],
+            recentSearches: [],
+            recentlyPlayedClips: [],
             likedSongs: [],
             followers: [],
             following: []
