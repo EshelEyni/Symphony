@@ -8,24 +8,25 @@ import { UserStationList } from './user-station-list'
 import { NavBar } from './nav-bar'
 import { handleDragEnd } from '../services/dragg.service'
 import { updateUser } from '../store/user.actions'
-import { save } from '../services/station.service'
+import { save, stationService } from '../services/station.service'
 
 export const SideBar = () => {
     const stations = useSelector(state => state.stationModule.stations)
-    let [userStations, setUserStations] = useState(null)
     const loggedInUser = useSelector(state => state.userModule.user)
+    let [userStations, setUserStations] = useState(stations
+        .filter(station => (station?.createdBy?._id === loggedInUser?._id && !station.isSearch))
+        .reverse())
     const dispatch = useDispatch()
     const navigate = useNavigate()
     let [isLoginMsg, setIsLoginMsg] = useState(false)
     let [isAddStation, setIsAddStation] = useState(true)
 
-    useEffect(() => {
-        dispatch(loadStations())
-    }, [loggedInUser])
-    
+
     useEffect(() => {
         if (loggedInUser) {
-            const updatedUserStations = stations.filter(station => (station?.createdBy?._id === loggedInUser?._id && !station.isSearch)).reverse()
+            const updatedUserStations = stations.filter(station => (
+                station?.createdBy?._id === loggedInUser?._id &&
+                !station.isSearch)).reverse()
             setUserStations(updatedUserStations)
             setIsAddStation(true)
         }
@@ -36,7 +37,7 @@ export const SideBar = () => {
         if (!loggedInUser) return
         setIsAddStation(false)
 
-        let newStation = {
+        const newStation = {
             name: 'My Playlist #' + ((userStations?.length + 1) || 1),
             createdBy: {
                 _id: loggedInUser._id,
@@ -44,11 +45,11 @@ export const SideBar = () => {
                 imgUrl: loggedInUser.imgUrl
             }
         }
-        const addedStation = await save(newStation)
-        dispatch(addStation(addedStation))
-        loggedInUser.createdStations.push(addedStation._id)
+        const savedStation = await stationService.save(newStation)
+        dispatch(addStation(savedStation))
+        loggedInUser.createdStations.push(savedStation._id)
         dispatch(updateUser(loggedInUser))
-        navigate('/station/' + addedStation._id)
+        navigate('/station/' + savedStation._id)
     }
 
     const onHandleDragEnd = (res) => {

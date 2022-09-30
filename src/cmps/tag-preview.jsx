@@ -1,7 +1,7 @@
 import { utilService } from "../services/util.service"
 import { Link } from 'react-router-dom'
 
-export const TagsPreview = ({ tag, idx }) => {
+export const TagPreview = ({ tag, idx }) => {
     const albumImgUrl = 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png'
     const arrayOfTagsImg = [
         'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
@@ -35,7 +35,6 @@ export const TagsPreview = ({ tag, idx }) => {
     ]
 
     return <div
-        // style={{ backgroundColor: utilService.getRandomColor() }}
         className='tag-preview-container flex column'>
         <Link to={'/tag/' + tag}>
             <h3>{tag}</h3>

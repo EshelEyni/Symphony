@@ -13,8 +13,6 @@ export const AppHeader = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    console.log('isUserClicked', isUserClicked)
-
     const logout = () => {
         dispatch(onLogout())
         setUserClicked(false)

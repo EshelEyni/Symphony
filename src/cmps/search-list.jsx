@@ -8,27 +8,31 @@ import { SearchResult } from './search-result'
 import { useSelector } from 'react-redux'
 
 
-export function SearchList({ station, setStation, clips, type, onPlayClip, playtlistClips }) {
-    const user = useSelector(state => state.userModule.user)
+export function SearchList({
+    currStation,
+    setCurrStation,
+    searchClips,
+    type,
+    onPlayClip,
+    setCurrStationsClips }) {
+
     const dispatch = useDispatch()
 
-    const onAddClip = (addedClip) => {
-        if (station.clips.find(clip => clip._id === addedClip._id)) {
-            dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', station.name)))
+    const onAddClip = async (addedClip, currStation) => {
+        if (currStation.clips.find(clip => clip._id === addedClip._id)) {
+            dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', currStation.name)))
             setTimeout(async () => {
                 dispatch(setUserMsg(clearMsg))
             }, 2500);
             return
         }
+        const stationToUpdate = { ...currStation }
         addedClip.createdAt = new Date(getDate()).toLocaleDateString()
-        station.clips.push(addedClip)
-        // setStation({ ...station, clips: [...station.clips, addedClip] })
-        dispatch(updateStation(station))
-
-        userService.updateUserStation(user, station)
-        dispatch(updateUser(user))
-
-        dispatch(setUserMsg(msg(addedClip.title, ' added to ' + station.name)))
+        stationToUpdate.clips.push(addedClip)
+        setCurrStation(stationToUpdate)
+        setCurrStationsClips(stationToUpdate.clips)
+        dispatch(updateStation(currStation))
+        dispatch(setUserMsg(msg(addedClip.title, ' added to ' + currStation.name)))
         setTimeout(async () => {
             dispatch(setUserMsg(clearMsg))
         }, 2500);
@@ -36,13 +40,14 @@ export function SearchList({ station, setStation, clips, type, onPlayClip, playt
 
     return (
         <ul className='search-res-container flex'>
-            {clips.map((clip, idx) => <SearchResult
+            {searchClips.map((clip, idx) => <SearchResult
                 key={type + idx}
                 type={type}
                 idx={idx}
                 clip={clip}
-                playtlistClips={playtlistClips}
+                currStation={currStation}
                 onPlayClip={onPlayClip}
+                setCurrStation={setCurrStation}
                 onAddClip={onAddClip}
             />)}
         </ul>

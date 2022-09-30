@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { getTotalSongDur } from "../services/station.service"
+import { getTotalSongDur, stationService } from "../services/station.service"
 
 export const LikedSongsPreview = ({ user }) => {
     const navigate = useNavigate()
@@ -20,7 +20,7 @@ export const LikedSongsPreview = ({ user }) => {
             <div className="songs-list-preview"><p>{getSongs()}</p></div>
             <div>
                 <div className="title-preview"> Liked Songs</div>
-                <div className="summery">Liked songs: {songsLength} | Total Duration: {getTotalSongDur(user.likedSongs)}</div>
+                <div className="summery">Liked songs: {songsLength} | Total Duration: {stationService.getTotalSongDur(user.likedSongs)}</div>
             </div>
         </div>
     </div>

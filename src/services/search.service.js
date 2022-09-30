@@ -1,14 +1,13 @@
 import axios from 'axios'
 import * as duration from 'duration-fns'
-import { storageService } from './async-storage.service'
-import { remove, save } from './station.service'
-import { utilService } from './util.service'
+import { stationService } from './station.service'
+import { userService } from './user.service'
 
 
 export const searchService = {
     getClips,
     toggleFilterBy,
-    setNewSearchList,
+    updateUserRecentSearches,
     getStationsBySearchTerm,
     getProfilesBySearchTerm
 }
@@ -84,35 +83,35 @@ function getTitle(str) {
     return title
 }
 
-async function setNewSearchList(searchResults, user, listName) {
-    if (!user) return
+async function updateUserRecentSearches(searchResults, loggedInUser, listName) {
+    if (!loggedInUser) return
     const clip = searchResults[0]
-    let recentSearchedIds = _loadFromStorage('recentSearched') || []
     let newSearchList = {
         name: listName,
         imgUrl: clip.img.url,
         createdBy: {
-            _id: user._id,
-            fullname: user.fullname,
-            imgUrl: user.imgUrl
+            _id: loggedInUser._id,
+            fullname: loggedInUser.fullname,
+            imgUrl: loggedInUser.imgUrl
         },
         isSearch: true,
         clips: searchResults || [],
     }
-    newSearchList = await save(newSearchList)
-    recentSearchedIds.unshift(newSearchList._id)
 
-    if (recentSearchedIds.length > 10) {
-        const stationToRemove = recentSearchedIds.splice(10, 1)
-        console.log('stationToRemove', stationToRemove)
-        console.log('recentSearchedIds', recentSearchedIds)
-        await remove(stationToRemove[0])
+    const savedStation = await stationService.save(newSearchList)
+
+    const userToUpdate = { ...loggedInUser }
+    userToUpdate.recentSearches = [{ _id: savedStation._id, title: savedStation.name }, ...userToUpdate.recentSearches]
+
+    if (userToUpdate.recentSearches.length > 10) {
+        const stationToRemoveId = userToUpdate.recentSearches.splice(11, 1)._id
+        await stationService.remove(stationToRemoveId)
+        await userService.update(userToUpdate)
     }
-    _saveToStorage('recentSearched', recentSearchedIds)
-    return newSearchList
+    return userToUpdate
 }
 
-function getStationsBySearchTerm(stations, searchTerm, isArtist) { 
+function getStationsBySearchTerm(stations, searchTerm, isArtist) {
     stations = isArtist ? stations.filter(station => station.isArtist) : stations.filter(station => !station.isArtist)
 
     if (searchTerm) {
@@ -140,17 +139,17 @@ function getProfilesBySearchTerm(stations, users, searchTerm) {
         // Gets stations created by users
         let userCreatedStationsIds = new Set(user.createdStations)
         let userCreatedStations = []
-        for (let y = 0; y < stations.length; y++) {
-            if (userCreatedStationsIds.has(stations[y]._id)) {
-                userCreatedStations.push(stations[y])
+        stations.forEach(station => {
+            if (userCreatedStationsIds.has(station._id)) {
+                userCreatedStations.push(station)
             }
-        }
+        })
 
         let matchedTerms = 0
         userCreatedStations.forEach(station => {
-            for (let x = 0; x < station.clips.length; x++) {
-                if (station.clips[x].title.toLowerCase().includes(searchTerm)) matchedTerms++
-            }
+            station.clips.forEach(clip => {
+                if (clip.title.toLowerCase().includes(searchTerm)) matchedTerms++
+            })
         })
         if (!matchedTerms) return
         return { ...user, matchedTerms }
@@ -179,3 +178,13 @@ function _loadFromStorage(key) {
     var val = localStorage.getItem(key)
     return JSON.parse(val)
 }
+
+
+// for (let y = 0; y < stations.length; y++) {
+    //     if (userCreatedStationsIds.has(stations[y]._id)) {
+        //         userCreatedStations.push(stations[y])
+        //     }
+// }
+        // for (let x = 0; x < station.clips.length; x++) {
+        //     if (station.clips[x].title.toLowerCase().includes(searchTerm)) matchedTerms++
+        // }

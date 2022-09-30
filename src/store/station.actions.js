@@ -1,33 +1,11 @@
-import { query, remove, save } from '../services/station.service.js'
+import { stationService } from '../services/station.service.js'
 
-// Action Creators:
-export function getActionRemoveStation(stationId) {
-    return {
-        type: 'REMOVE_MY_STATION',
-        stationId
-    }
-}
-
-export function getActionAddStation(station) {
-    return {
-        type: 'ADD_MY_STATION',
-        station
-    }
-}
-
-export function getActionUpdateStation(station) {
-    return {
-        type: 'UPDATE_MY_STATION',
-        station
-    }
-}
-
-export function loadStations(userId) {
+export function loadStations() {
     return async (dispatch) => {
         try {
-            const stations = await query()
+            const stations = await stationService.query()
             dispatch({
-                type: 'SET_MY_STATIONS',
+                type: 'SET_STATIONS',
                 stations
             })
         }
@@ -40,8 +18,11 @@ export function loadStations(userId) {
 export function removeStation(stationId) {
     return async (dispatch) => {
         try {
-            await remove(stationId)
-            dispatch(getActionRemoveStation(stationId))
+            await stationService.remove(stationId)
+            dispatch({
+                type: 'REMOVE_STATION',
+                stationId
+            })
             console.log('Deleted Succesfully!')
         } catch (err) {
             console.log('Cannot remove station', err)
@@ -52,7 +33,10 @@ export function removeStation(stationId) {
 export function addStation(station) {
     return async (dispatch) => {
         try {
-           await dispatch(getActionAddStation(station))
+            await dispatch({
+                type: 'ADD_STATION',
+                station
+            })
             console.log('Added Station', station)
             return station
         } catch (err) {
@@ -64,9 +48,12 @@ export function addStation(station) {
 export function updateStation(stationToUpdate) {
     return async (dispatch) => {
         try {
-            // const station = await save(stationToUpdate)
-            // dispatch(getActionUpdateStation(station))
-            dispatch(getActionUpdateStation(stationToUpdate))
+            const updatedStation = await stationService.save(stationToUpdate)
+            dispatch({
+                type: 'UPDATE_STATION',
+                updatedStation
+            })
+            console.log('Updated Station', updatedStation)
         }
         catch (err) {
             console.log('Cannot save station', err)

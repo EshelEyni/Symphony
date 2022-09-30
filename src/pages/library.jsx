@@ -20,7 +20,7 @@ export const Library = () => {
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
-        
+
     }, [])
 
     const onAddStation = () => {
@@ -67,7 +67,9 @@ export const Library = () => {
 
             {userStations && userStations.length !== 0 &&
                 <div className='main-stations-container'>
-                        <StationList stations={userStations} />
+                    <StationList
+                        stations={userStations}
+                        isDrag={true} />
                 </div>}
 
         </div>
