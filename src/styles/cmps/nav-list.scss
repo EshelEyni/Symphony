@@ -43,7 +43,7 @@
         margin: 0;
 
         & li {
-            padding: 8px 16px;
+            padding: 20px;
             max-height: 40px;
             display: flex;
             justify-content: flex-start;
@@ -155,3 +155,6 @@
     }
 }
 
+.like-songs-text {
+    margin-inline-start: 20px;
+}
