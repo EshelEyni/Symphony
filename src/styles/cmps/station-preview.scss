@@ -18,42 +18,59 @@
         padding: 0;
     }
 
+    &:hover {
+        background-color: rgb(49, 49, 49);
+        transition: all 0.5s;
+
+        .station {
+            background-color: rgb(49, 49, 49);
+            transition: all 0.5s;
+
+            &:hover {
+                .play-btn {
+                    opacity: 1;
+                    transform: scale(1.1);
+                    background: #1ed760;
+                    transition: 0.4s;
+                }
+            }
+
+            @include for-mobile-layout {
+                width: 175px;
+            }
+        }
+    }
+
+    .desc-container {
+        h4 {
+            margin-top: 16px;
+            font-size: 16px;
+            padding-bottom: 4px;
+        }
+
+        p {
+            color: #a7a7a7;
+        }
+    }
+
     a {
         display: flex;
         justify-content: center;
     }
 
-    .station {
-        &:hover {
-            .play-btn {
-                opacity: 1;
-                transform: scale(1.1);
-                background: #1ed760;
-                transition: 0.4s;
-            }
-        }
-    }
-
     .img-container {
-        height: 180px;
-        width: auto;
-
-        @include for-mobile-layout {
-            height: 150px;
-            width: 140px;
-
-        }
+        height: 156px;
+        width: 100%;
 
         img {
-            width: 160px;
-            height: 145px;
+            height: 100%;
             object-fit: cover;
+            margin-bottom: 16px;
 
-            @include for-mobile-layout {
-                width: 140px;
-                height: 125px;
-
-            }
+            @include aspect-ratio(1, 1);
+            width: 100%;
+            box-shadow: 0px 7px 24px -2px #000000;
+            border-radius: 5px;
         }
 
         .play-btn {
@@ -71,29 +88,6 @@
                 display: none;
             }
         }
-    }
-
-
-    img {
-        @include aspect-ratio(1, 1);
-        width: 100%;
-        margin-bottom: 10px;
-        box-shadow: 0px 7px 24px -2px #000000;
-        border-radius: 5px;
-    }
-
-    .desc-container {
-        h4 {
-            padding-bottom: 16px;
-        }
-
-        p {
-            color: #a7a7a7;
-        }
-    }
-
-    @include for-mobile-layout {
-        width: 175px;
     }
 }
 

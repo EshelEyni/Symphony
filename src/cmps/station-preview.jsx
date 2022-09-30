@@ -101,7 +101,7 @@ export const StationPreview = ({
                             setIsClicked(!isClicked)
                         }}></button>
                 </div>
-                <div className='desc-container flex column space-between'>
+                <div className='desc-container '>
                     <div>
                         <h4>{currStation.name}</h4>
                     </div>

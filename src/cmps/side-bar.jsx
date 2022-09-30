@@ -5,7 +5,7 @@ import { loadStations, addStation } from '../store/station.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import Logo from '../assets/img/note-logo.png'
 import { UserStationList } from './user-station-list'
-import { NavBar } from './nav-bar'
+import { NavList } from './nav-list'
 import { handleDragEnd } from '../services/dragg.service'
 import { updateUser } from '../store/user.actions'
 import { save, stationService } from '../services/station.service'
@@ -68,7 +68,7 @@ export const SideBar = () => {
                     <h1 className='logo-name'>Symphony</h1>
                 </div>
             </Link>
-            <NavBar
+            <NavList
                 isLoginMsg={isLoginMsg}
                 setIsLoginMsg={setIsLoginMsg}
                 isAddStation={isAddStation}

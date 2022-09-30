@@ -3,31 +3,18 @@
 }
 
 .station-list {
-    grid-template-columns: repeat(auto-fill, minmax(187px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-template-rows: 1fr;
-    gap: 15px;
+    gap: 24px;
     padding: 25px;
 
-    // .station-preview {
-    .station {
-        border-radius: 15px;
-        height: 100%;
-        background-color: #181818;
-        justify-content: space-between;
+    .station-preview {
+        .station {
+            border-radius: 15px;
+            height: 100%;
+            background-color: #181818;
+            justify-content: space-between;
 
-        &:hover {
-            background-color: rgb(49, 49, 49);
-            transition: all 0.5s;
-        }
-
-        .desc-container {
-            h4 {
-                padding-bottom: 16px;
-            }
-
-            p {
-                color: #a7a7a7;
-            }
         }
     }
 
@@ -36,5 +23,20 @@
         grid-template-rows: 1fr;
         gap: 15px 8px;
 
+    }
+}
+
+.station-by-tag-container {
+    .tag-link {
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px;
+    }
+
+    h1 {
+        margin: 0;
+        // padding: 15px;
     }
 }
