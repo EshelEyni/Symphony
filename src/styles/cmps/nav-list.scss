@@ -43,7 +43,7 @@
         margin: 0;
 
         & li {
-            padding: 8px 16px;
+            padding: 20px;
             max-height: 40px;
             display: flex;
             justify-content: flex-start;
@@ -68,7 +68,7 @@
         }
 
         &>:last-child {
-            display: block;
+            display: unset;
         }
     }
 
@@ -155,3 +155,7 @@
     }
 }
 
+.text {
+    margin-left: -5px;
+    margin-top: 3px;
+}

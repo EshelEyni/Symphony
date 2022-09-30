@@ -49,6 +49,7 @@
         display: grid;
         align-items: center;
         grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;
+        // grid-template-rows: 60px;
 
         grid-template-areas: 'num title artist date like dur burger';
 

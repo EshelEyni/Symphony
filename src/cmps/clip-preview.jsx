@@ -85,32 +85,26 @@ export const ClipPreview = ({
 
         className={'clip-preview-container '} >
         <div className='clip-preview-main-container'>
-            <div className='clip-preview-container-1'>
-
-                {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} alt='clip-img' /></div> :
-                    <React.Fragment>
-                        <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                            onClick={() => {
-                                setIsClicked(!isClicked)
-                                onTogglePlay(clip, isClicked)
-                            }}></i>
-                        <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
-                    </React.Fragment>
-                }
-
-
+            {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} alt='clip-img' /></div> :
+                <React.Fragment>
+                    <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                        onClick={() => {
+                            setIsClicked(!isClicked)
+                            onTogglePlay(clip, isClicked)
+                        }}></i>
+                    <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
+                </React.Fragment>
+            }
+            <div className='clip-title flex align-center'>
                 <img className='clip-img' src={clip.img?.url} alt='clip-img' />
-                <div className='clip-title'>
+                <div className='title-text'>
                     {clip.title}
                 </div>
             </div>
             <div className='artist-name'>{clip.artist}</div>
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
-            <div className='clip-preview-container-2 flex'>
-                {user && <LikesBtns clip={clip} station={station} />}
-                {clip.duration ? getDuration(clip.duration) : ''}
-            </div>
-
+            {user && <LikesBtns clip={clip} station={station} />}
+            {clip.duration ? <div className='clock-area'>{getDuration(clip.duration)}</div> : ''}
             <i
                 className='dropdown-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>

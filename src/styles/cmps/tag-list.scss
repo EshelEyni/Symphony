@@ -2,7 +2,7 @@
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
-    gap: 15px;
+    gap: 14px 7px;
 
     &>*:nth-child(1) {
         background-color: rgb(78, 114, 204);
@@ -118,20 +118,7 @@
 
     @include for-mobile-layout {}
 
-    .tag-preview-container {
-        position: relative;
-        padding: 20px;
-        height: 210px;
-        width: 190px;
-        border-radius: 10px;
-        overflow: hidden;
-
-        @include for-mobile-layout {
-            height: 200px;
-            width: 180px;
-        }
-    }
-
+    
     h3 {
         margin: 0;
     }
