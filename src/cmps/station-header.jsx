@@ -19,7 +19,7 @@ export const StationHeader = ({
     bgColor,
     setBgcolor,
     onRemoveStation,
-    onSaveSearchStation = { onSaveSearchStation },
+    onSaveSearchStation,
     onTogglePlay,
     isAdminMode,
     setAdminMode }) => {

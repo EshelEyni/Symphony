@@ -5,7 +5,7 @@
         display: none;
     }
 
-    @include for-wide-layout {
+    @include for-normal-layout {
         display: grid;
         padding: 0 10px;
         grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;

@@ -106,7 +106,6 @@ export const StationDetails = () => {
         console.log('stationToSave', stationToSave)
         await stationService.save(stationToSave)
         dispatch(loadStations())
-
     }
 
     const onRemoveClip = (ev, clipId, clipTitle) => {
