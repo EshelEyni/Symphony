@@ -76,7 +76,6 @@ export const LikedSongs = () => {
         dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
     }
-    console.log('clips:', clips)
     
     
 

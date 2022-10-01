@@ -21,14 +21,6 @@ export const AppHeader = () => {
         navigate('/')
     }
 
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: '#92D3C3',
-            },
-        },
-    })
-
     return (
         <div
             style={{ backgroundColor: bgColor }}
