@@ -5,7 +5,7 @@
     position: absolute;
     bottom: 100px;
     left: 25%;
-    padding-inline-start:15px ;
+    padding-inline-start: 15px;
     padding-inline-end: 15px;
     border-radius: 15px;
 
@@ -15,5 +15,10 @@
 
     &.hidden {
         visibility: hidden;
+    }
+
+    @include for-mobile-layout {
+        bottom: 10px;
+        left: 13%;
     }
 }

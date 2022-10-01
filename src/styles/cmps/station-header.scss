@@ -1,7 +1,16 @@
+.my-sd-header-main-container {
+    @include for-mobile-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .station-header-details-container {
     &>* {
         color: white;
         padding-inline-start: 15px;
+        font-size: 11px;
     }
 
 }
@@ -20,7 +29,8 @@
         font-size: 1.875rem;
         letter-spacing: -1px;
         text-indent: -2px;
-        margin-bottom: 15px;
+        width: 85%;
+        margin-top: 0;
     }
 }
 
@@ -66,13 +76,15 @@
 }
 
 .station-img {
-    width: rem(300px);
+    width: rem(270px);
     height: 100%;
     padding: 30px;
 
     @include for-mobile-layout {
-        height: 200px;
-        width: 200px;
+        height: 230px;
+        width: 230px;
+        padding: 10px;
+
     }
 }
 
@@ -98,6 +110,8 @@
     @include for-mobile-layout {
         height: 60px;
         gap: 20px;
+        justify-content: space-between;
+        padding: 14px;
     }
 
     .play-btn {

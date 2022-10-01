@@ -96,7 +96,6 @@ export const StationHeader = ({
                 }</div>}
 
             <div className='station-header-details-container'>
-                <p>TYPE OF STATION - TO FIX</p>
                 <h1 className='station-header-name-container'>{station.name}</h1>
                 <div className='desc-container'>{station.desc}</div>
                 {isUserStation ? <HeaderDetails

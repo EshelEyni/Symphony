@@ -40,7 +40,7 @@
         margin: 10px 0;
         z-index: 10;
         padding: 0;
-        margin: 0;
+        padding: 15px 0 15px;
 
         & li {
             padding: 20px;
@@ -63,7 +63,7 @@
             }
 
             .nav-likes-songs-logo {
-                margin-inline-end: 2px;
+                margin-inline-end: 6px;
             }
         }
 
@@ -76,7 +76,6 @@
 
 .library-link,
 .search-link,
-// .link-liked-songs,
 .text-create {
     cursor: pointer;
 
