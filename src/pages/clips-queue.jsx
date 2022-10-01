@@ -8,7 +8,6 @@ import { setHeaderBgcolor } from '../store/app-header.actions'
 export const ClipsQueue = () => {
     let { currClip, currPlaylist } = useSelector(state => state.mediaPlayerModule)
     const dispatch = useDispatch()
-    console.log('currPlaylist', currPlaylist)
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(queueBgcolor))

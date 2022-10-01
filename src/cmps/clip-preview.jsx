@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { getDuration } from '../services/clip.service'
 import { LikesBtns } from './likes-btn'
 import { ClipDropdown } from './clip-dropdown'
-import { defaultBgcolor } from '../services/bg-color.service'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
 import { useDispatch } from 'react-redux'
 import { storageService } from '../services/async-storage.service'
+import { updateUser } from '../store/user.actions'
+import { userService } from '../services/user.service'
 const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664386983/Symphny/ezgif.com-gif-maker_cbbaoz.gif'
 
 export const ClipPreview = ({
@@ -21,10 +22,9 @@ export const ClipPreview = ({
 
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
 
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = useSelector(state => state.userModule.user)
     let [isDropdownClip, setIsDropdownClip] = useState(false)
     let [isClicked, setIsClicked] = useState()
-
 
     useEffect(() => {
         if (!currClip || !currPlaylist) return
@@ -36,13 +36,12 @@ export const ClipPreview = ({
     const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
     const dispatch = useDispatch()
 
-    const onTogglePlay = async (clip, isClicked) => {
-        console.log('clip', clip)
+    const onTogglePlay = async (currClip, isClicked, loggedInUser) => {
         if (!isClicked) {
             dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
             dispatch(setPlaylist(station))
-            dispatch(setClip(clip))
+            dispatch(setClip(currClip))
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
@@ -51,6 +50,9 @@ export const ClipPreview = ({
             playerFunc.pauseVideo()
         }
         dispatch(setIsPlaying(!isPlaying))
+        const updatedUser = await userService.updateUserRecentlyPlayedClips(loggedInUser._id, currClip)
+        dispatch(updateUser(updatedUser))
+
     }
 
     const getTime = async () => {
@@ -90,7 +92,7 @@ export const ClipPreview = ({
                     <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                         onClick={() => {
                             setIsClicked(!isClicked)
-                            onTogglePlay(clip, isClicked)
+                            onTogglePlay(clip, isClicked, loggedInUser)
                         }}></i>
                     <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
                 </React.Fragment>
@@ -103,7 +105,7 @@ export const ClipPreview = ({
             </div>
             <div className='artist-name'>{clip.artist}</div>
             {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
-            {user && <LikesBtns clip={clip} station={station} />}
+            {loggedInUser && <LikesBtns clip={clip} station={station} />}
             {clip.duration ? <div className='clock-area'>{getDuration(clip.duration)}</div> : ''}
             <i
                 className='dropdown-btn fa-solid fa-ellipsis'

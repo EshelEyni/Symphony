@@ -19,7 +19,7 @@ export const StationHeader = ({
     bgColor,
     setBgcolor,
     onRemoveStation,
-    onSaveSearchStation = { onSaveSearchStation },
+    onSaveSearchStation,
     onTogglePlay,
     isAdminMode,
     setAdminMode }) => {
@@ -71,10 +71,10 @@ export const StationHeader = ({
         setIsChangedImg(false)
     }
 
-    return <div className='my-sd-header'>
+    return <div className='station-header'>
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
-            className='my-sd-header-main-container flex'>
+            className='station-header-main-container flex'>
             {<div className='pl-img-container'>
                 <label htmlFor='pl-img'>
                     {!isChangedImg && <img

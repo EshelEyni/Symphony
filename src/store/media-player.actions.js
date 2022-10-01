@@ -1,10 +1,11 @@
 import { storageService } from '../services/async-storage.service'
 import { userService } from '../services/user.service'
 
+
+
 export function setClip(clip) {
     if (clip) {
         storageService.save('prevClip', clip)
-        userService.setRecentlyPlayed(clip)
     }
     return async (dispatch) => {
         try {
@@ -75,13 +76,3 @@ export function setClipLength(clipLength) {
         }
     }
 }
-
-// export function setStationClick(isStationClicked) {
-//     return async (dispatch) => {
-//         try {
-//             dispatch({ type: 'SET_STATION_CLICKED', isStationClicked })
-//         } catch (err) {
-//             console.log('Cannot set clip length', err)
-//         }
-//     }
-// }

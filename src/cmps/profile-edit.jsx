@@ -30,7 +30,6 @@ export const ProfileEdit = ({ user, setUser, setMainImg, setIsEdit }) => {
         const field = target.name
         const value = target.value
         updatedUser[field] = value
-        console.log('updatedUser', updatedUser)
         setUpdatedUser(updatedUser)
     }
 

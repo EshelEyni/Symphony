@@ -103,16 +103,16 @@ export const SymphonyApp = () => {
             <div className="station-by-tag-container">
                 <div className='tag-link'>
                     <h1>Europe</h1>
+                    <Link to={'/tag/Europe'}>SEE ALL</Link>
                 </div>
-                <Link to={'/tag/Europe'}>SEE ALL</Link>
                 <StationList stations={stationService.getStationByTag(stations, 'Europe')} />
             </div>
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
                     <h1>Metal</h1>
+                    <Link to={'/tag/Metal'}>SEE ALL</Link>
                 </div>
-                <Link to={'/tag/Metal'}>SEE ALL</Link>
                 <StationList stations={stationService.getStationByTag(stations, 'Metal')} />
             </div>
         </div >

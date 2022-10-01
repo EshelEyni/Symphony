@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { storageService } from '../services/async-storage.service'
-import { clearMsg, msg } from '../services/user.service'
+import { clearMsg, msg, userService } from '../services/user.service'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
 import { removeStation } from '../store/station.actions'
 import { setUserMsg, updateUser } from '../store/user.actions'
@@ -21,7 +21,6 @@ export const StationPreview = ({
     useEffect(() => {
         if (!currClip || !currPlaylist) return
         if (stationId === currPlaylist._id) {
-            console.log('USE_EFFECT3');
             setIsClicked(isPlaying)
         }
     }, [isPlaying])
@@ -45,7 +44,6 @@ export const StationPreview = ({
             clearInterval(mediaPlayerInterval)
             dispatch(setPlaylist(currStation))
             dispatch(setClip(clip))
-            console.log('clip StationPreview', clip)
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
