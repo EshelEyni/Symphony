@@ -43,11 +43,9 @@
     padding: 8px 10px;
     gap: 10px;
     display: contents;
+    padding-right: 20px;
 
-    @include for-mobile-layout {
-        // padding: 0;
-        // gap: 10px;
-    }
+    @include for-mobile-layout {}
 }
 
 .search-filter-btn {
@@ -60,7 +58,6 @@
     font-family: circular;
 
     @include for-mobile-layout {
-        margin: 3px;
         font-size: 12px;
     }
 }
@@ -72,8 +69,9 @@
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
 }
-.browse-all{
+
+.browse-all {
     @include for-mobile-layout {
-       padding: 0;
+        padding: 0;
     }
 }

@@ -9,7 +9,6 @@ export const UserStationList = ({
     userStations,
     provided, }) => {
 
-    console.log('userStations', userStations)
     return (<ul
         className='user-stations-container'
         {...provided.droppableProps}

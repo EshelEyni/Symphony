@@ -53,7 +53,6 @@ export const LikedSongs = () => {
 
     
     const onTogglePlay = async (clip, isClicked) => {
-        console.log('clip', clip)
         if (!isClicked) {
             dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
@@ -85,8 +84,8 @@ export const LikedSongs = () => {
 
 
     return (
-        <div className='my-sd-container'>
-            <div className='my-sd-header'>
+        <div className='station-container'>
+            <div className='station-header'>
                 <StationHeader
                     bgColor={likedSongsBgcolor}
                     isUserStation={true}

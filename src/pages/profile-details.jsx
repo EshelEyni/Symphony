@@ -12,6 +12,7 @@ import { userService } from '../services/user.service'
 import { loadStations } from '../store/station.actions'
 import { storageService } from '../services/async-storage.service'
 import { StationList } from '../cmps/station-list'
+import { updateUser } from '../store/user.actions'
 
 
 export const UserProfile = () => {
@@ -20,10 +21,9 @@ export const UserProfile = () => {
     let [currProfileUser, setCurrProfileUser] = useState()
     let [userMadeStations, setUserMadeStations] = useState([])
     const params = useParams()
-    let [recentlyPlayedClips, setRecentlyPlayedClips] = useState()
+    let [recentlyPlayedClips, setRecentlyPlayedClips] = useState(loggedInUser.recentlyPlayedClips)
     const dispatch = useDispatch()
 
-    console.log('currProfileUser', currProfileUser)
     console.log('loggedInUser', loggedInUser)
 
     useEffect(() => {
@@ -34,26 +34,22 @@ export const UserProfile = () => {
     useEffect(() => {
         const currStations = stations.filter(station => station.createdBy._id === currProfileUser?._id && !station.isSearch)
         setUserMadeStations(currStations)
-    }, [stations])
+    }, [stations, loggedInUser])
 
     const loadUser = async (user, paramsId) => {
-        if (paramsId) {
+        if (paramsId !==loggedInUser._id) {
             user = await userService.getById(paramsId)
         } else {
             user = userService.getLoggedinUser()
         }
-        const recentlyPlayed = storageService.loadFromStorage('recentlyPlayed')
-        setRecentlyPlayedClips(recentlyPlayed?.clips)
-        console.log('recentlyPlayedClips', recentlyPlayedClips)
         setCurrProfileUser(user)
     }
 
     const onHandleDragEnd = (res) => {
-        recentlyPlayedClips = handleDragEnd(res, recentlyPlayedClips)
-        setRecentlyPlayedClips(recentlyPlayedClips)
-        storageService.save('recentlyPlayed', {
-            userId: loggedInUser._id, clips: recentlyPlayedClips
-        })
+        const clipsToUpdate = handleDragEnd(res,  loggedInUser.recentlyPlayedClips)
+        setRecentlyPlayedClips(clipsToUpdate)
+        loggedInUser.recentlyPlayedClips = clipsToUpdate
+        dispatch(updateUser(loggedInUser))
     }
 
 
@@ -70,7 +66,7 @@ export const UserProfile = () => {
 
                     {loggedInUser._id === params.id &&
                         <div className="personal-profile-content">
-                            {recentlyPlayedClips?.length > 0 &&
+                            {loggedInUser.recentlyPlayedClips.length > 0 &&
                                 <div className="recently-played-container">
                                     <h1>Recently Played</h1>
                                     <ClipListHeader />
@@ -82,7 +78,7 @@ export const UserProfile = () => {
                                                     provided={provided}
                                                     clipKey={'recently-played'}
                                                     // station={station}
-                                                    clips={recentlyPlayedClips}
+                                                    currClips={recentlyPlayedClips}
                                                 />)}
                                         </Droppable>
                                     </DragDropContext>

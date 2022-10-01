@@ -13,7 +13,7 @@ export const userService = {
     remove,
     update,
     updateFollowers,
-    setRecentlyPlayed,
+    updateUserRecentlyPlayedClips,
     updateUserStation
 }
 
@@ -30,11 +30,9 @@ function remove(userId) {
     return httpService.delete(`user/${userId}`)
 }
 
-async function update(user) {
-    user = await httpService.put(`user/${user._id}`, user)
-    // Handle case in which admin updates other user's details
-    if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-    return user
+async function update(userToUpdate) {
+    const updatedUser = await httpService.put(`user/${userToUpdate._id}`, userToUpdate)
+    return updatedUser
 }
 
 function updateUserStation(user, station) {
@@ -45,11 +43,8 @@ function updateUserStation(user, station) {
 
 async function updateFollowers(user) {
     user = await httpService.put(`user/followers/${user._id}`, user)
-    // Handle case in which admin updates other user's details
-    // if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
 }
-
 
 async function login(currUser) {
     const user = await httpService.post('auth/login', currUser)
@@ -76,36 +71,27 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-async function setRecentlyPlayed(clip) {
+async function updateUserRecentlyPlayedClips(loggedInUserId, currClip) {
+    if (!loggedInUserId) return // Prevents guest mode save
+    const loggedInUser = await getById(loggedInUserId)
+    const userToUpdate = { ...loggedInUser }
+    let { recentlyPlayedClips } = userToUpdate
 
-    const loggedInUser = getLoggedinUser()
-    // Prevent at save guest mode
-    if (!loggedInUser) return
-    const newRecentPlayedClips = {
-        userId: loggedInUser._id, clips: []
-    }
-    let recentlyPlayed = _loadFromStorage('recentlyPlayed') || newRecentPlayedClips
+    const existingClipEntry = recentlyPlayedClips.find(clip => clip._id === currClip._id)
+    if (existingClipEntry) return
 
-    // If a diffrent user as connected to the same broswer
-    if (loggedInUser._id !== recentlyPlayed.userId) recentlyPlayed = newRecentPlayedClips
+    recentlyPlayedClips.unshift(currClip)// Inserts violable clip
+    recentlyPlayedClips = recentlyPlayedClips.filter(clip => clip !== null)// Prevents entering a defected clip 
 
-    
-    // Prevents inserting the same clip
-    let clipsIds = recentlyPlayed.clips.map(clip => clip._id)
-    if (clipsIds.includes(clip._id)) return
-    
-    // Inserts violable clip
-    recentlyPlayed.clips.unshift(clip)
-   
-    // Prevents entering a defected clip 
-    recentlyPlayed.clips = recentlyPlayed.clips.filter(clip => clip !== null)
-
+    console.log('recentlyPlayedClips', recentlyPlayedClips)
     // Deletes the 11th added clip
-    if (recentlyPlayed.clips.length > 10) {
-        recentlyPlayed.clips.splice(10, 1)
+    if (recentlyPlayedClips.length > 10) {
+        console.log('INSIDE_IF');
+        console.log('recentlyPlayedClips', recentlyPlayedClips)
+        recentlyPlayedClips.splice(10, 1)
     }
-
-    _saveToStorage('recentlyPlayed', recentlyPlayed)
+    await update(userToUpdate)
+    return userToUpdate
 }
 
 export const msg = (itemName, txt) => {
@@ -113,12 +99,3 @@ export const msg = (itemName, txt) => {
 }
 
 export const clearMsg = { class: 'hidden', msg: '' }
-
-function _saveToStorage(key, val) {
-    localStorage.setItem(key, JSON.stringify(val))
-}
-
-function _loadFromStorage(key) {
-    var val = localStorage.getItem(key)
-    return JSON.parse(val)
-}

@@ -67,7 +67,6 @@ export const StationDetails = () => {
     }
 
     const loadStation = async (params) => {
-        console.log('params', params)
         const id = params.id
         const currStation = await stationService.getById(id)
         setCurrStation(currStation)
@@ -75,7 +74,6 @@ export const StationDetails = () => {
         setImgUrl(currStation?.imgUrl || defaultImg)
         setStationBgcolor(currStation.bgColor)
         if (!currStation.bgColor) {
-            console.log('currStation.bgColor', currStation.bgColor)
             computeColor(currStation?.imgUrl)
                 .then(color => {
                     currStation.bgColor = color
@@ -189,8 +187,8 @@ export const StationDetails = () => {
     }
 
     return (
-        <div className='my-sd-container'>
-            {currStation && <div className='my-sd-main-container'>
+        <div className='station-container'>
+            {currStation && <div className='station-main-container'>
                 <StationHeader
                     station={currStation}
                     setStation={setCurrStation}

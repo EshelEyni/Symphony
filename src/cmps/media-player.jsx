@@ -13,6 +13,7 @@ import { storageService } from '../services/async-storage.service.js'
 import { getTimeFormat } from '../services/media-player.service.js'
 import { UserMsg } from './user-msg.jsx'
 import { LikesBtns } from './likes-btn.jsx'
+import { userService } from '../services/user.service.js'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
@@ -61,7 +62,6 @@ export const MediaPlayer = () => {
             currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
             currClip = currPlaylist?.clips[currIdx]
             dispatch(setClip(currClip))
-            console.log('currClip onLoad', currClip)
             dispatch(setPlaylist(currPlaylist))
         }
     }
