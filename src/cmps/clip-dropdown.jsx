@@ -5,14 +5,14 @@ import { DropDownList } from './drop-down-list'
 
 export const ClipDropdown = ({ clip, station, onRemoveClip, setIsDropdownClip }) => {
 
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = useSelector(state => state.userModule.user)
     const [isShare, setIsShare] = useState(false)
     const miniMediaPlayer = ''
 
     return (
         <div className='dropdown-clip'>
             <ul>
-                {station?.createdBy?._id === user._id && <li className="remove-clip" onClick={(ev) => {
+                {(station?.createdBy?._id === loggedInUser._id) || loggedInUser?.isAdmin && <li className="remove-clip" onClick={(ev) => {
                     setIsDropdownClip(false)
                     onRemoveClip(ev, clip._id, clip.title)
                 }}>Remove from playlist</li>}

@@ -208,158 +208,161 @@ export const About = () => {
     return (
         < div >
 
-        <div className="cmps-map-container">
-            <ul className="cmps-map">
-                <li>AppHeader</li>
-                <li>SideBar</li>
-                <li>SymphonyApp
-                    <ul>
-                        <li>StationList
-                            <ul>
-                                <li>LikedSongsPreview</li>
-                                <li>StationPreview</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>About</li>
-                <li>DownloadApp</li>
-                <li>Login</li>
-                <li>Signup</li>
-                <li>UserProfile
-                    <ul>
-                        <li>ProfileHeader
-                            <ul>
-                                <li>ProfileDropdown</li>
-                                <li>ProfileEdit</li>
-                            </ul>
-                        </li>
-                        <li>ClipListHeader</li>
-                        <li>DraggableClipList... </li>
-                        <li>ProfileList</li>
-                        <ul><li>ProfilePreview</li></ul>
-                        <li>StationList...</li>
-                    </ul>
-                </li>
-                <li>Search
-                    <ul>
-                        <li>SearchBar</li>
-                        <li>StationList...</li>
-                        <li>TagList
-                            <ul>
-                                <li>TagsPreview</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <li>SearchList
+            <div className="cmps-map-container">
+                <ul className="cmps-map">
+                    <li>AppHeader</li>
+                    <li>SideBar</li>
+                    <li>SymphonyApp
                         <ul>
-                            <li>SearchResult
+                            <li>StationList
                                 <ul>
-                                    <li>ClipPreview</li>
-                                    <li>UserSearchResult</li>
+                                    <li>LikedSongsPreview</li>
+                                    <li>StationPreview</li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li>StationList...</li>
-                    <li>ProfileList...</li>
-                </li>
-
-                <li>StationDetails
-                    <ul>
-                        <li>StationHeader
-                            <ul>
-                                <li>HeaderDetails</li>
-                                <li>StationDropdown</li>
-                                <li>StationEdit</li>
-                            </ul>
-                        </li>
-                        <li>ClipListHeader...</li>
-                        <li>ClipList
-                            <ul>
-                                <li>ClipPreview...</li>
-                            </ul>
-                            <li>DraggableClipList
+                    <li>About</li>
+                    <li>DownloadApp</li>
+                    <li>Login</li>
+                    <li>Signup</li>
+                    <li>UserProfile
+                        <ul>
+                            <li>ProfileHeader
                                 <ul>
-                                    <li>ClipPreview
+                                    <li>ProfileDropdown</li>
+                                    <li>ProfileEdit</li>
+                                </ul>
+                            </li>
+                            <li>ClipListHeader</li>
+                            <li>DraggableClipList... </li>
+                            <li>ProfileList</li>
+                            <ul>
+                                <li>ProfilePreview</li>
+                            </ul>
+                            <li>StationList...</li>
+                        </ul>
+                    </li>
+                    <li>Search
+                        <ul>
+                            <li>SearchBar</li>
+                            <li>StationList...</li>
+                            <li>TagList
+                                <ul>
+                                    <li>TagsPreview</li>
+                                </ul>
+                            </li>
+
+                            <li>SearchList
+                                <ul>
+                                    <li>SearchResult
                                         <ul>
-                                            <li>LikesBtns</li>
-                                            <li>ClipDropdown
-                                                <ul>
-                                                    <li>DropDownList</li>
-                                                </ul>
-                                            </li>
+                                            <li>ClipPreview</li>
+                                            <li>UserSearchResult</li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                        </li>
-                        <li>SearchBar...</li>
-                        <li>SearchList...</li>
-                    </ul>
-                </li>
-                <li>LikedSongs
-                    <ul>
-                        <li>StationHeader...
+                            <li>StationList...</li>
+                            <li>ProfileList...</li>
+                        </ul>
+                    </li>
 
-                        </li>
-                        <li>ClipListHeader</li>
-                        <li>DraggableClipList...</li>
-                    </ul>
-                </li>
-                <li>TagsDetails
-                    <ul>StationList...</ul>
-                </li>
-                <li>Library
-                    <ul>
-                        <li>StationList...</li>
-                    </ul>
-                </li>
-                <li>ClipsQueue
-                    <ul>
-                        <li>ClipPreview...</li>
-                    </ul>
-                </li>
-                <li>MediaPlayer</li>
-            </ul>
-        </div>
+                    <li>StationDetails
+                        <ul>
+                            <li>StationHeader
+                                <ul>
+                                    <li>HeaderDetails</li>
+                                    <li>StationDropdown</li>
+                                    <li>StationEdit</li>
+                                </ul>
+                            </li>
+                            <li>ClipListHeader...</li>
+                            <li>ClipList
+                                <ul>
+                                    <li>ClipPreview...</li>
+                                </ul>
+                            </li>
+                                <li>DraggableClipList
+                                    <ul>
+                                        <li>ClipPreview
+                                            <ul>
+                                                <li>LikesBtns</li>
+                                                <li>ClipDropdown
+                                                    <ul>
+                                                        <li>DropDownList</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <li>SearchBar...</li>
+                            <li>SearchList...</li>
+                        </ul>
+                    </li>
+                    <li>LikedSongs
+                        <ul>
+                            <li>StationHeader...
+
+                            </li>
+                            <li>ClipListHeader</li>
+                            <li>DraggableClipList...</li>
+                        </ul>
+                    </li>
+                    <li>TagsDetails
+                        <ul>StationList...</ul>
+                    </li>
+                    <li>Library
+                        <ul>
+                            <li>StationList...</li>
+                        </ul>
+                    </li>
+                    <li>ClipsQueue
+                        <ul>
+                            <li>ClipPreview...</li>
+                        </ul>
+                    </li>
+                    <li>MediaPlayer</li>
+                </ul>
+            </div>
 
 
 
 
-            {/**************************************** HORIZONTAL DND EXAMPLE ***************************************/ }
-    <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId='DND-TST' direction="horizontal">
-            {(provided) => (
-                <div
-                    className='DND-TST flex'
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}>
-                    {array.map(({ em, _id }, idx) => {
-                        return (
-                            <Draggable
-                                key={_id}
-                                draggableId={_id}
-                                index={idx}>
-                                {(provided) => (
-                                    <div
-                                        {...provided.draggableProps}
-                                        {...provided.dragHandleProps}
-                                        ref={provided.innerRef}
-                                    >{em}</div>
-                                )}
-                            </Draggable>
-                        )
-                    })}
-                    {provided.placeholder}
-                </div>
-            )}
-        </Droppable>
-    </DragDropContext>
+            {/**************************************** HORIZONTAL DND EXAMPLE ***************************************/}
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+                <Droppable droppableId='DND-TST' direction="horizontal">
+                    {(provided) => (
+                        <div
+                            className='DND-TST flex'
+                            {...provided.droppableProps}
+                            ref={provided.innerRef}>
+                            {array.map(({ em, _id }, idx) => {
+                                return (
+                                    <Draggable
+                                        key={_id}
+                                        draggableId={_id}
+                                        index={idx}>
+                                        {(provided) => (
+                                            <div
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                ref={provided.innerRef}
+                                            >{em}</div>
+                                        )}
+                                    </Draggable>
+                                )
+                            })}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
 
 
 
-    {/* 
+            {/* 
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable droppableId='DND-TST'>
                     {(provided) => (
@@ -390,7 +393,7 @@ export const About = () => {
             </DragDropContext> */}
 
 
-    {/* <button onClick={() => {
+            {/* <button onClick={() => {
                 navigator.clipboard.writeText(createMiniMediaPlayer(
                     {
                         title: 'Queen',

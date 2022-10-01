@@ -1,4 +1,5 @@
-.station-clips-main-container {
+.station-clips-main-container,
+.clip-preview-container {
     display: grid;
     gap: 5px;
 
@@ -22,10 +23,24 @@
     }
 
     .title-text {
+        padding: 3px 0;
         padding-inline-start: 15px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        h1 {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            color:rgb(111, 105, 105)
+        }
 
     }
 

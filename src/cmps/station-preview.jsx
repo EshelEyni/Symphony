@@ -34,27 +34,45 @@ export const StationPreview = ({
 
     const onTogglePlay = async (e) => {
         // Stops button from navigating to link
+
         e.stopPropagation()
         e.preventDefault()
         const clip = currStation.clips[0]
 
+        console.log('onTogglePlaySP', 'PL:', currStation.name, 'CLIP:', clip.title)
 
+        // let currIdx = currStation.clips.findIndex((clip) => clip._id === currClip._id)
+        // currClip = currStation.clips[currIdx]
+
+        clearInterval(mediaPlayerInterval)
         if (!isClicked) {
-            dispatch(setIsPlaying(false))
-            clearInterval(mediaPlayerInterval)
+            // dispatch(setIsPlaying(false))
             dispatch(setPlaylist(currStation))
+            // dispatch(setClip(null))
             dispatch(setClip(clip))
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
         if (isClicked) {
-            clearInterval(mediaPlayerInterval)
             playerFunc.pauseVideo()
         }
         dispatch(setIsPlaying(!isPlaying))
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
+        dispatch(updateUser(userToUpdate))
     }
 
     const getTime = async () => {
+        console.log(
+            'SP_GET_TIME_IV:',
+            mediaPlayerInterval,
+            'PL:', currStation.name,
+            'CLIP:',
+            currClip.title)
+
+
+
+
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))
@@ -63,8 +81,8 @@ export const StationPreview = ({
             let nextIdx = currIdx + 1
             if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
             currClip = currPlaylist.clips[nextIdx]
+            dispatch(setClip(currClip))
         }
-        dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
     }
 
@@ -85,7 +103,9 @@ export const StationPreview = ({
 
 
     return <article className='station-preview' >
-        <Link to={'/station/' + currStation._id}>
+        <Link
+            title={currStation.name}
+            to={'/station/' + currStation._id}>
             <div className='station'>
                 {isSearch && <div className='recent-search-delete-btn-container'>
                     <i className="fa-solid fa-xmark"

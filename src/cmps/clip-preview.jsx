@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
-import { getDuration } from '../services/clip.service'
+import { getDuration, shortTitle } from '../services/clip.service'
 import { LikesBtns } from './likes-btn'
 import { ClipDropdown } from './clip-dropdown'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
@@ -8,8 +8,7 @@ import { useDispatch } from 'react-redux'
 import { storageService } from '../services/async-storage.service'
 import { updateUser } from '../store/user.actions'
 import { userService } from '../services/user.service'
-const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664386983/Symphny/ezgif.com-gif-maker_cbbaoz.gif'
-
+import { equalizer } from '../services/clip.service'
 export const ClipPreview = ({
     station,
     clip,
@@ -36,12 +35,12 @@ export const ClipPreview = ({
     const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
     const dispatch = useDispatch()
 
-    const onTogglePlay = async (currClip, isClicked, loggedInUser) => {
+    const onTogglePlay = (clip, isClicked, loggedInUser) => {
         if (!isClicked) {
             dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
             dispatch(setPlaylist(station))
-            dispatch(setClip(currClip))
+            dispatch(setClip(clip))
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
@@ -50,12 +49,14 @@ export const ClipPreview = ({
             playerFunc.pauseVideo()
         }
         dispatch(setIsPlaying(!isPlaying))
-        const updatedUser = await userService.updateUserRecentlyPlayedClips(loggedInUser._id, currClip)
-        dispatch(updateUser(updatedUser))
-
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
+        dispatch(updateUser(userToUpdate))
     }
 
     const getTime = async () => {
+        console.log('LOCAL GET TIME');
+        console.log('mediaPlayerInterval', mediaPlayerInterval)
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))
@@ -99,8 +100,9 @@ export const ClipPreview = ({
             }
             <div className='clip-title flex align-center'>
                 <img className='clip-img' src={clip.img?.url} alt='clip-img' />
-                <div className='title-text'>
-                    {clip.title}
+                <div className='title-text flex column'>
+                    <h1>{shortTitle(clip)}</h1>
+                    <p>{clip.artist}</p>
                 </div>
             </div>
             <div className='artist-name'>{clip.artist}</div>
@@ -111,7 +113,7 @@ export const ClipPreview = ({
                 className='dropdown-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
-                {(isDropdownClip) && <ClipDropdown
+                {isDropdownClip && <ClipDropdown
                     station={station}
                     setIsDropdownClip={setIsDropdownClip}
                     onRemoveClip={onRemoveClip}

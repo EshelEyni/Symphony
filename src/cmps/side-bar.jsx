@@ -47,8 +47,9 @@ export const SideBar = () => {
         }
         const savedStation = await stationService.save(newStation)
         dispatch(addStation(savedStation))
-        loggedInUser.createdStations.push(savedStation._id)
-        dispatch(updateUser(loggedInUser))
+        const userToUpdate = {...loggedInUser}
+        userToUpdate.createdStations.push(savedStation._id)
+        dispatch(updateUser(userToUpdate))
         navigate('/station/' + savedStation._id)
     }
 

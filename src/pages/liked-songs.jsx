@@ -12,46 +12,38 @@ import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { likedSongsBgcolor } from '../services/bg-color.service.js'
 import { storageService } from '../services/async-storage.service.js'
 import LikedSongsLogo from '../../src/assets/img/likedsongs.png'
+import { userService } from '../services/user.service.js'
 
 
 
 export const LikedSongs = () => {
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = useSelector(state => state.userModule.user)
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
-
+    console.log('loggedInUser', loggedInUser)
     const dispatch = useDispatch()
-    let [clips, setClips] = useState()
- 
+    let [likedSongs, setLikedSongs] = useState()
+
     useEffect(() => {
-        setClip(user.likedSongs)
         dispatch(setHeaderBgcolor(likedSongsBgcolor))
+        setLikedSongs(loggedInUser.likedSongs)
     }, [])
-
-
 
     const station = {
         name: "Liked Songs",
         imgUrl: LikedSongLogo,
-        clips: user.likedSongs,
+        clips: likedSongs,
         createdBy: {
-            fullname: user.fullname
+            fullname: loggedInUser.fullname
         }
     }
 
     const onHandleDragEnd = (res) => {
-        clips = handleDragEnd(res, clips)
-        setClips(clips)
-        user.likedSongs = clips
-        dispatch(updateUser(user))
+        likedSongs = handleDragEnd(res, likedSongs)
+        setLikedSongs(likedSongs)
+        loggedInUser.likedSongs = likedSongs
+        dispatch(updateUser(loggedInUser))
     }
 
-    // const onPlayClip = (clip) => {
-    //     dispatch(setClip(clip))
-    //     dispatch(setPlaylist(station))
-    //     dispatch(updateUser(user))
-    // }
-
-    
     const onTogglePlay = async (clip, isClicked) => {
         if (!isClicked) {
             dispatch(setIsPlaying(false))
@@ -66,6 +58,9 @@ export const LikedSongs = () => {
             playerFunc.pauseVideo()
         }
         dispatch(setIsPlaying(!isPlaying))
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
+        dispatch(updateUser(userToUpdate))
     }
 
     const getTime = async () => {
@@ -81,7 +76,9 @@ export const LikedSongs = () => {
         dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
     }
-
+    console.log('clips:', clips)
+    
+    
 
     return (
         <div className='station-container'>
@@ -91,12 +88,13 @@ export const LikedSongs = () => {
                     isUserStation={true}
                     LikedSongLogo={LikedSongLogo}
                     clips={station.clips}
-                    station={station}
-                    user={user.username}
+                    currStation={station}
+                    user={loggedInUser.username}
                     LikedSongsLogo={LikedSongsLogo}
                     onTogglePlay={onTogglePlay}
                 />
             </div>
+            {likedSongs&&
             <div className='station-clips-container'>
                 <ClipListHeader
                     bgColor={likedSongsBgcolor}
@@ -110,11 +108,11 @@ export const LikedSongs = () => {
                                 provided={provided}
                                 clipKey={'liked-clip'}
                                 station={station}
-                                clips={station.clips}
+                                currClips={station.clips}
                             />)}
                     </Droppable>
                 </DragDropContext>
-            </div>
+            </div>}
         </div >
     )
 

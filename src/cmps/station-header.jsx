@@ -8,9 +8,13 @@ import { StationDropdown } from "./station-dropdown"
 import { StationEdit } from "./station-edit"
 import { HeaderDetails } from "./header-details"
 import { computeColor } from "../services/bg-color.service"
+import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from "../store/media-player.actions"
+import { storageService } from "../services/async-storage.service"
+import { updateUser } from "../store/user.actions"
+import { userService } from "../services/user.service"
 
 export const StationHeader = ({
-    station,
+    currStation,
     setStation,
     isUserStation,
     LikedSongLogo,
@@ -20,12 +24,11 @@ export const StationHeader = ({
     setBgcolor,
     onRemoveStation,
     onSaveSearchStation,
-    onTogglePlay,
     isAdminMode,
     setAdminMode }) => {
+    let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
 
-    let { currPlaylist, currClip, isPlaying } = useSelector(state => state.mediaPlayerModule)
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = useSelector(state => state.userModule.user)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [isChangedImg, setIsChangedImg] = useState(false)
@@ -35,25 +38,14 @@ export const StationHeader = ({
 
     useEffect(() => {
         if (!currClip || !currPlaylist) return
-        if (station._id === currPlaylist._id) {
+        if (currStation._id === currPlaylist._id) {
             setIsClicked(isPlaying)
         }
     }, [isPlaying])
 
-    const getCurrPlayedClip = () => {
-        let clip = null
-        if (currPlaylist._id === station._id) clip = currClip
-        else clip = station.clips[0]
-        return clip
-    }
-
-    useEffect(() => {
-        // setImgUrl(imgUrl)
-        // setBgcolor(station.bgColor)
-    }, [station])
 
     const onUploadImg = async (ev) => {
-        const stationToUpdate = { ...station }
+        const stationToUpdate = { ...currStation }
         setIsChangedImg(true)
         setImgUrl(defaultImg)
         const uploadedImgUrl = await uploadImg(ev)
@@ -70,6 +62,49 @@ export const StationHeader = ({
             })
         setIsChangedImg(false)
     }
+
+    const onTogglePlay = async (clip, isClicked) => {
+        console.log('clip', clip)
+        
+        if (!isClicked) {
+            dispatch(setIsPlaying(false))
+            clearInterval(mediaPlayerInterval)
+            dispatch(setPlaylist(currStation))
+            dispatch(setClip(clip))
+            dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
+            playerFunc.playVideo()
+        }
+        if (isClicked) {
+            clearInterval(mediaPlayerInterval)
+            playerFunc.pauseVideo()
+        }
+        dispatch(setIsPlaying(!isPlaying))
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
+        dispatch(updateUser(userToUpdate))
+    }
+
+    const getTime = async () => {
+        const time = await playerFunc.getCurrentTime()
+        storageService.put('currTime', time)
+        dispatch(setCurrTime(time))
+        if (currTime > clipLength - 1.5) {
+            const currIdx = currPlaylist.clips.indexOf(currClip)
+            let nextIdx = currIdx + 1
+            if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
+            currClip = currPlaylist.clips[nextIdx]
+        }
+        dispatch(setClip(currClip))
+        dispatch(setIsPlaying(true))
+    }
+
+    const getCurrPlayedClip = () => {
+        let clip = null
+        if (currPlaylist._id === currStation?._id) clip = currClip
+        else clip = currStation.clips[0]
+        return clip
+    }
+
 
     return <div className='station-header'>
         <div
@@ -96,12 +131,12 @@ export const StationHeader = ({
                 }</div>}
 
             <div className='station-header-details-container'>
-                <h1 className='station-header-name-container'>{station.name}</h1>
-                <div className='desc-container'>{station.desc}</div>
+                <h1 className='station-header-name-container'>{currStation.name}</h1>
+                <div className='desc-container'>{currStation.desc}</div>
                 {isUserStation ? <HeaderDetails
-                    creator={station?.createdBy?.fullname} clips={station?.clips} /> :
+                    creator={currStation?.createdBy?.fullname} clips={currStation?.clips} /> :
                     <HeaderDetails
-                        creator={station?.createdBy?.username} clips={station?.clips} />}
+                        creator={currStation?.createdBy?.username} clips={currStation?.clips} />}
             </div>
         </div>
         <div className='playlist-btns'
@@ -111,7 +146,7 @@ export const StationHeader = ({
                     setIsClicked(!isClicked)
                     onTogglePlay(getCurrPlayedClip(), isClicked)
                 }}></button>
-            {user?.isAdmin &&
+            {loggedInUser?.isAdmin &&
                 <span
                     className="admin-state-btn"
                     onClick={() => setAdminMode(!isAdminMode)}
@@ -122,7 +157,7 @@ export const StationHeader = ({
         <div
             style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
             className='pl-container'>
-            {station._id !== 'liked-station' &&
+            {currStation._id !== 'liked-station' &&
                 <div className="sd-btns-container">
                     {/* <LikesBtns /> */}
                 </div>}
@@ -130,7 +165,7 @@ export const StationHeader = ({
             {isDropdown && <StationDropdown
                 isAdminMode={isAdminMode}
                 isDropdown={isDropdown}
-                isSearchStation={station?.isSearch}
+                isSearchStation={currStation?.isSearch}
                 setIsDropdown={setIsDropdown}
                 isUserStation={isUserStation}
                 setIsEdit={setIsEdit}
@@ -142,7 +177,7 @@ export const StationHeader = ({
                 setIsEdit={setIsEdit}
                 setCurrStation={setStation}
                 setMainImg={setImgUrl}
-                currStation={station} />}
+                currStation={currStation} />}
         </div>
 
     </div >

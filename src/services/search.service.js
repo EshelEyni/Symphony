@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as duration from 'duration-fns'
 import { stationService } from './station.service'
 import { userService } from './user.service'
+export const searchLoader = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664644425/Symphny/search-loader_nvtb1p.gif'
 
 
 export const searchService = {
@@ -39,9 +40,11 @@ async function getClips(term) {
 
     const cleaner = /\([^\)]*\)|\[[^\]]*\]/g
     const emojiCleaner = /(\u00a9|\u00ae|HD|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
-    const apostrophe = /&#39/g
-    const ampersand = /&amp;/g
+    const apostrophe = /&#39|&quot/g
+    const ampersand = /&amp;/gi
     const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
+    const cleanArtistName = /vevo|music|-topic| - topic|official/gi
+
 
     clips = clips.data.items
     clips = clips.map(clip => ({
@@ -52,7 +55,7 @@ async function getClips(term) {
             width: clip.snippet.thumbnails.default.width,
             height: clip.snippet.thumbnails.default.height,
         },
-        artist: clip.snippet.channelTitle,
+        artist: clip.snippet.channelTitle.replaceAll(cleanArtistName, ''),
         // likedByUsers: []
     }))
 
@@ -85,7 +88,7 @@ function getTitle(str) {
 
 async function updateUserRecentSearches(searchResults, loggedInUser, listName) {
     if (!loggedInUser) return
-    const clip = searchResults[0]
+    const clip = searchResults[0] || {}
     let newSearchList = {
         name: listName,
         imgUrl: clip.img.url,
@@ -131,20 +134,20 @@ function getStationsBySearchTerm(stations, searchTerm, isArtist) {
 function getProfilesBySearchTerm(stations, users, searchTerm) {
     if (!users.length) return
     searchTerm = searchTerm.toLowerCase()
-    var matchingStatations = new Set(
+    let matchingStations = new Set(
         stations
             .filter(station => station.clips.find(clip => clip.title.toLowerCase().includes(searchTerm) != undefined))
             .map(station => station._id)
-    );
-    if (matchingStatations.length == 0) return;
+    )
+    if (matchingStations.length == 0) return
 
     return users.map(user => {
         let matchedTerms = 0
         user.createdStations.forEach(station => {
-            if (matchingStatations.has(station))
+            if (matchingStations.has(station))
                 matchedTerms++;
         })
-        if (!matchedTerms) return
+        if (!matchedTerms) return undefined
         return { ...user, matchedTerms }
     })
         .filter(user => user !== undefined)

@@ -10,26 +10,23 @@ import { ProfileEdit } from "./profile-edit"
 import { ProfileDropdown } from "./profile-dropdown"
 import { useSelector } from "react-redux"
 
-export const ProfileHeader = ({ user, setUser }) => {
+export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
     const loggedInUser = useSelector(state => state.userModule.user)
-    let stations = useSelector(state => state.stationModule.stations)
-
+    const isLoggedInUserProfile = loggedInUser?._id === currProfileUser._id
     const [profileImgUrl, setProfileImgUrl] = useState()
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [isFollowedProfile, setIsFollowedProfile] = useState(checkIsFollowedProfile())
     const dispatch = useDispatch()
 
-    // const users = useSelector(state => state.userModule.users)
-    const isLoggedInUserProfile = loggedInUser._id === user._id
 
     useEffect(() => {
         dispatch(setHeaderBgcolor(profileBgcolor))
-        setProfileImgUrl(user.imgUrl)
-    }, [user])
+        setProfileImgUrl(currProfileUser.imgUrl)
+    }, [currProfileUser])
 
     function checkIsFollowedProfile() {
-        if (loggedInUser?.following?.find(profileId => profileId === user?._id)) return true
+        if (loggedInUser?.following?.find(profileId => profileId === currProfileUser?._id)) return true
         return false
     }
 
@@ -37,23 +34,23 @@ export const ProfileHeader = ({ user, setUser }) => {
         setProfileImgUrl(defaultImg)
         const currImgUrl = await uploadImg(ev)
         setProfileImgUrl(currImgUrl)
-        user.imgUrl = currImgUrl
-        dispatch(updateUser(user))
+        currProfileUser.imgUrl = currImgUrl
+        dispatch(updateUser(currProfileUser))
     }
 
     const onToggleFollowProfile = () => {
         const loggedInUserId = loggedInUser._id
-        const watchedProfileId = user._id // user is the watched profile user
+        const watchedProfileId = currProfileUser._id // user is the watched profile user
         if (isFollowedProfile) {
             loggedInUser.following = loggedInUser.following.filter(currId => currId !== watchedProfileId)
             dispatch(updateUser(loggedInUser))
-            user.followers = user.followers.filter(currId => currId !== loggedInUserId)
-            dispatch(updateFollowers(user))
+            currProfileUser.followers = currProfileUser.followers.filter(currId => currId !== loggedInUserId)
+            dispatch(updateFollowers(currProfileUser))
         }
         if (!isFollowedProfile) {
             loggedInUser.following.push(watchedProfileId)
-            user.followers.push(loggedInUserId)
-            dispatch(updateFollowers(user))
+            currProfileUser.followers.push(loggedInUserId)
+            dispatch(updateFollowers(currProfileUser))
             dispatch(updateUser(loggedInUser))
         }
     }
@@ -76,7 +73,7 @@ export const ProfileHeader = ({ user, setUser }) => {
             </div>}
             <div className='profile-details'>
                 <p>Profile</p>
-                <h1 className='profile-h1'>{user.fullname}</h1>
+                <h1 className='profile-h1'>{currProfileUser.fullname}</h1>
             </div>
         </div>
 
@@ -92,7 +89,7 @@ export const ProfileHeader = ({ user, setUser }) => {
                 onToggleFollowProfile={onToggleFollowProfile}
                 isFollowedProfile={isFollowedProfile}
                 setIsFollowedProfile={setIsFollowedProfile}
-                watchedProfileId={user._id}
+                watchedProfileId={currProfileUser._id}
                 isDropdown={isDropdown}
                 setIsDropdown={setIsDropdown}
                 isEdit={isEdit}
@@ -102,8 +99,8 @@ export const ProfileHeader = ({ user, setUser }) => {
             />}
 
             {isEdit && <ProfileEdit
-                user={user}
-                setUser={setUser}
+                currProfileUser={currProfileUser}
+                setCurrProfileUser={setCurrProfileUser}
                 setIsDropdown={setIsDropdown}
                 setIsEdit={setIsEdit}
                 setMainImg={setProfileImgUrl}

@@ -11,9 +11,11 @@ import { ProfileList } from '../cmps/profile-list.jsx'
 import { StationList } from '../cmps/station-list.jsx'
 import { TagList } from '../cmps/tag-list.jsx'
 import { loadStations } from '../store/station.actions.js'
-import { searchService } from '../services/search.service.js'
+import { searchService, searchLoader } from '../services/search.service.js'
 import { stationService } from '../services/station.service.js'
 import { useParams, useSearchParams } from 'react-router-dom'
+import { equalizer } from '../services/clip.service.js'
+
 
 export const Search = () => {
     const loggedInUser = useSelector(state => state.userModule.user)
@@ -25,6 +27,7 @@ export const Search = () => {
     let [searchArtist, getSearchArtists] = useState([])
     let [searchProfiles, getSearchProfiles] = useState([])
     let [currRecentSearches, setCurrRecentSearches] = useState([])
+    let [isLoading, setIsLoading] = useState(true)
 
     const [isSearch, setIsSearch] = useState(false)
     let [searchParams, setSearchParams] = useSearchParams()
@@ -44,6 +47,12 @@ export const Search = () => {
         dispatch(setClip(clip))
         dispatch(setPlaylist(searchClips))
         dispatch(updateUser(loggedInUser))
+    }
+
+    const noDataArrive = () => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 10000);
     }
 
     return (
@@ -103,12 +112,7 @@ export const Search = () => {
                 </div>
             }
 
-
             {/***************************************** After a search is made *****************************************/}
-
-
-            {/* ADD LOADER */}
-
             {(isSearch && searchClips.length > 0) &&
                 <div className="search-res-main-container">
 
@@ -151,9 +155,9 @@ export const Search = () => {
                             <h1>Profiles</h1>
                             <ProfileList
                                 currProfiles={searchProfiles}
-                                // filterBy={'searchTerm'}
-                                // searchTerm={searchTerm} 
-                                />
+                            // filterBy={'searchTerm'}
+                            // searchTerm={searchTerm} 
+                            />
                         </div>
                     }
 
@@ -170,12 +174,17 @@ export const Search = () => {
                 </div>}
             {(isSearch && !searchClips.length) &&
                 <div className='no-results-user-msg'>
-                    <p>Your search - {searchTerm} - didn't match any of our songs.</p>
-                    <ul>Suggsetions:
-                        <li>● Make sure that all words are spelled correctly.</li>
-                        <li>● Try different keywords.</li>
-                        <li>● Try more general keywords.</li>
-                    </ul>
+                    {isLoading && <div className='search-loader-container'><img class='search-loader' src={equalizer} alt='search Loader'></img></div>
+                        // <div>
+                        //     <p>Your search - {searchTerm} - didn't match any of our songs.</p>
+                        //     <ul>Suggsetions:
+                        //         <li>● Make sure that all words are spelled correctly.</li>
+                        //         <li>● Try different keywords.</li>
+                        //         <li>● Try more general keywords.</li>
+                        //     </ul>
+                        // </div>
+
+                    }
                 </div>
             }
         </div >

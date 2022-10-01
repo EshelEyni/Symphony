@@ -78,7 +78,6 @@ export const SearchBar = ({
                 .getProfilesBySearchTerm(stations, usersList, currSearchTerm))
         }
     }
-
     return (
         <form
             action=''

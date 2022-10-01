@@ -1,4 +1,6 @@
 import { userService } from "./user.service"
+export const equalizer = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664386983/Symphny/ezgif.com-gif-maker_cbbaoz.gif'
+
 
 const user = userService.getLoggedinUser()
 
@@ -30,4 +32,23 @@ export const onDisLikeSong = (clipId) => {
 export const isLiked = (user, clipId) => {
     if (!user || !clipId) return false
     return user?.likedSongs?.find(song => clipId === song._id)
+}
+
+export const shortTitle = (clip) => {
+    const title = clip.title
+    const artist = clip.artist
+    const checkIfIncluded = title.split(" ").join('').toLowerCase().includes(artist.split(' ').join('').toLowerCase())
+    if (checkIfIncluded) {
+        let newTitle
+        const artistIdx = title.split(" ").join('').toLowerCase().indexOf(artist.split(" ").join('').toLowerCase())
+        const titleWithDash = title.includes('-')
+        if (titleWithDash) {
+            newTitle = artistIdx <= 0 ? title.substring(title.indexOf('-') + 1, title.length) :
+                title.substring(0, title.indexOf('-'))
+            return newTitle
+        }
+        else return newTitle = artistIdx <= 0 ? title.substring(title.indexOf(' ') + 1, title.length) :
+            title.substring(0, title.indexOf(' '))
+    }
+    else return clip.title
 }

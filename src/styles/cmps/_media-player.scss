@@ -213,7 +213,10 @@ input[type="range"]::-webkit-slider-thumb {
 .media-player-clip-container {
     display: flex;
 
-    justify-content: flex-start;
+    &:not(:last-child) {
+        justify-content: flex-start;
+    }
+
     gap: 10px;
     align-items: center;
 
@@ -236,7 +239,21 @@ input[type="range"]::-webkit-slider-thumb {
     white-space: normal;
     letter-spacing: -.01rem;
     margin: 20px;
-    font-size: 13px;
+    // font-size: 13px;
+
+    h1,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 12px;
+    }
 
     @include for-mobile-layout {
         font-size: 10px;

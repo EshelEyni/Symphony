@@ -48,6 +48,15 @@
     @include for-mobile-layout {}
 }
 
+.search-main-container {
+
+    .search-loader-container {
+        display: flex;
+        justify-content: center;
+        height: 200px;
+    }
+}
+
 .search-filter-btn {
     border-radius: 25px;
     background-color: rgb(26, 26, 26);
