@@ -81,6 +81,7 @@ async function add(user) {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
+            isAdmin: false,
             imgUrl: null,
             createdStations: [],
             likedStations: [],
