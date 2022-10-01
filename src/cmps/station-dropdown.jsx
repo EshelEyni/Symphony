@@ -8,9 +8,6 @@ export const StationDropdown = ({
     onSaveSearchStation,
     onRemoveStation }) => {
 
-
-
-
     return (
         <ul className='station-dropdown'>
             {(isUserStation || isAdminMode) &&

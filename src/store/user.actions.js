@@ -4,13 +4,32 @@ import { userService } from '../services/user.service.js'
 export function loadUsers() {
     return async dispatch => {
         try {
-            dispatch({ type: 'LOADING_START' })
             const users = await userService.getUsers()
             dispatch({ type: 'SET_USERS', users })
         } catch (err) {
             console.log('UserActions: err in loadUsers', err)
-        } finally {
-            dispatch({ type: 'LOADING_DONE' })
+        } 
+    }
+}
+
+export function loadUser(userId) {
+    return async dispatch => {
+        try {
+            const user = await userService.getById(userId)
+            dispatch({ type: 'SET_USER', user })
+        } catch (err) {
+            console.log('UserActions: err in user', err)
+        } 
+    }
+}
+export function updateUser(userToUpdate) {
+    return async (dispatch) => {
+        try {
+            const user = await userService.update(userToUpdate)
+            dispatch({ type: 'UPDATE_USER', user })
+        }
+        catch (err) {
+            console.log('UserActions: Cannot update user', err)
         }
     }
 }
@@ -21,32 +40,7 @@ export function onLogin(credentials) {
             const user = await userService.login(credentials)
             dispatch({ type: 'SET_USER', user })
         } catch (err) {
-            console.log('Cannot login', err)
-        }
-    }
-}
-
-export function updateUser(userToUpdate) {
-    return async (dispatch) => {
-        try {
-            const updatedUser = await userService.update(userToUpdate)
-            console.log('updatedUser', updatedUser)
-            dispatch({ type: 'UPDATE_USER', updatedUser })
-        }
-        catch (err) {
-            console.log('Cannot update user', err)
-        }
-    }
-}
-
-export const updateFollowers = (userToUpdate) => {
-    return async (dispatch) => {
-        try {
-            const user = await userService.updateFollowers(userToUpdate)
-            dispatch({ type: 'UPDATE_FOLLOWERS', user })
-        }
-        catch (err) {
-            console.log('Cannot update followers', err)
+            console.log('UserActions: Cannot login', err)
         }
     }
 }
@@ -60,10 +54,23 @@ export function onSignup(credentials) {
                 user
             })
         } catch (err) {
-            console.log('Cannot signup', err)
+            console.log('UserActions: Cannot signup', err)
         }
     }
 }
+
+export const updateFollowers = (userToUpdate) => {
+    return async (dispatch) => {
+        try {
+            const user = await userService.updateFollowers(userToUpdate)
+            dispatch({ type: 'UPDATE_FOLLOWERS', user })
+        }
+        catch (err) {
+            console.log('UserActions: Cannot update followers', err)
+        }
+    }
+}
+
 
 export function onLogout() {
     console.log('LOGOUT')
@@ -75,7 +82,7 @@ export function onLogout() {
                 user: null
             })
         } catch (err) {
-            console.log('Cannot logout', err)
+            console.log('UserActions: Cannot logout', err)
         }
     }
 }
@@ -85,7 +92,7 @@ export const setUserMsg = (msg) => {
         try {
             dispatch({ type: 'SET_USER_MSG', msg })
         } catch (err) {
-            console.log('Cannot set playist', err)
+            console.log('UserActions: Cannot set playist', err)
         }
     }
 }

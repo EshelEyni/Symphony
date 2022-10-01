@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { defaultImg, stationService } from '../services/station.service.js'
 import { SearchBar } from '../cmps/search-bar'
 import { loadStations, removeStation, updateStation } from '../store/station.actions'
-import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions.js'
 import { computeColor, stationHeaderDefaultBgcolor } from '../services/bg-color.service.js'
 import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
@@ -18,11 +17,9 @@ import { SearchList } from '../cmps/search-list.jsx'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { addDesc, addTag, setArtistStation } from '../services/admin-service.js'
 import { socketService, USER_FORMATED_PLAYLIST, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
-import { storageService } from '../services/async-storage.service.js'
 
 export const StationDetails = () => {
     const loggedInUser = useSelector(state => state.userModule.user)
-    let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -101,7 +98,6 @@ export const StationDetails = () => {
         const stationToSave = { ...currStation }
         delete stationToSave._id
         delete stationToSave.isSearch
-        console.log('stationToSave', stationToSave)
         await stationService.save(stationToSave)
         dispatch(loadStations())
     }
@@ -116,39 +112,6 @@ export const StationDetails = () => {
             dispatch(setUserMsg(clearMsg))
         }, 2500)
     }
-
-
-    const onTogglePlay = async (clip, isClicked) => {
-        console.log('clip', clip)
-        if (!isClicked) {
-            dispatch(setIsPlaying(false))
-            clearInterval(mediaPlayerInterval)
-            dispatch(setPlaylist(currStation))
-            dispatch(setClip(clip))
-            dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
-            playerFunc.playVideo()
-        }
-        if (isClicked) {
-            clearInterval(mediaPlayerInterval)
-            playerFunc.pauseVideo()
-        }
-        dispatch(setIsPlaying(!isPlaying))
-    }
-
-    const getTime = async () => {
-        const time = await playerFunc.getCurrentTime()
-        storageService.put('currTime', time)
-        dispatch(setCurrTime(time))
-        if (currTime > clipLength - 1.5) {
-            const currIdx = currPlaylist.clips.indexOf(currClip)
-            let nextIdx = currIdx + 1
-            if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
-            currClip = currPlaylist.clips[nextIdx]
-        }
-        dispatch(setClip(currClip))
-        dispatch(setIsPlaying(true))
-    }
-
 
     const onHandleDragEnd = (res) => {
         let { clips } = currStation
@@ -190,8 +153,8 @@ export const StationDetails = () => {
         <div className='station-container'>
             {currStation && <div className='station-main-container'>
                 <StationHeader
-                    station={currStation}
-                    setStation={setCurrStation}
+                    currStation={currStation}
+                    setCurrStation={setCurrStation}
                     isUserStation={currStation?.createdBy?._id === loggedInUser?._id}
                     imgUrl={imgUrl}
                     setImgUrl={setImgUrl}
@@ -199,7 +162,6 @@ export const StationDetails = () => {
                     setBgcolor={setStationBgcolor}
                     isAdminMode={isAdminMode}
                     setAdminMode={setAdminMode}
-                    onTogglePlay={onTogglePlay}
                     onSaveSearchStation={onSaveSearchStation}
                     onRemoveStation={onRemoveStation}
                 />
@@ -227,7 +189,6 @@ export const StationDetails = () => {
                             currClips={currStationClips}
                             setCurrClips={setCurrStationsClips}
                             station={currStation}
-                            onTogglePlay={onTogglePlay}
                             onRemoveClip={onRemoveClip}
                         />}
                     {/* --------------------------------------- User Station Only Proporties --------------------------------------- */}
@@ -242,7 +203,6 @@ export const StationDetails = () => {
                                         currClips={currStationClips}
                                         setCurrClips={setCurrStationsClips}
                                         station={currStation}
-                                        onTogglePlay={onTogglePlay}
                                         onRemoveClip={onRemoveClip}
                                     />)}
                             </Droppable>

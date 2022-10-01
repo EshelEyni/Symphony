@@ -2,15 +2,13 @@
 import { storageService } from '../services/async-storage.service'
 
 const initialState = {
-    currClip: storageService.loadFromStorage('prevClip')?.[0] || null,
+    currClip: storageService.loadFromStorage('prevClip') || null,
     currPlaylist: storageService.loadFromStorage('prevPlaylist')?.[0] || null,
     isPlaying: false,
     currTime: null,
     mediaPlayerInterval: null,
     playerFunc: null,
     clipLength: null,
-    // isStationClicked: false,
-    // isClipClicked: false
 }
 
 export function MediaPlayerReducer(state = initialState, action) {

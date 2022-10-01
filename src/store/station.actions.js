@@ -10,7 +10,7 @@ export function loadStations() {
             })
         }
         catch (err) {
-            console.log('Cannot load stations', err)
+            console.log('StationActions: Cannot load stations', err)
         }
     }
 }
@@ -25,7 +25,7 @@ export function removeStation(stationId) {
             })
             console.log('Deleted Succesfully!')
         } catch (err) {
-            console.log('Cannot remove station', err)
+            console.log('StationActions: Cannot remove station', err)
         }
     }
 }
@@ -40,7 +40,7 @@ export function addStation(station) {
             console.log('Added Station', station)
             return station
         } catch (err) {
-            console.log('Cannot add station', err)
+            console.log('StationActions: Cannot add station', err)
         }
     }
 }
@@ -55,7 +55,7 @@ export function updateStation(stationToUpdate) {
             })
         }
         catch (err) {
-            console.log('Cannot save station', err)
+            console.log('StationActions: Cannot save station', err)
         }
     }
 }

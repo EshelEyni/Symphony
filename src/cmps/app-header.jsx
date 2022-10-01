@@ -4,9 +4,10 @@ import { useState } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { onLogout } from '../store/user.actions'
 import pic from '../assets/img/blank-user.png'
+import { userService } from '../services/user.service'
 
 export const AppHeader = () => {
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = userService.getLoggedinUser()
     const bgColor = useSelector(state => state.appHeaderModule.color)
 
     const [isUserClicked, setUserClicked] = useState(false)
@@ -38,7 +39,7 @@ export const AppHeader = () => {
             }
 
             <div className='app-header-user-links-container flex'>
-                {!user &&
+                {!loggedInUser &&
                     <div className='guest-mode-container flex'>
                         <div className='guest-mode-links-bar flex'>
                             <NavLink to='/about' >About</NavLink>
@@ -50,16 +51,16 @@ export const AppHeader = () => {
                         </div>
                     </div>}
 
-                {user && <div className='user-btn-container flex'>
+                {loggedInUser && <div className='user-btn-container flex'>
                     <div className='user-profile'
                         onClick={() => setUserClicked(true)}>
                         <img
                             className='profile-pic'
-                            src={user.imgUrl ? user.imgUrl : pic} alt='user-pic' />
-                        {user.fullname}</div>
+                            src={loggedInUser.imgUrl ? loggedInUser.imgUrl : pic} alt='user-pic' />
+                        {loggedInUser.fullname}</div>
                     {isUserClicked &&
                         <div className='user-profile-dropdown flex column'>
-                            <NavLink to={'/user-profile/' + user._id}
+                            <NavLink to={'/user-profile/' + loggedInUser._id}
                                 onClick={() => setUserClicked(false)}
                                 >Profile</NavLink>
                             <NavLink to='/about'

@@ -1,9 +1,8 @@
 import { storageService } from '../services/async-storage.service'
-import { userService } from '../services/user.service'
-
-
 
 export function setClip(clip) {
+
+    console.log('clip MP ACTION:', clip?.title)
     if (clip) {
         storageService.save('prevClip', clip)
     }

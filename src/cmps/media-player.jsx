@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import YouTube from 'react-youtube'
-import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { setClip, setClipLength, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlayerFunc, setPlaylist } from '../store/media-player.actions.js'
 import { useDispatch } from 'react-redux'
@@ -14,21 +13,23 @@ import { getTimeFormat } from '../services/media-player.service.js'
 import { UserMsg } from './user-msg.jsx'
 import { LikesBtns } from './likes-btn.jsx'
 import { userService } from '../services/user.service.js'
+import { updateUser } from '../store/user.actions.js'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
-    const user = useSelector(state => state.userModule.user)
+    const loggedInUser = useSelector(state => state.userModule.user)
     let { currClip, currPlaylist, isPlaying, currTime, mediaPlayerInterval, playerFunc, clipLength } = useSelector(state => state.mediaPlayerModule)
-
     let [isMute, setIsMute] = useState(false)
     let [prevVolume, setPrevVolume] = useState()
     let [currVolume, setCurrVolume] = useState()
     let [playbackMode, setPlaybackMode] = useState('default-mode')
     let [isSwitchClip, setIsSwitchClip] = useState(true)
     let [thumbPos, setThumbPos] = useState(currTime)
+    const params = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
-        const prevClip = storageService.loadFromStorage('prevClip')?.[0]
+        const prevClip = storageService.loadFromStorage('prevClip')
         const currTime = storageService.loadFromStorage('currTime')?.[0]
         const currVolume = storageService.loadFromStorage('currVolume')?.[0]
 
@@ -48,23 +49,6 @@ export const MediaPlayer = () => {
         }
     }, [playbackMode])
 
-    // useEffect(() => {
-    //     if (currClip && isPlaying && mediaPlayerInterval) {
-    //         clearInterval(mediaPlayerInterval)
-    //         dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
-    //     }
-    // }, [isPlaying])
-
-    const onLoad = () => {
-        // Sets currClip && currPlaylist
-        let currIdx = null
-        if (currClip) {
-            currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
-            currClip = currPlaylist?.clips[currIdx]
-            dispatch(setClip(currClip))
-            dispatch(setPlaylist(currPlaylist))
-        }
-    }
 
     const onPlayClip = async () => {
         if (currClip) {
@@ -87,13 +71,7 @@ export const MediaPlayer = () => {
         if (isPlaying) onPlayClip()
     }
 
-    const opts = {
-        height: '400',
-        width: '400',
-        playerVars: {
-            autoplay: isPlaying ? 1 : 0,
-        }
-    }
+
 
     const handleChange = (ev) => {
         let name = ev.target.name
@@ -142,6 +120,7 @@ export const MediaPlayer = () => {
     }
 
     const getTime = async (playbackMode = 'default-mode') => {
+        console.log('MEDIA_PLAYER_GET_TIME:', mediaPlayerInterval, 'CURR_CLIPP:', currClip.title);
         currTime = await playerFunc.getCurrentTime()
         storageService.put('currTime', currTime)
         dispatch(setCurrTime(currTime))
@@ -150,7 +129,7 @@ export const MediaPlayer = () => {
         if (currTime > clipLength - 1.5) switchClipByPlaybackMode(playbackMode)
     }
 
-    const switchClipByPlaybackMode = (mode = 'default-mode', time = 0) => {
+    const switchClipByPlaybackMode = async (mode = 'default-mode', time = 0) => {
         const currIdx = currPlaylist.clips.indexOf(currClip)
         let nextIdx = currIdx + 1
         switch (mode) {
@@ -173,9 +152,12 @@ export const MediaPlayer = () => {
         }
         dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, currClip)
+        dispatch(updateUser(userToUpdate))
     }
 
-    const switchClip = (switchNum) => {
+    const switchClip = async (switchNum) => {
         setIsSwitchClip(false)
         const currIdx = currPlaylist.clips.indexOf(currClip)
         let nextIdx = currIdx + switchNum
@@ -185,6 +167,9 @@ export const MediaPlayer = () => {
         dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
         setIsSwitchClip(true)
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, currClip)
+        dispatch(updateUser(userToUpdate))
     }
 
     const skipTenSec = (skipNum) => {
@@ -192,6 +177,23 @@ export const MediaPlayer = () => {
         playerFunc.seekTo(currTime + skipNum)
     }
 
+    const onToggleQueue = () => {
+        const params = window.location.href
+        if (params.includes('clips-queue')) {
+            navigate('/station/' + currPlaylist._id)
+        }
+        else {
+            navigate('/clips-queue')
+        }
+    }
+
+    const opts = {
+        height: '400',
+        width: '400',
+        playerVars: {
+            autoplay: isPlaying ? 1 : 0,
+        }
+    }
 
 
     return (
@@ -203,7 +205,6 @@ export const MediaPlayer = () => {
                 <YouTube
                     videoId={currClip?._id}
                     opts={opts}
-                    onPlay={() => getTime(playbackMode)}
                     onReady={onReady} />
             </div>
             {/***************** Symphony Media Player *****************/}
@@ -304,12 +305,12 @@ export const MediaPlayer = () => {
             {/***************** Secondary Buttons *****************/}
             <div className='mp-2nd-controller'>
 
-                <NavLink
+                <span
                     className='link-to-queue'
-                    to='/clips-queue'>
+                    onClick={onToggleQueue} >
                     <QueueMusicRoundedIcon
                         className='queue-icon' />
-                </NavLink>
+                </span>
 
                 <button className={'sound-btn ' + (!isMute ? 'sound-btn fas fa-volume-up' : 'sound-btn fas fa-volume-mute')}
                     onClick={toggleMute}>

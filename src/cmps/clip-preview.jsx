@@ -36,12 +36,12 @@ export const ClipPreview = ({
     const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
     const dispatch = useDispatch()
 
-    const onTogglePlay = async (currClip, isClicked, loggedInUser) => {
+    const onTogglePlay = (clip, isClicked, loggedInUser) => {
         if (!isClicked) {
             dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
             dispatch(setPlaylist(station))
-            dispatch(setClip(currClip))
+            dispatch(setClip(clip))
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
@@ -50,12 +50,14 @@ export const ClipPreview = ({
             playerFunc.pauseVideo()
         }
         dispatch(setIsPlaying(!isPlaying))
-        const updatedUser = await userService.updateUserRecentlyPlayedClips(loggedInUser._id, currClip)
-        dispatch(updateUser(updatedUser))
-
+        const userToUpdate = { ...loggedInUser }
+        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
+        dispatch(updateUser(userToUpdate))
     }
 
     const getTime = async () => {
+        console.log('LOCAL GET TIME');
+        console.log('mediaPlayerInterval', mediaPlayerInterval)
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))
@@ -111,7 +113,7 @@ export const ClipPreview = ({
                 className='dropdown-btn fa-solid fa-ellipsis'
                 onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
-                {(isDropdownClip) && <ClipDropdown
+                {isDropdownClip && <ClipDropdown
                     station={station}
                     setIsDropdownClip={setIsDropdownClip}
                     onRemoveClip={onRemoveClip}
