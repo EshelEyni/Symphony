@@ -8,7 +8,6 @@ import pic from '../assets/img/blank-user.png'
 export const ProfilePreview = ({ user }) => {
     const users = useSelector(state => state.userModule.users)
     const dispatch = useDispatch()
-    // console.log('user', user)
 
     return (
         <article className='profile-preview' >

@@ -31,11 +31,11 @@ export const AppHeader = () => {
         <div
             style={{ backgroundColor: bgColor }}
             className='app-header-container full flex'>
-            {/* {isUserClicked &&
+            {isUserClicked &&
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
                 ></div>
-            } */}
+            }
 
             <div className='app-header-user-links-container flex'>
                 {!user &&

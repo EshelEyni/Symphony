@@ -29,8 +29,9 @@ export function onLogin(credentials) {
 export function updateUser(userToUpdate) {
     return async (dispatch) => {
         try {
-            const user = await userService.update(userToUpdate)
-            dispatch({ type: 'UPDATE_USER', user })
+            const updatedUser = await userService.update(userToUpdate)
+            console.log('updatedUser', updatedUser)
+            dispatch({ type: 'UPDATE_USER', updatedUser })
         }
         catch (err) {
             console.log('Cannot update user', err)
