@@ -24,6 +24,12 @@
         text-overflow: ellipsis;
     }
 
+    .artist-name {
+        @include for-mobile-layout {
+            display: none;
+        }
+    }
+
     .search-res-add-btn {
         font-weight: 700;
         font-size: 0.8125rem;
@@ -38,9 +44,15 @@
 
         &:hover {
             border: 1px solid white;
+        }
 
+        @include for-mobile-layout {
+            font-size: 0.675rem;
+            min-block-size: 30px;
+            padding-inline: 12px;
         }
     }
+
 
     &:hover {
         background-color: rgb(49, 49, 49);
@@ -50,7 +62,6 @@
     @include for-mobile-layout {
         display: grid;
         grid-template-columns: 330px 2fr minmax(50px, 1fr);
-        width: 100%;
         justify-content: space-between;
         align-items: center;
         font-size: 12px;
