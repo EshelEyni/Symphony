@@ -81,7 +81,9 @@ export const LikedSongs = () => {
         dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
     }
-
+    console.log('clips:', clips)
+    
+    
 
     return (
         <div className='station-container'>
@@ -110,7 +112,7 @@ export const LikedSongs = () => {
                                 provided={provided}
                                 clipKey={'liked-clip'}
                                 station={station}
-                                clips={station.clips}
+                                currClips={station.clips}
                             />)}
                     </Droppable>
                 </DragDropContext>

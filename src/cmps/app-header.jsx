@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { onLogout } from '../store/user.actions'
 import pic from '../assets/img/blank-user.png'
 
+
 export const AppHeader = () => {
     const user = useSelector(state => state.userModule.user)
     const bgColor = useSelector(state => state.appHeaderModule.color)
@@ -36,7 +37,6 @@ export const AppHeader = () => {
                     onClick={() => setUserClicked(false)}
                 ></div>
             }
-
             <div className='app-header-user-links-container flex'>
                 {!user &&
                     <div className='guest-mode-container flex'>
@@ -61,7 +61,7 @@ export const AppHeader = () => {
                         <div className='user-profile-dropdown flex column'>
                             <NavLink to={'/user-profile/' + user._id}
                                 onClick={() => setUserClicked(false)}
-                                >Profile</NavLink>
+                            >Profile</NavLink>
                             <NavLink to='/about'
                                 onClick={() => setUserClicked(false)}>About</NavLink>
                             <NavLink to='/download'

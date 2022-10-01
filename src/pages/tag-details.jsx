@@ -7,10 +7,9 @@ export const TagsDetails = () => {
     let stations = useSelector(state => state.stationModule.stations)
 
     const params = useParams()
-    return <div
-        className='tag-preview-container flex column'>
+    return <div>
         <h1>{params.title}</h1>
-        <div className="tag-details-container">
+        <div>
             <StationList stations={stationService.getStationByTag(stations, params.title)} />
         </div>
     </div>

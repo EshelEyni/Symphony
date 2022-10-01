@@ -13,6 +13,7 @@ import { storageService } from '../services/async-storage.service.js'
 import { getTimeFormat } from '../services/media-player.service.js'
 import { UserMsg } from './user-msg.jsx'
 import { LikesBtns } from './likes-btn.jsx'
+import { shortTitle } from '../services/clip.service.js'
 import { userService } from '../services/user.service.js'
 
 export const MediaPlayer = () => {
@@ -212,8 +213,14 @@ export const MediaPlayer = () => {
                     <img
                         className='media-player-clip-img'
                         src={currClip?.img?.url || ''} />}
-                <div className='media-player-clip-preview flex'>{currClip?.title || ''}{currClip && <LikesBtns clip={currClip} />}</div>
-                <div className='clip-details'></div>
+                <div className='media-player-clip-preview flex column'>
+                    <h1>{currClip && shortTitle(currClip)}</h1>
+                    <p>{currClip?.artist}</p>
+                </div>
+                <div>
+                    {currClip && <LikesBtns clip={currClip} />}
+                </div>
+                {/* <div className='clip-details'></div> */}
             </div>
             <div className='mp-controller flex column'>
 
