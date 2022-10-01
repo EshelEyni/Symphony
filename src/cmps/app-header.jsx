@@ -6,6 +6,7 @@ import { onLogout } from '../store/user.actions'
 import pic from '../assets/img/blank-user.png'
 import { userService } from '../services/user.service'
 
+
 export const AppHeader = () => {
     const loggedInUser = userService.getLoggedinUser()
     const bgColor = useSelector(state => state.appHeaderModule.color)
@@ -37,7 +38,6 @@ export const AppHeader = () => {
                     onClick={() => setUserClicked(false)}
                 ></div>
             }
-
             <div className='app-header-user-links-container flex'>
                 {!loggedInUser &&
                     <div className='guest-mode-container flex'>
@@ -62,7 +62,7 @@ export const AppHeader = () => {
                         <div className='user-profile-dropdown flex column'>
                             <NavLink to={'/user-profile/' + loggedInUser._id}
                                 onClick={() => setUserClicked(false)}
-                                >Profile</NavLink>
+                            >Profile</NavLink>
                             <NavLink to='/about'
                                 onClick={() => setUserClicked(false)}>About</NavLink>
                             <NavLink to='/download'
