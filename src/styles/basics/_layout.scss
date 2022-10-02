@@ -22,7 +22,7 @@
         ;
     }
 
-    /*870px and above*/
+    /*720px and above*/
     @include for-normal-layout {
         grid-template-columns: 212px 5fr;
         grid-template-rows: 60px minmax(calc(100vh - 90px - 60px), 1fr) 90px;

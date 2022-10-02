@@ -20,7 +20,7 @@ export const getDuration = ({ min, sec }) => {
 }
 
 export const onLikeSong = (clip) => {
-    clip.createdAt = new Date(getDate()).toLocaleDateString()
+    clip.createdAt = new Date(getDate()).toLocaleDateString('he-IL')
     user?.likedSongs.push(clip)
 }
 
@@ -44,9 +44,8 @@ export const shortTitle = (clip) => {
         const artistIdx = title.split(" ").join('').toLowerCase().indexOf(artist.split(" ").join('').toLowerCase())
         const titleWithDash = title.includes('-')
         if (titleWithDash) {
-            newTitle = artistIdx <= 0 ? title.substring(title.indexOf('-') + 1, title.length) :
+            return newTitle = artistIdx <= 0 ? title.substring(title.indexOf('-') + 1, title.length) :
                 title.substring(0, title.indexOf('-'))
-            return newTitle
         }
         else return newTitle = artistIdx <= 0 ? title.substring(title.indexOf(' ') + 1, title.length) :
             title.substring(0, title.indexOf(' '))
