@@ -4,12 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { defaultImg, stationService } from '../services/station.service.js'
 import { SearchBar } from '../cmps/search-bar'
 import { loadStations, removeStation, updateStation } from '../store/station.actions'
-import { computeColor, stationHeaderDefaultBgcolor } from '../services/bg-color.service.js'
+import { computeColor, defaultBgcolor } from '../services/bg-color.service.js'
 import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { setUserMsg, updateUser } from '../store/user.actions.js'
 import { handleDragEnd } from '../services/dragg.service.js'
-import { msg, clearMsg } from '../services/user.service'
+import { msg, clearMsg, userService } from '../services/user.service'
 import { ClipList } from '../cmps/clip-list.jsx'
 import { StationHeader } from '../cmps/station-header.jsx'
 import { ClipListHeader } from '../cmps/clip-list-header.jsx'
@@ -19,7 +19,7 @@ import { addDesc, addTag, setArtistStation } from '../services/admin-service.js'
 import { socketService, USER_FORMATED_PLAYLIST, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
 
 export const StationDetails = () => {
-    const loggedInUser = useSelector(state => state.userModule.user)
+    const loggedInUser = userService.getLoggedinUser()
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -29,7 +29,7 @@ export const StationDetails = () => {
     const [imgUrl, setImgUrl] = useState()
     let [searchClips, setSearchClips] = useState([])
     let [currStationClips, setCurrStationsClips] = useState()
-    let [stationBgcolor, setStationBgcolor] = useState(stationHeaderDefaultBgcolor)
+    let [stationBgcolor, setStationBgcolor] = useState(defaultBgcolor)
     let [isAdminMode, setAdminMode] = useState(false)
     const [searchTerm, setSearchTerm] = useState()
 

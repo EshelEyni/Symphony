@@ -3,65 +3,63 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ProfileHeader } from '../cmps/profile-header'
 import { DraggableClipList } from '../cmps/draggable-clip-list'
-import { setClip, setPlaylist } from '../store/media-player.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { handleDragEnd } from '../services/dragg.service'
 import { ClipListHeader } from '../cmps/clip-list-header'
 import { ProfileList } from '../cmps/profile-list'
 import { userService } from '../services/user.service'
 import { loadStations } from '../store/station.actions'
-import { storageService } from '../services/async-storage.service'
 import { StationList } from '../cmps/station-list'
-import { loadUser, updateUser } from '../store/user.actions'
+import { loadUser, loadUsers, updateUser } from '../store/user.actions'
+import { getFilteredUsersList } from '../services/profile-service'
 
 
 export const UserProfile = () => {
-    const currUser = useSelector(state => state.userModule.user)
     const loggedInUser = userService.getLoggedinUser()
+    const watchedProfileUser = useSelector(state => state.userModule.user)
+    const users = useSelector(state => state.userModule.users)
     let stations = useSelector(state => state.stationModule.stations)
-    let [currProfileUser, setCurrProfileUser] = useState()
     let [userMadeStations, setUserMadeStations] = useState([])
     const params = useParams()
     let [recentlyPlayedClips, setRecentlyPlayedClips] = useState([])
     const dispatch = useDispatch()
 
+console.log('watchedProfileUser', watchedProfileUser)
+
     useEffect(() => {
         const id = params.id
-        dispatch(loadUser(id))
         dispatch(loadStations())
-        setCurrProfileUser(currUser)
-    }, [params])
-    
-    useEffect(() => {
-        const currStations = stations.filter(station => station.createdBy._id === currProfileUser?._id && !station.isSearch)
-        setUserMadeStations(currStations)
-        setRecentlyPlayedClips(currUser?.recentlyPlayedClips)
-    }, [stations, currUser])
+        dispatch(loadUsers())
+        if (watchedProfileUser._id !== id) dispatch(loadUser(id))
+    }, [params, watchedProfileUser])
 
-    // const loadUser = async (paramsId) => {
-    //     const currUser = await userService.getById(paramsId)
-    // }
+    useEffect(() => {
+        const currStations = stations.filter(station => station.createdBy._id === watchedProfileUser?._id && !station.isSearch)
+        setUserMadeStations(currStations)
+        setRecentlyPlayedClips(watchedProfileUser?.recentlyPlayedClips)
+    }, [stations, watchedProfileUser])
+
+
 
     const onHandleDragEnd = (res) => {
         const clipsToUpdate = handleDragEnd(res, recentlyPlayedClips)
         setRecentlyPlayedClips(clipsToUpdate)
-        currProfileUser.recentlyPlayedClips = clipsToUpdate
-        dispatch(updateUser(currProfileUser))
+        watchedProfileUser.recentlyPlayedClips = clipsToUpdate
+        dispatch(updateUser(watchedProfileUser))
     }
 
 
     return (
         <div className='user-profile-container'>
-            {currProfileUser &&
+            {watchedProfileUser &&
                 <div className='main-user-profile-container flex column'>
                     <ProfileHeader
-                        currProfileUser={currProfileUser}
-                        setCurrProfileUser={setCurrProfileUser}
+                        watchedProfileUser={watchedProfileUser}
                     />
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {currUser && loggedInUser?._id === params.id &&
+                    {watchedProfileUser && (loggedInUser?._id === params.id) &&
                         <div className="personal-profile-content">
                             {recentlyPlayedClips?.length > 0 &&
                                 <div className="recently-played-container">
@@ -83,8 +81,10 @@ export const UserProfile = () => {
 
                             <h1>People who like the same music</h1>
                             <ProfileList
-                                currUser={currProfileUser}
-                                filterBy={'likes'} />
+                                currProfiles={getFilteredUsersList(users, watchedProfileUser, 'likes')}
+                            // currUser={watchedProfileUser}
+                            // filterBy={'likes'}
+                            />
                         </div>}
 
 
@@ -93,17 +93,19 @@ export const UserProfile = () => {
                     <div className="followers-following-container">
                         <h1>Followers</h1>
                         <ProfileList
-                            currUser={currProfileUser}
-                            filterBy={'followers'}
+                        currProfiles={getFilteredUsersList(users, watchedProfileUser, 'followers')}
+                            // currUser={watchedProfileUser}
+                            // filterBy={'followers'}
                         />
                         <h1>Following</h1>
                         <ProfileList
-                            currUser={currProfileUser}
-                            filterBy={'following'}
+                        currProfiles={getFilteredUsersList(users, watchedProfileUser, 'following')}
+                            // currUser={watchedProfileUser}
+                            // filterBy={'following'}
                         />
                     </div>
                     <div className="personal-playlist">
-                        <h1>{currProfileUser.fullname} Playlists</h1>
+                        <h1>{watchedProfileUser.fullname} Playlists</h1>
                         <StationList
                             stations={userMadeStations}
                         />

@@ -2,11 +2,13 @@ export const StationDropdown = ({
     isDropdown,
     isSearchStation,
     setIsDropdown,
+    stationId,
     isUserStation,
     isAdminMode,
     setIsEdit,
     onSaveSearchStation,
     onRemoveStation }) => {
+
 
     return (
         <ul className='station-dropdown'>
@@ -21,7 +23,7 @@ export const StationDropdown = ({
                         <li onClick={() => onSaveSearchStation()}>Save Playlist</li>}
                 </div>
             }
-            <li onClick={() => console.log('should copy link to clipboard and also embed playlist')}>Share</li>
+            <li onClick={() => navigator.clipboard.writeText('http://localhost:3000/#/station/' + stationId)}>Share</li>
         </ul>
 
     )

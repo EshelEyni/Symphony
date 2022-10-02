@@ -9,24 +9,26 @@ import { checkLoading, defaultImg } from '../services/profile-service'
 import { ProfileEdit } from "./profile-edit"
 import { ProfileDropdown } from "./profile-dropdown"
 import { useSelector } from "react-redux"
+import { userService } from "../services/user.service"
 
-export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
-    const loggedInUser = useSelector(state => state.userModule.user)
-    const isLoggedInUserProfile = loggedInUser?._id === currProfileUser._id
+export const ProfileHeader = ({
+    watchedProfileUser,
+}) => {
+    const loggedInUser =userService.getLoggedinUser()
+    const isLoggedInUserProfile = loggedInUser?._id === watchedProfileUser._id
     const [profileImgUrl, setProfileImgUrl] = useState()
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [isFollowedProfile, setIsFollowedProfile] = useState(checkIsFollowedProfile())
     const dispatch = useDispatch()
 
-
     useEffect(() => {
         dispatch(setHeaderBgcolor(profileBgcolor))
-        setProfileImgUrl(currProfileUser.imgUrl)
-    }, [currProfileUser])
+        setProfileImgUrl(watchedProfileUser.imgUrl)
+    }, [watchedProfileUser])
 
     function checkIsFollowedProfile() {
-        if (loggedInUser?.following?.find(profileId => profileId === currProfileUser?._id)) return true
+        if (loggedInUser?.following?.find(profileId => profileId === watchedProfileUser?._id)) return true
         return false
     }
 
@@ -34,24 +36,24 @@ export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
         setProfileImgUrl(defaultImg)
         const currImgUrl = await uploadImg(ev)
         setProfileImgUrl(currImgUrl)
-        currProfileUser.imgUrl = currImgUrl
-        dispatch(updateUser(currProfileUser))
+        watchedProfileUser.imgUrl = currImgUrl
+        dispatch(updateUser(watchedProfileUser))
     }
 
     const onToggleFollowProfile = () => {
         const loggedInUserId = loggedInUser._id
-        const watchedProfileId = currProfileUser._id // user is the watched profile user
+        const watchedProfileId = watchedProfileUser._id 
         if (isFollowedProfile) {
             loggedInUser.following = loggedInUser.following.filter(currId => currId !== watchedProfileId)
             dispatch(updateUser(loggedInUser))
-            currProfileUser.followers = currProfileUser.followers.filter(currId => currId !== loggedInUserId)
-            dispatch(updateFollowers(currProfileUser))
+            watchedProfileUser.followers = watchedProfileUser.followers.filter(currId => currId !== loggedInUserId)
+            dispatch(updateFollowers(watchedProfileUser))
         }
         if (!isFollowedProfile) {
             loggedInUser.following.push(watchedProfileId)
-            currProfileUser.followers.push(loggedInUserId)
-            dispatch(updateFollowers(currProfileUser))
-            dispatch(updateUser(loggedInUser))
+            watchedProfileUser.followers.push(loggedInUserId)
+            dispatch(updateUser(watchedProfileUser))
+            dispatch(updateFollowers(watchedProfileUser))
         }
     }
 
@@ -73,7 +75,7 @@ export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
             </div>}
             <div className='profile-details'>
                 <p>Profile</p>
-                <h1 className='profile-h1'>{currProfileUser.fullname}</h1>
+                <h1 className='profile-h1'>{watchedProfileUser.fullname}</h1>
             </div>
         </div>
 
@@ -89,7 +91,7 @@ export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
                 onToggleFollowProfile={onToggleFollowProfile}
                 isFollowedProfile={isFollowedProfile}
                 setIsFollowedProfile={setIsFollowedProfile}
-                watchedProfileId={currProfileUser._id}
+                watchedProfileId={watchedProfileUser._id}
                 isDropdown={isDropdown}
                 setIsDropdown={setIsDropdown}
                 isEdit={isEdit}
@@ -99,8 +101,7 @@ export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
             />}
 
             {isEdit && <ProfileEdit
-                currProfileUser={currProfileUser}
-                setCurrProfileUser={setCurrProfileUser}
+                watchedProfileUser={watchedProfileUser}
                 setIsDropdown={setIsDropdown}
                 setIsEdit={setIsEdit}
                 setMainImg={setProfileImgUrl}

@@ -10,7 +10,7 @@ export const LikesBtns = ({ clip }) => {
 
     const onLikeSong = (clip) => {
         if (user.likedSongs.find(song => song._id === clip._id )) return
-        clip.LikedAt = new Date(getDate()).toLocaleDateString()
+        clip.likedAt = new Date(getDate()).toLocaleDateString()
         user?.likedSongs.push(clip)
         dispatch(updateUser(user))
         dispatch(setUserMsg(msg(clip.title, ' added to liked songs')))

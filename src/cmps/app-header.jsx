@@ -1,7 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { onLogout } from '../store/user.actions'
 import pic from '../assets/img/blank-user.png'
 import { userService } from '../services/user.service'

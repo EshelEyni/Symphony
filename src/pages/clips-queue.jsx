@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { ClipPreview } from '../cmps/clip-preview'
-import { queueBgcolor } from '../services/bg-color.service'
+import { defaultBgcolor } from '../services/bg-color.service'
 import { setHeaderBgcolor } from '../store/app-header.actions'
 
 export const ClipsQueue = () => {
@@ -10,7 +10,7 @@ export const ClipsQueue = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setHeaderBgcolor(queueBgcolor))
+        dispatch(setHeaderBgcolor(defaultBgcolor))
     }, [])
 
     return (

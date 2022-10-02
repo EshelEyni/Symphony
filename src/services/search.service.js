@@ -7,7 +7,6 @@ export const searchLoader = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v
 
 export const searchService = {
     getClips,
-    toggleFilterBy,
     updateUserRecentSearches,
     getStationsBySearchTerm,
     getProfilesBySearchTerm
@@ -154,17 +153,6 @@ function getProfilesBySearchTerm(stations, users, searchTerm) {
         .sort((a, b) => b.matchedTerms - a.matchedTerms)
 }
 
-function toggleFilterBy(filterBy, currCategory) {
-    if (filterBy.includes(currCategory)) {
-        filterBy = filterBy
-            .filter(category => category !== currCategory)
-    }
-    else {
-        filterBy.push(currCategory)
-    }
-
-    return filterBy
-}
 
 function _saveToStorage(key, val) {
     localStorage.setItem(key, JSON.stringify(val))
@@ -174,13 +162,3 @@ function _loadFromStorage(key) {
     var val = localStorage.getItem(key)
     return JSON.parse(val)
 }
-
-
-// for (let y = 0; y < stations.length; y++) {
-    //     if (userCreatedStationsIds.has(stations[y]._id)) {
-        //         userCreatedStations.push(stations[y])
-        //     }
-// }
-        // for (let x = 0; x < station.clips.length; x++) {
-        //     if (station.clips[x].title.toLowerCase().includes(searchTerm)) matchedTerms++
-        // }

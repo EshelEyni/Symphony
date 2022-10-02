@@ -58,7 +58,9 @@ async function login(currUser) {
 
 async function signup(currUser) {
     const user = await httpService.post('auth/signup', currUser)
-    return saveLocalUser(user)
+    if (user) {
+        return saveLocalUser(user)
+    }
 }
 
 async function logout() {

@@ -26,7 +26,6 @@ export const MediaPlayer = () => {
     let [playbackMode, setPlaybackMode] = useState('default-mode')
     let [isSwitchClip, setIsSwitchClip] = useState(true)
     let [thumbPos, setThumbPos] = useState(currTime)
-    const params = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -39,7 +38,11 @@ export const MediaPlayer = () => {
 
         if (!prevClip && currClip || prevClip?._id !== currClip?._id) {
             dispatch(setIsPlaying(true))
-            // onLoad()
+            // const currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
+            // const clipToPlay = currPlaylist?.clips[currIdx]
+            // dispatch(setClip(clipToPlay))
+            // dispatch(setPlaylist(currPlaylist))
+
         }
     }, [currClip])
 
@@ -64,9 +67,9 @@ export const MediaPlayer = () => {
 
     const onReady = async (event) => {
         playerFunc = event.target
+        dispatch(setPlayerFunc(playerFunc))
         const Length = playerFunc.getDuration()
         playerFunc.setVolume(currVolume)
-        dispatch(setPlayerFunc(playerFunc))
         dispatch(setClipLength(Length))
         setCurrVolume(currVolume)
         if (isPlaying) onPlayClip()
@@ -125,8 +128,8 @@ export const MediaPlayer = () => {
         currTime = await playerFunc.getCurrentTime()
         storageService.put('currTime', currTime)
         dispatch(setCurrTime(currTime))
-        const currThumbPos = thumbPos + currTime
-        setThumbPos(currThumbPos)
+        // const currThumbPos = thumbPos + currTime
+        // setThumbPos(currThumbPos)
         if (currTime > clipLength - 1.5) switchClipByPlaybackMode(playbackMode)
     }
 
@@ -181,7 +184,7 @@ export const MediaPlayer = () => {
     const onToggleQueue = () => {
         const params = window.location.href
         if (params.includes('clips-queue')) {
-            navigate('/station/' + currPlaylist._id)
+            navigate(-1)
         }
         else {
             navigate('/clips-queue')

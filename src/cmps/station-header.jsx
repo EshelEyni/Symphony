@@ -165,6 +165,7 @@ export const StationHeader = ({
             {isDropdown && <StationDropdown
                 isAdminMode={isAdminMode}
                 isDropdown={isDropdown}
+                stationId={currStation._id}
                 isSearchStation={currStation?.isSearch}
                 setIsDropdown={setIsDropdown}
                 isUserStation={isUserStation}
