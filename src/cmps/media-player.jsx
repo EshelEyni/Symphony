@@ -294,15 +294,8 @@ export const MediaPlayer = () => {
 
                 {/***************** Stream Line *****************/}
                 <div className='action-btn stream-line-container'>
-                    <label htmlFor='stream-line-input'></label>
+                    {/* <label htmlFor='stream-line-input'></label> */}
                     <span className='track-time'>{getTimeFormat(currTime || 0)}</span>
-
-                    {/*****************************************************************  Experiment Thumb **************************************************************/}
-                    {/* <div
-                        style={{ left: currTime < 5 ? 45 : currTime++ }}
-                        title={currTime}
-                        className="thumb">
-                    </div> */}
 
                     {/* <input
                         name='stream-line'
@@ -314,41 +307,37 @@ export const MediaPlayer = () => {
                         onChange={handleChange}
                         type='range' /> */}
 
-
-                    <Slider
-                        aria-label="time-indicator"
-                        size="small"
-                        value={currTime || 0}
-                        min={0}
-                        step={1}
-                        max={+clipLength || 0}
-                        onChange={(_, value) => setPosition(value)}
-                        sx={{
-                            color: '#fff',
-                            height: 4,
-                            '& .MuiSlider-thumb': {
-                                width: 8,
-                                height: 8,
-                                transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
-                                '&:before': {
-                                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.4)',
+                    <div className='stream-line-input'>
+                        <Slider
+                            aria-label="time-indicator"
+                            size="small"
+                            value={currTime || 0}
+                            min={0}
+                            step={1}
+                            max={+clipLength || 0}
+                            onChange={(_, value) => setPosition(value)}
+                            sx={{
+                                color: '#fff',
+                                height: 4,
+                                '&:hover': {
+                                    color: '#1db954',
+                                    '& .MuiSlider-thumb': {
+                                        width: 12,
+                                        height: 12,
+                                        display: 'unset',
+                                        color: '#fff',
+                                    },
                                 },
-                                '&:hover, &.Mui-focusVisible': {
-                                    // boxShadow: `0px 0px 0px 8px ${theme.palette.mode === 'dark'
-                                    //     ? 'rgb(255 255 255 / 16%)'
-                                    //     : 'rgb(0 0 0 / 16%)'
-                                    //     }`,
+                                '& .MuiSlider-thumb': {
+                                    display: 'none',
+                                    transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
                                 },
-                                '&.Mui-active': {
-                                    width: 20,
-                                    height: 20,
+                                '& .MuiSlider-rail': {
+                                    color: '#4d4d4d'
                                 },
-                            },
-                            '& .MuiSlider-rail': {
-                                opacity: 0.28,
-                            },
-                        }}
-                    />
+                            }}
+                        />
+                    </div>
 
                     <span className='track-time'>{getTimeFormat(clipLength || 0)}</span>
                 </div>
