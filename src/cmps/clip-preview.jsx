@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 import { storageService } from '../services/async-storage.service'
 import { updateUser } from '../store/user.actions'
 import { userService } from '../services/user.service'
-import { equalizer } from '../services/clip.service'
+import { equalizer, getDate } from '../services/clip.service'
 export const ClipPreview = ({
     station,
     clip,
@@ -106,7 +106,7 @@ export const ClipPreview = ({
                 </div>
             </div>
             <div className='artist-name'>{clip.artist}</div>
-            {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt}</div>}
+            {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt || new Date(clip.addedAt * 1000).toLocaleDateString('he-IL')}</div>}
             {loggedInUser && <LikesBtns clip={clip} station={station} />}
             {clip.duration ? <div className='clock-area'>{getDuration(clip.duration)}</div> : ''}
             <i

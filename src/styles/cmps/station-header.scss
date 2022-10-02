@@ -64,8 +64,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 455px;
-    left: 375px;
+    top: 430px;
+    left: 335px;
     width: 150px;
     height: 160px;
     background-color: #222222;
@@ -127,6 +127,8 @@
     }
 
     .play-btn {
+        border-radius: 50%;
+        border:none;
         transform: scale(1.1);
         background: #1ed760;
         transition: 0.4s;
