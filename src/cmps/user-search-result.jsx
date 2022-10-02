@@ -15,7 +15,7 @@ export const UserSearchResult = ({ currStation, clip, onAddClip }) => {
             <div>
                 <button
                     className='search-res-add-btn'
-                    onClick={() => onAddClip(clip, currStation)}
+                    onClick={() => onAddClip(clip)}
                 >
                     Add
                 </button>

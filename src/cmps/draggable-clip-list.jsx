@@ -1,6 +1,6 @@
 import { ClipPreview } from "./clip-preview"
 import { Draggable } from "react-beautiful-dnd"
-import { defaultBlueColor } from '../services/bg-color.service'
+import { defaultLightGreenColor } from '../services/bg-color.service'
 
 export const DraggableClipList = ({
     station,
@@ -23,7 +23,7 @@ export const DraggableClipList = ({
                 {(provided, snapshot) => {
                     const style = {
                         ...provided.draggableProps.style,
-                        backgroundColor: snapshot.isDragging ? defaultBlueColor : null,
+                        backgroundColor: snapshot.isDragging ? defaultLightGreenColor : null,
                         color: snapshot.isDragging ? '#000000' : '',
                         // borderRadius: snapshot.isDragging ? '15px' : '',
                         cursor: snapshot.isDragging ? 'grabbing' : 'default'

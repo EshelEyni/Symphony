@@ -1,49 +1,61 @@
 import { useDispatch } from 'react-redux'
 import { useRef, useState } from 'react'
 import { useEffect } from 'react'
-import { loadStations, updateStation } from '../store/station.actions'
+import { updateStation } from '../store/station.actions'
 import { uploadImg } from '../services/upload.service'
-import { loadingImg } from '../services/station.service'
+import { defaultImg, loadingImg } from '../services/station.service'
 import { updateUser } from '../store/user.actions'
 import { useSelector } from 'react-redux'
 
 
-export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit }) => {
+export const StationEdit = ({
+    currStation,
+    setCurrStation,
+    setMainImg,
+    setIsEdit
+}) => {
+
     const loggedInUser = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
     const [imgUrl, setImgUrl] = useState()
-    let [updatedStation, setUpdatedStation] = useState({ ...currStation })
+    let [editFormStation, setEditFormStation] = useState()
+    const [isChangedImg, setIsChangedImg] = useState(false)
     const inputRef = useRef()
 
     useEffect(() => {
+        setEditFormStation({ ...currStation })
         setImgUrl(currStation.imgUrl)
     }, [])
 
-
     const onUploadImgEdit = async (ev) => {
-        setImgUrl(loadingImg)
-        const currImgUrl = await uploadImg(ev)
-        updatedStation.imgUrl = currImgUrl
-        setUpdatedStation(updatedStation)
-        setImgUrl(currImgUrl)
+        const stationToUpdate = { ...editFormStation }
+        setIsChangedImg(true)
+        setImgUrl(defaultImg)
+        const uploadedImgUrl = await uploadImg(ev)
+        stationToUpdate.imgUrl = uploadedImgUrl
+        delete stationToUpdate.bgColor
+        setEditFormStation(stationToUpdate)
+        setImgUrl(uploadedImgUrl)
+        setIsChangedImg(false)
     }
 
     const handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
-        updatedStation[field] = value
-        setUpdatedStation(updatedStation)
+        let stationToUpdate = { ...editFormStation }
+        stationToUpdate[field] = value
+        setEditFormStation(stationToUpdate)
     }
 
     const onUpdateStation = (ev) => {
         ev.preventDefault()
-        setCurrStation(updatedStation)
-        dispatch(updateStation(updatedStation))
-        dispatch(updateUser(loggedInUser))
+        console.log('editFormStation', editFormStation)
+        setCurrStation(editFormStation)
         setMainImg(imgUrl)
+        dispatch(updateStation(editFormStation))
+        dispatch(updateUser(loggedInUser))
         setIsEdit(false)
     }
-
 
     return (
         <div className='ms-edit-container'>
@@ -54,10 +66,14 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
                 <button className='btn-close'></button>
                 <div className='pl-img-container'>
                     <label htmlFor='pl-edit-img'>
-                        <img
-                            className='station-img'
+                        {!isChangedImg && <img
+                            className='station-img '
                             src={imgUrl}
-                            alt='playist-img' />
+                            alt='playist-img' />}
+                        {isChangedImg && <img
+                            className={'station-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
+                            src={imgUrl}
+                            alt='playist-img' />}
                     </label>
                     <input
                         className='img-input'
@@ -76,7 +92,7 @@ export const StationEdit = ({ currStation, setCurrStation, setMainImg, setIsEdit
                         name='name'
                         id='name'
                     />
-                    <input
+                    <textarea
                         className='station-edit-input'
                         ref={inputRef}
                         defaultValue={currStation.desc}

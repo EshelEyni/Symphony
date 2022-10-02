@@ -49,6 +49,7 @@ export function updateStation(stationToUpdate) {
     return async (dispatch) => {
         try {
             const updatedStation = await stationService.save(stationToUpdate)
+            console.log('updatedStation', updatedStation)
             dispatch({
                 type: 'UPDATE_STATION',
                 updatedStation
