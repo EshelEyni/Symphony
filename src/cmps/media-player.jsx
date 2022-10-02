@@ -218,13 +218,9 @@ export const MediaPlayer = () => {
                         className='media-player-clip-img'
                         src={currClip?.img?.url || ''} />}
                 <div className='media-player-clip-preview flex column'>
-                    <h1>{currClip && shortTitle(currClip)}</h1>
-                    <p>{currClip?.artist}</p>
+                    {<h1 className='flex'>{shortTitle(currClip)} <LikesBtns clip={currClip} /></h1>}
+                    {<p>{currClip?.artist}</p>}
                 </div>
-                <div>
-                    {currClip && <LikesBtns clip={currClip} />}
-                </div>
-                {/* <div className='clip-details'></div> */}
             </div>
             <div className='mp-controller flex column'>
 
@@ -250,7 +246,7 @@ export const MediaPlayer = () => {
                     }
 
                     <Replay10RoundedIcon
-                        className='action-btn skip10sec-btn'
+                        className='skip10sec-btn'
                         onClick={() => skipTenSec(-10)} />
 
                     <button className='action-btn fas fa-step-backward'
@@ -265,7 +261,7 @@ export const MediaPlayer = () => {
                         onClick={() => isSwitchClip ? switchClip(1) : ''}></button>
 
                     <Forward10RoundedIcon
-                        className='action-btn skip10sec-btn'
+                        className=' skip10sec-btn'
                         onClick={() => skipTenSec(10)} />
 
                     {playbackMode !== 'repeat-mode' &&

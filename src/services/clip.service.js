@@ -35,6 +35,9 @@ export const isLiked = (user, clipId) => {
 }
 
 export const shortTitle = (clip) => {
+    console.log('clip:', clip)
+    
+    if (!clip) return ''
     const title = clip.title
     const artist = clip.artist
     const checkIfIncluded = title.split(" ").join('').toLowerCase().includes(artist.split(' ').join('').toLowerCase())
