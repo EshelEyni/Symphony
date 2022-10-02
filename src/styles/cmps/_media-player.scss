@@ -1,3 +1,8 @@
+.stream-line-container {
+    display: flex;
+    justify-content: center;
+}
+
 .media-player-container {
     /************************Below 415px************************/
     grid-area: mediaplayer;
@@ -15,60 +20,26 @@
     z-index: 30;
     border-radius: 8px;
 
-    input[type="range"] {
-        height: 2px;
-        border-radius: 25px;
-        overflow: hidden;
-        -webkit-appearance: none;
-        background-color: #4d4d4d;
-    }
-
     .mp-container {
         display: none;
-    }
-
-    input[type="range"]::-webkit-slider-runnable-track {
-        -webkit-appearance: none;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        background: #1db954;
-        height: 12px;
-        width: 12px;
-        border-radius: 50%;
-        box-shadow: -500px 0 0 500px #ffffff;
     }
 
     .stream-line-input {
         width: 100%;
         outline: 0;
-        transform: translateY(-50%);
         cursor: pointer;
+        transform: translateY(6%);
 
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 12px;
-            background: #fff;
-            border-radius: 23px;
-            cursor: pointer;
-            box-shadow: -500px 0 0 500px #ffffff;
+        @include for-mobile-layout {
+            transform: translateY(20%);
         }
 
-        &:hover {
-            accent-color: #1db954;
-            background-color: #1db954;
-
-            &::-webkit-slider-thumb {
-                accent-color: #FFF;
-                opacity: 1;
-            }
-        }
     }
 
     .skip10sec-btn {
         display: none;
         transform: translateY(30%);
+        color: rgb(172, 170, 170);
     }
 
     .mp-controller {
@@ -80,7 +51,7 @@
     .mp-btn-container {
         display: flex;
         justify-content: flex-end;
-        padding-top: 15px;
+        padding-top: 20px;
 
 
         &>:nth-child(1) {
@@ -92,23 +63,13 @@
         display: none;
     }
 
-    .thumb {
-        top: 55px;
-        height: 15px;
-        // margin-inline-start: 45px;
-        width: 15px;
-        position: absolute;
-        border-radius: 50%;
-        background-color: red;
-    }
-
     .mp-2nd-controller {
         display: none;
     }
 
     .play-btn {
         width: 30px;
-        height: 30px;
+        height: 8px;
         background: none;
         border: none;
         color: white;
@@ -123,7 +84,7 @@
         gap: 10px;
         align-items: center;
         width: 125px;
-        height: 65px;
+        height: 53px;
 
         &:not(:last-child) {
             justify-content: flex-start;
@@ -228,7 +189,7 @@
 
         .mp-btn-container {
             justify-content: space-between;
-            padding-top: 10px;
+            // padding-top: 10px;
             margin: 0 auto;
 
             &>:nth-child(1) {
@@ -271,24 +232,6 @@
 
             .volume-input {
                 cursor: pointer;
-
-                &::-webkit-slider-thumb {
-                    -webkit-appearance:none;
-                    appearance: none;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 23px;
-                    cursor: pointer;
-                    background: #434343;
-                }
-
-                &:hover {
-                    accent-color: #1db954;
-
-                    &::-webkit-slider-thumb {
-                        opacity: 1;
-                    }
-                }
             }
         }
 
@@ -339,6 +282,9 @@
         .repeat,
         .queue-icon {
             display: block;
+            cursor: pointer;
+            color: rgb(172, 170, 170);
+
         }
 
         .action-btn.shuffle {
@@ -347,6 +293,7 @@
 
         .action-btn.queue-icon {
             display: block;
+
         }
     }
 

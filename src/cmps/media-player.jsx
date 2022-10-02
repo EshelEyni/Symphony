@@ -293,18 +293,7 @@ export const MediaPlayer = () => {
 
                 {/***************** Stream Line *****************/}
                 <div className='action-btn stream-line-container'>
-                    {/* <label htmlFor='stream-line-input'></label> */}
                     <span className='track-time'>{getTimeFormat(currTime || 0)}</span>
-
-                    {/* <input
-                        name='stream-line'
-                        className='stream-line-input'
-                        size='medium'
-                        title={currTime}
-                        value={currTime || 0}
-                        max={+clipLength || 0}
-                        onChange={handleChange}
-                        type='range' /> */}
 
                     <div className='stream-line-input'>
                         <Slider
@@ -317,7 +306,8 @@ export const MediaPlayer = () => {
                             onChange={(_, value) => setPosition(value)}
                             sx={{
                                 color: '#fff',
-                                height: 4,
+                                height: (window.innerWidth) > 415 ? 4 : 2
+                                ,
                                 '&:hover': {
                                     color: '#1db954',
                                     '& .MuiSlider-thumb': {

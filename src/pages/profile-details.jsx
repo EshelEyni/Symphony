@@ -77,13 +77,14 @@ export const UserProfile = () => {
                                         </Droppable>
                                     </DragDropContext>
                                 </div>}
-
-                            <h1>People who like the same music</h1>
-                            <ProfileList
-                                currProfiles={getFilteredUsersList(users, watchedProfileUser, 'likes')}
-                            // currUser={watchedProfileUser}
-                            // filterBy={'likes'}
-                            />
+                            <div className='shared-liked-music'>
+                                <h1>People who like the same music</h1>
+                                <ProfileList
+                                    currProfiles={getFilteredUsersList(users, watchedProfileUser, 'likes')}
+                                // currUser={watchedProfileUser}
+                                // filterBy={'likes'}
+                                />
+                            </div>
                         </div>}
 
 
@@ -92,15 +93,15 @@ export const UserProfile = () => {
                     <div className="followers-following-container">
                         <h1>Followers</h1>
                         <ProfileList
-                        currProfiles={getFilteredUsersList(users, watchedProfileUser, 'followers')}
-                            // currUser={watchedProfileUser}
-                            // filterBy={'followers'}
+                            currProfiles={getFilteredUsersList(users, watchedProfileUser, 'followers')}
+                        // currUser={watchedProfileUser}
+                        // filterBy={'followers'}
                         />
                         <h1>Following</h1>
                         <ProfileList
-                        currProfiles={getFilteredUsersList(users, watchedProfileUser, 'following')}
-                            // currUser={watchedProfileUser}
-                            // filterBy={'following'}
+                            currProfiles={getFilteredUsersList(users, watchedProfileUser, 'following')}
+                        // currUser={watchedProfileUser}
+                        // filterBy={'following'}
                         />
                     </div>
                     <div className="personal-playlist">
