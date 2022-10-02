@@ -4,12 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { defaultImg, stationService } from '../services/station.service.js'
 import { SearchBar } from '../cmps/search-bar'
 import { loadStations, removeStation, updateStation } from '../store/station.actions'
-import { computeColor, stationHeaderDefaultBgcolor } from '../services/bg-color.service.js'
+import { computeColor, defaultBgcolor } from '../services/bg-color.service.js'
 import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { setUserMsg, updateUser } from '../store/user.actions.js'
 import { handleDragEnd } from '../services/dragg.service.js'
-import { msg, clearMsg } from '../services/user.service'
+import { msg, clearMsg, userService } from '../services/user.service'
 import { ClipList } from '../cmps/clip-list.jsx'
 import { StationHeader } from '../cmps/station-header.jsx'
 import { ClipListHeader } from '../cmps/clip-list-header.jsx'
@@ -17,42 +17,51 @@ import { SearchList } from '../cmps/search-list.jsx'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { addDesc, addTag, setArtistStation } from '../services/admin-service.js'
 import { socketService, USER_FORMATED_PLAYLIST, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
+import { getDate } from '../services/clip.service.js'
 
 export const StationDetails = () => {
-    const loggedInUser = useSelector(state => state.userModule.user)
+    const loggedInUser = userService.getLoggedinUser()
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const [currStation, setCurrStation] = useState()
     const params = useParams()
-    const [imgUrl, setImgUrl] = useState()
+    const [imgUrl, setImgUrl] = useState() // maybe this asswell 
     let [searchClips, setSearchClips] = useState([])
-    let [currStationClips, setCurrStationsClips] = useState()
-    let [stationBgcolor, setStationBgcolor] = useState(stationHeaderDefaultBgcolor)
+    let [currStationClips, setCurrStationsClips] = useState() // to delete hook
+    let [stationBgcolor, setStationBgcolor] = useState(defaultBgcolor)
     let [isAdminMode, setAdminMode] = useState(false)
     const [searchTerm, setSearchTerm] = useState()
 
     const key = loggedInUser?._id === currStation?.createdBy?._id ? 'user-clip' : 'clip'
 
+    console.log('currStation', currStation?.imgUrl)
+
     useEffect(() => {
         loadStation(params)
     }, [params])
 
-    // Supports color app-header bg
     useEffect(() => {
         dispatch(setHeaderBgcolor(stationBgcolor))
-    }, [stationBgcolor])
+        if (currStation && currStation?.bgColor === undefined) {
+            computeColor(currStation?.imgUrl)
+                .then(color => {
+                    currStation.bgColor = color
+                    dispatch(updateStation(currStation))
+                    setStationBgcolor(color)
+                })
+                .catch(error => {
+                    console.log('failed to compute color for img: ' + error)
+                })
+        }
+    }, [stationBgcolor, currStation])
 
     // Supports socket service
     useEffect(() => {
-        // if (user?._id !== station?.createdBy?._id) {
         socketService.emit(USER_REGISTERED_TO_PLAYLIST, currStation?._id)
-
         socketService.on('TEST', data => console.log('data', data))
-
         socketService.on(USER_FORMATED_PLAYLIST, stationCreatorUpdate)
-        // }
         return () => {
             socketService.off(USER_REGISTERED_TO_PLAYLIST)
             socketService.off(USER_FORMATED_PLAYLIST)
@@ -65,11 +74,17 @@ export const StationDetails = () => {
 
     const loadStation = async (params) => {
         const id = params.id
+
         const currStation = await stationService.getById(id)
+
         setCurrStation(currStation)
+
         setCurrStationsClips(currStation.clips)
-        setImgUrl(currStation?.imgUrl || defaultImg)
+
+        setImgUrl(currStation?.imgUrl)
+
         setStationBgcolor(currStation.bgColor)
+
         if (!currStation.bgColor) {
             computeColor(currStation?.imgUrl)
                 .then(color => {
@@ -101,6 +116,28 @@ export const StationDetails = () => {
         await stationService.save(stationToSave)
         dispatch(loadStations())
     }
+
+    const onAddClip = async (addedClip) => {
+        if (currStation.clips.find(clip => clip._id === addedClip._id)) {
+            dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', currStation.name)))
+            setTimeout(async () => {
+                dispatch(setUserMsg(clearMsg))
+            }, 2500);
+            return
+        }
+        const stationToUpdate = { ...currStation }
+        console.log('stationToUpdate onAddClip', stationToUpdate?.name)
+        addedClip.createdAt = new Date(getDate()).toLocaleDateString()
+        stationToUpdate.clips.push(addedClip)
+        setCurrStation(stationToUpdate)
+        setCurrStationsClips(stationToUpdate.clips)
+        dispatch(updateStation(currStation))
+        dispatch(setUserMsg(msg(addedClip.title, ' added to ' + currStation.name)))
+        setTimeout(async () => {
+            dispatch(setUserMsg(clearMsg))
+        }, 2500);
+    }
+
 
     const onRemoveClip = (ev, clipId, clipTitle) => {
         ev.stopPropagation()
@@ -227,6 +264,7 @@ export const StationDetails = () => {
                                 searchClips={searchClips}
                                 setCurrStationsClips={setCurrStationsClips}
                                 currStation={currStation}
+                                onAddClip={onAddClip}
                                 setCurrStation={setCurrStation}
                             />
                         }

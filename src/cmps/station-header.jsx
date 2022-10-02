@@ -15,7 +15,7 @@ import { userService } from "../services/user.service"
 
 export const StationHeader = ({
     currStation,
-    setStation,
+    setCurrStation,
     isUserStation,
     LikedSongLogo,
     imgUrl,
@@ -50,22 +50,24 @@ export const StationHeader = ({
         setImgUrl(defaultImg)
         const uploadedImgUrl = await uploadImg(ev)
         stationToUpdate.imgUrl = uploadedImgUrl
+        setCurrStation(stationToUpdate)
         setImgUrl(uploadedImgUrl)
         computeColor(uploadedImgUrl)
             .then(color => {
                 stationToUpdate.bgColor = color
                 setBgcolor(color)
-                dispatch(updateStation(stationToUpdate))
             })
             .catch(error => {
                 console.log('failed to compute color for img: ' + error)
             })
+        console.log('stationToUpdate', stationToUpdate)
+        dispatch(updateStation(stationToUpdate))
+
         setIsChangedImg(false)
     }
 
     const onTogglePlay = async (clip, isClicked) => {
-        console.log('clip', clip)
-        
+
         if (!isClicked) {
             dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
@@ -113,7 +115,7 @@ export const StationHeader = ({
             {<div className='pl-img-container'>
                 <label htmlFor='pl-img'>
                     {!isChangedImg && <img
-                        className={'station-img '}
+                        className='station-img '
                         src={LikedSongLogo ? LikedSongLogo : imgUrl}
                         alt='playist-img' />}
                     {isChangedImg &&
@@ -165,6 +167,7 @@ export const StationHeader = ({
             {isDropdown && <StationDropdown
                 isAdminMode={isAdminMode}
                 isDropdown={isDropdown}
+                stationId={currStation._id}
                 isSearchStation={currStation?.isSearch}
                 setIsDropdown={setIsDropdown}
                 isUserStation={isUserStation}
@@ -175,7 +178,8 @@ export const StationHeader = ({
 
             {isEdit && <StationEdit
                 setIsEdit={setIsEdit}
-                setCurrStation={setStation}
+                setCurrStation={setCurrStation}
+                setBgcolor={setBgcolor}
                 setMainImg={setImgUrl}
                 currStation={currStation} />}
         </div>

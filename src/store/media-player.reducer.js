@@ -9,6 +9,7 @@ const initialState = {
     mediaPlayerInterval: null,
     playerFunc: null,
     clipLength: null,
+    getTime: null,
 }
 
 export function MediaPlayerReducer(state = initialState, action) {

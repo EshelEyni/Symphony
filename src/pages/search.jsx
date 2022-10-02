@@ -21,7 +21,7 @@ export const Search = () => {
     const loggedInUser = useSelector(state => state.userModule.user)
     let stations = useSelector(state => state.stationModule.stations)
 
-    let [filterBy, setFilterBy] = useState([])
+    let [filterBy, setFilterBy] = useState(null)
     let [searchClips, getSearchClips] = useState([])
     let [searchStations, getSearchStations] = useState([])
     let [searchArtist, getSearchArtists] = useState([])
@@ -60,27 +60,27 @@ export const Search = () => {
             {isSearch &&
                 <div className="search-filter-btns flex">
                     <button className='search-filter-btn' onClick={() => {
-                        setFilterBy([])
+                        setFilterBy(null)
                     }}>All</button>
 
-                    <button className='search-filter-btn' onClick={() => {
-                        setFilterBy([...searchService.toggleFilterBy(filterBy, 'songs')])
+                    <button className={filterBy === 'songs' ? 'search-filter-btn active' : 'search-filter-btn'} onClick={() => {
+                        setFilterBy('songs')
                     }}>Songs</button>
 
                     <button className='search-filter-btn' onClick={() => {
-                        setFilterBy([...searchService.toggleFilterBy(filterBy, 'playlists')])
+                        setFilterBy('playlists')
                     }}>Playlists</button>
 
                     <button className='search-filter-btn' onClick={() => {
-                        setFilterBy([...searchService.toggleFilterBy(filterBy, 'artists')])
+                        setFilterBy('artists')
                     }}>Artists</button>
 
                     <button className='search-filter-btn' onClick={() => {
-                        setFilterBy([...searchService.toggleFilterBy(filterBy, 'profiles')])
+                        setFilterBy('profiles')
                     }}>Profiles</button>
 
                     <button className='search-filter-btn' onClick={() => {
-                        setFilterBy([...searchService.toggleFilterBy(filterBy, 'searches')])
+                        setFilterBy('searches')
                     }}>Recent Searches</button>
                 </div>}
             <SearchBar
@@ -117,7 +117,7 @@ export const Search = () => {
                 <div className="search-res-main-container">
 
 
-                    {((!filterBy.length || filterBy.includes('songs')) && searchTerm) &&
+                    {((filterBy === null || filterBy === 'songs') && searchTerm) &&
                         <div className="search-songs-container">
                             <h1>Songs</h1>
                             <SearchList
@@ -130,7 +130,7 @@ export const Search = () => {
 
 
 
-                    {((!filterBy.length || filterBy.includes('playlists')) && searchTerm) &&
+                    {((filterBy === null || filterBy === 'playlists') && searchTerm) &&
                         <div className="search-playlist-container">
                             <h1>Playlists</h1>
                             <StationList
@@ -140,7 +140,7 @@ export const Search = () => {
                         </div>
                     }
 
-                    {((!filterBy.length || filterBy.includes('artists')) && searchTerm) &&
+                    {((filterBy === null || filterBy === 'artists') && searchTerm) &&
                         <div className="search-artist-container">
                             <h1>Artists</h1>
                             <StationList
@@ -150,7 +150,7 @@ export const Search = () => {
                         </div>
                     }
 
-                    {((!filterBy.length || filterBy.includes('profiles')) && searchTerm) &&
+                    {((filterBy === null || filterBy === 'profiles') && searchTerm) &&
                         <div className="search-profiles-container">
                             <h1>Profiles</h1>
                             <ProfileList
@@ -162,7 +162,7 @@ export const Search = () => {
                     }
 
 
-                    {((!filterBy.length || filterBy.includes('searches')) && searchTerm && loggedInUser) &&
+                    {((filterBy === null || filterBy === 'searches') && searchTerm && loggedInUser) &&
                         <div className="search-artist-container">
                             <h1>Recent Searches</h1>
                             <StationList
@@ -174,7 +174,7 @@ export const Search = () => {
                 </div>}
             {(isSearch && !searchClips.length) &&
                 <div className='no-results-user-msg'>
-                    {isLoading && <div className='search-loader-container'><img class='search-loader' src={equalizer} alt='search Loader'></img></div>
+                    {isLoading && <div className='search-loader-container'><img className='search-loader' src={equalizer} alt='search Loader'></img></div>
                         // <div>
                         //     <p>Your search - {searchTerm} - didn't match any of our songs.</p>
                         //     <ul>Suggsetions:

@@ -56,6 +56,7 @@ export function setMediaPlayerInterval(interval) {
     }
 }
 
+
 export function setPlayerFunc(playerFunc) {
     return async (dispatch) => {
         try {

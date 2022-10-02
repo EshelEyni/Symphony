@@ -1,9 +1,16 @@
-export const ProfileDropdown = ({ setIsDropdown,
-    isDropdown, setIsEdit, isEdit,
-    isLoggedInUserProfile, watchedProfileId,
+import { userService } from "../services/user.service"
+
+export const ProfileDropdown = ({
+    setIsDropdown,
+    isDropdown,
+    setIsEdit,
+    isEdit,
+    isLoggedInUserProfile,
+    watchedProfileId,
     onToggleFollowProfile,
-    isFollowedProfile, setIsFollowedProfile }) => {
-        
+    isFollowedProfile,
+    setIsFollowedProfile }) => {
+
     return (
         <ul className='dropdown-profile'>
 
@@ -25,7 +32,8 @@ export const ProfileDropdown = ({ setIsDropdown,
                 }}>
                     {isFollowedProfile ? 'Unfollow' : 'Follow'}
                 </li>}
-            <li>Copy link to profile</li>
+            {isLoggedInUserProfile && <li onClick={() => userService.remove(watchedProfileId)}>Delete Acount</li>}
+            <li onClick={() => navigator.clipboard.writeText('http://localhost:3000/#/user-profile/' + watchedProfileId)}>Copy link to profile</li>
         </ul>
 
     )

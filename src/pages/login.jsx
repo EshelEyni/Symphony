@@ -24,12 +24,11 @@ export const Login = () => {
         const { value, name } = target
         setUser({ ...user, [name]: value })
     }
-    
+
     const onHandleSubmit = async (ev) => {
         ev.preventDefault()
         dispatch(onLogin(user))
-        const isLogin = await userService.login(user)
-        if (isLogin) navigate('/')
+         navigate('/')
     }
 
     return (

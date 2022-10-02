@@ -21,10 +21,10 @@ export const ProfileList = ({
 
 
 
-    useEffect(() => {
-        dispatch(loadUsers())
-        dispatch(loadStations())
-    }, [searchTerm])
+    // useEffect(() => {
+    //     dispatch(loadUsers())
+    //     dispatch(loadStations())
+    // }, [searchTerm])
 
     return (
         <div className='profile-list-container flex'>

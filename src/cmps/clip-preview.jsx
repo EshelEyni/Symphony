@@ -101,8 +101,8 @@ export const ClipPreview = ({
             <div className='clip-title flex align-center'>
                 <img className='clip-img' src={clip.img?.url} alt='clip-img' />
                 <div className='title-text flex column'>
-                    <h1>{shortTitle(clip)}</h1>
-                    <p>{clip.artist}</p>
+                    <h1 style={{ color: dndStyle?.color }}>{shortTitle(clip)}</h1>
+                    <p style={{ color: dndStyle?.color }}>{clip.artist}</p>
                 </div>
             </div>
             <div className='artist-name'>{clip.artist}</div>

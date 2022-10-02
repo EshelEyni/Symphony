@@ -13,11 +13,9 @@ export const StationPreview = ({
     isSearch }) => {
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
     const loggedInUser = useSelector(state => state.userModule.user)
-
     let [isClicked, setIsClicked] = useState()
     const dispatch = useDispatch()
     const stationId = currStation?._id
-
     useEffect(() => {
         if (!currClip || !currPlaylist) return
         if (stationId === currPlaylist._id) {
@@ -34,22 +32,15 @@ export const StationPreview = ({
 
     const onTogglePlay = async (e) => {
         // Stops button from navigating to link
-
         e.stopPropagation()
         e.preventDefault()
-        const clip = currStation.clips[0]
 
-        console.log('onTogglePlaySP', 'PL:', currStation.name, 'CLIP:', clip.title)
-
-        // let currIdx = currStation.clips.findIndex((clip) => clip._id === currClip._id)
-        // currClip = currStation.clips[currIdx]
-
+        dispatch(setPlaylist(currStation))
+        // const clip = currStation.clips[0]
         clearInterval(mediaPlayerInterval)
         if (!isClicked) {
-            // dispatch(setIsPlaying(false))
-            dispatch(setPlaylist(currStation))
-            // dispatch(setClip(null))
-            dispatch(setClip(clip))
+            dispatch(setIsPlaying(false))
+            dispatch(setClip(currStation.clips[0]))
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
@@ -58,7 +49,7 @@ export const StationPreview = ({
         }
         dispatch(setIsPlaying(!isPlaying))
         const userToUpdate = { ...loggedInUser }
-        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
+        userService.updateUserRecentlyPlayedClips(userToUpdate, currStation.clips[0])
         dispatch(updateUser(userToUpdate))
     }
 
@@ -69,10 +60,6 @@ export const StationPreview = ({
             'PL:', currStation.name,
             'CLIP:',
             currClip.title)
-
-
-
-
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))

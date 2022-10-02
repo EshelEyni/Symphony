@@ -45,6 +45,10 @@
     display: contents;
     padding-right: 20px;
 
+    & .active{
+        background-color: red;
+    }
+
     @include for-mobile-layout {}
 }
 

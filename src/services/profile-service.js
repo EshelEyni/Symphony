@@ -8,8 +8,6 @@ export const checkLoading = (img) => {
     return img === defaultImg ? 'rotate' : ''
 }
 
-
-
 export function getFilteredUsersList(users, currUser, filterBy, stations, searchTerm) {
     const usersList = users
     let filterdUsersList = []
@@ -29,13 +27,12 @@ export function getFilteredUsersList(users, currUser, filterBy, stations, search
                     }
                     return { ...user, matchedLikes }
                 })
-                .filter(user => user.matchedLikes > 0)
+                .filter(user => user.matchedLikes > 0 && !user.followers.includes(loggedInUser._id))
                 .sort((a, b) => b.matchedLikes - a.matchedLikes)
 
             return filterdUsersList
         // case 'searchTerm':
             // return searchService.getProfilesBySearchTerm(stations, usersList, searchTerm)
-
         case 'following':
             currUser.following?.forEach(followedProfileId => {
                 const currUser = usersList.find(user => user._id === followedProfileId)

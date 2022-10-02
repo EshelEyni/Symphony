@@ -15,6 +15,7 @@ import { LikesBtns } from './likes-btn.jsx'
 import { shortTitle } from '../services/clip.service.js'
 import { userService } from '../services/user.service.js'
 import { updateUser } from '../store/user.actions.js'
+import { Slider } from '@mui/material'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
@@ -26,7 +27,6 @@ export const MediaPlayer = () => {
     let [playbackMode, setPlaybackMode] = useState('default-mode')
     let [isSwitchClip, setIsSwitchClip] = useState(true)
     let [thumbPos, setThumbPos] = useState(currTime)
-    const params = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -39,7 +39,11 @@ export const MediaPlayer = () => {
 
         if (!prevClip && currClip || prevClip?._id !== currClip?._id) {
             dispatch(setIsPlaying(true))
-            // onLoad()
+            // const currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
+            // const clipToPlay = currPlaylist?.clips[currIdx]
+            // dispatch(setClip(clipToPlay))
+            // dispatch(setPlaylist(currPlaylist))
+
         }
     }, [currClip])
 
@@ -64,9 +68,9 @@ export const MediaPlayer = () => {
 
     const onReady = async (event) => {
         playerFunc = event.target
+        dispatch(setPlayerFunc(playerFunc))
         const Length = playerFunc.getDuration()
         playerFunc.setVolume(currVolume)
-        dispatch(setPlayerFunc(playerFunc))
         dispatch(setClipLength(Length))
         setCurrVolume(currVolume)
         if (isPlaying) onPlayClip()
@@ -90,6 +94,14 @@ export const MediaPlayer = () => {
             playerFunc.unMute()
             playerFunc.setVolume(val)
         }
+    }
+
+
+    const setPosition = (val) => {
+        dispatch(setCurrTime(val))
+        storageService.put('currTime', val)
+        dispatch(setIsPlaying(true))
+        playerFunc.seekTo(val)
     }
 
     const onTogglePlay = () => {
@@ -125,8 +137,8 @@ export const MediaPlayer = () => {
         currTime = await playerFunc.getCurrentTime()
         storageService.put('currTime', currTime)
         dispatch(setCurrTime(currTime))
-        const currThumbPos = thumbPos + currTime
-        setThumbPos(currThumbPos)
+        // const currThumbPos = thumbPos + currTime
+        // setThumbPos(currThumbPos)
         if (currTime > clipLength - 1.5) switchClipByPlaybackMode(playbackMode)
     }
 
@@ -181,7 +193,7 @@ export const MediaPlayer = () => {
     const onToggleQueue = () => {
         const params = window.location.href
         if (params.includes('clips-queue')) {
-            navigate('/station/' + currPlaylist._id)
+            navigate(-1)
         }
         else {
             navigate('/clips-queue')
@@ -292,7 +304,7 @@ export const MediaPlayer = () => {
                         className="thumb">
                     </div> */}
 
-                    <input
+                    {/* <input
                         name='stream-line'
                         className='stream-line-input'
                         size='medium'
@@ -300,7 +312,44 @@ export const MediaPlayer = () => {
                         value={currTime || 0}
                         max={+clipLength || 0}
                         onChange={handleChange}
-                        type='range' />
+                        type='range' /> */}
+
+
+                    <Slider
+                        aria-label="time-indicator"
+                        size="small"
+                        value={currTime || 0}
+                        min={0}
+                        step={1}
+                        max={+clipLength || 0}
+                        onChange={(_, value) => setPosition(value)}
+                        sx={{
+                            color: '#fff',
+                            height: 4,
+                            '& .MuiSlider-thumb': {
+                                width: 8,
+                                height: 8,
+                                transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+                                '&:before': {
+                                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.4)',
+                                },
+                                '&:hover, &.Mui-focusVisible': {
+                                    // boxShadow: `0px 0px 0px 8px ${theme.palette.mode === 'dark'
+                                    //     ? 'rgb(255 255 255 / 16%)'
+                                    //     : 'rgb(0 0 0 / 16%)'
+                                    //     }`,
+                                },
+                                '&.Mui-active': {
+                                    width: 20,
+                                    height: 20,
+                                },
+                            },
+                            '& .MuiSlider-rail': {
+                                opacity: 0.28,
+                            },
+                        }}
+                    />
+
                     <span className='track-time'>{getTimeFormat(clipLength || 0)}</span>
                 </div>
             </div>

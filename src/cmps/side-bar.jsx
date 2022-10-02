@@ -9,10 +9,11 @@ import { NavList } from './nav-list'
 import { handleDragEnd } from '../services/dragg.service'
 import { updateUser } from '../store/user.actions'
 import { save, stationService } from '../services/station.service'
+import { userService } from '../services/user.service'
 
 export const SideBar = () => {
     const stations = useSelector(state => state.stationModule.stations)
-    const loggedInUser = useSelector(state => state.userModule.user)
+    const loggedInUser = userService.getLoggedinUser()
     let [userStations, setUserStations] = useState(stations
         .filter(station => (station?.createdBy?._id === loggedInUser?._id && !station.isSearch))
         .reverse())

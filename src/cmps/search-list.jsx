@@ -14,31 +14,30 @@ export function SearchList({
     searchClips,
     type,
     onPlayClip,
+    onAddClip,
     setCurrStationsClips }) {
 
     const dispatch = useDispatch()
 
-    const onAddClip = async (addedClip, currStation) => {
-
-        
-        if (currStation.clips.find(clip => clip._id === addedClip._id)) {
-            dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', currStation.name)))
-            setTimeout(async () => {
-                dispatch(setUserMsg(clearMsg))
-            }, 2500);
-            return
-        }
-        const stationToUpdate = { ...currStation }
-        addedClip.createdAt = new Date(getDate()).toLocaleDateString()
-        stationToUpdate.clips.push(addedClip)
-        setCurrStation(stationToUpdate)
-        setCurrStationsClips(stationToUpdate.clips)
-        dispatch(updateStation(currStation))
-        dispatch(setUserMsg(msg(addedClip.title, ' added to ' + currStation.name)))
-        setTimeout(async () => {
-            dispatch(setUserMsg(clearMsg))
-        }, 2500);
-    }
+    // const onAddClip = async (addedClip, currStation) => {
+    //     if (currStation.clips.find(clip => clip._id === addedClip._id)) {
+    //         dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', currStation.name)))
+    //         setTimeout(async () => {
+    //             dispatch(setUserMsg(clearMsg))
+    //         }, 2500);
+    //         return
+    //     }
+    //     const stationToUpdate = { ...currStation }
+    //     addedClip.createdAt = new Date(getDate()).toLocaleDateString()
+    //     stationToUpdate.clips.push(addedClip)
+    //     setCurrStation(stationToUpdate)
+    //     setCurrStationsClips(stationToUpdate.clips)
+    //     dispatch(updateStation(currStation))
+    //     dispatch(setUserMsg(msg(addedClip.title, ' added to ' + currStation.name)))
+    //     setTimeout(async () => {
+    //         dispatch(setUserMsg(clearMsg))
+    //     }, 2500);
+    // }
 
     return (
         <ul className='search-res-container flex'>
