@@ -9,7 +9,7 @@
     left: 16%;
     background-color: white;
     display: flex;
-    padding-left: 45px;
+    padding-left: 55px;
 
     @include for-mobile-layout {
         width: 55%;
@@ -45,8 +45,10 @@
     display: contents;
     padding-right: 20px;
 
-    & .active{
-        background-color: red;
+    & .active {
+        background: rgb(47, 46, 46);
+        background: radial-gradient(circle, rgba(47, 46, 46, 1) 0%, rgba(103, 99, 99, 1) 100%);
+
     }
 
     @include for-mobile-layout {}

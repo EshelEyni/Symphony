@@ -129,10 +129,10 @@ function getProfilesBySearchTerm(stations, users, searchTerm) {
     searchTerm = searchTerm.toLowerCase()
     let matchingStations = new Set(
         stations
-            .filter(station => station.clips.find(clip => clip.title.toLowerCase().includes(searchTerm) != undefined))
+            .filter(station => station.clips.find(clip => clip.title.toLowerCase().includes(searchTerm) !== undefined))
             .map(station => station._id)
     )
-    if (matchingStations.length == 0) return
+    if (matchingStations.length === 0) return
 
     return users.map(user => {
         let matchedTerms = 0

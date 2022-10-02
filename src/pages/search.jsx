@@ -59,27 +59,27 @@ export const Search = () => {
         <div className='search-main-container'>
             {isSearch &&
                 <div className="search-filter-btns flex">
-                    <button className='search-filter-btn' onClick={() => {
+                    <button className={'search-filter-btn' + (filterBy === null ? ' active' : '')} onClick={() => {
                         setFilterBy(null)
                     }}>All</button>
 
-                    <button className={filterBy === 'songs' ? 'search-filter-btn active' : 'search-filter-btn'} onClick={() => {
+                    <button className={'search-filter-btn' + (filterBy === 'songs' ? ' active' : '')} onClick={() => {
                         setFilterBy('songs')
                     }}>Songs</button>
 
-                    <button className='search-filter-btn' onClick={() => {
+                    <button className={'search-filter-btn' + (filterBy === 'playlists' ? ' active' : '')} onClick={() => {
                         setFilterBy('playlists')
                     }}>Playlists</button>
 
-                    <button className='search-filter-btn' onClick={() => {
+                    <button className={'search-filter-btn' + (filterBy === 'artists' ? ' active' : '')} onClick={() => {
                         setFilterBy('artists')
                     }}>Artists</button>
 
-                    <button className='search-filter-btn' onClick={() => {
+                    <button className={'search-filter-btn' + (filterBy === 'profiles' ? ' active' : '')} onClick={() => {
                         setFilterBy('profiles')
                     }}>Profiles</button>
 
-                    <button className='search-filter-btn' onClick={() => {
+                    <button className={'search-filter-btn' + (filterBy === 'searches' ? ' active' : '')} onClick={() => {
                         setFilterBy('searches')
                     }}>Recent Searches</button>
                 </div>}

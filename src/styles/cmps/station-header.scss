@@ -7,8 +7,20 @@
     }
 }
 
+.station-header-details-container {
+    display: flex;
+    flex-direction: column;
+
+    h5 {
+        margin: 30px 0 0;
+    }
+}
+
 .station-header-details-container-2 {
     font-size: 0.80em;
+
+    margin-top: 10px;
+
 
     @include for-mobile-layout {
         font-size: 0.60em;
@@ -19,7 +31,7 @@
 .station-header-name-container {
     @include for-normal-layout {
         font-size: 2.75rem;
-        margin-left: 0;
+        margin: 0;
     }
 
     @include for-wide-layout {
@@ -128,7 +140,7 @@
 
     .play-btn {
         border-radius: 50%;
-        border:none;
+        border: none;
         transform: scale(1.1);
         background: #1ed760;
         transition: 0.4s;

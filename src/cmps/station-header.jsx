@@ -133,6 +133,7 @@ export const StationHeader = ({
                 }</div>}
 
             <div className='station-header-details-container'>
+                <h5>{currStation.isArtist ? currStation.name : 'Playlist'}</h5> 
                 <h1 className='station-header-name-container'>{currStation.name}</h1>
                 <div className='desc-container'>{currStation.desc}</div>
                 {isUserStation ? <HeaderDetails

@@ -1,6 +1,6 @@
 .profile-header {
-    background: rgb(15,15,15);
-    background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(110,110,108,0.8882724964985994) 86%);
+    background: rgb(15, 15, 15);
+    background: linear-gradient(0deg, rgba(15, 15, 15, 1) 0%, rgba(110, 110, 108, 0.8882724964985994) 86%);
 }
 
 .profile-img {
@@ -11,7 +11,7 @@
     @include for-wide-layout {
         height: 232px;
         width: 232px;
-        margin-inline-start: 40px;
+        // margin-inline-start: 40px;
     }
 }
 
@@ -26,6 +26,19 @@
 
 .profile-list-container {
     padding: 15px;
+
+    p {
+        padding-inline-start: 25px;
+    }
+
+    .profile-preview>a {
+        text-align: center;
+    }
+
+    .profile-preview {
+        margin-inline-start: 20px;
+    }
+
 }
 
 .profile-details {
@@ -68,6 +81,17 @@
     }
 }
 
+.recently-played-container {
+    h1 {
+        margin-inline-start: 0;
+        padding-inline-start: 15px;
+    }
+
+    .clip-preview-main-container {
+        padding: 0 5px;
+    }
+}
+
 .dropdown-profile {
     transition: all 0.5s;
     position: absolute;
@@ -96,5 +120,32 @@
         top: 200px;
         left: 40px;
         font-size: 12px;
+    }
+}
+
+.shared-liked-music {
+
+    h1 {
+        margin: 0;
+        padding: 15px;
+    }
+
+}
+
+.personal-playlist {
+    h1 {
+        margin: 0;
+        padding: 15px;
+    }
+
+    .no-res-msg {
+        margin-inline-start: 15px;
+    }
+}
+
+.followers-following-container {
+    h1 {
+        margin: 0;
+        padding-inline-start: 15px;
     }
 }
