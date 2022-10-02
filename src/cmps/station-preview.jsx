@@ -54,12 +54,6 @@ export const StationPreview = ({
     }
 
     const getTime = async () => {
-        console.log(
-            'SP_GET_TIME_IV:',
-            mediaPlayerInterval,
-            'PL:', currStation.name,
-            'CLIP:',
-            currClip.title)
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))

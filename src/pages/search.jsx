@@ -12,7 +12,7 @@ import { StationList } from '../cmps/station-list.jsx'
 import { TagList } from '../cmps/tag-list.jsx'
 import { loadStations } from '../store/station.actions.js'
 import { searchService, searchLoader } from '../services/search.service.js'
-import { stationService } from '../services/station.service.js'
+import { defaultImg, stationService } from '../services/station.service.js'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { equalizer } from '../services/clip.service.js'
 
@@ -174,7 +174,13 @@ export const Search = () => {
                 </div>}
             {(isSearch && !searchClips.length) &&
                 <div className='no-results-user-msg'>
-                    {isLoading && <div className='search-loader-container'><img className='search-loader' src={equalizer} alt='search Loader'></img></div>
+                    {isLoading &&
+                        <div className='search-loader-container'>
+                            <img
+                            className='station-img rotate'
+                            src={defaultImg}
+                            alt='playist-img' />
+                        </div>
                         // <div>
                         //     <p>Your search - {searchTerm} - didn't match any of our songs.</p>
                         //     <ul>Suggsetions:

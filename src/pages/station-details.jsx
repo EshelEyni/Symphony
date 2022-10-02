@@ -36,7 +36,6 @@ export const StationDetails = () => {
 
     const key = loggedInUser?._id === currStation?.createdBy?._id ? 'user-clip' : 'clip'
 
-    console.log('currStation', currStation?.imgUrl)
 
     useEffect(() => {
         loadStation(params)
@@ -126,7 +125,6 @@ export const StationDetails = () => {
             return
         }
         const stationToUpdate = { ...currStation }
-        console.log('stationToUpdate onAddClip', stationToUpdate?.name)
         addedClip.createdAt = new Date(getDate()).toLocaleDateString()
         stationToUpdate.clips.push(addedClip)
         setCurrStation(stationToUpdate)

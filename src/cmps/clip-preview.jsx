@@ -55,8 +55,6 @@ export const ClipPreview = ({
     }
 
     const getTime = async () => {
-        console.log('LOCAL GET TIME');
-        console.log('mediaPlayerInterval', mediaPlayerInterval)
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))

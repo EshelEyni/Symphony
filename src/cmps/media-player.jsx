@@ -133,7 +133,6 @@ export const MediaPlayer = () => {
     }
 
     const getTime = async (playbackMode = 'default-mode') => {
-        console.log('MEDIA_PLAYER_GET_TIME:', mediaPlayerInterval, 'CURR_CLIPP:', currClip.title);
         currTime = await playerFunc.getCurrentTime()
         storageService.put('currTime', currTime)
         dispatch(setCurrTime(currTime))

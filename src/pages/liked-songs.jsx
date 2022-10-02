@@ -19,7 +19,6 @@ import { userService } from '../services/user.service.js'
 export const LikedSongs = () => {
     const loggedInUser = useSelector(state => state.userModule.user)
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
-    console.log('loggedInUser', loggedInUser)
     const dispatch = useDispatch()
     let [likedSongs, setLikedSongs] = useState()
 

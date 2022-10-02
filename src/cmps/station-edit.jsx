@@ -49,7 +49,6 @@ export const StationEdit = ({
 
     const onUpdateStation = (ev) => {
         ev.preventDefault()
-        console.log('editFormStation', editFormStation)
         setCurrStation(editFormStation)
         setMainImg(imgUrl)
         dispatch(updateStation(editFormStation))
