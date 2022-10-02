@@ -33,18 +33,30 @@
             font-size: 14px;
             margin: 0;
             padding: 0;
+
+            @include for-mobile-layout {
+                font-size: 12px;
+            }
         }
 
         p {
             font-size: 12px;
             margin: 0;
             padding: 0;
-            color:rgb(111, 105, 105)
-        }
+            color: rgb(111, 105, 105);
+            text-align: left;
 
+            @include for-mobile-layout {
+                font-size: 11px;
+            }
+        }
     }
 
-    // align-items: center;
+    .like-btn-container {
+        position: absolute;
+        right: 110px;
+    }
+
     .clip-num,
     .clip-play-btn,
     .artist-name,
