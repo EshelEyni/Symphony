@@ -1185,3 +1185,799 @@
 01/10/2022, 22:35:42 - INFO - Socket disconnected [id: undefined]
 01/10/2022, 22:35:43 - INFO - New connected socket [id: mARuWtkz5IKajYVjAABJ]
 01/10/2022, 22:35:43 - DEBUG - Getting Stations
+02/10/2022, 0:31:17 - INFO - Server is running on port: 3030
+02/10/2022, 0:31:32 - INFO - New connected socket [id: 1ZuKBEoe9gdhZenpAAAB]
+02/10/2022, 0:31:32 - DEBUG - Getting Stations
+02/10/2022, 0:32:22 - DEBUG - auth.service - login with username: eshel054
+02/10/2022, 0:32:22 - DEBUG - auth.service - login with username: eshel054
+02/10/2022, 0:32:22 - INFO - User login:  | {"_id":"63383fba32e042904c04e162","username":"eshel054","fullname":"eshel054","imgUrl":null,"createdStations":["63383fe532e042904c04e163","6338405632e042904c04e164","6338407832e042904c04e166","6338407a32e042904c04e167","6338407b32e042904c04e168","6338476e206a16bbc0bcde11","63384848206a16bbc0bcde12","6338509a206a16bbc0bcde16","6338509e206a16bbc0bcde17","63388e52daad1d39d6f2ee25","63388e56daad1d39d6f2ee26","6338917adaad1d39d6f2ee27"],"likedStations":[],"recentSearches":[{"_id":"63389893daad1d39d6f2ee2a","title":"david bowie"}],"recentlyPlayedClips":[{"_id":"SGyOaCXr8Lw","title":"The Rolling Stones - Start Me Up - Official Promo","img":{"url":"https://i.ytimg.com/vi/SGyOaCXr8Lw/default.jpg","width":120,"height":90},"artist":"The Rolling Stones","duration":{"hours":0,"min":3,"sec":28},"createdAt":"9/29/2022"},{"_id":"3PJmE-ucx_o","title":"טונה - גם זה יעבור  This Too Shall Pass","img":{"url":"https://i.ytimg.com/vi/3PJmE-ucx_o/default.jpg","width":120,"height":90},"artist":"Tuna Official","duration":{"hours":0,"min":5,"sec":11},"createdAt":"9/28/2022"},{"_id":"qALEkPoY-Hg","title":"טונה ויסמין מועלם - סהרה","img":{"url":"https://i.ytimg.com/vi/qALEkPoY-Hg/default.jpg","width":120,"height":90},"artist":"Tuna Official","duration":{"hours":0,"min":4,"sec":32},"createdAt":"9/28/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022"},{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022"},{"_id":"fJ9rUzIMcZQ","title":"Queen  Bohemian Rhapsody","img":{"url":"https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":6,"sec":0},"createdAt":"9/28/2022"},{"_id":"t99KH0TR-J4","title":"Queen - The Show Must Go On","img":{"url":"https://i.ytimg.com/vi/t99KH0TR-J4/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":4,"sec":23},"createdAt":"9/28/2022"},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022"}],"likedSongs":[{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"t99KH0TR-J4","title":"Queen - The Show Must Go On","img":{"url":"https://i.ytimg.com/vi/t99KH0TR-J4/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":4,"sec":23},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"PPOVADvSNd8","title":"רביד פלוטניק  - נענע  Ravid Plotnik - Nana","img":{"url":"https://i.ytimg.com/vi/PPOVADvSNd8/default.jpg","width":120,"height":90},"artist":"Boom Shaka Laka","likedByUsers":[],"duration":{"hours":0,"min":5,"sec":21},"createdAt":"9/28/2022","LikedAt":"10/1/2022"}],"followers":[],"following":[],"isAdmin":true}
+02/10/2022, 0:32:23 - INFO - User login:  | {"_id":"63383fba32e042904c04e162","username":"eshel054","fullname":"eshel054","imgUrl":null,"createdStations":["63383fe532e042904c04e163","6338405632e042904c04e164","6338407832e042904c04e166","6338407a32e042904c04e167","6338407b32e042904c04e168","6338476e206a16bbc0bcde11","63384848206a16bbc0bcde12","6338509a206a16bbc0bcde16","6338509e206a16bbc0bcde17","63388e52daad1d39d6f2ee25","63388e56daad1d39d6f2ee26","6338917adaad1d39d6f2ee27"],"likedStations":[],"recentSearches":[{"_id":"63389893daad1d39d6f2ee2a","title":"david bowie"}],"recentlyPlayedClips":[{"_id":"SGyOaCXr8Lw","title":"The Rolling Stones - Start Me Up - Official Promo","img":{"url":"https://i.ytimg.com/vi/SGyOaCXr8Lw/default.jpg","width":120,"height":90},"artist":"The Rolling Stones","duration":{"hours":0,"min":3,"sec":28},"createdAt":"9/29/2022"},{"_id":"3PJmE-ucx_o","title":"טונה - גם זה יעבור  This Too Shall Pass","img":{"url":"https://i.ytimg.com/vi/3PJmE-ucx_o/default.jpg","width":120,"height":90},"artist":"Tuna Official","duration":{"hours":0,"min":5,"sec":11},"createdAt":"9/28/2022"},{"_id":"qALEkPoY-Hg","title":"טונה ויסמין מועלם - סהרה","img":{"url":"https://i.ytimg.com/vi/qALEkPoY-Hg/default.jpg","width":120,"height":90},"artist":"Tuna Official","duration":{"hours":0,"min":4,"sec":32},"createdAt":"9/28/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022"},{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022"},{"_id":"fJ9rUzIMcZQ","title":"Queen  Bohemian Rhapsody","img":{"url":"https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":6,"sec":0},"createdAt":"9/28/2022"},{"_id":"t99KH0TR-J4","title":"Queen - The Show Must Go On","img":{"url":"https://i.ytimg.com/vi/t99KH0TR-J4/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":4,"sec":23},"createdAt":"9/28/2022"},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022"}],"likedSongs":[{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"t99KH0TR-J4","title":"Queen - The Show Must Go On","img":{"url":"https://i.ytimg.com/vi/t99KH0TR-J4/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":4,"sec":23},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"PPOVADvSNd8","title":"רביד פלוטניק  - נענע  Ravid Plotnik - Nana","img":{"url":"https://i.ytimg.com/vi/PPOVADvSNd8/default.jpg","width":120,"height":90},"artist":"Boom Shaka Laka","likedByUsers":[],"duration":{"hours":0,"min":5,"sec":21},"createdAt":"9/28/2022","LikedAt":"10/1/2022"}],"followers":[],"following":[],"isAdmin":true}
+02/10/2022, 0:32:25 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:32:25 - INFO - New connected socket [id: 0JtR0ov2XfTPQhBTAAAD]
+02/10/2022, 0:32:25 - DEBUG - Getting Stations
+02/10/2022, 0:33:14 - INFO - Socket is leaving topic 63348907c2a4856cb0d9eb83 [id: 0JtR0ov2XfTPQhBTAAAD]
+02/10/2022, 0:33:44 - INFO - Socket is leaving topic 6334bf049adf6cd11e00f8a9 [id: 0JtR0ov2XfTPQhBTAAAD]
+02/10/2022, 0:35:07 - INFO - Socket is leaving topic 63348974c2a4856cb0d9eb84 [id: 0JtR0ov2XfTPQhBTAAAD]
+02/10/2022, 0:39:11 - INFO - Socket is leaving topic 63348907c2a4856cb0d9eb83 [id: 0JtR0ov2XfTPQhBTAAAD]
+02/10/2022, 0:42:03 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:42:04 - INFO - New connected socket [id: f8Lpo23-wHukYpZ5AAAF]
+02/10/2022, 0:42:04 - DEBUG - Getting Stations
+02/10/2022, 0:42:37 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:42:37 - INFO - New connected socket [id: 0VeLbTtK9h-OB4L0AAAH]
+02/10/2022, 0:42:40 - DEBUG - Getting Stations
+02/10/2022, 0:42:47 - INFO - Socket is leaving topic 633489f0c2a4856cb0d9eb86 [id: 0VeLbTtK9h-OB4L0AAAH]
+02/10/2022, 0:43:24 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:43:25 - INFO - New connected socket [id: iw_qQGhr4d2TVGcIAAAJ]
+02/10/2022, 0:43:29 - DEBUG - Getting Stations
+02/10/2022, 0:43:34 - INFO - Socket is leaving topic 63348974c2a4856cb0d9eb84 [id: iw_qQGhr4d2TVGcIAAAJ]
+02/10/2022, 0:44:16 - INFO - Socket is leaving topic 6331e3f47bd3d54c7ba20c66 [id: iw_qQGhr4d2TVGcIAAAJ]
+02/10/2022, 0:44:28 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:44:29 - INFO - New connected socket [id: FP9z7fyfYvaI5n03AAAL]
+02/10/2022, 0:44:44 - DEBUG - Getting Stations
+02/10/2022, 0:45:08 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:45:09 - INFO - New connected socket [id: ommqs898c4K-Sez0AAAN]
+02/10/2022, 0:45:09 - DEBUG - Getting Stations
+02/10/2022, 0:47:58 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:47:58 - INFO - New connected socket [id: XSpCE1S5IjE2hg0KAAAP]
+02/10/2022, 0:47:58 - DEBUG - Getting Stations
+02/10/2022, 0:50:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:50:21 - INFO - New connected socket [id: g3ApiDkyQc8iw-ZeAAAR]
+02/10/2022, 0:50:22 - DEBUG - Getting Stations
+02/10/2022, 0:53:06 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:53:06 - INFO - New connected socket [id: F33RQSX0MguWvhBLAAAT]
+02/10/2022, 0:53:06 - DEBUG - Getting Stations
+02/10/2022, 0:54:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:54:22 - INFO - New connected socket [id: CEgwFN9a9KSnAkX_AAAV]
+02/10/2022, 0:54:22 - DEBUG - Getting Stations
+02/10/2022, 0:55:40 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:55:40 - INFO - New connected socket [id: Mh6wTHvqdpGhDwFeAAAX]
+02/10/2022, 0:55:41 - DEBUG - Getting Stations
+02/10/2022, 0:56:22 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:56:22 - INFO - New connected socket [id: xdG1VodYsZteb4hAAAAZ]
+02/10/2022, 0:56:22 - DEBUG - Getting Stations
+02/10/2022, 0:57:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:57:05 - INFO - New connected socket [id: k1o17VCN9BuG88JfAAAb]
+02/10/2022, 0:57:05 - DEBUG - Getting Stations
+02/10/2022, 0:58:46 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:58:47 - INFO - New connected socket [id: -kCUab4mz9VvQqIGAAAd]
+02/10/2022, 0:58:47 - DEBUG - Getting Stations
+02/10/2022, 0:59:44 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 0:59:45 - INFO - New connected socket [id: iG2LOKNEUp6GrfdCAAAf]
+02/10/2022, 0:59:45 - DEBUG - Getting Stations
+02/10/2022, 1:00:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:00:49 - INFO - New connected socket [id: 1GDECc2nyXDKSsBXAAAh]
+02/10/2022, 1:00:49 - DEBUG - Getting Stations
+02/10/2022, 1:06:09 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:06:10 - INFO - New connected socket [id: Ld0Bu9JDJYyA3qWWAAAj]
+02/10/2022, 1:06:10 - DEBUG - Getting Stations
+02/10/2022, 1:06:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:06:45 - INFO - New connected socket [id: ehMwDmTmBM-wer-5AAAl]
+02/10/2022, 1:06:45 - DEBUG - Getting Stations
+02/10/2022, 1:07:14 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:07:14 - INFO - New connected socket [id: djAYlsLNTfMb-B0zAAAn]
+02/10/2022, 1:07:15 - DEBUG - Getting Stations
+02/10/2022, 1:09:14 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:09:14 - INFO - New connected socket [id: LZm7jmaSZ4EMLOnIAAAp]
+02/10/2022, 1:09:14 - DEBUG - Getting Stations
+02/10/2022, 1:11:47 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:11:48 - INFO - New connected socket [id: KplwNz8NvfK8JnPuAAAr]
+02/10/2022, 1:11:48 - DEBUG - Getting Stations
+02/10/2022, 1:15:15 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:15:16 - INFO - New connected socket [id: Fy00jfE6LTDKWiGdAAAt]
+02/10/2022, 1:15:16 - DEBUG - Getting Stations
+02/10/2022, 1:20:20 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:23:46 - INFO - New connected socket [id: XKM27nm56sAqktVkAAAv]
+02/10/2022, 1:23:47 - DEBUG - Getting Stations
+02/10/2022, 1:25:32 - DEBUG - auth.service - signup with username: user45, fullname: user45
+02/10/2022, 1:25:32 - DEBUG - auth.route - new account created: {"username":"user45","password":"$2b$10$CqvBELjHtfcF0i06dg/DXeF29RvPj1i1gJpU7QXGPIahUAl5YTzHG","fullname":"user45","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6338be5c5f87750332827057"}
+02/10/2022, 1:25:32 - DEBUG - auth.service - login with username: user45
+02/10/2022, 1:25:32 - INFO - User login:  | {"_id":"6338be5c5f87750332827057","username":"user45","fullname":"user45","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 1:25:53 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:26:32 - INFO - New connected socket [id: Lcz8uHYUE3MbgvxqAAAx]
+02/10/2022, 1:26:33 - DEBUG - Getting Stations
+02/10/2022, 1:27:35 - DEBUG - auth.service - login with username: eshel123
+02/10/2022, 1:27:35 - DEBUG - auth.service - login with username: eshel123
+02/10/2022, 1:27:35 - INFO - User login:  | {"_id":"63378eefb6aef8b046ccaa61","username":"eshel123","fullname":"eshel123","imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[{"_id":"diKz9udywg4","img":{"url":"https://i.ytimg.com/vi/diKz9udywg4/default.jpg","width":120,"height":90},"title":"KISS - I Was Made For Loving You","artist":"KISS","duration":{"hours":0,"min":5,"sec":7},"addedAt":1663743790},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022"},{"_id":"qALEkPoY-Hg","title":"טונה ויסמין מועלם - סהרה","img":{"url":"https://i.ytimg.com/vi/qALEkPoY-Hg/default.jpg","width":120,"height":90},"artist":"Tuna Official","duration":{"hours":0,"min":4,"sec":32},"createdAt":"9/28/2022"}],"likedSongs":[{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"ScNNfyq3d_w","title":"CASTLE OF GLASS  - Linkin Park","img":{"url":"https://i.ytimg.com/vi/ScNNfyq3d_w/default.jpg","width":120,"height":90},"artist":"Linkin Park","duration":{"hours":0,"min":4,"sec":50},"createdAt":"9/28/2022","LikedAt":"10/1/2022"}],"followers":[],"following":[]}
+02/10/2022, 1:27:35 - INFO - User login:  | {"_id":"63378eefb6aef8b046ccaa61","username":"eshel123","fullname":"eshel123","imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[{"_id":"diKz9udywg4","img":{"url":"https://i.ytimg.com/vi/diKz9udywg4/default.jpg","width":120,"height":90},"title":"KISS - I Was Made For Loving You","artist":"KISS","duration":{"hours":0,"min":5,"sec":7},"addedAt":1663743790},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022"},{"_id":"qALEkPoY-Hg","title":"טונה ויסמין מועלם - סהרה","img":{"url":"https://i.ytimg.com/vi/qALEkPoY-Hg/default.jpg","width":120,"height":90},"artist":"Tuna Official","duration":{"hours":0,"min":4,"sec":32},"createdAt":"9/28/2022"}],"likedSongs":[{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"ScNNfyq3d_w","title":"CASTLE OF GLASS  - Linkin Park","img":{"url":"https://i.ytimg.com/vi/ScNNfyq3d_w/default.jpg","width":120,"height":90},"artist":"Linkin Park","duration":{"hours":0,"min":4,"sec":50},"createdAt":"9/28/2022","LikedAt":"10/1/2022"}],"followers":[],"following":[]}
+02/10/2022, 1:31:15 - INFO - Socket is leaving topic 63335190d0976fdb9a552fdb [id: Lcz8uHYUE3MbgvxqAAAx]
+02/10/2022, 1:34:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:34:46 - INFO - New connected socket [id: rk6WEDqEPlFXX_qHAAAz]
+02/10/2022, 1:34:46 - DEBUG - Getting Stations
+02/10/2022, 1:39:19 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:39:20 - INFO - New connected socket [id: _aUeJ-js1egi74rIAAA1]
+02/10/2022, 1:39:20 - DEBUG - Getting Stations
+02/10/2022, 1:39:32 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:39:33 - INFO - New connected socket [id: IAS5XB9-ub1lWEn0AAA3]
+02/10/2022, 1:39:33 - DEBUG - Getting Stations
+02/10/2022, 1:41:05 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:41:06 - INFO - New connected socket [id: ysNxSaExV49CO3qhAAA5]
+02/10/2022, 1:41:06 - DEBUG - Getting Stations
+02/10/2022, 1:42:02 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:42:03 - INFO - New connected socket [id: p858XUiF9bH5N3giAAA7]
+02/10/2022, 1:42:03 - DEBUG - Getting Stations
+02/10/2022, 1:42:26 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:42:27 - INFO - New connected socket [id: UjCHiXeFXzxtjrmzAAA9]
+02/10/2022, 1:42:27 - DEBUG - Getting Stations
+02/10/2022, 1:43:12 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:50:30 - INFO - New connected socket [id: QtPRojFetIRWYKqkAAA_]
+02/10/2022, 1:50:31 - DEBUG - Getting Stations
+02/10/2022, 1:53:12 - DEBUG - Getting Stations
+02/10/2022, 1:53:16 - INFO - Socket is leaving topic 63339b35d0976fdb9a552fe4 [id: QtPRojFetIRWYKqkAAA_]
+02/10/2022, 1:54:09 - INFO - Socket is leaving topic 63383f6732e042904c04e161 [id: QtPRojFetIRWYKqkAAA_]
+02/10/2022, 1:54:09 - DEBUG - Getting Stations
+02/10/2022, 1:57:08 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:57:09 - INFO - New connected socket [id: 1sWhwIfzHLvItc1gAABB]
+02/10/2022, 1:57:09 - DEBUG - Getting Stations
+02/10/2022, 1:57:28 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 1:57:29 - INFO - New connected socket [id: wrpK5MY4SXRH9k3NAABD]
+02/10/2022, 1:57:36 - DEBUG - Getting Stations
+02/10/2022, 2:01:54 - INFO - Socket is leaving topic 63335190d0976fdb9a552fdb [id: wrpK5MY4SXRH9k3NAABD]
+02/10/2022, 2:03:55 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:03:56 - DEBUG - Getting Stations
+02/10/2022, 2:03:56 - INFO - New connected socket [id: zTucnrgS6cDC72QdAABF]
+02/10/2022, 2:04:02 - DEBUG - Getting Stations
+02/10/2022, 2:07:18 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:07:19 - INFO - New connected socket [id: zydqcce0WxrFygH9AABH]
+02/10/2022, 2:07:19 - DEBUG - Getting Stations
+02/10/2022, 2:07:38 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:07:39 - INFO - New connected socket [id: CIsp72O7Agsk_-UVAABJ]
+02/10/2022, 2:07:39 - DEBUG - Getting Stations
+02/10/2022, 2:09:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:10:00 - INFO - New connected socket [id: yCEvU5qfJRh5xVL-AABL]
+02/10/2022, 2:10:26 - DEBUG - Getting Stations
+02/10/2022, 2:16:47 - DEBUG - Getting Stations
+02/10/2022, 2:17:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:18:00 - INFO - New connected socket [id: SFdZVcKuRdsU6fVhAABN]
+02/10/2022, 2:18:00 - DEBUG - Getting Stations
+02/10/2022, 2:22:48 - DEBUG - Getting Stations
+02/10/2022, 2:22:51 - DEBUG - Getting Stations
+02/10/2022, 2:22:54 - DEBUG - Getting Stations
+02/10/2022, 2:22:58 - DEBUG - Getting Stations
+02/10/2022, 2:23:02 - DEBUG - Getting Stations
+02/10/2022, 2:23:04 - DEBUG - Getting Stations
+02/10/2022, 2:24:55 - DEBUG - Getting Stations
+02/10/2022, 2:24:56 - DEBUG - Getting Stations
+02/10/2022, 2:24:57 - DEBUG - Getting Stations
+02/10/2022, 2:25:35 - DEBUG - Getting Stations
+02/10/2022, 2:25:38 - DEBUG - Getting Stations
+02/10/2022, 2:25:44 - DEBUG - Getting Stations
+02/10/2022, 2:28:55 - DEBUG - Getting Stations
+02/10/2022, 2:28:59 - DEBUG - Getting Stations
+02/10/2022, 2:29:52 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:29:53 - INFO - New connected socket [id: zWLtPHKZFtfi_7yMAABP]
+02/10/2022, 2:29:53 - DEBUG - Getting Stations
+02/10/2022, 2:29:54 - DEBUG - Getting Stations
+02/10/2022, 2:30:37 - DEBUG - Getting Stations
+02/10/2022, 2:30:38 - DEBUG - Getting Stations
+02/10/2022, 2:30:38 - DEBUG - Getting Stations
+02/10/2022, 2:30:42 - DEBUG - Getting Stations
+02/10/2022, 2:30:55 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:30:55 - INFO - New connected socket [id: N_YdeJ5Kwt_czICYAABR]
+02/10/2022, 2:30:56 - DEBUG - Getting Stations
+02/10/2022, 2:30:56 - DEBUG - Getting Stations
+02/10/2022, 2:30:57 - DEBUG - Getting Stations
+02/10/2022, 2:30:57 - DEBUG - Getting Stations
+02/10/2022, 2:31:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:31:27 - INFO - New connected socket [id: QdP_050J9N4RtupFAABT]
+02/10/2022, 2:31:28 - DEBUG - Getting Stations
+02/10/2022, 2:31:28 - DEBUG - Getting Stations
+02/10/2022, 2:31:29 - DEBUG - Getting Stations
+02/10/2022, 2:31:29 - DEBUG - Getting Stations
+02/10/2022, 2:32:43 - DEBUG - Getting Stations
+02/10/2022, 2:32:46 - DEBUG - Getting Stations
+02/10/2022, 2:32:57 - DEBUG - Getting Stations
+02/10/2022, 2:33:02 - DEBUG - Getting Stations
+02/10/2022, 2:33:03 - DEBUG - Getting Stations
+02/10/2022, 2:33:41 - DEBUG - Getting Stations
+02/10/2022, 2:35:03 - DEBUG - Getting Stations
+02/10/2022, 2:35:03 - DEBUG - Getting Stations
+02/10/2022, 2:35:08 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:35:09 - INFO - New connected socket [id: -wF5IUWRTo1rdzceAABV]
+02/10/2022, 2:35:09 - DEBUG - Getting Stations
+02/10/2022, 2:35:10 - DEBUG - Getting Stations
+02/10/2022, 2:35:10 - DEBUG - Getting Stations
+02/10/2022, 2:35:10 - DEBUG - Getting Stations
+02/10/2022, 2:35:12 - DEBUG - Getting Stations
+02/10/2022, 2:35:33 - DEBUG - Getting Stations
+02/10/2022, 2:36:51 - DEBUG - Getting Stations
+02/10/2022, 2:37:03 - DEBUG - Getting Stations
+02/10/2022, 2:37:38 - DEBUG - Getting Stations
+02/10/2022, 2:37:42 - DEBUG - Getting Stations
+02/10/2022, 2:38:36 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:38:37 - DEBUG - Getting Stations
+02/10/2022, 2:38:37 - INFO - New connected socket [id: wyIcHT2k4Dd26XL8AABX]
+02/10/2022, 2:46:03 - INFO - New connected socket [id: sQAM3kqidszSx9CfAABZ]
+02/10/2022, 2:46:05 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:46:28 - DEBUG - Getting Stations
+02/10/2022, 2:46:28 - DEBUG - Getting Stations
+02/10/2022, 2:46:28 - DEBUG - Getting Stations
+02/10/2022, 2:46:29 - DEBUG - Getting Stations
+02/10/2022, 2:47:30 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:47:31 - INFO - New connected socket [id: vHECGrC9gtIU93xGAABb]
+02/10/2022, 2:47:31 - DEBUG - Getting Stations
+02/10/2022, 2:47:31 - DEBUG - Getting Stations
+02/10/2022, 2:47:31 - DEBUG - Getting Stations
+02/10/2022, 2:47:32 - DEBUG - Getting Stations
+02/10/2022, 2:47:36 - INFO - New connected socket [id: Ktr7CBoBqAgxMbWYAABd]
+02/10/2022, 2:47:36 - DEBUG - Getting Stations
+02/10/2022, 2:47:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:47:49 - INFO - New connected socket [id: lk87ILNBl793vIlvAABf]
+02/10/2022, 2:47:50 - DEBUG - Getting Stations
+02/10/2022, 2:48:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:51:17 - DEBUG - Getting Stations
+02/10/2022, 2:51:18 - DEBUG - Getting Stations
+02/10/2022, 2:51:18 - DEBUG - Getting Stations
+02/10/2022, 2:51:18 - DEBUG - Getting Stations
+02/10/2022, 2:51:26 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:51:26 - INFO - New connected socket [id: ez-LKJyDxy3FLKofAABh]
+02/10/2022, 2:51:26 - DEBUG - Getting Stations
+02/10/2022, 2:51:27 - DEBUG - Getting Stations
+02/10/2022, 2:51:27 - DEBUG - Getting Stations
+02/10/2022, 2:51:28 - DEBUG - Getting Stations
+02/10/2022, 2:51:51 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 2:51:52 - INFO - New connected socket [id: qdT2TgY38RZ5ynn0AABj]
+02/10/2022, 2:51:52 - DEBUG - Getting Stations
+02/10/2022, 2:51:52 - ERROR - while finding user 63378eefb6aef8b046ccaa61 | {}
+02/10/2022, 2:51:52 - ERROR - Failed to get user | {}
+02/10/2022, 2:51:53 - DEBUG - Getting Stations
+02/10/2022, 2:51:53 - DEBUG - Getting Stations
+02/10/2022, 2:51:53 - DEBUG - Getting Stations
+02/10/2022, 2:52:44 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:22:17 - INFO - New connected socket [id: Ubfa3YeMXNvM7ZwYAABl]
+02/10/2022, 3:22:17 - DEBUG - Getting Stations
+02/10/2022, 3:22:30 - DEBUG - auth.service - login with username: eshel054
+02/10/2022, 3:22:30 - DEBUG - auth.service - login with username: eshel054
+02/10/2022, 3:22:30 - INFO - User login:  | {"_id":"63383fba32e042904c04e162","username":"eshel054","fullname":"eshel054","imgUrl":null,"createdStations":["63383fe532e042904c04e163","6338405632e042904c04e164","6338407832e042904c04e166","6338407a32e042904c04e167","6338407b32e042904c04e168","6338476e206a16bbc0bcde11","63384848206a16bbc0bcde12","6338509a206a16bbc0bcde16","6338509e206a16bbc0bcde17","63388e52daad1d39d6f2ee25","63388e56daad1d39d6f2ee26","6338917adaad1d39d6f2ee27"],"likedStations":[],"recentSearches":[{"_id":"63389893daad1d39d6f2ee2a","title":"david bowie"}],"recentlyPlayedClips":[{"_id":"YVkUvmDQ3HY","title":"Eminem - Without Me","img":{"url":"https://i.ytimg.com/vi/YVkUvmDQ3HY/default.jpg","width":120,"height":90},"artist":"EminemVEVO","duration":{"hours":0,"min":4,"sec":58},"createdAt":"9/28/2022"},{"_id":"SGyOaCXr8Lw","title":"The Rolling Stones - Start Me Up - Official Promo","img":{"url":"https://i.ytimg.com/vi/SGyOaCXr8Lw/default.jpg","width":120,"height":90},"artist":"The Rolling Stones","duration":{"hours":0,"min":3,"sec":28},"createdAt":"9/29/2022"},{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022"},{"_id":"ScNNfyq3d_w","title":"CASTLE OF GLASS  - Linkin Park","img":{"url":"https://i.ytimg.com/vi/ScNNfyq3d_w/default.jpg","width":120,"height":90},"artist":"Linkin Park","duration":{"hours":0,"min":4,"sec":50},"createdAt":"9/28/2022"},{"_id":"hTWKbfoikeg","title":"Nirvana - Smells Like Teen Spirit","img":{"url":"https://i.ytimg.com/vi/hTWKbfoikeg/default.jpg","width":120,"height":90},"artist":"NirvanaVEVO","duration":{"hours":0,"min":4,"sec":39},"createdAt":"9/28/2022"},{"_id":"diKz9udywg4","img":{"url":"https://i.ytimg.com/vi/diKz9udywg4/default.jpg","width":120,"height":90},"title":"KISS - I Was Made For Loving You","artist":"KISS","duration":{"hours":0,"min":5,"sec":7},"addedAt":1663743790},{"_id":"VfGSd-tikH4","title":"Janis Joplin - Cry Baby","img":{"url":"https://i.ytimg.com/vi/VfGSd-tikH4/default.jpg","width":120,"height":90},"artist":"JanisJoplinVEVO","duration":{"hours":0,"min":3,"sec":58},"createdAt":"9/28/2022"},{"_id":"SqZNMvIEHhs","title":"System Of A Down - Spiders","img":{"url":"https://i.ytimg.com/vi/SqZNMvIEHhs/default.jpg","width":120,"height":90},"artist":"systemofadownVEVO","duration":{"hours":0,"min":3,"sec":36},"createdAt":"9/28/2022"},{"_id":"uiH4BFTELME","img":{"url":"https://i.ytimg.com/vi/uiH4BFTELME/default.jpg","width":120,"height":90},"title":"EUROVISION 2009 WINNER -NORWAY ALEXANDER RYBAK FAIRYTALE ","artist":"ALEXANDER RYBAK","duration":{"hours":0,"min":3,"sec":4},"addedAt":1663743790},{"_id":"oiKj0Z_Xnjc","title":"Stromae - Papaoutai","img":{"url":"https://i.ytimg.com/vi/oiKj0Z_Xnjc/default.jpg","width":120,"height":90},"artist":"StromaeVEVO","duration":{"hours":0,"min":3,"sec":53},"createdAt":"9/28/2022"}],"likedSongs":[{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"t99KH0TR-J4","title":"Queen - The Show Must Go On","img":{"url":"https://i.ytimg.com/vi/t99KH0TR-J4/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":4,"sec":23},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"PPOVADvSNd8","title":"רביד פלוטניק  - נענע  Ravid Plotnik - Nana","img":{"url":"https://i.ytimg.com/vi/PPOVADvSNd8/default.jpg","width":120,"height":90},"artist":"Boom Shaka Laka","likedByUsers":[],"duration":{"hours":0,"min":5,"sec":21},"createdAt":"9/28/2022","LikedAt":"10/1/2022"}],"followers":[],"following":[],"isAdmin":true}
+02/10/2022, 3:22:30 - INFO - User login:  | {"_id":"63383fba32e042904c04e162","username":"eshel054","fullname":"eshel054","imgUrl":null,"createdStations":["63383fe532e042904c04e163","6338405632e042904c04e164","6338407832e042904c04e166","6338407a32e042904c04e167","6338407b32e042904c04e168","6338476e206a16bbc0bcde11","63384848206a16bbc0bcde12","6338509a206a16bbc0bcde16","6338509e206a16bbc0bcde17","63388e52daad1d39d6f2ee25","63388e56daad1d39d6f2ee26","6338917adaad1d39d6f2ee27"],"likedStations":[],"recentSearches":[{"_id":"63389893daad1d39d6f2ee2a","title":"david bowie"}],"recentlyPlayedClips":[{"_id":"YVkUvmDQ3HY","title":"Eminem - Without Me","img":{"url":"https://i.ytimg.com/vi/YVkUvmDQ3HY/default.jpg","width":120,"height":90},"artist":"EminemVEVO","duration":{"hours":0,"min":4,"sec":58},"createdAt":"9/28/2022"},{"_id":"SGyOaCXr8Lw","title":"The Rolling Stones - Start Me Up - Official Promo","img":{"url":"https://i.ytimg.com/vi/SGyOaCXr8Lw/default.jpg","width":120,"height":90},"artist":"The Rolling Stones","duration":{"hours":0,"min":3,"sec":28},"createdAt":"9/29/2022"},{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022"},{"_id":"ScNNfyq3d_w","title":"CASTLE OF GLASS  - Linkin Park","img":{"url":"https://i.ytimg.com/vi/ScNNfyq3d_w/default.jpg","width":120,"height":90},"artist":"Linkin Park","duration":{"hours":0,"min":4,"sec":50},"createdAt":"9/28/2022"},{"_id":"hTWKbfoikeg","title":"Nirvana - Smells Like Teen Spirit","img":{"url":"https://i.ytimg.com/vi/hTWKbfoikeg/default.jpg","width":120,"height":90},"artist":"NirvanaVEVO","duration":{"hours":0,"min":4,"sec":39},"createdAt":"9/28/2022"},{"_id":"diKz9udywg4","img":{"url":"https://i.ytimg.com/vi/diKz9udywg4/default.jpg","width":120,"height":90},"title":"KISS - I Was Made For Loving You","artist":"KISS","duration":{"hours":0,"min":5,"sec":7},"addedAt":1663743790},{"_id":"VfGSd-tikH4","title":"Janis Joplin - Cry Baby","img":{"url":"https://i.ytimg.com/vi/VfGSd-tikH4/default.jpg","width":120,"height":90},"artist":"JanisJoplinVEVO","duration":{"hours":0,"min":3,"sec":58},"createdAt":"9/28/2022"},{"_id":"SqZNMvIEHhs","title":"System Of A Down - Spiders","img":{"url":"https://i.ytimg.com/vi/SqZNMvIEHhs/default.jpg","width":120,"height":90},"artist":"systemofadownVEVO","duration":{"hours":0,"min":3,"sec":36},"createdAt":"9/28/2022"},{"_id":"uiH4BFTELME","img":{"url":"https://i.ytimg.com/vi/uiH4BFTELME/default.jpg","width":120,"height":90},"title":"EUROVISION 2009 WINNER -NORWAY ALEXANDER RYBAK FAIRYTALE ","artist":"ALEXANDER RYBAK","duration":{"hours":0,"min":3,"sec":4},"addedAt":1663743790},{"_id":"oiKj0Z_Xnjc","title":"Stromae - Papaoutai","img":{"url":"https://i.ytimg.com/vi/oiKj0Z_Xnjc/default.jpg","width":120,"height":90},"artist":"StromaeVEVO","duration":{"hours":0,"min":3,"sec":53},"createdAt":"9/28/2022"}],"likedSongs":[{"_id":"2ZBtPf7FOoM","title":"Queen - Killer Queen","img":{"url":"https://i.ytimg.com/vi/2ZBtPf7FOoM/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":12},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"-tJYN-eG1zk","title":"Queen - We Will Rock You","img":{"url":"https://i.ytimg.com/vi/-tJYN-eG1zk/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":2,"sec":15},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"KXw8CRapg7k","title":"Queen - We Are The Champions","img":{"url":"https://i.ytimg.com/vi/KXw8CRapg7k/default.jpg","width":120,"height":90},"artist":"QueenVEVO","duration":{"hours":0,"min":3,"sec":30},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"kijpcUv-b8M","title":"Queen - Somebody To Love","img":{"url":"https://i.ytimg.com/vi/kijpcUv-b8M/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":5,"sec":10},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"rY0WxgSXdEE","title":"Queen - Another One Bites the Dust","img":{"url":"https://i.ytimg.com/vi/rY0WxgSXdEE/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":3,"sec":43},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"t99KH0TR-J4","title":"Queen - The Show Must Go On","img":{"url":"https://i.ytimg.com/vi/t99KH0TR-J4/default.jpg","width":120,"height":90},"artist":"Queen Official","duration":{"hours":0,"min":4,"sec":23},"createdAt":"9/28/2022","LikedAt":"10/1/2022"},{"_id":"PPOVADvSNd8","title":"רביד פלוטניק  - נענע  Ravid Plotnik - Nana","img":{"url":"https://i.ytimg.com/vi/PPOVADvSNd8/default.jpg","width":120,"height":90},"artist":"Boom Shaka Laka","likedByUsers":[],"duration":{"hours":0,"min":5,"sec":21},"createdAt":"9/28/2022","LikedAt":"10/1/2022"}],"followers":[],"following":[],"isAdmin":true}
+02/10/2022, 3:22:32 - DEBUG - Getting Stations
+02/10/2022, 3:22:33 - DEBUG - Getting Stations
+02/10/2022, 3:22:33 - DEBUG - Getting Stations
+02/10/2022, 3:22:33 - DEBUG - Getting Stations
+02/10/2022, 3:22:40 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:22:40 - DEBUG - Getting Stations
+02/10/2022, 3:22:40 - INFO - New connected socket [id: T_YRWU5DJv481_6HAABn]
+02/10/2022, 3:23:08 - DEBUG - auth.service - signup with username: eshel1212, fullname: eshel1212
+02/10/2022, 3:23:08 - DEBUG - auth.route - new account created: {"username":"eshel1212","password":"$2b$10$h8xqqgdl0G6Aw6G0DvpzHeKjmaYEEIZIQXyjFntd0sPNf91vs7qQ2","fullname":"eshel1212","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6338d9ec5f8775033282705f"}
+02/10/2022, 3:23:08 - DEBUG - auth.service - login with username: eshel1212
+02/10/2022, 3:23:08 - INFO - User login:  | {"_id":"6338d9ec5f8775033282705f","username":"eshel1212","fullname":"eshel1212","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 3:23:11 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:23:11 - INFO - New connected socket [id: fu7NPhbONne8_tyyAABp]
+02/10/2022, 3:23:11 - DEBUG - Getting Stations
+02/10/2022, 3:23:16 - DEBUG - Getting Stations
+02/10/2022, 3:23:16 - DEBUG - Getting Stations
+02/10/2022, 3:23:17 - DEBUG - Getting Stations
+02/10/2022, 3:23:17 - DEBUG - Getting Stations
+02/10/2022, 3:23:19 - DEBUG - Getting Stations
+02/10/2022, 3:23:21 - DEBUG - Getting Stations
+02/10/2022, 3:23:22 - DEBUG - Getting Stations
+02/10/2022, 3:23:22 - DEBUG - Getting Stations
+02/10/2022, 3:23:23 - DEBUG - Getting Stations
+02/10/2022, 3:23:29 - INFO - New connected socket [id: wqdmFEByOwTDnoT5AABr]
+02/10/2022, 3:23:29 - DEBUG - Getting Stations
+02/10/2022, 3:23:37 - DEBUG - auth.service - signup with username: eshel2121, fullname: eshel2121
+02/10/2022, 3:23:37 - DEBUG - auth.route - new account created: {"username":"eshel2121","password":"$2b$10$FBn.oND5UQYASTJtElibtO848wWHLbH5sVv7PNzmwFciaEgJzKcZ6","fullname":"eshel2121","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6338da095f87750332827061"}
+02/10/2022, 3:23:37 - DEBUG - auth.service - login with username: eshel2121
+02/10/2022, 3:23:38 - INFO - User login:  | {"_id":"6338da095f87750332827061","username":"eshel2121","fullname":"eshel2121","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 3:23:40 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:23:40 - INFO - New connected socket [id: 1OXWDVhetSLhlAMLAABt]
+02/10/2022, 3:23:40 - DEBUG - Getting Stations
+02/10/2022, 3:24:47 - DEBUG - Getting Stations
+02/10/2022, 3:24:47 - DEBUG - Getting Stations
+02/10/2022, 3:24:48 - DEBUG - Getting Stations
+02/10/2022, 3:24:58 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:24:59 - INFO - New connected socket [id: 8OLoZYbEGR6ajT0cAABv]
+02/10/2022, 3:24:59 - DEBUG - Getting Stations
+02/10/2022, 3:25:00 - DEBUG - Getting Stations
+02/10/2022, 3:25:00 - DEBUG - Getting Stations
+02/10/2022, 3:28:19 - DEBUG - Getting Stations
+02/10/2022, 3:28:19 - DEBUG - Getting Stations
+02/10/2022, 3:28:19 - DEBUG - Getting Stations
+02/10/2022, 3:28:20 - DEBUG - Getting Stations
+02/10/2022, 3:28:20 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:28:20 - DEBUG - Getting Stations
+02/10/2022, 3:28:20 - INFO - New connected socket [id: FhlN9rbGjls37DJiAABx]
+02/10/2022, 3:28:21 - DEBUG - Getting Stations
+02/10/2022, 3:28:21 - DEBUG - Getting Stations
+02/10/2022, 3:28:21 - DEBUG - Getting Stations
+02/10/2022, 3:28:22 - DEBUG - Getting Stations
+02/10/2022, 3:28:22 - DEBUG - Getting Stations
+02/10/2022, 3:28:24 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:28:25 - DEBUG - Getting Stations
+02/10/2022, 3:28:25 - INFO - New connected socket [id: jCNwgIJfeamwpQU-AABz]
+02/10/2022, 3:28:25 - DEBUG - Getting Stations
+02/10/2022, 3:28:26 - DEBUG - Getting Stations
+02/10/2022, 3:29:30 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:29:30 - INFO - New connected socket [id: V6EqiZ_kXGDIaKH1AAB1]
+02/10/2022, 3:29:30 - DEBUG - Getting Stations
+02/10/2022, 3:29:31 - DEBUG - Getting Stations
+02/10/2022, 3:29:40 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:29:40 - INFO - New connected socket [id: 3_j8M3vtjVn4RJAoAAB3]
+02/10/2022, 3:29:41 - DEBUG - Getting Stations
+02/10/2022, 3:29:41 - DEBUG - Getting Stations
+02/10/2022, 3:30:13 - DEBUG - Getting Stations
+02/10/2022, 3:30:14 - DEBUG - Getting Stations
+02/10/2022, 3:30:22 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:30:22 - INFO - New connected socket [id: DxOmsD-JvVYHXroSAAB5]
+02/10/2022, 3:30:22 - DEBUG - Getting Stations
+02/10/2022, 3:30:23 - DEBUG - Getting Stations
+02/10/2022, 3:30:23 - DEBUG - Getting Stations
+02/10/2022, 3:30:26 - DEBUG - Getting Stations
+02/10/2022, 3:30:26 - DEBUG - Getting Stations
+02/10/2022, 3:30:27 - DEBUG - Getting Stations
+02/10/2022, 3:30:27 - DEBUG - Getting Stations
+02/10/2022, 3:30:30 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:30:30 - DEBUG - Getting Stations
+02/10/2022, 3:30:30 - INFO - New connected socket [id: wRMSTZvWrnsTPfPXAAB7]
+02/10/2022, 3:30:30 - DEBUG - Getting Stations
+02/10/2022, 3:30:31 - DEBUG - Getting Stations
+02/10/2022, 3:30:31 - DEBUG - Getting Stations
+02/10/2022, 3:30:40 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:30:41 - INFO - New connected socket [id: I_PZSux85zjLg9ChAAB9]
+02/10/2022, 3:30:41 - DEBUG - Getting Stations
+02/10/2022, 3:30:42 - DEBUG - Getting Stations
+02/10/2022, 3:30:42 - DEBUG - Getting Stations
+02/10/2022, 3:30:42 - DEBUG - Getting Stations
+02/10/2022, 3:30:48 - DEBUG - Getting Stations
+02/10/2022, 3:30:48 - DEBUG - Getting Stations
+02/10/2022, 3:30:49 - DEBUG - Getting Stations
+02/10/2022, 3:30:49 - DEBUG - Getting Stations
+02/10/2022, 3:30:55 - DEBUG - Getting Stations
+02/10/2022, 3:30:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:30:59 - INFO - New connected socket [id: 7ArSBlwmMGpvt3AVAAB_]
+02/10/2022, 3:30:59 - DEBUG - Getting Stations
+02/10/2022, 3:31:00 - DEBUG - Getting Stations
+02/10/2022, 3:31:00 - DEBUG - Getting Stations
+02/10/2022, 3:31:31 - DEBUG - Getting Stations
+02/10/2022, 3:31:32 - DEBUG - Getting Stations
+02/10/2022, 3:31:49 - DEBUG - Getting Stations
+02/10/2022, 3:31:49 - DEBUG - Getting Stations
+02/10/2022, 3:31:50 - DEBUG - Getting Stations
+02/10/2022, 3:31:50 - DEBUG - Getting Stations
+02/10/2022, 3:31:50 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:31:50 - DEBUG - Getting Stations
+02/10/2022, 3:31:51 - DEBUG - Getting Stations
+02/10/2022, 3:31:51 - INFO - New connected socket [id: WTYhSbwURRHgE877AACB]
+02/10/2022, 3:31:51 - DEBUG - Getting Stations
+02/10/2022, 3:31:52 - DEBUG - Getting Stations
+02/10/2022, 3:31:52 - DEBUG - Getting Stations
+02/10/2022, 3:31:52 - DEBUG - Getting Stations
+02/10/2022, 3:31:53 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:31:54 - INFO - New connected socket [id: oVHPX6_y3IHyveZ3AACD]
+02/10/2022, 3:31:54 - DEBUG - Getting Stations
+02/10/2022, 3:31:54 - DEBUG - Getting Stations
+02/10/2022, 3:31:55 - DEBUG - Getting Stations
+02/10/2022, 3:32:01 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:32:01 - DEBUG - Getting Stations
+02/10/2022, 3:32:01 - INFO - New connected socket [id: D9eejPwrYAa8PGEZAACF]
+02/10/2022, 3:32:02 - DEBUG - Getting Stations
+02/10/2022, 3:32:02 - DEBUG - Getting Stations
+02/10/2022, 3:32:29 - DEBUG - Getting Stations
+02/10/2022, 3:32:30 - DEBUG - Getting Stations
+02/10/2022, 3:32:31 - DEBUG - Getting Stations
+02/10/2022, 3:32:32 - DEBUG - Getting Stations
+02/10/2022, 3:32:34 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:32:34 - INFO - New connected socket [id: r4LGYNXNvLQ2NUv6AACH]
+02/10/2022, 3:32:35 - DEBUG - Getting Stations
+02/10/2022, 3:32:35 - DEBUG - Getting Stations
+02/10/2022, 3:32:36 - DEBUG - Getting Stations
+02/10/2022, 3:34:18 - DEBUG - Getting Stations
+02/10/2022, 3:34:19 - DEBUG - Getting Stations
+02/10/2022, 3:34:19 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:34:20 - INFO - New connected socket [id: LfZX8-0Aqjhy6S-BAACJ]
+02/10/2022, 3:34:20 - DEBUG - Getting Stations
+02/10/2022, 3:34:21 - DEBUG - Getting Stations
+02/10/2022, 3:34:21 - DEBUG - Getting Stations
+02/10/2022, 3:35:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:35:21 - INFO - New connected socket [id: Djk4qxWmjoF2p-jHAACL]
+02/10/2022, 3:35:22 - DEBUG - Getting Stations
+02/10/2022, 3:35:22 - DEBUG - Getting Stations
+02/10/2022, 3:35:22 - DEBUG - Getting Stations
+02/10/2022, 3:35:41 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:35:42 - INFO - New connected socket [id: T3ukoed4Hp1hJQ3AAACN]
+02/10/2022, 3:35:42 - DEBUG - Getting Stations
+02/10/2022, 3:35:42 - DEBUG - Getting Stations
+02/10/2022, 3:35:43 - DEBUG - Getting Stations
+02/10/2022, 3:35:50 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:35:51 - INFO - New connected socket [id: s9ybnMK7fJEiLYrMAACP]
+02/10/2022, 3:35:51 - DEBUG - Getting Stations
+02/10/2022, 3:35:52 - DEBUG - Getting Stations
+02/10/2022, 3:35:52 - DEBUG - Getting Stations
+02/10/2022, 3:35:56 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:35:57 - INFO - New connected socket [id: SN6xSr4v6mLj22QDAACR]
+02/10/2022, 3:35:57 - DEBUG - Getting Stations
+02/10/2022, 3:35:57 - DEBUG - Getting Stations
+02/10/2022, 3:35:58 - DEBUG - Getting Stations
+02/10/2022, 3:38:07 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:38:08 - INFO - New connected socket [id: Uhng95wbmD5iEFWEAACT]
+02/10/2022, 3:38:08 - DEBUG - Getting Stations
+02/10/2022, 3:38:09 - DEBUG - Getting Stations
+02/10/2022, 3:38:09 - DEBUG - Getting Stations
+02/10/2022, 3:39:41 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:39:42 - INFO - New connected socket [id: gZ0WOhYn-nMjfoFnAACV]
+02/10/2022, 3:39:42 - DEBUG - Getting Stations
+02/10/2022, 3:39:43 - DEBUG - Getting Stations
+02/10/2022, 3:39:43 - DEBUG - Getting Stations
+02/10/2022, 3:42:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:42:21 - INFO - New connected socket [id: Uf-2-XfagEgDt2PnAACX]
+02/10/2022, 3:42:22 - DEBUG - Getting Stations
+02/10/2022, 3:42:22 - DEBUG - Getting Stations
+02/10/2022, 3:42:22 - DEBUG - Getting Stations
+02/10/2022, 3:42:38 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:42:39 - INFO - New connected socket [id: a7-VYtL3Tj7JnWaUAACZ]
+02/10/2022, 3:42:39 - DEBUG - Getting Stations
+02/10/2022, 3:42:39 - DEBUG - Getting Stations
+02/10/2022, 3:42:40 - DEBUG - Getting Stations
+02/10/2022, 3:43:37 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:43:37 - INFO - New connected socket [id: KHJMVrBiMAuXz4H6AACb]
+02/10/2022, 3:43:38 - DEBUG - Getting Stations
+02/10/2022, 3:43:38 - DEBUG - Getting Stations
+02/10/2022, 3:43:38 - DEBUG - Getting Stations
+02/10/2022, 3:44:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 3:44:46 - INFO - New connected socket [id: -4zy213-8jCNZYo-AACd]
+02/10/2022, 3:44:46 - DEBUG - Getting Stations
+02/10/2022, 3:44:46 - DEBUG - Getting Stations
+02/10/2022, 3:44:47 - DEBUG - Getting Stations
+02/10/2022, 3:44:53 - DEBUG - Getting Stations
+02/10/2022, 3:44:53 - DEBUG - Getting Stations
+02/10/2022, 3:44:54 - DEBUG - Getting Stations
+02/10/2022, 3:44:54 - DEBUG - Getting Stations
+02/10/2022, 11:28:01 - DEBUG - Getting Stations
+02/10/2022, 11:28:02 - DEBUG - Getting Stations
+02/10/2022, 11:28:02 - DEBUG - Getting Stations
+02/10/2022, 11:28:04 - DEBUG - Getting Stations
+02/10/2022, 11:28:07 - DEBUG - Getting Stations
+02/10/2022, 11:28:07 - DEBUG - Getting Stations
+02/10/2022, 11:28:08 - DEBUG - Getting Stations
+02/10/2022, 11:28:21 - DEBUG - Getting Stations
+02/10/2022, 11:33:16 - DEBUG - Getting Stations
+02/10/2022, 11:33:17 - DEBUG - Getting Stations
+02/10/2022, 11:33:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:33:18 - INFO - New connected socket [id: 1DWyqAknk51jPKISAACf]
+02/10/2022, 11:33:18 - DEBUG - Getting Stations
+02/10/2022, 11:33:19 - DEBUG - Getting Stations
+02/10/2022, 11:33:19 - DEBUG - Getting Stations
+02/10/2022, 11:33:19 - DEBUG - Getting Stations
+02/10/2022, 11:33:25 - DEBUG - Getting Stations
+02/10/2022, 11:33:26 - DEBUG - Getting Stations
+02/10/2022, 11:33:27 - DEBUG - Getting Stations
+02/10/2022, 11:33:27 - DEBUG - Getting Stations
+02/10/2022, 11:33:30 - DEBUG - Getting Stations
+02/10/2022, 11:33:31 - DEBUG - Getting Stations
+02/10/2022, 11:35:36 - DEBUG - Getting Stations
+02/10/2022, 11:35:37 - DEBUG - Getting Stations
+02/10/2022, 11:35:37 - DEBUG - Getting Stations
+02/10/2022, 11:35:37 - DEBUG - Getting Stations
+02/10/2022, 11:35:38 - DEBUG - Getting Stations
+02/10/2022, 11:35:38 - DEBUG - Getting Stations
+02/10/2022, 11:35:39 - DEBUG - Getting Stations
+02/10/2022, 11:36:15 - DEBUG - Getting Stations
+02/10/2022, 11:36:18 - DEBUG - Getting Stations
+02/10/2022, 11:36:40 - DEBUG - Getting Stations
+02/10/2022, 11:36:41 - DEBUG - Getting Stations
+02/10/2022, 11:36:41 - DEBUG - Getting Stations
+02/10/2022, 11:36:42 - DEBUG - Getting Stations
+02/10/2022, 11:36:42 - DEBUG - Getting Stations
+02/10/2022, 11:36:48 - DEBUG - Getting Stations
+02/10/2022, 11:36:50 - DEBUG - Getting Stations
+02/10/2022, 11:37:07 - DEBUG - Getting Stations
+02/10/2022, 11:37:07 - DEBUG - Getting Stations
+02/10/2022, 11:37:08 - DEBUG - Getting Stations
+02/10/2022, 11:37:08 - DEBUG - Getting Stations
+02/10/2022, 11:37:13 - DEBUG - Getting Stations
+02/10/2022, 11:37:18 - DEBUG - Getting Stations
+02/10/2022, 11:37:36 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:37:37 - INFO - New connected socket [id: 7dTqDDlfjV4hCacUAACh]
+02/10/2022, 11:37:37 - DEBUG - Getting Stations
+02/10/2022, 11:37:38 - DEBUG - Getting Stations
+02/10/2022, 11:37:38 - DEBUG - Getting Stations
+02/10/2022, 11:37:39 - DEBUG - Getting Stations
+02/10/2022, 11:38:32 - DEBUG - Getting Stations
+02/10/2022, 11:44:45 - DEBUG - Getting Stations
+02/10/2022, 11:45:13 - DEBUG - Getting Stations
+02/10/2022, 11:45:16 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:45:16 - INFO - New connected socket [id: nzbUfKcCAw0iw9FbAACj]
+02/10/2022, 11:45:16 - DEBUG - Getting Stations
+02/10/2022, 11:45:50 - DEBUG - Getting Stations
+02/10/2022, 11:46:20 - DEBUG - Getting Stations
+02/10/2022, 11:46:36 - DEBUG - Getting Stations
+02/10/2022, 11:47:13 - DEBUG - Getting Stations
+02/10/2022, 11:47:22 - DEBUG - Getting Stations
+02/10/2022, 11:47:24 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:47:24 - INFO - New connected socket [id: CHAMO8KDPWmohQqLAACl]
+02/10/2022, 11:47:24 - DEBUG - Getting Stations
+02/10/2022, 11:48:04 - DEBUG - Getting Stations
+02/10/2022, 11:48:46 - DEBUG - Getting Stations
+02/10/2022, 11:48:47 - DEBUG - Getting Stations
+02/10/2022, 11:48:58 - DEBUG - Getting Stations
+02/10/2022, 11:49:39 - DEBUG - Getting Stations
+02/10/2022, 11:50:13 - DEBUG - Getting Stations
+02/10/2022, 11:50:46 - DEBUG - Getting Stations
+02/10/2022, 11:50:52 - DEBUG - Getting Stations
+02/10/2022, 11:50:53 - DEBUG - Getting Stations
+02/10/2022, 11:51:57 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:51:57 - INFO - New connected socket [id: EpUZnuPBdFh_WVNkAACn]
+02/10/2022, 11:51:57 - DEBUG - Getting Stations
+02/10/2022, 11:51:58 - DEBUG - Getting Stations
+02/10/2022, 11:52:00 - DEBUG - Getting Stations
+02/10/2022, 11:52:01 - DEBUG - Getting Stations
+02/10/2022, 11:52:39 - DEBUG - Getting Stations
+02/10/2022, 11:52:39 - DEBUG - Getting Stations
+02/10/2022, 11:52:52 - DEBUG - Getting Stations
+02/10/2022, 11:53:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:53:18 - DEBUG - Getting Stations
+02/10/2022, 11:53:18 - INFO - New connected socket [id: 7wxG2Sy7biUlWCtXAACp]
+02/10/2022, 11:54:50 - DEBUG - Getting Stations
+02/10/2022, 11:54:50 - DEBUG - Getting Stations
+02/10/2022, 11:55:00 - DEBUG - Getting Stations
+02/10/2022, 11:55:00 - DEBUG - Getting Stations
+02/10/2022, 11:56:33 - DEBUG - Getting Stations
+02/10/2022, 11:56:34 - DEBUG - Getting Stations
+02/10/2022, 11:56:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:56:45 - INFO - New connected socket [id: Ypis6-ffM-h15E7oAACr]
+02/10/2022, 11:56:45 - DEBUG - Getting Stations
+02/10/2022, 11:57:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 11:57:49 - DEBUG - Getting Stations
+02/10/2022, 11:57:49 - INFO - New connected socket [id: DLBu5P-yaJRHZP-MAACt]
+02/10/2022, 11:58:03 - DEBUG - Getting Stations
+02/10/2022, 11:58:04 - DEBUG - Getting Stations
+02/10/2022, 12:02:45 - DEBUG - Getting Stations
+02/10/2022, 12:02:46 - DEBUG - Getting Stations
+02/10/2022, 12:02:55 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:02:55 - INFO - New connected socket [id: TQzv8xuAo3HMyDP1AACv]
+02/10/2022, 12:02:55 - DEBUG - Getting Stations
+02/10/2022, 12:03:03 - DEBUG - Getting Stations
+02/10/2022, 12:03:03 - DEBUG - Getting Stations
+02/10/2022, 12:03:04 - DEBUG - Getting Stations
+02/10/2022, 12:03:11 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:03:12 - INFO - New connected socket [id: iLiFSutTYKMqqXyoAACx]
+02/10/2022, 12:03:12 - DEBUG - Getting Stations
+02/10/2022, 12:03:13 - DEBUG - Getting Stations
+02/10/2022, 12:03:15 - DEBUG - Getting Stations
+02/10/2022, 12:03:16 - DEBUG - Getting Stations
+02/10/2022, 12:03:16 - DEBUG - Getting Stations
+02/10/2022, 12:03:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:03:22 - DEBUG - Getting Stations
+02/10/2022, 12:03:22 - INFO - New connected socket [id: dtpk8yKupGFBDv8tAACz]
+02/10/2022, 12:04:22 - DEBUG - Getting Stations
+02/10/2022, 12:04:22 - DEBUG - Getting Stations
+02/10/2022, 12:04:46 - DEBUG - Getting Stations
+02/10/2022, 12:04:46 - DEBUG - Getting Stations
+02/10/2022, 12:06:07 - DEBUG - auth.service - signup with username: bigbiggiefan, fullname: bigbiggiefan
+02/10/2022, 12:06:08 - DEBUG - auth.route - new account created: {"username":"bigbiggiefan","password":"$2b$10$hANlVJ0nKIp51O.Z8pTaMeTI1hqpnnnnstwdL3foQg0luyZTRJt16","fullname":"bigbiggiefan","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"633954805f87750332827066"}
+02/10/2022, 12:06:08 - DEBUG - auth.service - login with username: bigbiggiefan
+02/10/2022, 12:06:08 - INFO - User login:  | {"_id":"633954805f87750332827066","username":"bigbiggiefan","fullname":"bigbiggiefan","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:06:13 - DEBUG - Getting Stations
+02/10/2022, 12:06:26 - DEBUG - Getting Stations
+02/10/2022, 12:06:37 - DEBUG - auth.service - signup with username: Eshel Eyni, fullname: Eshel Eyni
+02/10/2022, 12:06:37 - DEBUG - auth.route - new account created: {"username":"Eshel Eyni","password":"$2b$10$FcuWRzfz/evKMp2BF.CPzezks6oP7XlU3gtnrgGWVFGIWCi.rGdIW","fullname":"Eshel Eyni","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6339549d5f87750332827068"}
+02/10/2022, 12:06:37 - DEBUG - auth.service - login with username: Eshel Eyni
+02/10/2022, 12:06:38 - INFO - User login:  | {"_id":"6339549d5f87750332827068","username":"Eshel Eyni","fullname":"Eshel Eyni","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:06:40 - DEBUG - Getting Stations
+02/10/2022, 12:06:53 - DEBUG - Getting Stations
+02/10/2022, 12:07:01 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:07:02 - DEBUG - Getting Stations
+02/10/2022, 12:07:02 - INFO - New connected socket [id: bhaeErxX4Zm-VLTBAAC1]
+02/10/2022, 12:07:05 - DEBUG - Getting Stations
+02/10/2022, 12:07:06 - DEBUG - Getting Stations
+02/10/2022, 12:07:09 - DEBUG - Getting Stations
+02/10/2022, 12:07:09 - DEBUG - Getting Stations
+02/10/2022, 12:07:09 - DEBUG - Getting Stations
+02/10/2022, 12:07:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:07:17 - INFO - New connected socket [id: 9zrum0JhCeN8wiGlAAC3]
+02/10/2022, 12:07:18 - DEBUG - Getting Stations
+02/10/2022, 12:07:38 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:07:39 - DEBUG - Getting Stations
+02/10/2022, 12:07:39 - INFO - New connected socket [id: RnD_alHxcftcgKW3AAC5]
+02/10/2022, 12:08:44 - DEBUG - Getting Stations
+02/10/2022, 12:08:45 - DEBUG - Getting Stations
+02/10/2022, 12:08:50 - DEBUG - Getting Stations
+02/10/2022, 12:08:50 - DEBUG - Getting Stations
+02/10/2022, 12:08:53 - DEBUG - Getting Stations
+02/10/2022, 12:08:53 - DEBUG - Getting Stations
+02/10/2022, 12:08:56 - DEBUG - Getting Stations
+02/10/2022, 12:08:57 - DEBUG - Getting Stations
+02/10/2022, 12:09:05 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:09:05 - INFO - New connected socket [id: 6-ob6JaGpMa_W1NrAAC7]
+02/10/2022, 12:09:05 - DEBUG - Getting Stations
+02/10/2022, 12:09:06 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:09:06 - INFO - New connected socket [id: 6f4LSNwyOFsKgXRdAAC9]
+02/10/2022, 12:09:06 - DEBUG - Getting Stations
+02/10/2022, 12:09:15 - DEBUG - Getting Stations
+02/10/2022, 12:09:15 - DEBUG - Getting Stations
+02/10/2022, 12:09:19 - DEBUG - Getting Stations
+02/10/2022, 12:09:25 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:09:26 - DEBUG - Getting Stations
+02/10/2022, 12:09:26 - INFO - New connected socket [id: 7mqcmkUeqMTuce6UAAC_]
+02/10/2022, 12:09:54 - DEBUG - auth.service - login with username: Eshel Eyni
+02/10/2022, 12:09:54 - DEBUG - auth.service - login with username: Eshel Eyni
+02/10/2022, 12:09:54 - ERROR - Failed to Login Invalid username or password
+02/10/2022, 12:09:54 - ERROR - Failed to Login Invalid username or password
+02/10/2022, 12:09:54 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:09:55 - DEBUG - Getting Stations
+02/10/2022, 12:09:55 - INFO - New connected socket [id: oTibUvmoh-DIRJTCAADB]
+02/10/2022, 12:10:03 - DEBUG - Getting Stations
+02/10/2022, 12:10:11 - DEBUG - auth.service - login with username: Eshel Eyni
+02/10/2022, 12:10:11 - DEBUG - auth.service - login with username: Eshel Eyni
+02/10/2022, 12:10:11 - INFO - User login:  | {"_id":"6339549d5f87750332827068","username":"Eshel Eyni","fullname":"Eshel Eyni","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[{"_id":"633954a25f87750332827069","title":"biggie"}],"recentlyPlayedClips":[],"likedSongs":[{"_id":"_JZom_gVfuw","title":"The Notorious BIG - Juicy","img":{"url":"https://i.ytimg.com/vi/_JZom_gVfuw/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":13},"likedAt":"10/2/2022"},{"_id":"phaJXp_zMYM","title":"The Notorious BIG - Big Poppa","img":{"url":"https://i.ytimg.com/vi/phaJXp_zMYM/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":22},"likedAt":"10/2/2022"},{"_id":"Uz5o4EjCNLg","title":"The Notorious BIG - Everyday Struggle","img":{"url":"https://i.ytimg.com/vi/Uz5o4EjCNLg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":20},"likedAt":"10/2/2022"},{"_id":"wk4ftn4PArg","title":"Biggie Smalls - Hypnotize","img":{"url":"https://i.ytimg.com/vi/wk4ftn4PArg/default.jpg","width":120,"height":90},"artist":"Biggie Smalls","duration":{"hours":0,"min":3,"sec":52},"likedAt":"10/2/2022"},{"_id":"v1mKGlYL9jg","title":"The Notorious BIG - Suicidal Thoughts","img":{"url":"https://i.ytimg.com/vi/v1mKGlYL9jg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":2,"sec":51},"likedAt":"10/2/2022"},{"_id":"k1qpgQr8wXk","title":"Hypnotize","img":{"url":"https://i.ytimg.com/vi/k1qpgQr8wXk/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":3,"sec":50},"likedAt":"10/2/2022"},{"_id":"ufKxCclo7-c","title":"The Notorious BIG - Nasty Girl","img":{"url":"https://i.ytimg.com/vi/ufKxCclo7-c/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":0},"likedAt":"10/2/2022"}],"followers":["633954805f87750332827066"],"following":[]}
+02/10/2022, 12:10:11 - INFO - User login:  | {"_id":"6339549d5f87750332827068","username":"Eshel Eyni","fullname":"Eshel Eyni","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[{"_id":"633954a25f87750332827069","title":"biggie"}],"recentlyPlayedClips":[],"likedSongs":[{"_id":"_JZom_gVfuw","title":"The Notorious BIG - Juicy","img":{"url":"https://i.ytimg.com/vi/_JZom_gVfuw/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":13},"likedAt":"10/2/2022"},{"_id":"phaJXp_zMYM","title":"The Notorious BIG - Big Poppa","img":{"url":"https://i.ytimg.com/vi/phaJXp_zMYM/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":22},"likedAt":"10/2/2022"},{"_id":"Uz5o4EjCNLg","title":"The Notorious BIG - Everyday Struggle","img":{"url":"https://i.ytimg.com/vi/Uz5o4EjCNLg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":20},"likedAt":"10/2/2022"},{"_id":"wk4ftn4PArg","title":"Biggie Smalls - Hypnotize","img":{"url":"https://i.ytimg.com/vi/wk4ftn4PArg/default.jpg","width":120,"height":90},"artist":"Biggie Smalls","duration":{"hours":0,"min":3,"sec":52},"likedAt":"10/2/2022"},{"_id":"v1mKGlYL9jg","title":"The Notorious BIG - Suicidal Thoughts","img":{"url":"https://i.ytimg.com/vi/v1mKGlYL9jg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":2,"sec":51},"likedAt":"10/2/2022"},{"_id":"k1qpgQr8wXk","title":"Hypnotize","img":{"url":"https://i.ytimg.com/vi/k1qpgQr8wXk/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":3,"sec":50},"likedAt":"10/2/2022"},{"_id":"ufKxCclo7-c","title":"The Notorious BIG - Nasty Girl","img":{"url":"https://i.ytimg.com/vi/ufKxCclo7-c/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":0},"likedAt":"10/2/2022"}],"followers":["633954805f87750332827066"],"following":[]}
+02/10/2022, 12:10:14 - DEBUG - Getting Stations
+02/10/2022, 12:10:22 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:10:22 - DEBUG - Getting Stations
+02/10/2022, 12:10:22 - INFO - New connected socket [id: 1Oi-NE2HwLYGr6lfAADD]
+02/10/2022, 12:13:22 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:13:22 - DEBUG - Getting Stations
+02/10/2022, 12:13:23 - DEBUG - Getting Stations
+02/10/2022, 12:13:23 - INFO - New connected socket [id: 80ppVSIgj8fkRpIVAADF]
+02/10/2022, 12:13:57 - DEBUG - auth.service - signup with username: eshel123, fullname: eshel123
+02/10/2022, 12:13:57 - DEBUG - auth.route - new account created: {"username":"eshel123","password":"$2b$10$M0.SyOSmw0KC91bhHaHz7.6Dhij3IxDMgJEmFVjbjgGfvUMVhxBue","fullname":"eshel123","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"633956555f8775033282706b"}
+02/10/2022, 12:13:57 - DEBUG - auth.service - login with username: eshel123
+02/10/2022, 12:13:58 - INFO - User login:  | {"_id":"633956555f8775033282706b","username":"eshel123","fullname":"eshel123","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:14:03 - DEBUG - Getting Stations
+02/10/2022, 12:14:29 - DEBUG - Getting Stations
+02/10/2022, 12:14:30 - DEBUG - Getting Stations
+02/10/2022, 12:14:44 - DEBUG - Getting Stations
+02/10/2022, 12:14:45 - DEBUG - Getting Stations
+02/10/2022, 12:14:47 - DEBUG - Getting Stations
+02/10/2022, 12:14:48 - DEBUG - Getting Stations
+02/10/2022, 12:14:54 - DEBUG - Getting Stations
+02/10/2022, 12:14:55 - DEBUG - Getting Stations
+02/10/2022, 12:14:59 - DEBUG - Getting Stations
+02/10/2022, 12:15:10 - INFO - New chat msg from socket [id: 6-ob6JaGpMa_W1NrAAC7], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:15:27 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:15:31 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:15:32 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:15:44 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:15:46 - INFO - New connected socket [id: LD8WgV-aKWp4nNJFAADH]
+02/10/2022, 12:15:49 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:15:52 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:15:55 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:16:06 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:16:43 - INFO - New chat msg from socket [id: 80ppVSIgj8fkRpIVAADF], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:17:14 - DEBUG - Getting Stations
+02/10/2022, 12:17:15 - DEBUG - Getting Stations
+02/10/2022, 12:17:16 - DEBUG - Getting Stations
+02/10/2022, 12:18:48 - DEBUG - Getting Stations
+02/10/2022, 12:18:48 - DEBUG - Getting Stations
+02/10/2022, 12:18:49 - DEBUG - Getting Stations
+02/10/2022, 12:18:50 - DEBUG - Getting Stations
+02/10/2022, 12:19:14 - DEBUG - Getting Stations
+02/10/2022, 12:19:45 - INFO - Socket is leaving topic 6339565a5f8775033282706c [id: 80ppVSIgj8fkRpIVAADF]
+02/10/2022, 12:19:46 - DEBUG - Getting Stations
+02/10/2022, 12:21:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:21:49 - INFO - New connected socket [id: ZTFvUR61dkeWJVnlAADJ]
+02/10/2022, 12:21:51 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:21:51 - INFO - New connected socket [id: l3-DvA2W9vb3STXwAADL]
+02/10/2022, 12:21:52 - DEBUG - Getting Stations
+02/10/2022, 12:21:57 - INFO - New chat msg from socket [id: l3-DvA2W9vb3STXwAADL], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:22:00 - INFO - New chat msg from socket [id: l3-DvA2W9vb3STXwAADL], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:26:13 - INFO - New chat msg from socket [id: l3-DvA2W9vb3STXwAADL], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:26:15 - INFO - New chat msg from socket [id: l3-DvA2W9vb3STXwAADL], emitting to topic 6339565a5f8775033282706c
+02/10/2022, 12:30:37 - INFO - New connected socket [id: xHPQnT3RadnbgKCwAADN]
+02/10/2022, 12:30:55 - DEBUG - auth.service - signup with username: eshel0548, fullname: eshel0548
+02/10/2022, 12:30:55 - DEBUG - Getting Stations
+02/10/2022, 12:30:55 - DEBUG - auth.route - new account created: {"username":"eshel0548","password":"$2b$10$.N/CQxQCHSmdSGM0LxZiM.kJoj51Hm/8kPWWZ8SbCSyLRjHcMU.QC","fullname":"eshel0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"63395a4f5f8775033282706f"}
+02/10/2022, 12:30:55 - DEBUG - auth.service - login with username: eshel0548
+02/10/2022, 12:30:55 - INFO - User login:  | {"_id":"63395a4f5f8775033282706f","username":"eshel0548","fullname":"eshel0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:31:24 - DEBUG - auth.service - login with username: eshel0548
+02/10/2022, 12:31:24 - DEBUG - auth.service - login with username: eshel0548
+02/10/2022, 12:31:24 - INFO - User login:  | {"_id":"63395a4f5f8775033282706f","username":"eshel0548","fullname":"eshel0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:31:24 - INFO - User login:  | {"_id":"63395a4f5f8775033282706f","username":"eshel0548","fullname":"eshel0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:31:37 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:31:38 - INFO - New connected socket [id: 59CeVRbjpuBDOUjEAADP]
+02/10/2022, 12:31:38 - DEBUG - Getting Stations
+02/10/2022, 12:31:44 - DEBUG - auth.service - login with username: eshel0548
+02/10/2022, 12:31:44 - DEBUG - auth.service - login with username: eshel0548
+02/10/2022, 12:31:44 - INFO - User login:  | {"_id":"63395a4f5f8775033282706f","username":"eshel0548","fullname":"eshel0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:31:45 - INFO - User login:  | {"_id":"63395a4f5f8775033282706f","username":"eshel0548","fullname":"eshel0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:31:51 - DEBUG - Getting Stations
+02/10/2022, 12:33:58 - DEBUG - Getting Stations
+02/10/2022, 12:34:18 - DEBUG - Getting Stations
+02/10/2022, 12:35:45 - DEBUG - Getting Stations
+02/10/2022, 12:37:12 - DEBUG - Getting Stations
+02/10/2022, 12:42:05 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:43:13 - DEBUG - Getting Stations
+02/10/2022, 12:43:24 - DEBUG - auth.service - login with username: bigbiggiefan
+02/10/2022, 12:43:24 - DEBUG - auth.service - login with username: bigbiggiefan
+02/10/2022, 12:43:24 - INFO - User login:  | {"_id":"633954805f87750332827066","username":"bigbiggiefan","fullname":"bigbiggiefan","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[{"_id":"633954875f87750332827067","title":"biggie"}],"recentlyPlayedClips":[],"likedSongs":[{"_id":"_JZom_gVfuw","title":"The Notorious BIG - Juicy","img":{"url":"https://i.ytimg.com/vi/_JZom_gVfuw/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":13},"likedAt":"10/2/2022"},{"_id":"phaJXp_zMYM","title":"The Notorious BIG - Big Poppa","img":{"url":"https://i.ytimg.com/vi/phaJXp_zMYM/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":22},"likedAt":"10/2/2022"},{"_id":"Uz5o4EjCNLg","title":"The Notorious BIG - Everyday Struggle","img":{"url":"https://i.ytimg.com/vi/Uz5o4EjCNLg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":20},"likedAt":"10/2/2022"},{"_id":"wk4ftn4PArg","title":"Biggie Smalls - Hypnotize","img":{"url":"https://i.ytimg.com/vi/wk4ftn4PArg/default.jpg","width":120,"height":90},"artist":"Biggie Smalls","duration":{"hours":0,"min":3,"sec":52},"likedAt":"10/2/2022"},{"_id":"v1mKGlYL9jg","title":"The Notorious BIG - Suicidal Thoughts","img":{"url":"https://i.ytimg.com/vi/v1mKGlYL9jg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":2,"sec":51},"likedAt":"10/2/2022"},{"_id":"k1qpgQr8wXk","title":"Hypnotize","img":{"url":"https://i.ytimg.com/vi/k1qpgQr8wXk/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":3,"sec":50},"likedAt":"10/2/2022"},{"_id":"ufKxCclo7-c","title":"The Notorious BIG - Nasty Girl","img":{"url":"https://i.ytimg.com/vi/ufKxCclo7-c/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":0},"likedAt":"10/2/2022"}],"followers":[],"following":[]}
+02/10/2022, 12:43:24 - INFO - User login:  | {"_id":"633954805f87750332827066","username":"bigbiggiefan","fullname":"bigbiggiefan","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[{"_id":"633954875f87750332827067","title":"biggie"}],"recentlyPlayedClips":[],"likedSongs":[{"_id":"_JZom_gVfuw","title":"The Notorious BIG - Juicy","img":{"url":"https://i.ytimg.com/vi/_JZom_gVfuw/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":13},"likedAt":"10/2/2022"},{"_id":"phaJXp_zMYM","title":"The Notorious BIG - Big Poppa","img":{"url":"https://i.ytimg.com/vi/phaJXp_zMYM/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":4,"sec":22},"likedAt":"10/2/2022"},{"_id":"Uz5o4EjCNLg","title":"The Notorious BIG - Everyday Struggle","img":{"url":"https://i.ytimg.com/vi/Uz5o4EjCNLg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":20},"likedAt":"10/2/2022"},{"_id":"wk4ftn4PArg","title":"Biggie Smalls - Hypnotize","img":{"url":"https://i.ytimg.com/vi/wk4ftn4PArg/default.jpg","width":120,"height":90},"artist":"Biggie Smalls","duration":{"hours":0,"min":3,"sec":52},"likedAt":"10/2/2022"},{"_id":"v1mKGlYL9jg","title":"The Notorious BIG - Suicidal Thoughts","img":{"url":"https://i.ytimg.com/vi/v1mKGlYL9jg/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":2,"sec":51},"likedAt":"10/2/2022"},{"_id":"k1qpgQr8wXk","title":"Hypnotize","img":{"url":"https://i.ytimg.com/vi/k1qpgQr8wXk/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":3,"sec":50},"likedAt":"10/2/2022"},{"_id":"ufKxCclo7-c","title":"The Notorious BIG - Nasty Girl","img":{"url":"https://i.ytimg.com/vi/ufKxCclo7-c/default.jpg","width":120,"height":90},"artist":"The Notorious B.I.G.","duration":{"hours":0,"min":5,"sec":0},"likedAt":"10/2/2022"}],"followers":[],"following":[]}
+02/10/2022, 12:43:30 - DEBUG - Getting Stations
+02/10/2022, 12:43:37 - DEBUG - Getting Stations
+02/10/2022, 12:43:37 - INFO - New connected socket [id: G6dvyyEO035wyp85AADR]
+02/10/2022, 12:43:54 - DEBUG - auth.service - signup with username: user0548, fullname: user0548
+02/10/2022, 12:43:54 - DEBUG - auth.route - new account created: {"username":"user0548","password":"$2b$10$mLOeTVMFHoWNsJmk13tWqu3fw8uUE/DX6RKyOIeClOrPTmdRDciR.","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"63395d5a5f87750332827071"}
+02/10/2022, 12:43:54 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:43:54 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:45:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:45:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:45:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:45:46 - INFO - New connected socket [id: O6CeyD7-tQIldlJRAADU]
+02/10/2022, 12:45:46 - INFO - New connected socket [id: KjXM-c-9L7b1BoOJAADV]
+02/10/2022, 12:45:46 - DEBUG - Getting Stations
+02/10/2022, 12:45:46 - INFO - New connected socket [id: NbbGZDdEu7ZIRUyCAADX]
+02/10/2022, 12:45:46 - DEBUG - Getting Stations
+02/10/2022, 12:45:47 - DEBUG - Getting Stations
+02/10/2022, 12:51:36 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:36 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:37 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:38 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:38 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:38 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:39 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:39 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:39 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:39 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:39 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:39 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:39 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:40 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:51:40 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:51:40 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:52:07 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:52:07 - INFO - New connected socket [id: eJA4gr1qvSLZSSO7AADZ]
+02/10/2022, 12:52:10 - DEBUG - Getting Stations
+02/10/2022, 12:52:12 - DEBUG - Getting Stations
+02/10/2022, 12:52:31 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:52:31 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:54:38 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:54:39 - INFO - New connected socket [id: 8rR8jfsT-zOVn04wAADb]
+02/10/2022, 12:54:46 - DEBUG - Getting Stations
+02/10/2022, 12:54:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:54:48 - DEBUG - Getting Stations
+02/10/2022, 12:54:48 - INFO - New connected socket [id: N6miTuKtftBl42tPAADd]
+02/10/2022, 12:55:28 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:55:28 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:55:44 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:55:44 - INFO - New connected socket [id: RHf-szuY2469DbjwAADf]
+02/10/2022, 12:56:31 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:56:31 - INFO - New connected socket [id: Ag12cdxRH3Hc4XamAADh]
+02/10/2022, 12:56:39 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:56:39 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:57:02 - DEBUG - Getting Stations
+02/10/2022, 12:57:02 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:57:03 - INFO - New connected socket [id: xcjo_UhPS-uL92jbAADj]
+02/10/2022, 12:57:03 - DEBUG - Getting Stations
+02/10/2022, 12:57:09 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:57:10 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:57:36 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:57:36 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:58:56 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:58:56 - INFO - New connected socket [id: G6DnCBMI4nztr6FVAADl]
+02/10/2022, 12:58:59 - DEBUG - Getting Stations
+02/10/2022, 12:59:07 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 12:59:07 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 12:59:36 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 12:59:37 - INFO - New connected socket [id: guQuS5smIcly_JN9AADn]
+02/10/2022, 12:59:37 - DEBUG - Getting Stations
+02/10/2022, 13:02:47 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:02:47 - INFO - New connected socket [id: iTuqELf-8rEVDiU3AADp]
+02/10/2022, 13:02:57 - DEBUG - Getting Stations
+02/10/2022, 13:03:00 - DEBUG - Getting Stations
+02/10/2022, 13:03:26 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:03:27 - DEBUG - Getting Stations
+02/10/2022, 13:03:27 - INFO - New connected socket [id: SSiAcnRyCtP7g2EiAADr]
+02/10/2022, 13:04:29 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 13:04:30 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 13:04:38 - DEBUG - Getting Stations
+02/10/2022, 13:04:39 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:04:40 - INFO - New connected socket [id: kzS2-8zO_hLUDKCTAADt]
+02/10/2022, 13:04:40 - DEBUG - Getting Stations
+02/10/2022, 13:08:13 - DEBUG - auth.service - login with username: user0548
+02/10/2022, 13:08:13 - INFO - User login:  | {"_id":"63395d5a5f87750332827071","username":"user0548","fullname":"user0548","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 13:08:29 - DEBUG - auth.service - signup with username: eshel545454, fullname: eshel545454
+02/10/2022, 13:08:29 - DEBUG - auth.route - new account created: {"username":"eshel545454","password":"$2b$10$l3Ko4jckqCGGpCjuaMAkvOPQno3PL5YuUzm3g4qf.Gl2ARuYMKvRa","fullname":"eshel545454","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6339631d5f87750332827072"}
+02/10/2022, 13:08:29 - DEBUG - auth.service - login with username: eshel545454
+02/10/2022, 13:08:29 - INFO - User login:  | {"_id":"6339631d5f87750332827072","username":"eshel545454","fullname":"eshel545454","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 13:34:18 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:34:25 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:46:07 - INFO - Server is running on port: 3030
+02/10/2022, 13:46:47 - INFO - New connected socket [id: U1sYsEdmKP8FNutMAAAB]
+02/10/2022, 13:46:47 - DEBUG - Getting Stations
+02/10/2022, 13:47:08 - DEBUG - auth.service - signup with username: Eshel Eyni, fullname: Eshel Eyni
+02/10/2022, 13:47:08 - DEBUG - auth.route - new account created: {"username":"Eshel Eyni","password":"$2b$10$LUd6FvwmGvAHCmvKmJcH9e9FycoBy.WIm.1PZyroa1WATZBm7Kdpe","fullname":"Eshel Eyni","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"63396c2ce09076396f85c6a6"}
+02/10/2022, 13:47:08 - DEBUG - auth.service - login with username: Eshel Eyni
+02/10/2022, 13:47:08 - INFO - User login:  | {"_id":"63396c2ce09076396f85c6a6","username":"Eshel Eyni","fullname":"Eshel Eyni","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 13:47:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:47:11 - DEBUG - Getting Stations
+02/10/2022, 13:47:11 - INFO - New connected socket [id: h6s1cVmSUgdUq9zpAAAD]
+02/10/2022, 13:48:22 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 13:48:26 - INFO - New connected socket [id: EwmsXdOWMD6Rxe7BAAAF]
