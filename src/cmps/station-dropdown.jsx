@@ -1,3 +1,5 @@
+import { userService } from "../services/user.service"
+
 export const StationDropdown = ({
     isDropdown,
     isSearchStation,
@@ -8,11 +10,11 @@ export const StationDropdown = ({
     setIsEdit,
     onSaveSearchStation,
     onRemoveStation }) => {
-
+    const loggedInUser = userService.getLoggedinUser()
 
     return (
         <ul className='station-dropdown'>
-            {(isUserStation || isAdminMode) &&
+            {(isUserStation || loggedInUser?.isAdmin) &&
                 <div>
                     <li onClick={() => {
                         setIsDropdown(!isDropdown)
