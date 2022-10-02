@@ -1985,3 +1985,803 @@
 02/10/2022, 13:53:45 - INFO - New connected socket [id: vYBt67nwiGygSDNVAAAB]
 02/10/2022, 13:53:47 - INFO - Server is running on port: 3030
 02/10/2022, 13:53:47 - INFO - New connected socket [id: LOPLqb4HapPxAfAxAAAB]
+02/10/2022, 13:58:00 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 15:37:49 - INFO - New connected socket [id: _KTpv-yT2eRjxUP1AAAD]
+02/10/2022, 15:37:50 - DEBUG - Getting Stations
+02/10/2022, 15:38:24 - DEBUG - Getting Stations
+02/10/2022, 15:53:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 15:53:29 - INFO - New connected socket [id: q-B3_C1rvxeEWN5IAAAF]
+02/10/2022, 15:53:41 - DEBUG - auth.service - signup with username: eshel, fullname: eshel
+02/10/2022, 15:53:42 - DEBUG - auth.route - new account created: {"username":"eshel","password":"$2b$10$Tf8L8u58kLV/Dj9CLuFMqOSieFbQbniuw1t89DMB0EijjpZs63rTS","fullname":"eshel","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"633989d5ae2ffde4dc93a78e"}
+02/10/2022, 15:53:42 - DEBUG - auth.service - login with username: eshel
+02/10/2022, 15:53:42 - INFO - User login:  | {"_id":"633989d5ae2ffde4dc93a78e","username":"eshel","fullname":"eshel","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 15:53:43 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 15:53:44 - INFO - New connected socket [id: 5alPQoLLJp6Knyf-AAAH]
+02/10/2022, 15:53:44 - DEBUG - Getting Stations
+02/10/2022, 16:32:47 - DEBUG - Getting Stations
+02/10/2022, 16:33:07 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:33:08 - INFO - New connected socket [id: SB6FDyM9vvKaUvvEAAAJ]
+02/10/2022, 16:33:08 - DEBUG - Getting Stations
+02/10/2022, 16:33:12 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: SB6FDyM9vvKaUvvEAAAJ]
+02/10/2022, 16:33:12 - DEBUG - Getting Stations
+02/10/2022, 16:37:08 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: SB6FDyM9vvKaUvvEAAAJ]
+02/10/2022, 16:37:12 - DEBUG - Getting Stations
+02/10/2022, 16:37:13 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: SB6FDyM9vvKaUvvEAAAJ]
+02/10/2022, 16:37:13 - DEBUG - Getting Stations
+02/10/2022, 16:37:14 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: SB6FDyM9vvKaUvvEAAAJ]
+02/10/2022, 16:37:16 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: SB6FDyM9vvKaUvvEAAAJ]
+02/10/2022, 16:37:20 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:37:21 - DEBUG - Getting Stations
+02/10/2022, 16:37:21 - INFO - New connected socket [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:37:23 - DEBUG - Getting Stations
+02/10/2022, 16:37:25 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:37:27 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:37:33 - INFO - New connected socket [id: d7-zweOwWPRwj9WKAAAN]
+02/10/2022, 16:37:38 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:37:40 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:37:54 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:37:55 - INFO - New connected socket [id: pZPfBI-7gLwcWds7AAAP]
+02/10/2022, 16:51:42 - DEBUG - auth.service - signup with username: muki123, fullname: muki123
+02/10/2022, 16:51:42 - DEBUG - Getting Stations
+02/10/2022, 16:51:42 - DEBUG - auth.route - new account created: {"username":"muki123","password":"$2b$10$/GQvyLjCuuCJT3IoZ6aBDOoYrHOKRdpPrSCq8n/S6GGg0/1gmWI3S","fullname":"muki123","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6339976eae2ffde4dc93a793"}
+02/10/2022, 16:51:42 - DEBUG - auth.service - login with username: muki123
+02/10/2022, 16:51:43 - INFO - User login:  | {"_id":"6339976eae2ffde4dc93a793","username":"muki123","fullname":"muki123","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 16:51:50 - INFO - Socket is leaving topic 63399424ae2ffde4dc93a791 [id: pZPfBI-7gLwcWds7AAAP]
+02/10/2022, 16:51:58 - INFO - Socket is leaving topic 63399424ae2ffde4dc93a791 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:00 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:02 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:03 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:06 - INFO - Socket is leaving topic 63399424ae2ffde4dc93a791 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:06 - DEBUG - Getting Stations
+02/10/2022, 16:52:09 - INFO - Socket is leaving topic 633992ffae2ffde4dc93a78f [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:09 - DEBUG - Getting Stations
+02/10/2022, 16:52:12 - INFO - Socket is leaving topic 63399403ae2ffde4dc93a790 [id: yBiFAnAvK7p0_OUQAAAL]
+02/10/2022, 16:52:12 - DEBUG - Getting Stations
+02/10/2022, 16:53:01 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:53:02 - INFO - New connected socket [id: Su5iHKvGWbZJHX59AAAR]
+02/10/2022, 16:53:02 - DEBUG - Getting Stations
+02/10/2022, 16:53:58 - ERROR - while finding station 63399424ae2ffde4dc93a791 | {}
+02/10/2022, 16:53:58 - ERROR - Failed to get station | {}
+02/10/2022, 16:53:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:53:59 - INFO - New connected socket [id: RAbdU-FxNLOJoGHtAAAT]
+02/10/2022, 16:54:00 - DEBUG - Getting Stations
+02/10/2022, 16:54:45 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:54:46 - INFO - New connected socket [id: L4kY8m4ZbB6x7e7RAAAV]
+02/10/2022, 16:54:46 - DEBUG - Getting Stations
+02/10/2022, 16:54:53 - INFO - Socket is leaving topic 6339978cae2ffde4dc93a794 [id: L4kY8m4ZbB6x7e7RAAAV]
+02/10/2022, 16:55:07 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:55:07 - INFO - New connected socket [id: n6MZNuQYTd0CfELxAAAX]
+02/10/2022, 16:55:08 - DEBUG - Getting Stations
+02/10/2022, 16:55:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:55:11 - INFO - New connected socket [id: ECVmL8eY5A1FuPWtAAAZ]
+02/10/2022, 16:55:11 - DEBUG - Getting Stations
+02/10/2022, 16:55:17 - INFO - Socket is leaving topic 63399424ae2ffde4dc93a791 [id: pZPfBI-7gLwcWds7AAAP]
+02/10/2022, 16:55:36 - INFO - Socket is leaving topic 6339982dae2ffde4dc93a795 [id: ECVmL8eY5A1FuPWtAAAZ]
+02/10/2022, 16:55:57 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:55:58 - INFO - New connected socket [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:55:58 - DEBUG - Getting Stations
+02/10/2022, 16:56:10 - INFO - Socket is leaving topic 6339982dae2ffde4dc93a795 [id: pZPfBI-7gLwcWds7AAAP]
+02/10/2022, 16:56:27 - DEBUG - Getting Stations
+02/10/2022, 16:56:36 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:56:37 - INFO - New connected socket [id: o_VNFEwTp6aErgg_AAAd]
+02/10/2022, 16:56:37 - DEBUG - Getting Stations
+02/10/2022, 16:56:38 - DEBUG - Getting Stations
+02/10/2022, 16:56:39 - DEBUG - Getting Stations
+02/10/2022, 16:56:49 - INFO - Socket is leaving topic 63399858ae2ffde4dc93a796 [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:56:59 - DEBUG - Getting Stations
+02/10/2022, 16:56:59 - DEBUG - Getting Stations
+02/10/2022, 16:57:06 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:57:06 - DEBUG - Getting Stations
+02/10/2022, 16:57:06 - INFO - New connected socket [id: 1-p-mkekNJQAp5fcAAAf]
+02/10/2022, 16:57:15 - DEBUG - Getting Stations
+02/10/2022, 16:57:18 - DEBUG - Getting Stations
+02/10/2022, 16:57:30 - INFO - Socket is leaving topic 633998a1ae2ffde4dc93a799 [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:57:30 - DEBUG - Getting Stations
+02/10/2022, 16:57:31 - INFO - Socket is leaving topic 633998a1ae2ffde4dc93a799 [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:57:40 - INFO - Socket is leaving topic 63399858ae2ffde4dc93a796 [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:57:40 - DEBUG - Getting Stations
+02/10/2022, 16:57:45 - INFO - Socket is leaving topic 633998d4ae2ffde4dc93a79a [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:57:45 - DEBUG - Getting Stations
+02/10/2022, 16:57:46 - INFO - Socket is leaving topic 633998d4ae2ffde4dc93a79a [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:57:50 - DEBUG - Getting Stations
+02/10/2022, 16:57:51 - DEBUG - Getting Stations
+02/10/2022, 16:57:52 - DEBUG - Getting Stations
+02/10/2022, 16:57:57 - INFO - Socket is leaving topic 633998a1ae2ffde4dc93a799 [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:58:03 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:58:03 - INFO - New connected socket [id: KtORiTMjEzsfH6eQAAAh]
+02/10/2022, 16:58:03 - DEBUG - Getting Stations
+02/10/2022, 16:58:04 - DEBUG - Getting Stations
+02/10/2022, 16:58:11 - INFO - Socket is leaving topic 633998d4ae2ffde4dc93a79a [id: pE0H1TZV7hRyLkCxAAAb]
+02/10/2022, 16:58:24 - DEBUG - Getting Stations
+02/10/2022, 16:58:37 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 16:58:38 - DEBUG - Getting Stations
+02/10/2022, 16:58:38 - INFO - New connected socket [id: cWHh7VXBaoabmbVaAAAj]
+02/10/2022, 16:58:38 - DEBUG - Getting Stations
+02/10/2022, 17:05:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:05:17 - INFO - New connected socket [id: g42sfRaXLXmISt3wAAAl]
+02/10/2022, 17:05:18 - DEBUG - Getting Stations
+02/10/2022, 17:05:22 - INFO - Socket is leaving topic 633998f2ae2ffde4dc93a79b [id: g42sfRaXLXmISt3wAAAl]
+02/10/2022, 17:05:22 - DEBUG - Getting Stations
+02/10/2022, 17:05:46 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:05:47 - INFO - New connected socket [id: Y4JNS4H9mwDTJVHUAAAn]
+02/10/2022, 17:05:47 - DEBUG - Getting Stations
+02/10/2022, 17:07:14 - INFO - Socket is leaving topic 633998f2ae2ffde4dc93a79b [id: cWHh7VXBaoabmbVaAAAj]
+02/10/2022, 17:08:43 - INFO - Socket is leaving topic 6339978cae2ffde4dc93a794 [id: Y4JNS4H9mwDTJVHUAAAn]
+02/10/2022, 17:11:19 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:11:19 - INFO - New connected socket [id: IZ8MwnT9hJmTcn_bAAAp]
+02/10/2022, 17:11:19 - DEBUG - Getting Stations
+02/10/2022, 17:15:42 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:15:42 - INFO - New connected socket [id: 2IjfYppAVK_uwdQMAAAr]
+02/10/2022, 17:15:43 - DEBUG - Getting Stations
+02/10/2022, 17:15:50 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:15:50 - INFO - New connected socket [id: L-MtxARmcIVZzc63AAAt]
+02/10/2022, 17:15:51 - DEBUG - Getting Stations
+02/10/2022, 17:17:00 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:17:00 - INFO - New connected socket [id: bnoLu2V5E07DCwW_AAAv]
+02/10/2022, 17:17:01 - DEBUG - Getting Stations
+02/10/2022, 17:17:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:17:27 - INFO - New connected socket [id: nYq7jOnna29mXkQfAAAx]
+02/10/2022, 17:17:27 - DEBUG - Getting Stations
+02/10/2022, 17:20:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:20:05 - INFO - New connected socket [id: N__x15w8_zEKep6XAAAz]
+02/10/2022, 17:20:05 - DEBUG - Getting Stations
+02/10/2022, 17:23:56 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:23:56 - INFO - New connected socket [id: tfq5aGJueHOhru7iAAA1]
+02/10/2022, 17:23:56 - DEBUG - Getting Stations
+02/10/2022, 17:24:31 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:24:31 - INFO - New connected socket [id: -qr2tO5ljM-4wHPRAAA3]
+02/10/2022, 17:24:32 - DEBUG - Getting Stations
+02/10/2022, 17:25:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:25:17 - INFO - New connected socket [id: BZ4jPo8EFaN0-KLFAAA5]
+02/10/2022, 17:25:17 - DEBUG - Getting Stations
+02/10/2022, 17:26:22 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:26:23 - INFO - New connected socket [id: WihPZcTIOQfJPQAdAAA7]
+02/10/2022, 17:26:23 - DEBUG - Getting Stations
+02/10/2022, 17:28:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:28:28 - INFO - New connected socket [id: ZH6Owp1RFHCS2eFBAAA9]
+02/10/2022, 17:29:35 - DEBUG - Getting Stations
+02/10/2022, 17:29:37 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:29:38 - INFO - New connected socket [id: njStdgeZIv6PS6Q7AAA_]
+02/10/2022, 17:29:38 - DEBUG - Getting Stations
+02/10/2022, 17:36:10 - INFO - Socket is leaving topic 63399b6aae2ffde4dc93a79c [id: njStdgeZIv6PS6Q7AAA_]
+02/10/2022, 17:38:13 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:38:14 - DEBUG - Getting Stations
+02/10/2022, 17:38:14 - INFO - New connected socket [id: Zq0B71TFGAsK_jwnAABB]
+02/10/2022, 17:38:25 - INFO - Socket is leaving topic 6339a1daae2ffde4dc93a79d [id: Zq0B71TFGAsK_jwnAABB]
+02/10/2022, 17:45:40 - DEBUG - auth.service - login with username: muki123
+02/10/2022, 17:45:41 - INFO - User login:  | {"_id":"6339976eae2ffde4dc93a793","username":"muki123","fullname":"muki123","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[{"_id":"CvBfHwUxHIk","title":"Rihanna - Umbrella   ft JAY-Z","img":{"url":"https://i.ytimg.com/vi/CvBfHwUxHIk/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":15},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"ZQ2nCGawrSY","title":"Rihanna - Russian Roulette","img":{"url":"https://i.ytimg.com/vi/ZQ2nCGawrSY/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":24},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"o3mP3mJDL2k","title":"Shakira - Can't Remember to Forget You  ft Rihanna","img":{"url":"https://i.ytimg.com/vi/o3mP3mJDL2k/default.jpg","width":120,"height":90},"artist":"shakira","duration":{"hours":0,"min":3,"sec":26},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"tg00YEETFzg","title":"Rihanna - We Found Love ft Calvin Harris","img":{"url":"https://i.ytimg.com/vi/tg00YEETFzg/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":36},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"uelHwf8o7_U","title":"Eminem - Love The Way You Lie ft Rihanna","img":{"url":"https://i.ytimg.com/vi/uelHwf8o7_U/default.jpg","width":120,"height":90},"artist":"Eminem","duration":{"hours":0,"min":4,"sec":27},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"JF8BRvqGCNs","title":"Rihanna - Stay ft Mikky Ekko","img":{"url":"https://i.ytimg.com/vi/JF8BRvqGCNs/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":8},"createdAt":"10/2/2022","likedAt":"10/2/2022"}],"followers":[],"following":[]}
+02/10/2022, 17:47:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:47:05 - DEBUG - Getting Stations
+02/10/2022, 17:47:05 - INFO - New connected socket [id: vfpAHQWdgymHnAvbAABD]
+02/10/2022, 17:48:12 - DEBUG - Getting Stations
+02/10/2022, 17:48:17 - DEBUG - Getting Stations
+02/10/2022, 17:48:18 - DEBUG - Getting Stations
+02/10/2022, 17:48:22 - INFO - Socket is leaving topic 6339a261ae2ffde4dc93a79f [id: Zq0B71TFGAsK_jwnAABB]
+02/10/2022, 17:48:30 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:48:30 - INFO - New connected socket [id: V8K0L_La5xmsbRL8AABF]
+02/10/2022, 17:48:31 - DEBUG - Getting Stations
+02/10/2022, 17:48:32 - DEBUG - Getting Stations
+02/10/2022, 17:48:50 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:48:51 - DEBUG - Getting Stations
+02/10/2022, 17:48:51 - INFO - New connected socket [id: 8AGO5moqh0PXkUVeAABH]
+02/10/2022, 17:48:51 - DEBUG - Getting Stations
+02/10/2022, 17:49:06 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:49:06 - INFO - New connected socket [id: jZOGTI4abBQHVZPzAABJ]
+02/10/2022, 17:49:16 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:49:17 - INFO - New connected socket [id: 54Pb7G52-q3Eodq9AABL]
+02/10/2022, 17:49:17 - DEBUG - Getting Stations
+02/10/2022, 17:49:34 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:49:35 - INFO - New connected socket [id: RWmEtFQnQLgUxDwIAABN]
+02/10/2022, 17:49:35 - DEBUG - Getting Stations
+02/10/2022, 17:56:39 - INFO - Socket is leaving topic 6339a4b5ae2ffde4dc93a7a0 [id: RWmEtFQnQLgUxDwIAABN]
+02/10/2022, 17:57:03 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:57:04 - INFO - New connected socket [id: aBHIk1oEMdSLn1jlAABP]
+02/10/2022, 17:57:04 - DEBUG - Getting Stations
+02/10/2022, 17:58:07 - INFO - Socket is leaving topic 6339a6a6ae2ffde4dc93a7a2 [id: aBHIk1oEMdSLn1jlAABP]
+02/10/2022, 17:58:11 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:58:12 - INFO - New connected socket [id: vinuiAT8rSr5PTw9AABR]
+02/10/2022, 17:58:12 - DEBUG - Getting Stations
+02/10/2022, 17:59:25 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 17:59:25 - INFO - New connected socket [id: XagOxx3UzGSarb1wAABT]
+02/10/2022, 17:59:26 - DEBUG - Getting Stations
+02/10/2022, 18:02:22 - INFO - Socket is leaving topic 6339a6feae2ffde4dc93a7a4 [id: XagOxx3UzGSarb1wAABT]
+02/10/2022, 19:23:11 - INFO - Socket is leaving topic 6339a7fdae2ffde4dc93a7a5 [id: XagOxx3UzGSarb1wAABT]
+02/10/2022, 19:23:20 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:23:21 - INFO - New connected socket [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:23:21 - DEBUG - Getting Stations
+02/10/2022, 19:29:26 - INFO - Socket is leaving topic 6339baefae2ffde4dc93a7a6 [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:29:26 - DEBUG - Getting Stations
+02/10/2022, 19:29:43 - INFO - Socket is leaving topic 6339baefae2ffde4dc93a7a6 [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:32:33 - INFO - Socket is leaving topic 6339bc77ae2ffde4dc93a7a7 [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:32:39 - INFO - Socket is leaving topic 6339bd20ae2ffde4dc93a7a8 [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:32:39 - DEBUG - Getting Stations
+02/10/2022, 19:33:04 - INFO - Socket is leaving topic 6339bd26ae2ffde4dc93a7a9 [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:40:22 - INFO - Socket is leaving topic 6339a1daae2ffde4dc93a79d [id: i0j31veWtXx4vqIRAABV]
+02/10/2022, 19:40:23 - DEBUG - Getting Stations
+02/10/2022, 19:40:24 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:40:24 - INFO - New connected socket [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:24 - DEBUG - Getting Stations
+02/10/2022, 19:40:35 - INFO - Socket is leaving topic 6339a1daae2ffde4dc93a79d [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:35 - DEBUG - Getting Stations
+02/10/2022, 19:40:39 - INFO - Socket is leaving topic 6339bd26ae2ffde4dc93a7a9 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:39 - DEBUG - Getting Stations
+02/10/2022, 19:40:42 - INFO - Socket is leaving topic 6339bd20ae2ffde4dc93a7a8 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:43 - DEBUG - Getting Stations
+02/10/2022, 19:40:45 - INFO - Socket is leaving topic 6339bc77ae2ffde4dc93a7a7 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:45 - DEBUG - Getting Stations
+02/10/2022, 19:40:48 - INFO - Socket is leaving topic 6339baefae2ffde4dc93a7a6 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:48 - DEBUG - Getting Stations
+02/10/2022, 19:40:50 - INFO - Socket is leaving topic 6339a261ae2ffde4dc93a79f [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:50 - DEBUG - Getting Stations
+02/10/2022, 19:40:52 - INFO - Socket is leaving topic 6339a6a6ae2ffde4dc93a7a2 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:53 - DEBUG - Getting Stations
+02/10/2022, 19:40:55 - INFO - Socket is leaving topic 6339a7fdae2ffde4dc93a7a5 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:55 - DEBUG - Getting Stations
+02/10/2022, 19:40:57 - INFO - Socket is leaving topic 6339a6feae2ffde4dc93a7a4 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:40:57 - DEBUG - Getting Stations
+02/10/2022, 19:40:59 - INFO - Socket is leaving topic 6339a4b5ae2ffde4dc93a7a0 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:00 - DEBUG - Getting Stations
+02/10/2022, 19:41:02 - INFO - Socket is leaving topic 6339a1daae2ffde4dc93a79d [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:02 - DEBUG - Getting Stations
+02/10/2022, 19:41:05 - INFO - Socket is leaving topic 63399b6aae2ffde4dc93a79c [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:05 - DEBUG - Getting Stations
+02/10/2022, 19:41:08 - INFO - Socket is leaving topic 63399858ae2ffde4dc93a796 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:08 - DEBUG - Getting Stations
+02/10/2022, 19:41:10 - INFO - Socket is leaving topic 6339978cae2ffde4dc93a794 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:10 - DEBUG - Getting Stations
+02/10/2022, 19:41:12 - INFO - Socket is leaving topic 6339982dae2ffde4dc93a795 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:12 - DEBUG - Getting Stations
+02/10/2022, 19:41:15 - INFO - Socket is leaving topic 633998a1ae2ffde4dc93a799 [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:15 - DEBUG - Getting Stations
+02/10/2022, 19:41:58 - INFO - Socket is leaving topic 633998d4ae2ffde4dc93a79a [id: K2oTPKz0LMzbNWMMAABX]
+02/10/2022, 19:41:58 - ERROR - while finding station undefined | {}
+02/10/2022, 19:41:58 - ERROR - Failed to get station | {}
+02/10/2022, 19:42:04 - ERROR - while finding station undefined | {}
+02/10/2022, 19:42:04 - ERROR - Failed to get station | {}
+02/10/2022, 19:42:09 - ERROR - while finding station undefined | {}
+02/10/2022, 19:42:09 - ERROR - Failed to get station | {}
+02/10/2022, 19:42:11 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:42:12 - INFO - New connected socket [id: 5dKNCaLcHgRcqD39AABZ]
+02/10/2022, 19:42:12 - ERROR - while finding station undefined | {}
+02/10/2022, 19:42:12 - ERROR - Failed to get station | {}
+02/10/2022, 19:42:16 - DEBUG - Getting Stations
+02/10/2022, 19:42:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:42:49 - INFO - New connected socket [id: 3OUPIEJlImuCbD7LAABb]
+02/10/2022, 19:42:49 - DEBUG - Getting Stations
+02/10/2022, 19:43:03 - INFO - Socket is leaving topic 6339bf67ae2ffde4dc93a7aa [id: 3OUPIEJlImuCbD7LAABb]
+02/10/2022, 19:43:03 - DEBUG - Getting Stations
+02/10/2022, 19:43:44 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:43:44 - ERROR - Failed to get station | {}
+02/10/2022, 19:45:34 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:45:34 - ERROR - Failed to get station | {}
+02/10/2022, 19:45:48 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:45:48 - ERROR - Failed to get station | {}
+02/10/2022, 19:45:48 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:45:49 - INFO - New connected socket [id: aswKY6Z6N74_5E1CAABd]
+02/10/2022, 19:45:59 - DEBUG - Getting Stations
+02/10/2022, 19:45:59 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:45:59 - ERROR - Failed to get station | {}
+02/10/2022, 19:46:00 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:46:01 - INFO - New connected socket [id: gWgAUMlm1nfMEEg-AABf]
+02/10/2022, 19:46:01 - DEBUG - Getting Stations
+02/10/2022, 19:46:17 - INFO - Socket is leaving topic 6339c02fae2ffde4dc93a7ac [id: gWgAUMlm1nfMEEg-AABf]
+02/10/2022, 19:46:18 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:46:18 - INFO - New connected socket [id: d9LXL7eX_JKMaKoJAABh]
+02/10/2022, 19:46:18 - DEBUG - Getting Stations
+02/10/2022, 19:46:51 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:46:51 - INFO - New connected socket [id: VcAZBNVGqTMMBWG7AABj]
+02/10/2022, 19:46:52 - DEBUG - Getting Stations
+02/10/2022, 19:46:54 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:46:55 - INFO - New connected socket [id: AsD6djLXPMYpe09yAABl]
+02/10/2022, 19:46:55 - DEBUG - Getting Stations
+02/10/2022, 19:47:00 - INFO - Socket is leaving topic 6339c059ae2ffde4dc93a7ad [id: AsD6djLXPMYpe09yAABl]
+02/10/2022, 19:47:03 - INFO - Socket is leaving topic 6339c083ae2ffde4dc93a7ae [id: AsD6djLXPMYpe09yAABl]
+02/10/2022, 19:47:04 - INFO - Socket is leaving topic 6339c059ae2ffde4dc93a7ad [id: AsD6djLXPMYpe09yAABl]
+02/10/2022, 19:47:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:47:10 - INFO - New connected socket [id: 30YqpaZDdbicZN8UAABn]
+02/10/2022, 19:47:11 - DEBUG - Getting Stations
+02/10/2022, 19:47:15 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:47:16 - INFO - New connected socket [id: fiOtBVsLAeiEpX7_AABp]
+02/10/2022, 19:47:16 - DEBUG - Getting Stations
+02/10/2022, 19:47:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:47:18 - INFO - New connected socket [id: Fv1dFXrGLKtUyEhsAABr]
+02/10/2022, 19:47:18 - DEBUG - Getting Stations
+02/10/2022, 19:47:20 - INFO - Socket is leaving topic 6339c083ae2ffde4dc93a7ae [id: Fv1dFXrGLKtUyEhsAABr]
+02/10/2022, 19:47:30 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:47:31 - INFO - New connected socket [id: yFpsRmVq5utQUkmoAABt]
+02/10/2022, 19:47:31 - DEBUG - Getting Stations
+02/10/2022, 19:47:35 - INFO - Socket is leaving topic 6339c097ae2ffde4dc93a7af [id: yFpsRmVq5utQUkmoAABt]
+02/10/2022, 19:48:35 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:48:35 - INFO - New connected socket [id: IAkRKEtjakLme43bAABv]
+02/10/2022, 19:48:36 - DEBUG - Getting Stations
+02/10/2022, 19:49:41 - DEBUG - Getting Stations
+02/10/2022, 19:49:41 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:49:41 - ERROR - Failed to get station | {}
+02/10/2022, 19:50:09 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:50:10 - INFO - New connected socket [id: jwIQu789aqgimWUIAABx]
+02/10/2022, 19:50:10 - DEBUG - Getting Stations
+02/10/2022, 19:50:29 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:50:29 - ERROR - Failed to get station | {}
+02/10/2022, 19:50:33 - INFO - Socket is leaving topic 6339c0a7ae2ffde4dc93a7b0 [id: jwIQu789aqgimWUIAABx]
+02/10/2022, 19:51:42 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:51:43 - INFO - New connected socket [id: ZUDnJSpV2UbdRgn2AABz]
+02/10/2022, 19:51:44 - DEBUG - Getting Stations
+02/10/2022, 19:51:55 - INFO - Socket is leaving topic 6339c158ae2ffde4dc93a7b1 [id: ZUDnJSpV2UbdRgn2AABz]
+02/10/2022, 19:52:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:52:22 - INFO - New connected socket [id: 05YQ6w_4_qTCiCIeAAB1]
+02/10/2022, 19:52:22 - DEBUG - Getting Stations
+02/10/2022, 19:52:23 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:52:24 - INFO - New connected socket [id: doUv6MAWkqi6y7htAAB3]
+02/10/2022, 19:52:24 - DEBUG - Getting Stations
+02/10/2022, 19:52:26 - INFO - Socket is leaving topic 6339c1abae2ffde4dc93a7b2 [id: doUv6MAWkqi6y7htAAB3]
+02/10/2022, 19:52:42 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:52:43 - INFO - New connected socket [id: WM26LxNXuqaCP-JTAAB5]
+02/10/2022, 19:52:43 - DEBUG - Getting Stations
+02/10/2022, 19:53:18 - INFO - Socket is leaving topic 6339c1c9ae2ffde4dc93a7b3 [id: WM26LxNXuqaCP-JTAAB5]
+02/10/2022, 19:55:59 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:55:59 - ERROR - Failed to get station | {}
+02/10/2022, 19:56:03 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:56:03 - INFO - New connected socket [id: 9QEJtfBc7uEOG_UAAAB7]
+02/10/2022, 19:56:04 - DEBUG - Getting Stations
+02/10/2022, 19:56:06 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:56:06 - INFO - New connected socket [id: mi9iWKBo2lmxYjFwAAB9]
+02/10/2022, 19:56:07 - DEBUG - Getting Stations
+02/10/2022, 19:56:11 - INFO - Socket is leaving topic 6339c1fdae2ffde4dc93a7b5 [id: mi9iWKBo2lmxYjFwAAB9]
+02/10/2022, 19:56:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 19:56:28 - INFO - New connected socket [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:56:28 - DEBUG - Getting Stations
+02/10/2022, 19:56:38 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:56:38 - ERROR - Failed to get station | {}
+02/10/2022, 19:59:01 - INFO - Socket is leaving topic 6339c2aaae2ffde4dc93a7b6 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:01 - DEBUG - Getting Stations
+02/10/2022, 19:59:04 - INFO - Socket is leaving topic 6339c2aaae2ffde4dc93a7b6 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:04 - DEBUG - Getting Stations
+02/10/2022, 19:59:08 - INFO - Socket is leaving topic 6339c1fdae2ffde4dc93a7b5 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:08 - DEBUG - Getting Stations
+02/10/2022, 19:59:11 - INFO - Socket is leaving topic 6339c1c9ae2ffde4dc93a7b3 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:11 - DEBUG - Getting Stations
+02/10/2022, 19:59:13 - INFO - Socket is leaving topic 6339c1abae2ffde4dc93a7b2 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:14 - DEBUG - Getting Stations
+02/10/2022, 19:59:16 - INFO - Socket is leaving topic 6339c158ae2ffde4dc93a7b1 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:17 - DEBUG - Getting Stations
+02/10/2022, 19:59:20 - INFO - Socket is leaving topic 6339c0a7ae2ffde4dc93a7b0 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:20 - DEBUG - Getting Stations
+02/10/2022, 19:59:22 - INFO - Socket is leaving topic 6339c097ae2ffde4dc93a7af [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:23 - DEBUG - Getting Stations
+02/10/2022, 19:59:26 - INFO - Socket is leaving topic 6339c083ae2ffde4dc93a7ae [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:26 - DEBUG - Getting Stations
+02/10/2022, 19:59:29 - INFO - Socket is leaving topic 6339c059ae2ffde4dc93a7ad [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:29 - DEBUG - Getting Stations
+02/10/2022, 19:59:33 - INFO - Socket is leaving topic 6339c02fae2ffde4dc93a7ac [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:33 - DEBUG - Getting Stations
+02/10/2022, 19:59:45 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 19:59:45 - ERROR - Failed to get station | {}
+02/10/2022, 19:59:46 - INFO - Socket is leaving topic 6339c375ae2ffde4dc93a7b7 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 19:59:48 - INFO - Socket is leaving topic 6339c381ae2ffde4dc93a7b8 [id: 4XOkTJwOIHeYTFa_AAB_]
+02/10/2022, 20:00:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:00:05 - INFO - New connected socket [id: 0XTIrVhchZGUDpj_AACB]
+02/10/2022, 20:00:05 - DEBUG - Getting Stations
+02/10/2022, 20:00:13 - INFO - Socket is leaving topic 6339c383ae2ffde4dc93a7b9 [id: 0XTIrVhchZGUDpj_AACB]
+02/10/2022, 20:01:08 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:01:09 - INFO - New connected socket [id: IJZ_1ahUiTEfoEsHAACD]
+02/10/2022, 20:01:09 - DEBUG - Getting Stations
+02/10/2022, 20:01:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:01:11 - INFO - New connected socket [id: dqSakOvq55UC4kADAACF]
+02/10/2022, 20:01:11 - DEBUG - Getting Stations
+02/10/2022, 20:02:02 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:02:03 - INFO - New connected socket [id: ZUhO56ikVJOsZs2MAACH]
+02/10/2022, 20:02:03 - DEBUG - Getting Stations
+02/10/2022, 20:02:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:02:04 - INFO - New connected socket [id: YR8XfsfEeJvDm6cSAACJ]
+02/10/2022, 20:02:04 - DEBUG - Getting Stations
+02/10/2022, 20:02:38 - INFO - Socket is leaving topic 6339c39dae2ffde4dc93a7ba [id: YR8XfsfEeJvDm6cSAACJ]
+02/10/2022, 20:03:32 - INFO - Socket is leaving topic 6339c42eae2ffde4dc93a7bb [id: YR8XfsfEeJvDm6cSAACJ]
+02/10/2022, 20:04:56 - INFO - Socket is leaving topic 6339c463ae2ffde4dc93a7bc [id: YR8XfsfEeJvDm6cSAACJ]
+02/10/2022, 20:04:56 - DEBUG - Getting Stations
+02/10/2022, 20:04:57 - INFO - Socket is leaving topic 6339a4b5ae2ffde4dc93a7a0 [id: jZOGTI4abBQHVZPzAABJ]
+02/10/2022, 20:04:57 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 20:04:57 - ERROR - Failed to get station | {}
+02/10/2022, 20:04:58 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:04:59 - INFO - New connected socket [id: RpHlSYaOIIVBIiqnAACL]
+02/10/2022, 20:04:59 - DEBUG - Getting Stations
+02/10/2022, 20:05:02 - INFO - Socket is leaving topic 6339c463ae2ffde4dc93a7bc [id: RpHlSYaOIIVBIiqnAACL]
+02/10/2022, 20:05:02 - DEBUG - Getting Stations
+02/10/2022, 20:05:03 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 20:05:03 - ERROR - Failed to get station | {}
+02/10/2022, 20:05:04 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:05:04 - INFO - New connected socket [id: h7PS4bwfpGBxRv7IAACN]
+02/10/2022, 20:05:04 - DEBUG - Getting Stations
+02/10/2022, 20:06:09 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:06:10 - INFO - New connected socket [id: sRyZMqmj_ndw_FQFAACP]
+02/10/2022, 20:06:10 - DEBUG - Getting Stations
+02/10/2022, 20:06:11 - INFO - Socket is leaving topic 6339c463ae2ffde4dc93a7bc [id: sRyZMqmj_ndw_FQFAACP]
+02/10/2022, 20:06:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:06:17 - INFO - New connected socket [id: U_Loof2IX1a7gPSzAACR]
+02/10/2022, 20:06:17 - DEBUG - Getting Stations
+02/10/2022, 20:06:19 - INFO - Socket is leaving topic 6339c503ae2ffde4dc93a7bd [id: U_Loof2IX1a7gPSzAACR]
+02/10/2022, 20:06:21 - INFO - Socket is leaving topic 6339c50bae2ffde4dc93a7be [id: U_Loof2IX1a7gPSzAACR]
+02/10/2022, 20:06:21 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:06:22 - INFO - New connected socket [id: tXZCzRE-oGqCGp0mAACT]
+02/10/2022, 20:06:22 - DEBUG - Getting Stations
+02/10/2022, 20:06:24 - INFO - Socket is leaving topic 6339c50dae2ffde4dc93a7bf [id: tXZCzRE-oGqCGp0mAACT]
+02/10/2022, 20:06:26 - INFO - Socket is leaving topic 6339c510ae2ffde4dc93a7c0 [id: tXZCzRE-oGqCGp0mAACT]
+02/10/2022, 20:06:27 - INFO - Socket is leaving topic 6339c511ae2ffde4dc93a7c1 [id: tXZCzRE-oGqCGp0mAACT]
+02/10/2022, 20:06:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:06:28 - INFO - New connected socket [id: 4603rgyXl_UaoYb4AACV]
+02/10/2022, 20:06:28 - DEBUG - Getting Stations
+02/10/2022, 20:06:34 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:06:35 - INFO - New connected socket [id: 8-z3LQH9UWAeqHdMAACX]
+02/10/2022, 20:06:35 - DEBUG - Getting Stations
+02/10/2022, 20:06:40 - INFO - Socket is leaving topic 6339c513ae2ffde4dc93a7c2 [id: 8-z3LQH9UWAeqHdMAACX]
+02/10/2022, 20:06:42 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:06:42 - INFO - New connected socket [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:06:42 - DEBUG - Getting Stations
+02/10/2022, 20:06:50 - INFO - Socket is leaving topic 6339c51fae2ffde4dc93a7c3 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:06:56 - INFO - Socket is leaving topic 6339c52aae2ffde4dc93a7c4 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:06:56 - DEBUG - Getting Stations
+02/10/2022, 20:06:59 - INFO - Socket is leaving topic 6339c375ae2ffde4dc93a7b7 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:06:59 - DEBUG - Getting Stations
+02/10/2022, 20:07:01 - INFO - Socket is leaving topic 6339c381ae2ffde4dc93a7b8 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:02 - DEBUG - Getting Stations
+02/10/2022, 20:07:04 - INFO - Socket is leaving topic 6339c383ae2ffde4dc93a7b9 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:04 - DEBUG - Getting Stations
+02/10/2022, 20:07:07 - INFO - Socket is leaving topic 6339c39dae2ffde4dc93a7ba [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:07 - DEBUG - Getting Stations
+02/10/2022, 20:07:09 - INFO - Socket is leaving topic 6339c42eae2ffde4dc93a7bb [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:09 - DEBUG - Getting Stations
+02/10/2022, 20:07:12 - INFO - Socket is leaving topic 6339c463ae2ffde4dc93a7bc [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:12 - DEBUG - Getting Stations
+02/10/2022, 20:07:14 - INFO - Socket is leaving topic 6339c503ae2ffde4dc93a7bd [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:15 - DEBUG - Getting Stations
+02/10/2022, 20:07:17 - INFO - Socket is leaving topic 6339c50bae2ffde4dc93a7be [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:17 - DEBUG - Getting Stations
+02/10/2022, 20:07:19 - INFO - Socket is leaving topic 6339c50dae2ffde4dc93a7bf [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:19 - DEBUG - Getting Stations
+02/10/2022, 20:07:21 - INFO - Socket is leaving topic 6339c510ae2ffde4dc93a7c0 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:21 - DEBUG - Getting Stations
+02/10/2022, 20:07:24 - INFO - Socket is leaving topic 6339c511ae2ffde4dc93a7c1 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:24 - DEBUG - Getting Stations
+02/10/2022, 20:07:26 - INFO - Socket is leaving topic 6339c513ae2ffde4dc93a7c2 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:26 - DEBUG - Getting Stations
+02/10/2022, 20:07:30 - INFO - Socket is leaving topic 6339c51fae2ffde4dc93a7c3 [id: 5QsD9Pl3OzHwuRNXAACZ]
+02/10/2022, 20:07:30 - DEBUG - Getting Stations
+02/10/2022, 20:07:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:08:00 - INFO - New connected socket [id: ZtYZxiOG-d6C4qyrAACb]
+02/10/2022, 20:08:01 - DEBUG - Getting Stations
+02/10/2022, 20:08:11 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:08:11 - INFO - New connected socket [id: 6-QTsLlJNugMiDoAAACd]
+02/10/2022, 20:08:11 - DEBUG - Getting Stations
+02/10/2022, 20:08:13 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:08:13 - INFO - New connected socket [id: QGpmc2hsfWmeKeafAACf]
+02/10/2022, 20:08:13 - DEBUG - Getting Stations
+02/10/2022, 20:08:21 - INFO - Socket is leaving topic 6339c552ae2ffde4dc93a7c5 [id: QGpmc2hsfWmeKeafAACf]
+02/10/2022, 20:10:46 - INFO - Socket is leaving topic 6339c585ae2ffde4dc93a7c6 [id: QGpmc2hsfWmeKeafAACf]
+02/10/2022, 20:10:46 - DEBUG - Getting Stations
+02/10/2022, 20:10:58 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:10:59 - INFO - New connected socket [id: bUbhU2lK66Y5mNY6AACh]
+02/10/2022, 20:10:59 - DEBUG - Getting Stations
+02/10/2022, 20:11:02 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:11:02 - INFO - New connected socket [id: gccoQeH7GFawjpORAACj]
+02/10/2022, 20:11:02 - DEBUG - Getting Stations
+02/10/2022, 20:29:12 - INFO - New chat msg from socket [id: gccoQeH7GFawjpORAACj], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:29:15 - INFO - New chat msg from socket [id: gccoQeH7GFawjpORAACj], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:31:06 - INFO - New chat msg from socket [id: gccoQeH7GFawjpORAACj], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:31:07 - INFO - New chat msg from socket [id: gccoQeH7GFawjpORAACj], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:31:11 - INFO - New chat msg from socket [id: gccoQeH7GFawjpORAACj], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:31:41 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:31:42 - INFO - New connected socket [id: Ags0FcshzZUabEwoAACl]
+02/10/2022, 20:31:42 - DEBUG - Getting Stations
+02/10/2022, 20:31:45 - INFO - New chat msg from socket [id: Ags0FcshzZUabEwoAACl], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:31:47 - INFO - New chat msg from socket [id: Ags0FcshzZUabEwoAACl], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:31:50 - INFO - New chat msg from socket [id: Ags0FcshzZUabEwoAACl], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:32:28 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:32:29 - INFO - New connected socket [id: 5mEwlq8JqdML9OWIAACn]
+02/10/2022, 20:32:29 - DEBUG - Getting Stations
+02/10/2022, 20:32:32 - INFO - New chat msg from socket [id: 5mEwlq8JqdML9OWIAACn], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:32:34 - INFO - New chat msg from socket [id: 5mEwlq8JqdML9OWIAACn], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:32:39 - INFO - New chat msg from socket [id: 5mEwlq8JqdML9OWIAACn], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:32:44 - INFO - New chat msg from socket [id: 5mEwlq8JqdML9OWIAACn], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:32:55 - INFO - New chat msg from socket [id: 5mEwlq8JqdML9OWIAACn], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:33:47 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:33:47 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:33:48 - INFO - New connected socket [id: qJ0-8gFX4z_QwnJlAACp]
+02/10/2022, 20:33:48 - INFO - New connected socket [id: xMCGI7V8lol-fWnPAACr]
+02/10/2022, 20:33:48 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 20:33:48 - ERROR - Failed to get station | {}
+02/10/2022, 20:33:49 - DEBUG - Getting Stations
+02/10/2022, 20:34:08 - INFO - New chat msg from socket [id: xMCGI7V8lol-fWnPAACr], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:34:11 - INFO - New chat msg from socket [id: xMCGI7V8lol-fWnPAACr], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:34:18 - INFO - New chat msg from socket [id: xMCGI7V8lol-fWnPAACr], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:34:23 - INFO - New chat msg from socket [id: xMCGI7V8lol-fWnPAACr], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:34:49 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:34:49 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:34:50 - INFO - New connected socket [id: YdFUYHFjE3Lp5aG9AACu]
+02/10/2022, 20:34:50 - INFO - New connected socket [id: 1dK3YXnz--9HIJwoAACv]
+02/10/2022, 20:34:51 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 20:34:51 - ERROR - Failed to get station | {}
+02/10/2022, 20:34:51 - DEBUG - Getting Stations
+02/10/2022, 20:34:55 - INFO - New chat msg from socket [id: 1dK3YXnz--9HIJwoAACv], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:34:59 - INFO - New chat msg from socket [id: 1dK3YXnz--9HIJwoAACv], emitting to topic 6339c616ae2ffde4dc93a7c7
+02/10/2022, 20:36:08 - DEBUG - Getting Stations
+02/10/2022, 20:36:35 - DEBUG - Getting Stations
+02/10/2022, 20:42:41 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:42:46 - INFO - New connected socket [id: ALVeAHq5I8wNoAmvAACx]
+02/10/2022, 20:44:08 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:44:09 - INFO - New connected socket [id: r0K-1b2VrD3QOcH6AACz]
+02/10/2022, 20:47:14 - DEBUG - Getting Stations
+02/10/2022, 20:48:00 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:48:01 - INFO - New connected socket [id: KZR4TW5q-cSV_kU5AAC1]
+02/10/2022, 20:48:01 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 20:48:01 - ERROR - Failed to get station | {}
+02/10/2022, 20:49:40 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 20:49:41 - INFO - New connected socket [id: DmGatx_O4dCBRY6LAAC3]
+02/10/2022, 20:49:41 - ERROR - while finding station 6339a4b5ae2ffde4dc93a7a0 | {}
+02/10/2022, 20:49:41 - ERROR - Failed to get station | {}
+02/10/2022, 20:49:43 - DEBUG - Getting Stations
+02/10/2022, 21:00:06 - INFO - New connected socket [id: 2lfPptsJmrXSXo2RAAC5]
+02/10/2022, 21:00:06 - DEBUG - Getting Stations
+02/10/2022, 21:00:25 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:00:57 - DEBUG - Getting Stations
+02/10/2022, 21:00:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:00:59 - INFO - New connected socket [id: -o5JPn6Fgl6yowQgAAC7]
+02/10/2022, 21:01:00 - DEBUG - Getting Stations
+02/10/2022, 21:01:11 - DEBUG - auth.service - login with username: eshel
+02/10/2022, 21:01:11 - INFO - User login:  | {"_id":"633989d5ae2ffde4dc93a78e","username":"eshel","fullname":"eshel","isAdmin":true,"imgUrl":null,"createdStations":["63399403ae2ffde4dc93a790","6339bf67ae2ffde4dc93a7aa","6339bf96ae2ffde4dc93a7ab","6339c51fae2ffde4dc93a7c3","6339c552ae2ffde4dc93a7c5","6339c585ae2ffde4dc93a7c6","6339c616ae2ffde4dc93a7c7"],"likedStations":[],"recentSearches":[{"_id":"6339c1d5ae2ffde4dc93a7b4","title":"NIRVANA"},{"_id":"6339a6b9ae2ffde4dc93a7a3","title":"queen"},{"_id":"6339a4dbae2ffde4dc93a7a1","title":"2pac"},{"_id":"6339a1e1ae2ffde4dc93a79e","title":"bohemian rhapsody"},{"_id":"6339985fae2ffde4dc93a798","title":"rihanna"},{"_id":"6339974fae2ffde4dc93a792","title":"biggie"}],"recentlyPlayedClips":[],"likedSongs":[{"_id":"CvBfHwUxHIk","title":"Rihanna - Umbrella   ft JAY-Z","img":{"url":"https://i.ytimg.com/vi/CvBfHwUxHIk/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":15},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"ZQ2nCGawrSY","title":"Rihanna - Russian Roulette","img":{"url":"https://i.ytimg.com/vi/ZQ2nCGawrSY/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":24},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"o3mP3mJDL2k","title":"Shakira - Can't Remember to Forget You  ft Rihanna","img":{"url":"https://i.ytimg.com/vi/o3mP3mJDL2k/default.jpg","width":120,"height":90},"artist":"shakira","duration":{"hours":0,"min":3,"sec":26},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"tg00YEETFzg","title":"Rihanna - We Found Love ft Calvin Harris","img":{"url":"https://i.ytimg.com/vi/tg00YEETFzg/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":36},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"uelHwf8o7_U","title":"Eminem - Love The Way You Lie ft Rihanna","img":{"url":"https://i.ytimg.com/vi/uelHwf8o7_U/default.jpg","width":120,"height":90},"artist":"Eminem","duration":{"hours":0,"min":4,"sec":27},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"JF8BRvqGCNs","title":"Rihanna - Stay ft Mikky Ekko","img":{"url":"https://i.ytimg.com/vi/JF8BRvqGCNs/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":8},"createdAt":"10/2/2022","likedAt":"10/2/2022"}],"followers":[],"following":[]}
+02/10/2022, 21:01:13 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:01:14 - DEBUG - Getting Stations
+02/10/2022, 21:01:14 - INFO - New connected socket [id: yst2pIAxjgXtut8FAAC9]
+02/10/2022, 21:01:16 - DEBUG - Getting Stations
+02/10/2022, 21:01:20 - DEBUG - Getting Stations
+02/10/2022, 21:01:30 - INFO - Socket is leaving topic 6339c616ae2ffde4dc93a7c7 [id: yst2pIAxjgXtut8FAAC9]
+02/10/2022, 21:03:04 - INFO - Socket is leaving topic 633489f0c2a4856cb0d9eb86 [id: yst2pIAxjgXtut8FAAC9]
+02/10/2022, 21:03:17 - INFO - Socket is leaving topic 633489f0c2a4856cb0d9eb86 [id: yst2pIAxjgXtut8FAAC9]
+02/10/2022, 21:04:30 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:04:31 - INFO - New connected socket [id: 6uIjFjLxrMv7NmIPAAC_]
+02/10/2022, 21:04:37 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:04:37 - INFO - New connected socket [id: UU5yyn-22jo_GIYYAADB]
+02/10/2022, 21:04:37 - DEBUG - Getting Stations
+02/10/2022, 21:04:42 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:04:42 - INFO - New connected socket [id: uz9BwlFtSFZO0PSOAADD]
+02/10/2022, 21:04:49 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:04:49 - INFO - New connected socket [id: P9O99cQlGBN_mnj9AADF]
+02/10/2022, 21:04:52 - DEBUG - Getting Stations
+02/10/2022, 21:05:00 - DEBUG - auth.service - login with username: eshel
+02/10/2022, 21:05:00 - INFO - User login:  | {"_id":"633989d5ae2ffde4dc93a78e","username":"eshel","fullname":"eshel","isAdmin":true,"imgUrl":null,"createdStations":["63399403ae2ffde4dc93a790","6339bf67ae2ffde4dc93a7aa","6339bf96ae2ffde4dc93a7ab","6339c51fae2ffde4dc93a7c3","6339c552ae2ffde4dc93a7c5","6339c585ae2ffde4dc93a7c6","6339c616ae2ffde4dc93a7c7"],"likedStations":[],"recentSearches":[{"_id":"6339c1d5ae2ffde4dc93a7b4","title":"NIRVANA"},{"_id":"6339a6b9ae2ffde4dc93a7a3","title":"queen"},{"_id":"6339a4dbae2ffde4dc93a7a1","title":"2pac"},{"_id":"6339a1e1ae2ffde4dc93a79e","title":"bohemian rhapsody"},{"_id":"6339985fae2ffde4dc93a798","title":"rihanna"},{"_id":"6339974fae2ffde4dc93a792","title":"biggie"}],"recentlyPlayedClips":[],"likedSongs":[{"_id":"CvBfHwUxHIk","title":"Rihanna - Umbrella   ft JAY-Z","img":{"url":"https://i.ytimg.com/vi/CvBfHwUxHIk/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":15},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"ZQ2nCGawrSY","title":"Rihanna - Russian Roulette","img":{"url":"https://i.ytimg.com/vi/ZQ2nCGawrSY/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":24},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"o3mP3mJDL2k","title":"Shakira - Can't Remember to Forget You  ft Rihanna","img":{"url":"https://i.ytimg.com/vi/o3mP3mJDL2k/default.jpg","width":120,"height":90},"artist":"shakira","duration":{"hours":0,"min":3,"sec":26},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"tg00YEETFzg","title":"Rihanna - We Found Love ft Calvin Harris","img":{"url":"https://i.ytimg.com/vi/tg00YEETFzg/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":36},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"uelHwf8o7_U","title":"Eminem - Love The Way You Lie ft Rihanna","img":{"url":"https://i.ytimg.com/vi/uelHwf8o7_U/default.jpg","width":120,"height":90},"artist":"Eminem","duration":{"hours":0,"min":4,"sec":27},"createdAt":"10/2/2022","likedAt":"10/2/2022"},{"_id":"JF8BRvqGCNs","title":"Rihanna - Stay ft Mikky Ekko","img":{"url":"https://i.ytimg.com/vi/JF8BRvqGCNs/default.jpg","width":120,"height":90},"artist":"Rihanna","duration":{"hours":0,"min":4,"sec":8},"createdAt":"10/2/2022","likedAt":"10/2/2022"}],"followers":[],"following":[]}
+02/10/2022, 21:05:01 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:05:01 - INFO - New connected socket [id: Fxcl_nAO9503Vo60AADH]
+02/10/2022, 21:05:01 - DEBUG - Getting Stations
+02/10/2022, 21:05:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:05:10 - INFO - New connected socket [id: HtOTBc4Sspy06xkTAADJ]
+02/10/2022, 21:05:16 - DEBUG - Getting Stations
+02/10/2022, 21:05:20 - INFO - Socket is leaving topic 633489f0c2a4856cb0d9eb86 [id: HtOTBc4Sspy06xkTAADJ]
+02/10/2022, 21:05:25 - INFO - Socket is leaving topic 6331e3137bd3d54c7ba20c5d [id: HtOTBc4Sspy06xkTAADJ]
+02/10/2022, 21:05:33 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:05:33 - INFO - New connected socket [id: aU7TFEp28SUAPxzIAADL]
+02/10/2022, 21:05:33 - DEBUG - Getting Stations
+02/10/2022, 21:05:35 - DEBUG - Getting Stations
+02/10/2022, 21:05:49 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:05:49 - INFO - New connected socket [id: PHeq1wjfUl9uSIQyAADN]
+02/10/2022, 21:05:49 - DEBUG - Getting Stations
+02/10/2022, 21:05:50 - DEBUG - Getting Stations
+02/10/2022, 21:05:50 - DEBUG - Getting Stations
+02/10/2022, 21:05:53 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:05:53 - INFO - New connected socket [id: 5Dm29COjpceb7IDdAADP]
+02/10/2022, 21:05:53 - DEBUG - Getting Stations
+02/10/2022, 21:05:54 - DEBUG - Getting Stations
+02/10/2022, 21:05:54 - DEBUG - Getting Stations
+02/10/2022, 21:05:55 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:05:55 - INFO - New connected socket [id: osk5AMxg4s4CVfqJAADR]
+02/10/2022, 21:05:55 - DEBUG - Getting Stations
+02/10/2022, 21:05:56 - DEBUG - Getting Stations
+02/10/2022, 21:05:56 - DEBUG - Getting Stations
+02/10/2022, 21:06:40 - DEBUG - Getting Stations
+02/10/2022, 21:06:55 - DEBUG - auth.service - signup with username: Admin, fullname: Admin
+02/10/2022, 21:06:55 - DEBUG - auth.route - new account created: {"username":"Admin","password":"$2b$10$SJQsa8hlwhguimFO.Si1NujNUx4M1McoZJ/TKczhdtdJa9QsAwE9.","fullname":"Admin","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6339d33fae2ffde4dc93a7c8"}
+02/10/2022, 21:06:55 - DEBUG - auth.service - login with username: Admin
+02/10/2022, 21:06:55 - INFO - User login:  | {"_id":"6339d33fae2ffde4dc93a7c8","username":"Admin","fullname":"Admin","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 21:06:56 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:06:57 - DEBUG - Getting Stations
+02/10/2022, 21:06:57 - INFO - New connected socket [id: VfXOF7CX3boX5QzgAADT]
+02/10/2022, 21:07:00 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:07:00 - INFO - New connected socket [id: M-daL50h3HjGoKZUAADV]
+02/10/2022, 21:07:00 - DEBUG - Getting Stations
+02/10/2022, 21:07:02 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:07:02 - INFO - New connected socket [id: OTN5pX9asyN-UpPpAADX]
+02/10/2022, 21:07:02 - DEBUG - Getting Stations
+02/10/2022, 21:07:43 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:07:43 - INFO - New connected socket [id: HeUX3wZPCnQIAr4uAADZ]
+02/10/2022, 21:07:43 - DEBUG - Getting Stations
+02/10/2022, 21:07:46 - DEBUG - Getting Stations
+02/10/2022, 21:07:55 - DEBUG - Getting Stations
+02/10/2022, 21:07:59 - DEBUG - Getting Stations
+02/10/2022, 21:08:07 - DEBUG - Getting Stations
+02/10/2022, 21:08:09 - INFO - Socket is leaving topic 6339d375ae2ffde4dc93a7c9 [id: HeUX3wZPCnQIAr4uAADZ]
+02/10/2022, 21:08:45 - DEBUG - auth.service - login with username: Admin
+02/10/2022, 21:08:45 - INFO - User login:  | {"_id":"6339d33fae2ffde4dc93a7c8","username":"Admin","fullname":"Admin","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[{"_id":"6339d375ae2ffde4dc93a7c9","title":"eminem"}],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 21:08:47 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:08:47 - DEBUG - Getting Stations
+02/10/2022, 21:08:47 - INFO - New connected socket [id: ScFVWJ8wuCSE2v3rAADb]
+02/10/2022, 21:08:50 - DEBUG - Getting Stations
+02/10/2022, 21:09:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:09:11 - INFO - New connected socket [id: WXwgp2KaWFfuyECnAADd]
+02/10/2022, 21:09:11 - DEBUG - Getting Stations
+02/10/2022, 21:09:22 - DEBUG - auth.service - login with username: Admin
+02/10/2022, 21:09:22 - INFO - User login:  | {"_id":"6339d33fae2ffde4dc93a7c8","username":"Admin","fullname":"Admin","isAdmin":true,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[{"_id":"6339d375ae2ffde4dc93a7c9","title":"eminem"}],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 21:09:24 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:09:24 - INFO - New connected socket [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:09:24 - DEBUG - Getting Stations
+02/10/2022, 21:09:27 - DEBUG - Getting Stations
+02/10/2022, 21:10:19 - DEBUG - Getting Stations
+02/10/2022, 21:10:27 - DEBUG - Getting Stations
+02/10/2022, 21:10:32 - INFO - Socket is leaving topic 6339d386ae2ffde4dc93a7ca [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:10:32 - DEBUG - Getting Stations
+02/10/2022, 21:10:38 - DEBUG - Getting Stations
+02/10/2022, 21:10:41 - INFO - Socket is leaving topic 6339d411ae2ffde4dc93a7cb [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:14:11 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:14:12 - DEBUG - Getting Stations
+02/10/2022, 21:14:12 - INFO - New connected socket [id: dFgWU_y5sFw-4WJkAADh]
+02/10/2022, 21:14:19 - DEBUG - Getting Stations
+02/10/2022, 21:14:33 - DEBUG - Getting Stations
+02/10/2022, 21:14:34 - INFO - Socket is leaving topic 6339d41eae2ffde4dc93a7cc [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:14:34 - DEBUG - Getting Stations
+02/10/2022, 21:16:19 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:16:19 - INFO - New connected socket [id: HvL1UmYw3ZKmOrk5AADj]
+02/10/2022, 21:16:19 - DEBUG - Getting Stations
+02/10/2022, 21:16:31 - DEBUG - Getting Stations
+02/10/2022, 21:16:36 - DEBUG - Getting Stations
+02/10/2022, 21:16:37 - INFO - Socket is leaving topic 6339d504ae2ffde4dc93a7cd [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:16:37 - DEBUG - Getting Stations
+02/10/2022, 21:17:00 - DEBUG - Getting Stations
+02/10/2022, 21:17:06 - INFO - Socket is leaving topic 6339d582ae2ffde4dc93a7ce [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:17:06 - DEBUG - Getting Stations
+02/10/2022, 21:17:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:18:00 - DEBUG - Getting Stations
+02/10/2022, 21:18:00 - INFO - New connected socket [id: v4ViVme9UeKQOrJYAADl]
+02/10/2022, 21:18:09 - DEBUG - Getting Stations
+02/10/2022, 21:18:24 - DEBUG - Getting Stations
+02/10/2022, 21:18:31 - INFO - Socket is leaving topic 6339d5a2ae2ffde4dc93a7cf [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:18:31 - DEBUG - Getting Stations
+02/10/2022, 21:21:07 - DEBUG - Getting Stations
+02/10/2022, 21:23:24 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:23:25 - DEBUG - Getting Stations
+02/10/2022, 21:23:25 - INFO - New connected socket [id: lGY8asojf-RwVXwuAADn]
+02/10/2022, 21:24:18 - DEBUG - Getting Stations
+02/10/2022, 21:24:36 - INFO - Socket is leaving topic 6339d5e9ae2ffde4dc93a7d0 [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:24:36 - DEBUG - Getting Stations
+02/10/2022, 21:27:59 - DEBUG - Getting Stations
+02/10/2022, 21:36:59 - INFO - Socket is leaving topic 6339d764ae2ffde4dc93a7d3 [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:36:59 - DEBUG - Getting Stations
+02/10/2022, 21:38:27 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:38:28 - DEBUG - Getting Stations
+02/10/2022, 21:38:28 - INFO - New connected socket [id: 0MVL2knBcxOHUN1IAADp]
+02/10/2022, 21:40:27 - INFO - Socket is leaving topic 6339da4bae2ffde4dc93a7d5 [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:40:27 - DEBUG - Getting Stations
+02/10/2022, 21:41:38 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 21:41:38 - DEBUG - Getting Stations
+02/10/2022, 21:41:38 - INFO - New connected socket [id: 3IDsK5UMxYU-XAiLAADr]
+02/10/2022, 21:42:07 - DEBUG - Getting Stations
+02/10/2022, 21:43:10 - DEBUG - Getting Stations
+02/10/2022, 21:43:12 - INFO - Socket is leaving topic 6339db1bae2ffde4dc93a7d7 [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:43:12 - DEBUG - Getting Stations
+02/10/2022, 21:43:15 - DEBUG - Getting Stations
+02/10/2022, 21:43:18 - INFO - Socket is leaving topic 6339dbbcae2ffde4dc93a7d9 [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:43:53 - DEBUG - Getting Stations
+02/10/2022, 21:44:03 - DEBUG - Getting Stations
+02/10/2022, 21:44:04 - INFO - Socket is leaving topic 6339dbc3ae2ffde4dc93a7da [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:44:04 - DEBUG - Getting Stations
+02/10/2022, 21:44:42 - DEBUG - Getting Stations
+02/10/2022, 21:44:45 - INFO - Socket is leaving topic 6339dbf1ae2ffde4dc93a7db [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:45:17 - DEBUG - Getting Stations
+02/10/2022, 21:48:19 - INFO - Socket is leaving topic 6339dc1aae2ffde4dc93a7dc [id: 454HgsALkAzTE2-AAADf]
+02/10/2022, 21:48:50 - DEBUG - Getting Stations
+02/10/2022, 21:50:24 - DEBUG - Getting Stations
+02/10/2022, 21:50:33 - DEBUG - Getting Stations
+02/10/2022, 21:55:11 - DEBUG - Getting Stations
+02/10/2022, 21:55:17 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:09:16 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:09:16 - INFO - New connected socket [id: 0KzlPMXtvXi03tODAADt]
+02/10/2022, 22:09:17 - DEBUG - Getting Stations
+02/10/2022, 22:09:17 - DEBUG - Getting Stations
+02/10/2022, 22:10:10 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:10:11 - INFO - New connected socket [id: OJVhXbic6BrkMgPTAADv]
+02/10/2022, 22:10:11 - DEBUG - Getting Stations
+02/10/2022, 22:10:12 - DEBUG - Getting Stations
+02/10/2022, 22:15:01 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:15:02 - DEBUG - Getting Stations
+02/10/2022, 22:15:02 - INFO - New connected socket [id: ox_XNVLy_2XF0ejFAADx]
+02/10/2022, 22:15:03 - DEBUG - Getting Stations
+02/10/2022, 22:17:59 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:18:01 - INFO - New connected socket [id: aMgYZPCRUnNU1oPSAADz]
+02/10/2022, 22:18:01 - DEBUG - Getting Stations
+02/10/2022, 22:18:03 - DEBUG - Getting Stations
+02/10/2022, 22:19:56 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:19:58 - INFO - New connected socket [id: LWCuomQSQrxa33GvAAD1]
+02/10/2022, 22:19:59 - DEBUG - Getting Stations
+02/10/2022, 22:20:00 - DEBUG - Getting Stations
+02/10/2022, 22:21:52 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:21:53 - INFO - New connected socket [id: RAHP0nCScNPGLSNoAAD3]
+02/10/2022, 22:21:53 - DEBUG - Getting Stations
+02/10/2022, 22:21:55 - DEBUG - Getting Stations
+02/10/2022, 22:26:25 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:26:25 - INFO - New connected socket [id: a8GUdz94Kn42dG6tAAD5]
+02/10/2022, 22:26:25 - DEBUG - Getting Stations
+02/10/2022, 22:26:26 - DEBUG - Getting Stations
+02/10/2022, 22:28:51 - DEBUG - Getting Stations
+02/10/2022, 22:28:57 - DEBUG - Getting Stations
+02/10/2022, 22:29:03 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:29:03 - ERROR - Failed to remove station | {}
+02/10/2022, 22:29:07 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:29:07 - ERROR - Failed to remove station | {}
+02/10/2022, 22:31:03 - DEBUG - Getting Stations
+02/10/2022, 22:31:14 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:31:14 - ERROR - Failed to remove station | {}
+02/10/2022, 22:31:27 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:31:27 - ERROR - Failed to remove station | {}
+02/10/2022, 22:31:31 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:31:32 - INFO - New connected socket [id: FwUEvKjaKdMekfq0AAD7]
+02/10/2022, 22:31:32 - DEBUG - Getting Stations
+02/10/2022, 22:31:33 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:31:33 - ERROR - Failed to remove station | {}
+02/10/2022, 22:31:33 - DEBUG - Getting Stations
+02/10/2022, 22:31:34 - DEBUG - Getting Stations
+02/10/2022, 22:31:43 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:31:43 - ERROR - Failed to remove station | {}
+02/10/2022, 22:32:01 - DEBUG - Getting Stations
+02/10/2022, 22:32:05 - ERROR - cannot remove station undefined | {}
+02/10/2022, 22:32:05 - ERROR - Failed to remove station | {}
+02/10/2022, 22:34:20 - DEBUG - Getting Stations
+02/10/2022, 22:34:39 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 22:34:40 - INFO - New connected socket [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:34:40 - DEBUG - Getting Stations
+02/10/2022, 22:34:43 - DEBUG - Getting Stations
+02/10/2022, 22:34:46 - INFO - Socket is leaving topic 6339e731ae2ffde4dc93a7e5 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:34:47 - DEBUG - Getting Stations
+02/10/2022, 22:34:54 - DEBUG - Getting Stations
+02/10/2022, 22:34:58 - INFO - Socket is leaving topic 6339e71eae2ffde4dc93a7e4 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:34:59 - INFO - Socket is leaving topic 6339e731ae2ffde4dc93a7e5 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:39:08 - DEBUG - Getting Stations
+02/10/2022, 22:39:30 - DEBUG - Getting Stations
+02/10/2022, 22:39:34 - INFO - Socket is leaving topic 6339e7deae2ffde4dc93a7e7 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:39:35 - DEBUG - Getting Stations
+02/10/2022, 22:39:48 - DEBUG - Getting Stations
+02/10/2022, 22:39:51 - DEBUG - Getting Stations
+02/10/2022, 22:39:53 - INFO - Socket is leaving topic 6339e8eeae2ffde4dc93a7e8 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:39:54 - DEBUG - Getting Stations
+02/10/2022, 22:39:58 - INFO - Socket is leaving topic 6339e731ae2ffde4dc93a7e5 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:39:58 - DEBUG - Getting Stations
+02/10/2022, 22:40:17 - DEBUG - Getting Stations
+02/10/2022, 22:41:10 - DEBUG - Getting Stations
+02/10/2022, 22:41:13 - INFO - Socket is leaving topic 6339e904ae2ffde4dc93a7e9 [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:41:13 - DEBUG - Getting Stations
+02/10/2022, 22:41:17 - DEBUG - Getting Stations
+02/10/2022, 22:41:19 - INFO - Socket is leaving topic 6339e92bae2ffde4dc93a7ea [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:42:30 - DEBUG - Getting Stations
+02/10/2022, 22:42:43 - DEBUG - Getting Stations
+02/10/2022, 22:42:44 - INFO - Socket is leaving topic 6339e95dae2ffde4dc93a7eb [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:42:45 - DEBUG - Getting Stations
+02/10/2022, 22:47:30 - DEBUG - Getting Stations
+02/10/2022, 22:48:33 - DEBUG - Getting Stations
+02/10/2022, 22:48:35 - INFO - Socket is leaving topic 6339e9afae2ffde4dc93a7ec [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 22:48:36 - DEBUG - Getting Stations
+02/10/2022, 22:50:03 - DEBUG - Getting Stations
+02/10/2022, 22:50:10 - INFO - Socket is leaving topic 6339eb0eae2ffde4dc93a7ee [id: eDF8ElXGcJsuSiM3AAD9]
+02/10/2022, 23:11:42 - DEBUG - Getting Stations
+02/10/2022, 23:15:44 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 23:16:10 - INFO - New connected socket [id: XPgrVTHfTqcjophSAAD_]
+02/10/2022, 23:16:10 - DEBUG - Getting Stations
+02/10/2022, 23:21:22 - DEBUG - Getting Stations
+02/10/2022, 23:22:06 - DEBUG - auth.service - signup with username: eshel456, fullname: eshel456
+02/10/2022, 23:22:06 - DEBUG - auth.route - new account created: {"username":"eshel456","password":"$2b$10$W8Juxe0iio/pdyr/2vXHqu41EZJhf3xV9UWs3ZJjTZoKgBhqpSUwy","fullname":"eshel456","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[],"_id":"6339f2eeae2ffde4dc93a7f0"}
+02/10/2022, 23:22:06 - DEBUG - auth.service - login with username: eshel456
+02/10/2022, 23:22:06 - INFO - User login:  | {"_id":"6339f2eeae2ffde4dc93a7f0","username":"eshel456","fullname":"eshel456","isAdmin":false,"imgUrl":null,"createdStations":[],"likedStations":[],"recentSearches":[],"recentlyPlayedClips":[],"likedSongs":[],"followers":[],"following":[]}
+02/10/2022, 23:22:08 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 23:22:09 - INFO - New connected socket [id: o2l2CWRbOQNP6mzHAAEB]
+02/10/2022, 23:22:09 - DEBUG - Getting Stations
+02/10/2022, 23:22:16 - DEBUG - Getting Stations
+02/10/2022, 23:23:02 - INFO - Socket is leaving topic 63348907c2a4856cb0d9eb83 [id: o2l2CWRbOQNP6mzHAAEB]
+02/10/2022, 23:23:02 - DEBUG - Getting Stations
+02/10/2022, 23:25:15 - INFO - Socket disconnected [id: undefined]
+02/10/2022, 23:25:16 - INFO - New connected socket [id: GKjgL8Pu8UfYrUwTAAED]
+02/10/2022, 23:25:17 - DEBUG - Getting Stations
+02/10/2022, 23:27:19 - INFO - Server is running on port: 3030
+02/10/2022, 23:27:19 - INFO - New connected socket [id: VaFb0womkTXjF2FgAAAB]

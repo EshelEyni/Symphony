@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9b5a09f6.css",
-    "main.js": "/static/js/main.3d61c83a.js",
+    "main.css": "/static/css/main.3a391c16.css",
+    "main.js": "/static/js/main.87f8ef14.js",
     "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
     "static/media/note-logo.png": "/static/media/note-logo.63d3d8f10afed3a814d4.png",
     "static/media/likedsongs.png": "/static/media/likedsongs.4051e5f8e18b05da446e.png",
@@ -9,12 +9,12 @@
     "static/media/AvenirLTStd-Heavy.otf": "/static/media/AvenirLTStd-Heavy.d1a180cf4bf435707e5d.otf",
     "static/media/blank-user.png": "/static/media/blank-user.697fdcd21f6d157b9073.png",
     "index.html": "/index.html",
-    "main.9b5a09f6.css.map": "/static/css/main.9b5a09f6.css.map",
-    "main.3d61c83a.js.map": "/static/js/main.3d61c83a.js.map",
+    "main.3a391c16.css.map": "/static/css/main.3a391c16.css.map",
+    "main.87f8ef14.js.map": "/static/js/main.87f8ef14.js.map",
     "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b5a09f6.css",
-    "static/js/main.3d61c83a.js"
+    "static/css/main.3a391c16.css",
+    "static/js/main.87f8ef14.js"
   ]
 }
