@@ -72,7 +72,7 @@ export const ProfileHeader = ({ currProfileUser, setCurrProfileUser }) => {
                     onChange={onUploadImg} type='file' />
             </div>}
             <div className='profile-details'>
-                <p>Profile</p>
+                <p>PROFILE</p>
                 <h1 className='profile-h1'>{currProfileUser.fullname}</h1>
             </div>
         </div>

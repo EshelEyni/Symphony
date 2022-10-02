@@ -80,12 +80,6 @@ async function getClips(term) {
     return clips
 }
 
-function getTitle(str) {
-    const regex = new RegExp(/\B-/)
-    const title = regex.exec(str) ? str.substring(0, regex.exec(str).index - 1) : str
-    return title
-}
-
 async function updateUserRecentSearches(searchResults, loggedInUser, listName) {
     if (!loggedInUser) return
     const clip = searchResults[0] || {}
