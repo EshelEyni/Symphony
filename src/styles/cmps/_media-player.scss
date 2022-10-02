@@ -232,6 +232,26 @@
 
             .volume-input {
                 cursor: pointer;
+                accent-color: #4d4d4d;
+
+                &::-webkit-slider-thumb {
+                    // display: none;
+                    -webkit-appearance:none;
+                    appearance: none;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 23px;
+                    cursor: pointer;
+                    background: #434343;
+                }
+
+                &:hover {
+                    // accent-color: #1db954;
+
+                    &::-webkit-slider-thumb {
+                        opacity: 1;
+                    }
+                }
             }
         }
 
