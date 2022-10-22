@@ -3,10 +3,9 @@ const logger = require('../../services/logger.service.js')
 const ObjectId = require('mongodb').ObjectId
 
 
-
 async function query() {
     try {
-        const collection = await dbService.getCollection('station')
+        const collection = await dbService.getCollection('artist')
         let stations = await collection.find({}).toArray();
         return stations
     } catch (err) {
@@ -17,7 +16,7 @@ async function query() {
 
 async function getById(stationId) {
     try {
-        const collection = await dbService.getCollection('station')
+        const collection = await dbService.getCollection('artist')
         const station = await collection.findOne({ _id: ObjectId(stationId) })
         station.createdAt = ObjectId(station._id).getTimestamp()
         return station
@@ -30,7 +29,7 @@ async function getById(stationId) {
 
 async function remove(stationId) {
     try {
-        const collection = await dbService.getCollection('station')
+        const collection = await dbService.getCollection('artist')
         await collection.deleteOne({ _id: ObjectId(stationId) })
         return stationId
     } catch (err) {
@@ -45,14 +44,13 @@ async function add(station) {
         imgUrl: station.imgUrl || 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1663788155/pngwing.com_7_smg1dj.png',
         desc: '',
         tags: [],
-        likedByUsers: [],
         clips: station.clips || [],
         isPublic: false,
         bgColor: '#03435C'
 
     }
     try {
-        const collection = await dbService.getCollection('station')
+        const collection = await dbService.getCollection('artist')
         await collection.insertOne(currStation)
         return currStation
     } catch (err) {
@@ -65,9 +63,9 @@ async function update(stationToUpdate) {
     try {
         var id = ObjectId(stationToUpdate._id)
         delete stationToUpdate._id
-        const collection = await dbService.getCollection('station')
+        const collection = await dbService.getCollection('artist')
         await collection.updateOne({ _id: id }, { $set: { ...stationToUpdate } })
-
+        
         return { _id: id, ...stationToUpdate }
     } catch (err) {
         logger.error(`cannot update car ${stationToUpdate._id}`, err)

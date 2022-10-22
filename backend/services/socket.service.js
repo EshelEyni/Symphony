@@ -9,31 +9,9 @@ function setupSocketAPI(http) {
         }
     })
     gIo.on('connection', socket => {
-        console.log('socket.id', socket.id)
         logger.info(`New connected socket [id: ${socket.id}]`)
         socket.on('disconnect', socket => {
             logger.info(`Socket disconnected [id: ${socket.id}]`)
-        })
-        socket.on('user-register-to-playlist', stationId => {
-
-            if (socket.currStation === stationId) return
-            if (socket.currStation) {
-                socket.leave(socket.currStation)
-                logger.info(`Socket is leaving topic ${socket.currStation} [id: ${socket.id}]`)
-            }
-            socket.join(stationId)
-            socket.currStation = stationId
-            // console.log('socket', socket)
-            socket.to(socket.currStation).emit('TEST','WORKING SOCKET')
-        })
-        socket.on('user-formated-playlist', ({ _id, currClips }) => {
-            logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${_id}`)
-            // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            // gIo.to(_id).emit('user-formated-playlist', currClips)
-            socket.to(socket.currStation).emit('user-formated-playlist', currClips)
-            console.log('currClips', currClips)
         })
         socket.on('user-watch', userId => {
             logger.info(`user-watch from socket [id: ${socket.id}], on user ${userId}`)
@@ -103,15 +81,6 @@ async function _getAllSockets() {
     // return all Socket instances
     const sockets = await gIo.fetchSockets()
     return sockets
-}
-
-async function _printSockets() {
-    const sockets = await _getAllSockets()
-    console.log(`Sockets: (count: ${sockets.length}):`)
-    sockets.forEach(_printSocket)
-}
-function _printSocket(socket) {
-    console.log(`Socket - socketId: ${socket.id} userId: ${socket.userId}`)
 }
 
 module.exports = {

@@ -8,9 +8,8 @@ const router = express.Router()
 
 router.get('/', getUsers)
 router.get('/:id', getUser)
-// router.put('/:id', updateUser)
+
 router.put('/:id', requireAuth, updateUser)
-router.put('/followers/:id', updateUser)
 router.delete('/:id', requireAuth, deleteUser)
 
 // adding a user manually is not something you do i think

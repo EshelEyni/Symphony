@@ -61,7 +61,6 @@ async function remove(userId) {
 }
 
 async function update(user) {
-    console.log('user update', user)
     try {
         var id = ObjectId(user._id)
         delete user._id
@@ -82,14 +81,32 @@ async function add(user) {
             password: user.password,
             fullname: user.fullname,
             isAdmin: false,
-            imgUrl: null,
+            imgUrl: 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1665703006/blank-user_nmdesg.png',
+            prevClip: null,
+            prevList: [],
             createdStations: [],
-            likedStations: [],
+            publicStations:[],
             recentSearches: [],
-            recentlyPlayedClips: [],
-            likedSongs: [],
+            recentlyPlayed: {
+                name: "recently Played",
+                imgUrl: '',
+                clips: [],
+                createdBy: {
+                    username: user.username
+                }
+            },
+            likedStations: [],
+            likedSongs: {
+                name: "Liked Songs",
+                imgUrl: '../assets/img/likedsongs.png',
+                clips: [],
+                createdBy: {
+                    username: user.username
+                }
+            },
             followers: [],
-            following: []
+            following: [],
+            bgColor: '#646462'
         }
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)

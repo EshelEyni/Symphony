@@ -1,5 +1,7 @@
 const userService = require('./user.service')
 const logger = require('../../services/logger.service')
+const socketService = require('../../services/socket.service')
+const authService = require('../auth/auth.service')
 
 async function getUser(req, res) {
     try {
@@ -38,10 +40,13 @@ async function deleteUser(req, res) {
 }
 
 async function updateUser(req, res) {
+    var loggedInUser = await authService.validateToken(req.cookies.loginToken)
     try {
-        const user = req.body
-        const savedUser = await userService.update(user)
-        res.send(savedUser)
+        const userToUpdate = req.body
+        const updatedUser = await userService.update(userToUpdate)
+        socketService.broadcast({ type: 'user-updated', data: userToUpdate, userId: loggedInUser._id })
+
+        res.send(updatedUser)
     } catch (err) {
         logger.error('Failed to update user', err)
         res.status(500).send({ err: 'Failed to update user' })

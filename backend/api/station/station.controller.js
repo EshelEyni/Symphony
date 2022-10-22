@@ -1,4 +1,7 @@
 const stationService = require('./station.service.js')
+const socketService = require('../../services/socket.service')
+const authService = require('../auth/auth.service')
+
 const logger = require('../../services/logger.service.js')
 
 // GET LIST
@@ -30,9 +33,11 @@ async function getStationById(req, res) {
 
 // CREATE
 async function addStation(req, res) {
+
     try {
         const currStation = req.body
         const station = await stationService.add(currStation)
+
         res.send(station)
     }
     catch (err) {
@@ -43,9 +48,11 @@ async function addStation(req, res) {
 
 // UPDATE
 async function updateStation(req, res) {
+    var loggedInUser = await authService.validateToken(req.cookies.loginToken)
     try {
         const stationToUpdate = req.body
         const updatedStation = await stationService.update(stationToUpdate)
+        socketService.broadcast({ type: 'station-updated', data: updatedStation, userId: loggedInUser._id })
         res.send(updatedStation)
     } catch (err) {
         logger.error('Failed to update station', err)
@@ -56,8 +63,6 @@ async function updateStation(req, res) {
 // DELETE
 async function removeStation(req, res) {
     const stationId = req.params.stationId
-    console.log('req.params', req.params)
-    console.log('stationId', stationId)
     try {
         await stationService.remove(stationId)
         res.send({ msg: 'Removed succesfully' })

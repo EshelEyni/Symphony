@@ -33,11 +33,13 @@ if (process.env.NODE_ENV === 'production') {
 const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
 app.all('*', setupAsyncLocalStorage)
 
+const artistRoutes = require('./api/artist/artist.routes')
 const stationRoutes = require('./api/station/station.routes')
 const userRoutes = require('./api/user/user.routes')
 const authRoutes = require('./api/auth/auth.routes')
 const {setupSocketAPI} = require('./services/socket.service')
 
+app.use('/api/artist', artistRoutes)
 app.use('/api/station', stationRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
