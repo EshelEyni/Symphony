@@ -3,7 +3,7 @@ const Cryptr = require('cryptr')
 const bcrypt = require('bcrypt')
 const userService = require('../user/user.service')
 const logger = require('../../services/logger.service')
-const config = require('../config')
+const config = require('../../config')
 
 const cryptr = new Cryptr(config.sessionKey)
 
