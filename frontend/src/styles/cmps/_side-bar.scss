@@ -1,5 +1,6 @@
 .sidebar {
     grid-area: navbar;
+
     &>*:not(.nav-list) {
         display: none;
 
@@ -7,7 +8,6 @@
             display: block;
         }
     }
-
 
     @include for-narrow-layout {
 
@@ -25,13 +25,14 @@
         background-color: #000;
         padding: 10px 0;
 
-        .hr-navbar {
+        .navbar-hr {
             margin: 0 22px;
         }
 
         .user-stations-container {
             padding: 0;
-            margin:  10px 3px;
+            margin: 10px 3px;
+
             li {
                 padding: 20px;
                 max-height: 40px;
@@ -39,21 +40,6 @@
             }
         }
     }
-
-
-
-    // a {
-    //     color: rgb(172, 170, 170);
-    //     text-decoration: none;
-
-    //     @include for-narrow-layout {
-    //         font-size: 14px;
-    //     }
-
-    //     @include for-wide-layout {
-    //         font-size: 16px;
-    //     }
-    // }
 
     .logo-container {
         display: flex;
@@ -65,7 +51,7 @@
         }
 
         .logo img {
-            width: 60px;
+            width: 100px;
             -webkit-transform: rotate(345deg);
             -moz-transform: rotate(345deg);
             -ms-transform: rotate(345deg);
@@ -74,15 +60,16 @@
         }
 
         .logo-name {
-            background: #25EB6B;
-            background: radial-gradient(circle farthest-corner at left center, #25EB6B 0%, #FFFFFF 91%);
+            position: absolute;
+            right: rem(37.5px);
+            top: rem(60px);
+            background: radial-gradient(circle farthest-corner at left center, $clr3 0%, #FFFFFF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: auto 0;
             display: flex;
             justify-content: space-evenly;
-            letter-spacing: 0.1em;
-            font-size: 19px;
+            font-size: 25px;
         }
 
         //     @include for-mobile-layout {
@@ -90,22 +77,3 @@
         //     }
     }
 }
-
-// .sidebar ul { // check if you can put in base?
-//     list-style-type: none;
-//     padding: 0;
-
-//     &:hover {
-//         cursor: pointer;
-//     }
-// }
-
-// .user-stations-container {
-//     @include for-mobile-layout {
-//         display: none;
-//     }
-// }
-
-// [data-rbd-drag-handle-context-id="0"] {
-//     cursor: pointer;
-// }

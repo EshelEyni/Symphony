@@ -1,0 +1,50 @@
+.main-stations-container {
+    align-items: center;
+}
+
+.station-list-container {
+    max-width: 1900px;
+}
+
+.station-list-main-container {
+    // grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, 180px);
+    grid-template-rows: 1fr;
+    gap: 24px;
+    padding: 25px 25px 0;
+    max-width: 1900px;
+
+    .station-preview {
+        .station {
+            border-radius: 15px;
+            height: 100%;
+            background-color: #181818;
+            justify-content: space-between;
+
+        }
+    }
+
+    @include for-mobile-layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 15px 8px;
+
+    }
+}
+
+.station-by-tag-container {
+    .tag-header-container {
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 25px 0;
+        max-width: 1900px;
+    }
+
+    h1 {
+        margin: 0;
+        // padding: 15px;
+    }
+}

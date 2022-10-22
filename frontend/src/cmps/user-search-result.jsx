@@ -1,16 +1,15 @@
-
-export const UserSearchResult = ({ currStation, clip, onAddClip }) => {
+export const UserSearchResult = ({ clip, onAddClip }) => {
 
     return (
         <li
             className='search-res flex'>
-            <div className='search-res-content-container flex'>
-                <img className='clip-img' src={clip.img.url} />
-                <div className='clip-title'>
+            <section className='search-res-content-container flex'>
+                <img className='clip-img' src={clip.img.url} alt='clip-img' />
+                <span className='clip-title'>
                     {clip.title}
-                </div>
-            </div>
-            <div className='artist-name'>{clip.artist}</div>
+                </span>
+            </section>
+            <span className='artist-name'>{clip.artist}</span>
 
             <div>
                 <button
@@ -23,5 +22,3 @@ export const UserSearchResult = ({ currStation, clip, onAddClip }) => {
         </li>
     )
 }
-
-

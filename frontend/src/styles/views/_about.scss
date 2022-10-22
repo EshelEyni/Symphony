@@ -1,0 +1,38 @@
+.developers {
+
+    & h1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .developers-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+
+.app-desc {
+    background-color: #252525;
+    height: 450px;
+    width: 50vw;
+    margin: auto;
+    padding: 25px;
+    border-radius: 25px;
+
+    & .desc-container {
+        height: 100%;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+
+        &>button {
+            background-color: rgba(255, 255, 255, 0);
+            border: none;
+            color: #fff;
+            height: 50px;
+            width: 50px;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.profile-preview {
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #181818;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-y: hidden;
+    height: 270px;
+
+    h4,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    &:hover {
+        background-color: rgb(49, 49, 49);
+        transition: all 0.5s;
+    }
+
+    .profile-img-container {
+        height: 165px;
+        width: 165px;
+        border-radius: 50%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            @include aspect-ratio(1, 1);
+        }
+    }
+
+    .desc-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+
+        h4 {
+            margin-top: 15px;
+            font-size: 16px;
+            padding-bottom: 4px;
+        }
+
+        p {
+            color: #a7a7a7;
+        }
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+    }
+
+}

@@ -1,124 +1,121 @@
-import { useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
-import { getDuration, shortTitle } from '../services/clip.service'
-import { LikesBtns } from './likes-btn'
-import { ClipDropdown } from './clip-dropdown'
-import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
-import { useDispatch } from 'react-redux'
-import { storageService } from '../services/async-storage.service'
-import { updateUser } from '../store/user.actions'
-import { userService } from '../services/user.service'
-import { equalizer, getDate } from '../services/clip.service'
+import { useSelector, useDispatch } from 'react-redux'
+import { clipService } from '../services/clip.service'
+import { LikeIcon } from './like-icon'
+import { Dropdown } from './dropdown'
+import { Equalizer } from './equalizer'
+import { setMediaPlayerClip, setIsPlaying, setPlaylist } from '../store/media-player.actions'
+
 export const ClipPreview = ({
-    station,
-    clip,
-    type,
+    currStation,
+    currClip,
     idx,
     clipNum,
     onRemoveClip,
+    onAddClip,
     bgColor,
-    dndStyle }) => {
+    dndStyle,
+    isLike,
+    isRecentlyPlayed
+}) => {
 
-    let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
-
-    const loggedInUser = useSelector(state => state.userModule.user)
-    let [isDropdownClip, setIsDropdownClip] = useState(false)
-    let [isClicked, setIsClicked] = useState()
+    const { isPlaying, currMediaPlayerClip, currPlaylist, togglePlayFunc } = useSelector(state => state.mediaPlayerModule)
+    const { user } = useSelector(state => state.userModule)
+    const { artists } = useSelector(state => state.artistModule)
+    const [isDropdown, setIsDropdown] = useState(false)
+    const [isClicked, setIsClicked] = useState(false)
+    const dispatch = useDispatch()
+    const isCurrClipPlaying = currStation?._id === currPlaylist?._id && currClip?._id === currMediaPlayerClip?._id && isPlaying
 
     useEffect(() => {
-        if (!currClip || !currPlaylist) return
-        if (clip._id === currClip._id) {
+        if (!currMediaPlayerClip || !currPlaylist) return
+        if (currClip?._id === currMediaPlayerClip._id) {
             setIsClicked(isPlaying)
         }
-    }, [isPlaying])
+    }, [isPlaying, currClip, currMediaPlayerClip, currPlaylist])
 
-    const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
-    const dispatch = useDispatch()
+    useEffect(() => {
+        if (!currPlaylist) return
+        if (isCurrClipPlaying) dispatch(setIsPlaying(true))
+        else setIsClicked(false)
+    }, [isPlaying, currClip, currMediaPlayerClip, currPlaylist])
 
-    const onTogglePlay = (clip, isClicked, loggedInUser) => {
+    const onTogglePlay = () => {
         if (!isClicked) {
-            dispatch(setIsPlaying(false))
-            clearInterval(mediaPlayerInterval)
-            dispatch(setPlaylist(station))
-            dispatch(setClip(clip))
-            dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
-            playerFunc.playVideo()
+            if (currStation._id !== currPlaylist._id) dispatch(setPlaylist(currStation))
+            if (currMediaPlayerClip._id !== currClip._id) dispatch(setMediaPlayerClip(currClip))
+            setIsClicked(true)
         }
-        if (isClicked) {
-            clearInterval(mediaPlayerInterval)
-            playerFunc.pauseVideo()
-        }
-        dispatch(setIsPlaying(!isPlaying))
-        const userToUpdate = { ...loggedInUser }
-        userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
-        dispatch(updateUser(userToUpdate))
+        togglePlayFunc()
     }
 
-    const getTime = async () => {
-        const time = await playerFunc.getCurrentTime()
-        storageService.put('currTime', time)
-        dispatch(setCurrTime(time))
-        if (currTime > clipLength - 1.5) {
-            const currIdx = currPlaylist.clips.indexOf(currClip)
-            let nextIdx = currIdx + 1
-            if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
-            currClip = currPlaylist.clips[nextIdx]
-        }
-        dispatch(setClip(currClip))
-        dispatch(setIsPlaying(true))
+    const getBgcolor = () => {
+        let currBgcolor = bgColor
+        if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
+        return currBgcolor
     }
 
-    // const getBgcolor = () => {
-    //     let currBgcolor = defaultBgcolor
-    //     if (bgColor) currBgcolor = bgColor
-    //     if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
-    //     return currBgcolor
-    // }
-    // const linearBgc = `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`
+    const getDateAdded = () => {
+        let currTimeStamp = currClip.createdAt
+        if (isRecentlyPlayed) currTimeStamp = currClip.playedAt
+        if (isLike) currTimeStamp = currClip.likedAt
+        const formattedTimeStamp = +((Date.now() - currTimeStamp) / 1000).toFixed()
+        return clipService.getTimeStr(currTimeStamp, formattedTimeStamp)
+    }
 
     return <li
         style={{
             backgroundColor: dndStyle?.backgroundColor,
+            // backgroundColor: getBgcolor(),
             color: dndStyle?.color,
             borderRadius: dndStyle?.borderRadius,
             cursor: dndStyle?.cursor,
         }}
-
         className={'clip-preview-container '} >
-        <div className='clip-preview-main-container'>
-            {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} alt='clip-img' /></div> :
-                <React.Fragment>
+        {currClip &&
+            <section className='clip-preview-main-container'>
+                <div>
                     <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                        onClick={() => {
-                            setIsClicked(!isClicked)
-                            onTogglePlay(clip, isClicked, loggedInUser)
-                        }}></i>
-                    <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
-                </React.Fragment>
-            }
-            <div className='clip-title flex align-center'>
-                <img className='clip-img' src={clip.img?.url} alt='clip-img' />
-                <div className='title-text flex column'>
-                    <h1 style={{ color: dndStyle?.color }}>{shortTitle(clip)}</h1>
-                    <p style={{ color: dndStyle?.color }}>{clip.artist}</p>
+                        onClick={onTogglePlay}></i>
+                    {isCurrClipPlaying ? <Equalizer /> :
+                        <span className='clip-num'>{clipNum ? clipNum : idx + 1}</span>}
                 </div>
-            </div>
-            <div className='artist-name'>{clip.artist}</div>
-            {!isCreatedAt && <div className='added'>{clip.createdAt || clip.LikedAt || new Date(clip.addedAt * 1000).toLocaleDateString('he-IL')}</div>}
-            {loggedInUser && <LikesBtns clip={clip} station={station} />}
-            {clip.duration ? <div className='clock-area'>{getDuration(clip.duration)}</div> : ''}
-            <i
-                className='dropdown-btn fa-solid fa-ellipsis'
-                onClick={() => setIsDropdownClip(!isDropdownClip)}>
 
-                {isDropdownClip && <ClipDropdown
-                    station={station}
-                    setIsDropdownClip={setIsDropdownClip}
-                    onRemoveClip={onRemoveClip}
-                    clip={clip}
+                <section className='clip-title flex align-center'>
+                    <section className='clip-img-container'>
+                        <img className='clip-img' src={currClip.img?.url} alt='clip-img' />
+                    </section>
+                    <section className='title-text flex column'>
+                        <h1 style={{ color: dndStyle?.color }}>{clipService.getFormattedTitle(currClip)}</h1>
+                        <p style={{ color: dndStyle?.color }}>{currClip.artist}</p>
+                    </section>
+                </section>
+                <span className='artist-name'>{currClip.artist}</span>
+                <span className='added' > {getDateAdded()} </span>
+
+                {user && <LikeIcon
+                    currStation={currStation}
+                    currClip={currClip}
+                    inputId={currClip._id}
+                    isClipPreview={true}
                 />}
-            </i>
-        </div>
-    </li >
 
+                {currClip.duration ? <div className='clock-area'>{clipService.getDuration(currClip.duration)}</div> : ''}
+
+                <i className='dropdown-btn fa-solid fa-ellipsis'
+                    onClick={() => setIsDropdown(!isDropdown)}>
+
+                    {isDropdown && <Dropdown
+                        setIsDropdown={setIsDropdown}
+                        isClipDropdown={true}
+                        currClip={currClip}
+                        isUserClip={currStation?.createdBy?._id === user?._id}
+                        artists={artists}
+                        currStation={currStation}
+                        onRemoveClip={onRemoveClip}
+                        onAddClip={onAddClip}
+                    />}
+                </i>
+            </section>}
+    </li >
 }

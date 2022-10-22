@@ -1,273 +1,205 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { defaultImg, stationService } from '../services/station.service.js'
-import { SearchBar } from '../cmps/search-bar'
-import { loadStations, removeStation, updateStation } from '../store/station.actions'
-import { computeColor, defaultBgcolor } from '../services/bg-color.service.js'
-import { DraggableClipList } from '../cmps/draggable-clip-list.jsx'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { setUserMsg, updateUser } from '../store/user.actions.js'
-import { handleDragEnd } from '../services/dragg.service.js'
-import { msg, clearMsg, userService } from '../services/user.service'
 import { ClipList } from '../cmps/clip-list.jsx'
 import { StationHeader } from '../cmps/station-header.jsx'
-import { ClipListHeader } from '../cmps/clip-list-header.jsx'
-import { SearchList } from '../cmps/search-list.jsx'
+import { SearchBar } from '../cmps/search-bar'
+import { Loader } from '../cmps/loader.jsx'
+import { loadStation, loadStations, removeStation, updateStation } from '../store/station.actions'
+import { setUserMsg, updateUser } from '../store/user.actions.js'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
-import { addDesc, addTag, setArtistStation } from '../services/admin-service.js'
-import { socketService, USER_FORMATED_PLAYLIST, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
-import { getDate } from '../services/clip.service.js'
+import { stationService } from '../services/station.service.js'
+import { defaultBgcolor, defaultHeaderBgcolor } from '../services/bg-color.service.js'
+import { userService } from '../services/user.service'
+import { socketService, SOCKET_EVENT_STATION_UPDATED, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
+import { AdminControlSet } from '../cmps/admin-control-set.jsx'
 
 export const StationDetails = () => {
-    const loggedInUser = userService.getLoggedinUser()
+    const loggedinUser = userService.getLoggedinUser()
+    const { currStation } = useSelector(state => state.stationModule)
+
+    const [currClips, setCurrClips] = useState([]) // Supports DND in non user station
+    const [searchClips, setSearchClips] = useState([])
+    const [stationBgcolor, setStationBgcolor] = useState(defaultBgcolor)
+    const [isAdminMode, setAdminMode] = useState(false)
+    const [searchTerm, setSearchTerm] = useState('')
+    const [isSearchLoading, setIsSearchLoading] = useState(false)
+    const [isPostSearch, setIsPostSearch] = useState(false)
+
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    const [currStation, setCurrStation] = useState()
     const params = useParams()
-    const [imgUrl, setImgUrl] = useState() // maybe this asswell 
-    let [searchClips, setSearchClips] = useState([])
-    let [currStationClips, setCurrStationsClips] = useState() // to delete hook
-    let [stationBgcolor, setStationBgcolor] = useState(defaultBgcolor)
-    let [isAdminMode, setAdminMode] = useState(false)
-    const [searchTerm, setSearchTerm] = useState()
 
-    const key = loggedInUser?._id === currStation?.createdBy?._id ? 'user-clip' : 'clip'
-
+    const isUserCreatedStation = loggedinUser?._id === currStation?.createdBy?._id
 
     useEffect(() => {
-        loadStation(params)
+        if (currStation?._id !== params._id) {
+            dispatch(loadStation('clear-station'))
+            setSearchClips([])
+            setSearchTerm('')
+            setIsPostSearch(false)
+            dispatch(loadStation(params._id))
+        }
     }, [params])
 
     useEffect(() => {
-        dispatch(setHeaderBgcolor(stationBgcolor))
-        if (currStation && currStation?.bgColor === undefined) {
-            computeColor(currStation?.imgUrl)
-                .then(color => {
-                    currStation.bgColor = color
-                    dispatch(updateStation(currStation))
-                    setStationBgcolor(color)
-                })
-                .catch(error => {
-                    console.log('failed to compute color for img: ' + error)
-                })
+        if (currStation?._id === params._id) {
+            dispatch(setHeaderBgcolor(currStation.bgColor))
+            setStationBgcolor(currStation.bgColor)
+            setCurrClips(currStation.clips)
+            setSearchTerm('')
         }
-    }, [stationBgcolor, currStation])
-
-    // Supports socket service
-    useEffect(() => {
-        socketService.emit(USER_REGISTERED_TO_PLAYLIST, currStation?._id)
-        socketService.on('TEST', data => console.log('data', data))
-        socketService.on(USER_FORMATED_PLAYLIST, stationCreatorUpdate)
         return () => {
-            socketService.off(USER_REGISTERED_TO_PLAYLIST)
-            socketService.off(USER_FORMATED_PLAYLIST)
+            dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
         }
-    }, [loggedInUser])
 
-    const stationCreatorUpdate = (newClipsOrder) => {
-        setCurrStationsClips([...newClipsOrder])
-    }
+    }, [currStation])
 
-    const loadStation = async (params) => {
-        const id = params.id
-
-        const currStation = await stationService.getById(id)
-
-        setCurrStation(currStation)
-
-        setCurrStationsClips(currStation.clips)
-
-        setImgUrl(currStation?.imgUrl)
-
-        setStationBgcolor(currStation.bgColor)
-
-        if (!currStation.bgColor) {
-            computeColor(currStation?.imgUrl)
-                .then(color => {
-                    currStation.bgColor = color
-                    dispatch(updateStation(currStation))
-                    setStationBgcolor(color)
-                })
-                .catch(error => {
-                    console.log('failed to compute color for img: ' + error)
-                })
+    useEffect(() => {
+        if (currStation?._id === params._id) {
+            socketService.emit(USER_REGISTERED_TO_PLAYLIST, currStation?._id)
+            socketService.on('TEST', data => console.log('data', data))
+            return () => {
+                socketService.off(USER_REGISTERED_TO_PLAYLIST)
+                socketService.off(SOCKET_EVENT_STATION_UPDATED)
+                dispatch(loadStation('clear-station'))
+            }
         }
-    }
+    }, [])
 
-    const onRemoveStation = () => {
-        dispatch(removeStation(currStation._id))
-        dispatch(setUserMsg(msg(currStation.name, ' removed from your library')))
-        setTimeout(() => {
-            dispatch(setUserMsg(clearMsg))
-        }, 2500)
-        loggedInUser.createdStations = loggedInUser.createdStations.filter(playlistId => playlistId !== currStation._id)
-        dispatch(updateUser(loggedInUser))
-        navigate('/library')
+    const onTogglePublicStation = () => {
+        const isPublicStation = loggedinUser?.publicStations.includes(currStation?._id)
+        const userToUpdate = { ...loggedinUser }
+        if (!isPublicStation) userToUpdate.publicStations.push(currStation._id)
+        else userToUpdate.publicStations = userToUpdate.publicStations.filter(id => id !== currStation._id)
+        dispatch(updateUser(userToUpdate))
     }
 
     const onSaveSearchStation = async () => {
         const stationToSave = { ...currStation }
         delete stationToSave._id
         delete stationToSave.isSearch
-        await stationService.save(stationToSave)
+        const savedStation = await stationService.save(stationToSave)
         dispatch(loadStations())
+        const userToUpdate = { ...loggedinUser }
+        userToUpdate.createdStations.unshift(savedStation._id)
+        dispatch(updateUser(userToUpdate))
     }
 
-    const onAddClip = async (addedClip) => {
-        if (currStation.clips.find(clip => clip._id === addedClip._id)) {
-            dispatch(setUserMsg(msg(addedClip.title, ' Is already in ', currStation.name)))
-            setTimeout(async () => {
-                dispatch(setUserMsg(clearMsg))
-            }, 2500);
+    const onRemoveStation = async () => {
+        dispatch(removeStation(currStation._id))
+        dispatch(setUserMsg(currStation.name + ' removed from your library'))
+        setTimeout(() => dispatch(setUserMsg(null)), 2500)
+        loggedinUser.createdStations = loggedinUser.createdStations.filter(id => id !== currStation._id)
+        await dispatch(updateUser(loggedinUser))
+        navigate('/library')
+    }
+
+    const onAddClip = async (addedClip, stationId) => {
+        const stationToUpdate = !stationId ? { ...currStation } : await stationService.getById(stationId)
+        if (stationToUpdate.clips.find(clip => clip._id === addedClip._id)) {
+            dispatch(setUserMsg('This song was already added'))
+            setTimeout(() => dispatch(setUserMsg(null)), 2500)
             return
         }
-        const stationToUpdate = { ...currStation }
-        addedClip.createdAt = new Date(getDate()).toLocaleDateString()
+        addedClip.createdAt = Date.now()
         stationToUpdate.clips.push(addedClip)
-        setCurrStation(stationToUpdate)
-        setCurrStationsClips(stationToUpdate.clips)
-        dispatch(updateStation(currStation))
-        dispatch(setUserMsg(msg(addedClip.title, ' added to ' + currStation.name)))
-        setTimeout(async () => {
-            dispatch(setUserMsg(clearMsg))
-        }, 2500);
+        if (!stationId) dispatch(updateStation(stationToUpdate))
+        else stationService.save(stationToUpdate)
+        dispatch(setUserMsg('Added to ' + stationToUpdate.name))
+        setTimeout(() => dispatch(setUserMsg(null)), 2500)
     }
 
-
-    const onRemoveClip = (ev, clipId, clipTitle) => {
+    const onRemoveClip = (ev, clipId) => {
         ev.stopPropagation()
         currStation.clips = currStation.clips.filter(clip => clip._id !== clipId)
-        setCurrStation({ ...currStation })
         dispatch(updateStation(currStation))
-        dispatch(setUserMsg(msg(clipTitle, ' removed from ' + currStation.name)))
-        setTimeout(() => {
-            dispatch(setUserMsg(clearMsg))
-        }, 2500)
+        dispatch(setUserMsg('Song removed from ' + currStation.name))
+        setTimeout(() => dispatch(setUserMsg(null)), 2500)
     }
 
-    const onHandleDragEnd = (res) => {
-        let { clips } = currStation
-        currStation.clips = handleDragEnd(res, clips)
-        setCurrStationsClips(currStation.clips)
-        dispatch(updateStation(currStation))
-        socketService.emit(USER_FORMATED_PLAYLIST, {
-            _id: currStation._id,
-            currClips: currStation.clips
-        })
+    if (currStation?._id !== params._id) {
+        return (
+            <Loader
+                size={'large-loader'}
+                loaderType={'page-loader'} />
+        )
     }
 
-    const onAdminSaveStation = (station) => {
-        if (station.tags.length === 0) return alert('Please enter tags to station...')
-        if (!station.desc) return alert('Please enter a description to station...')
-        station.createdBy = {
-            _id: 'a101',
-            username: 'Symphony',
-            fullname: 'Symphony'
-        }
-
-        dispatch(updateStation(station))
-    }
-
-    const onSetArtistStation = (station) => {
-        const updatedStation = setArtistStation(station)
-        setCurrStation({ ...updatedStation })
-    }
-
-    const onAddTag = (station) => {
-        addTag(station)
-    }
-
-    const onAddDesc = (station) => {
-        addDesc(station)
-    }
-
-    return (
-        <div className='station-container'>
-            {currStation && <div className='station-main-container'>
-                <StationHeader
-                    currStation={currStation}
-                    setCurrStation={setCurrStation}
-                    isUserStation={currStation?.createdBy?._id === loggedInUser?._id}
-                    imgUrl={imgUrl}
-                    setImgUrl={setImgUrl}
-                    bgColor={stationBgcolor}
-                    setBgcolor={setStationBgcolor}
-                    isAdminMode={isAdminMode}
-                    setAdminMode={setAdminMode}
-                    onSaveSearchStation={onSaveSearchStation}
-                    onRemoveStation={onRemoveStation}
-                />
-
-                {/********************************* Admin Control  *********************************/}
-                {isAdminMode &&
-                    <div className="admin-control-set">
-                        <button onClick={() => onAdminSaveStation(currStation)}>Save With Admin Mode</button>
-                        <button onClick={() => onAddTag(currStation)}>Add Tag</button>
-                        <button onClick={() => onAddDesc(currStation)}>Add Desc</button>
-                        <button onClick={() => onSetArtistStation(currStation)}>Set Artist Mode</button>
-                    </div>
-                }
-
-                <div className='station-clips-container'>
-                    <ClipListHeader
+    if (currStation?._id === params._id) {
+        return (
+            <main className='station-container'>
+                <section className='station-main-container'>
+                    <StationHeader
+                        currStation={currStation}
+                        isUserStation={currStation?.createdBy?._id === loggedinUser?._id}
                         bgColor={stationBgcolor}
-                        station={currStation}
-                        user={loggedInUser} />
-                    <hr style={{ backgroundColor: stationBgcolor ? stationBgcolor : '#121212' }}></hr>
-                    {key === 'clip' &&
-                        <ClipList
-                            clipKey={key}
-                            bgColor={stationBgcolor}
-                            currClips={currStationClips}
-                            setCurrClips={setCurrStationsClips}
-                            station={currStation}
-                            onRemoveClip={onRemoveClip}
-                        />}
-                    {/* --------------------------------------- User Station Only Proporties --------------------------------------- */}
-                    {key === 'user-clip' &&
-                        <DragDropContext onDragEnd={onHandleDragEnd}>
-                            <Droppable droppableId='station-clips-main-container'>
-                                {(provided) => (
-                                    <DraggableClipList
-                                        clipKey={key}
-                                        provided={provided}
-                                        bgColor={stationBgcolor}
-                                        currClips={currStationClips}
-                                        setCurrClips={setCurrStationsClips}
-                                        station={currStation}
-                                        onRemoveClip={onRemoveClip}
-                                    />)}
-                            </Droppable>
-                        </DragDropContext>}
-                </div>
+                        setBgcolor={setStationBgcolor}
+                        isAdminMode={isAdminMode}
+                        setAdminMode={setAdminMode}
+                        onSaveSearchStation={onSaveSearchStation}
+                        onTogglePublicStation={onTogglePublicStation}
+                        onRemoveStation={onRemoveStation}
+                    />
 
-                <hr />
-                {key === 'user-clip' &&
-                    <div className='station-search-container'>
-                        <h1 className='station-search-header'>
-                            Let's find something for your playlist
-                        </h1>
-                        <SearchBar
-                            searchTerm={searchTerm}
-                            setSearchTerm={setSearchTerm}
-                            isStationDetails={true}
-                            setSearchClips={setSearchClips}
+                    {/********************************* Admin Control  *********************************/}
+                    {isAdminMode &&
+                        <AdminControlSet
+                            currStation={currStation} />}
+
+                    <section className='station-clips-container'>
+                        <ClipList
+                            bgColor={stationBgcolor}
+                            clipKey={'station-clip-'}
+                            isUserCreatedStation={isUserCreatedStation}
+                            isStation={true}
+                            currStation={currStation}
+                            currClips={currClips}
+                            setCurrClips={setCurrClips}
+                            onAddClip={onAddClip}
+                            onRemoveClip={onRemoveClip}
                         />
-                        {searchClips.length > 0 &&
-                            <SearchList
-                                type={'user-search-res'}
-                                searchClips={searchClips}
-                                setCurrStationsClips={setCurrStationsClips}
-                                currStation={currStation}
-                                onAddClip={onAddClip}
-                                setCurrStation={setCurrStation}
+                    </section>
+
+                    <hr />
+
+                    {/********************************* Search Bar && List  *********************************/}
+
+                    {isUserCreatedStation &&
+                        <section className='station-search-container'>
+                            <h1 className='station-search-header'>
+                                Let's find something for your playlist
+                            </h1>
+                            <SearchBar
+                                isPostSearch={isPostSearch}
+                                setIsPostSearch={setIsPostSearch}
+                                isSearchLoading={isSearchLoading}
+                                setIsSearchLoading={setIsSearchLoading}
+                                searchTerm={searchTerm}
+                                setSearchTerm={setSearchTerm}
+                                isStationDetails={true}
+                                setSearchClips={setSearchClips}
                             />
-                        }
-                    </div>}
-            </div>}
-        </div>
-    )
+                            
+                            {isSearchLoading && <Loader
+                                size={'medium-loader'}
+                                loaderType={'search-loader'}
+                            />}
+
+                            {(isPostSearch && searchClips.length > 0) &&
+                                <ClipList
+                                    isUserCreatedStation={isUserCreatedStation}
+                                    clipKey={'station-search-res'}
+                                    isStationSearch={true}
+                                    currClips={searchClips}
+                                    setCurrClips={setSearchClips}
+                                    currStation={currStation}
+                                    onAddClip={onAddClip}
+                                />}
+                        </section>}
+                </section>
+            </main>
+        )
+    }
 }

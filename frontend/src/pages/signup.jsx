@@ -1,22 +1,20 @@
-import { loadUsers, onSignup } from '../store/user.actions.js'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { setHeaderBgcolor } from '../store/app-header.actions.js'
-import { defaultHeaderBgcolor } from '../services/bg-color.service'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { loadUsers, onSignup, setUserMsg } from '../store/user.actions.js'
+import { userService } from '../services/user.service.js'
 
 export const Signup = () => {
-    const users = useSelector(state => state.userModule.users)
+    const { users } = useSelector(state => state.userModule)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
-        dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
-        dispatch(loadUsers())
+        if (!users.length) dispatch(loadUsers())
+
     }, [])
 
-    let [user, setUser] = useState({
+    let [currUser, setCurrUser] = useState({
         username: null,
         fullname: null,
         password: null,
@@ -24,56 +22,59 @@ export const Signup = () => {
 
     const onHandleSubmit = (ev) => {
         ev.preventDefault()
-        if (users.find(currUser => currUser.username === user.username)) {
-            return alert('user name already exits!')
+
+        if (userService.checkUsername(users, currUser.username)) {
+            dispatch(setUserMsg('user name already exits!'))
+            setTimeout(() => dispatch(setUserMsg(null)), 2500)
+            return
         }
-        dispatch(onSignup(user))
+        dispatch(onSignup(currUser))
         navigate('/')
     }
 
     const handleChange = ({ target }) => {
         const { value, name } = target
-        setUser({ ...user, [name]: value })
+        setCurrUser({ ...currUser, [name]: value })
     }
 
     return (
-        <div>
+        <section className='login-signup-form-container flex column'>
             <h1>
                 Signup
             </h1>
             <form
                 onSubmit={onHandleSubmit}
-                className="form-signup flex column">
+                className='login-signup-form flex column'>
                 <input
-                    type="txt"
-                    name="username"
-                    className="input-signup"
-                    placeholder="Username*"
+                    className='login-signup-input'
+                    type='txt'
+                    name='username'
+                    placeholder='Username*'
                     onChange={handleChange}
                     required
                 />
                 <input
-                    type="txt"
-                    name="fullname"
-                    className="input-signup"
-                    placeholder="Full name*"
+                    className='login-signup-input'
+                    type='txt'
+                    name='fullname'
+                    placeholder='Fullname*'
                     onChange={handleChange}
+                    onSubmit={onHandleSubmit}
                     required
                 />
                 <input
-                    type="password"
-                    name="password"
-                    className="input-signup"
-                    placeholder="Password*"
+                    className='login-signup-input'
+                    type='password'
+                    name='password'
+                    placeholder='Password*'
                     onChange={handleChange}
+                    onSubmit={onHandleSubmit}
                     required
                 />
-                <button
-                    className="btn-signup"
-                >
+                <button className='login-signup-btn'>
                     Signup
                 </button>
             </form>
-        </div>
+        </section>
     )
 }

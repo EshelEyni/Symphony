@@ -1,67 +1,79 @@
-
-import { onLogin } from '../store/user.actions.js'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { setHeaderBgcolor } from '../store/app-header.actions.js'
-import { defaultHeaderBgcolor } from '../services/bg-color.service'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { loadUsers, onLogin, setUserMsg } from '../store/user.actions.js'
 import { userService } from '../services/user.service.js'
 
 export const Login = () => {
+    const { user, users } = useSelector(state => state.userModule)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    let [user, setUser] = useState({
+    const [currUser, setCurrUser] = useState({
         username: null,
         password: null
     })
 
     useEffect(() => {
-        dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
-    }, [])
+        if (!users.length) dispatch(loadUsers())
+        if (user) navigate('/')
+    }, [user])
 
     const handleChange = ({ target }) => {
         const { value, name } = target
-        setUser({ ...user, [name]: value })
+        setCurrUser({ ...currUser, [name]: value })
     }
 
     const onHandleSubmit = async (ev) => {
         ev.preventDefault()
-        dispatch(onLogin(user))
-         navigate('/')
+        if (!userService.checkUsername(users, currUser.username)) {
+            dispatch(setUserMsg('User name is incorrect!'))
+            setTimeout(() => dispatch(setUserMsg(null)), 2500)
+            return
+        }
+        try {
+            await dispatch(onLogin(currUser))
+        }
+        catch (err) {
+            const error = await err
+            console.log('error', error)
+        }
     }
 
     return (
-        <div className='login-form-container'>
+        <section className='login-signup-form-container flex column'>
             <h1>
                 Login
             </h1>
             <form
                 onSubmit={onHandleSubmit}
-                className="form-signup flex column">
+                className='login-signup-form flex column'>
                 <input
-                    type="txt"
-                    name="username"
-                    className="input-signup"
-                    placeholder="Username*"
+                    className='login-signup-input'
+                    type='txt'
+                    name='username'
+                    placeholder='Username*'
                     onChange={handleChange}
+                    onSubmit={onHandleSubmit}
                     required
                 />
                 <input
-                    type="password"
-                    name="password"
-                    className="input-signup"
-                    placeholder="Password*"
+                    className='login-signup-input'
+                    type='password'
+                    name='password'
+                    placeholder='Password*'
                     onChange={handleChange}
+                    onSubmit={onHandleSubmit}
                     required
                 />
-
                 <button
-                    className="btn-signup"
+                    onClick={onHandleSubmit}
+                    className='login-signup-btn'
                 >
                     Login
                 </button>
             </form>
-        </div>
+        </section>
     )
 }

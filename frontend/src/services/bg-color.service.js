@@ -1,15 +1,25 @@
 // Default Bgcolors
 export const defaultHeaderBgcolor = '#1A1A1A'
 // export const stationHeaderDefaultBgcolor = '#03435C'
-export const queueBgcolor = '#16BA53'
 export const likedSongsBgcolor = '#4723B3'
 export const defaultGreenColor = '#1db954'
 export const defaultLightGreenColor = '#3dd773bd'
 export const defaultBlueColor = '#3f7ef4'
 export const defaultBgcolor = '#121212'
-export const profileBgcolor = '#474747'
+export const defaultProfileBgcolor = '#646462'
 
-export const computeColor = (url) => {
+export const setBackgroundColor = async (objectToUpdate, cb) => {
+    try {
+        objectToUpdate.bgColor = await computeColor(objectToUpdate.imgUrl)
+        if (cb) cb(objectToUpdate.bgColor)
+    }
+    catch (err) {
+        console.log('failed to compute color for img: ', err)
+    }
+}
+
+
+const computeColor = (url) => {
     return new Promise((resolve, reject) => {
         var img = new Image()
         img.crossOrigin = 'Anonymous'
@@ -72,6 +82,8 @@ const pickPrimaryColor = (colorsList) => {
     delete colorCount['#FAFAFA']
     delete colorCount['#EAEBE6']
     delete colorCount['#FAF8F7']
+    delete colorCount['#FCFEF6']
+    delete colorCount['#E3E3DE']
 
 
     //**************************************************************************************************************************//

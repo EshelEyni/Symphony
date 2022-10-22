@@ -1,28 +1,28 @@
-import { NavLink } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
-export const LoginMsg = ({ currTop, setIsLoginMsg }) => {
+export const LoginMsg = ({ loginMsgProperties, setIsLoginMsg }) => {
+    const navigate = useNavigate()
 
-
-    return <div
-        style={{ top: currTop }}
-        className='login-first-msg flex column space-between'>
+    return <section
+        style={{ top: loginMsgProperties.top }}
+        className='login-first-msg flex column'>
         <div className='shadow-screen'
             onClick={() => setIsLoginMsg(false)}></div>
-        <div className='login-first-msg-container'>
-            <div className='tippy'></div>
+        <section className='login-first-msg-container'>
+            <span className='tippy'></span>
             <p className='login-first-p-1'>
-                Create a playlist
+               {loginMsgProperties.title}
             </p>
             <p className='login-first-p-2'>
-                Log in to create and share playlists.
+               {loginMsgProperties.txt}
             </p>
-        </div>
-        <div className='login-first-btns flex'>
+        </section>
+        <section className='login-first-btns flex'>
             <button onClick={() => setIsLoginMsg(false)}>Not now</button>
-            <NavLink to='/login'>
-                <button onClick={() => setIsLoginMsg(false)}>Login</button>
-            </NavLink>
-        </div>
-    </div>
-
+            <button onClick={() => {
+                setIsLoginMsg(false)
+                navigate('/login')
+            }}>Log in</button>
+        </section>
+    </section>
 }

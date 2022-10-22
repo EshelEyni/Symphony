@@ -1,158 +1,131 @@
 import axios from 'axios'
 import * as duration from 'duration-fns'
+import { storageService } from './storage.service'
 import { stationService } from './station.service'
 import { userService } from './user.service'
-export const searchLoader = 'https://res.cloudinary.com/dk9b84f0u/image/upload/v1664644425/Symphny/search-loader_nvtb1p.gif'
-
 
 export const searchService = {
     getClips,
     updateUserRecentSearches,
-    getStationsBySearchTerm,
-    getProfilesBySearchTerm
 }
 
-const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
+// const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
 const ALEX_API_KEY = 'AIzaSyCufURb4q5k_aJP0We6SJ9dN6T67VtublU'
 
-const KEY = 'clipsDB'
+const cleaner = /\([^\)]*\)|\[[^\]]*\]/g 
+const emojiCleaner = /(\u00a9|\u00ae|HD|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
+const apostrophe = /&#39|&quot/g
+const ampersand = /&amp;/gi
+const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
+const cleanArtistName = /vevo|music|-topic| - topic|official/gi
 
 async function getClips(term) {
-    const termClipsMap = _loadFromStorage(KEY) || {}
+    const termClipsMap = storageService.loadFromStorage('searchDB') || {}
 
     if (termClipsMap[term]) {
         console.log('Getting from Cache')
-        // console.log('termClipsMap[term]', termClipsMap[term])
         return Promise.resolve(termClipsMap[term])
     }
 
     console.log('Getting from Network')
-    const apiStr = 'https://www.googleapis.com'
-        + '/youtube/v3/search?part=snippet&videoCategoryId=10'
-        + '&videoEmbeddable=true'
-        + '&type=video'
-        + '&maxResults=100'
-        + `&key=${ALEX_API_KEY}&q=${term}`
 
-    let clips = await axios.get(apiStr)
-
-
-    const cleaner = /\([^\)]*\)|\[[^\]]*\]/g
-    const emojiCleaner = /(\u00a9|\u00ae|HD|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
-    const apostrophe = /&#39|&quot/g
-    const ampersand = /&amp;/gi
-    const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
-    const cleanArtistName = /vevo|music|-topic| - topic|official/gi
-
-
-    clips = clips.data.items
-    clips = clips.map(clip => ({
-        _id: clip.id.videoId,
-        title: clip.snippet.title.replaceAll(cleaner, '').trim().replaceAll(emojiCleaner, '').trim().replaceAll(apostrophe, '\'').trim().replaceAll(ampersand, '&').trim().replaceAll(symbolsCleaner, '').trim(),
-        img: {
-            url: clip.snippet.thumbnails.default.url,
-            width: clip.snippet.thumbnails.default.width,
-            height: clip.snippet.thumbnails.default.height,
-        },
-        artist: clip.snippet.channelTitle.replaceAll(cleanArtistName, ''),
-        // likedByUsers: []
-    }))
-
-    let str = ''
-    str = clips.map(clip => str + `${clip._id}%2C`).join('')
-    str = str.slice(0, -3)
+    const apiStr = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoCategoryId=10&videoEmbeddable=true&type=video&maxResults=100&key=${ALEX_API_KEY}&q=${term}`
+    const res = await axios.get(apiStr)
+    const str = res.data.items.map(item => '' + `${item.id.videoId}%2C`).join('').slice(0, -3)
     const durationStr = `https://www.googleapis.com/youtube/v3/videos?id=${str}&part=contentDetails&key=${ALEX_API_KEY}`
-    let durations = await axios.get(durationStr)
-    for (var i = 0; i < clips.length; i++) {
-        clips[i].duration = {
-            hours: duration.parse(durations.data.items[i].contentDetails.duration).hours,
-            min: duration.parse(durations.data.items[i].contentDetails.duration).minutes,
-            sec: duration.parse(durations.data.items[i].contentDetails.duration).seconds,
+    const durations = await axios.get(durationStr)
+
+   const clips =  res.data.items.map((item, idx) => {
+        const { snippet, id } = item
+        const { title, thumbnails, channelTitle } = snippet
+        const { contentDetails } = durations.data.items[idx]
+        return {
+            _id: id.videoId,
+            title: title.replaceAll(cleaner, '').trim().replaceAll(emojiCleaner, '').trim().replaceAll(apostrophe, '\'').trim().replaceAll(ampersand, '&').trim().replaceAll(symbolsCleaner, '').trim(),
+            img: {
+                url: thumbnails.high.url || thumbnails.medium.url || thumbnails.default.url
+            },
+            artist: channelTitle.replaceAll(cleanArtistName, ''),
+            duration: {
+                hours: duration.parse(contentDetails.duration).hours,
+                min: duration.parse(contentDetails.duration).minutes,
+                sec: duration.parse(contentDetails.duration).seconds,
+            },
+            likedByUsers: [],
         }
-    }
-    clips = clips.filter(clip =>
-        clip.duration.min < 10 && clip.duration.min > 0
-    )
+    })
+        .filter(clip => clip.duration.min < 10 && clip.duration.min > 0 && !clip.imgUrl).splice(0, 15)
 
     termClipsMap[term] = clips
-    _saveToStorage(KEY, termClipsMap)
+    storageService.saveToStorage('searchDB', termClipsMap)
     return clips
 }
 
-async function updateUserRecentSearches(searchResults, loggedInUser, listName) {
-    if (!loggedInUser) return
+async function updateUserRecentSearches(searchResults, loggedinUser, currSearchTerm) {
+
+    if (!loggedinUser) return
     const clip = searchResults[0] || {}
+    if (!clip.img?.url) return // No valid results from YT_API
     let newSearchList = {
-        name: listName,
+        name: currSearchTerm,
         imgUrl: clip.img.url,
         createdBy: {
-            _id: loggedInUser._id,
-            fullname: loggedInUser.fullname,
-            imgUrl: loggedInUser.imgUrl
+            _id: loggedinUser._id,
+            username: loggedinUser.username,
+            imgUrl: loggedinUser.imgUrl
         },
         isSearch: true,
         clips: searchResults || [],
     }
 
     const savedStation = await stationService.save(newSearchList)
-
-    const userToUpdate = { ...loggedInUser }
+    const userToUpdate = { ...loggedinUser }
     userToUpdate.recentSearches = [{ _id: savedStation._id, title: savedStation.name }, ...userToUpdate.recentSearches]
 
     if (userToUpdate.recentSearches.length > 10) {
-        const stationToRemoveId = userToUpdate.recentSearches.splice(11, 1)._id
-        await stationService.remove(stationToRemoveId)
+        const stationToRemove = userToUpdate.recentSearches.splice(10, 1)[0]
+        await stationService.remove(stationToRemove._id)
         await userService.update(userToUpdate)
     }
+
     return userToUpdate
 }
 
-function getStationsBySearchTerm(stations, searchTerm, isArtist) {
-    stations = isArtist ? stations.filter(station => station.isArtist) : stations.filter(station => !station.isArtist)
+export const searchFilterBtns = [
+    { title: 'All', value: null },
+    { title: 'Songs', value: 'songs' },
+    { title: 'Playlists', value: 'playlists' },
+    { title: 'Artists', value: 'artists' },
+    { title: 'Profiles', value: 'profiles' },
+    { title: 'Recent Searches', value: 'searches' }
+]
 
-    if (searchTerm) {
-        searchTerm = searchTerm.toLowerCase()
-        return stations.map(station => {
-            station.matchedTerms = 0
-            station.clips.forEach(clip => {
-                if (clip?.title.toLowerCase().includes(searchTerm)) station.matchedTerms++
-            })
-            return station
-        }).filter(station => {
-            return (station?.matchedTerms > 0 && !station?.isSearch)
-        }).sort((a, b) => b?.matchedTerms - a?.matchedTerms)
-    }
-}
-
-function getProfilesBySearchTerm(stations, users, searchTerm) {
-    if (!users.length) return
-    searchTerm = searchTerm.toLowerCase()
-    let matchingStations = new Set(
-        stations
-            .filter(station => station.clips.find(clip => clip.title.toLowerCase().includes(searchTerm) !== undefined))
-            .map(station => station._id)
-    )
-    if (matchingStations.length === 0) return
-
-    return users.map(user => {
-        let matchedTerms = 0
-        user.createdStations.forEach(station => {
-            if (matchingStations.has(station))
-                matchedTerms++;
-        })
-        if (!matchedTerms) return undefined
-        return { ...user, matchedTerms }
-    })
-        .filter(user => user !== undefined)
-        .sort((a, b) => b.matchedTerms - a.matchedTerms)
-}
-
-
-function _saveToStorage(key, val) {
-    localStorage.setItem(key, JSON.stringify(val))
-}
-
-function _loadFromStorage(key) {
-    var val = localStorage.getItem(key)
-    return JSON.parse(val)
-}
+export const tagImgs = [
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/quiet_a0pcc9.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/rock_wr6zfq.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664377614/spotify/loud-music_yz2ucp.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/pop_hjlfb3.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380523/spotify/happy_grrw9u.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/beatles_f9josj.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/60s_xveydc.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/funk_nwpzz5.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/rhytm_l87rkp.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/hiphop_xf6lee.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/90s_xtfhyo.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/aggressive_mda8b1.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/distortion_xipbyw.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/metal_iqji5n.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/love_wxy5j8.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/dance_sju1w9.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/electronic_ex1zjg.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380057/spotify/israeli_ljbhro.jpg',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/top_uyvero.jpg',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/billabord_amriev.jpg',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664376199/spotify/contest_rvrvwm.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/eurovision_rsrbb8.jpg',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png'
+]

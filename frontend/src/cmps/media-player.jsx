@@ -1,363 +1,347 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import React, { useEffect, useState, useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import YouTube from 'react-youtube'
-import { useSelector } from 'react-redux'
-import { setClip, setClipLength, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlayerFunc, setPlaylist } from '../store/media-player.actions.js'
-import { useDispatch } from 'react-redux'
+import { LikeIcon } from './like-icon.jsx'
+import { setMediaPlayerClip, setIsPlaying, setOnTogglePlay } from '../store/media-player.actions.js'
+import { mediaPlayerService } from '../services/media-player.service.js'
+import { clipService } from '../services/clip.service.js'
+import { userService } from '../services/user.service.js'
+import { storageService } from '../services/storage.service.js'
+import { utilService } from '../services/util.service.js'
 import QueueMusicRoundedIcon from '@mui/icons-material/QueueMusicRounded'
 import Replay10RoundedIcon from '@mui/icons-material/Replay10Rounded'
 import Forward10RoundedIcon from '@mui/icons-material/Forward10Rounded'
-import { utilService } from '../services/util.service.js'
-import { storageService } from '../services/async-storage.service.js'
-import { getTimeFormat } from '../services/media-player.service.js'
-import { UserMsg } from './user-msg.jsx'
-import { LikesBtns } from './likes-btn.jsx'
-import { shortTitle } from '../services/clip.service.js'
-import { userService } from '../services/user.service.js'
-import { updateUser } from '../store/user.actions.js'
 import { Slider } from '@mui/material'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
-    const loggedInUser = useSelector(state => state.userModule.user)
-    let { currClip, currPlaylist, isPlaying, currTime, mediaPlayerInterval, playerFunc, clipLength } = useSelector(state => state.mediaPlayerModule)
-    let [isMute, setIsMute] = useState(false)
-    let [prevVolume, setPrevVolume] = useState()
-    let [currVolume, setCurrVolume] = useState()
-    let [playbackMode, setPlaybackMode] = useState('default-mode')
-    let [isSwitchClip, setIsSwitchClip] = useState(true)
-    let [thumbPos, setThumbPos] = useState(currTime)
+    const loggedinUser = userService.getLoggedinUser()
+    const { currMediaPlayerClip, currPlaylist, isPlaying } = useSelector(state => state.mediaPlayerModule)
+    const [isMute, setIsMute] = useState(false)
+    const [prevVolume, setPrevVolume] = useState()
+    const [currVolume, setCurrVolume] = useState(storageService.loadFromStorage('currVolume') || 35)
+    const [currTime, setCurrTime] = useState(storageService.loadFromStorage('currTime') || 0)
+    const [playbackMode, setPlaybackMode] = useState('default-mode')
+    const [isSwitchClip, setIsSwitchClip] = useState(true)
+    const [clipLength, setClipLength] = useState()
     const navigate = useNavigate()
 
+    let playerFunc = useRef()
+    let mediaPlayerInterval = useRef()
+
     useEffect(() => {
-        const prevClip = storageService.loadFromStorage('prevClip')
-        const currTime = storageService.loadFromStorage('currTime')?.[0]
-        const currVolume = storageService.loadFromStorage('currVolume')?.[0]
-
-        setCurrVolume(currVolume || 35)
-        dispatch(setCurrTime(currTime || 0))
-
-        if (!prevClip && currClip || prevClip?._id !== currClip?._id) {
+        const prevClip = mediaPlayerService.getPrevClip()
+        if ((!prevClip && currMediaPlayerClip) || (prevClip?._id !== currMediaPlayerClip?._id)) {
             dispatch(setIsPlaying(true))
-            // const currIdx = currPlaylist?.clips?.findIndex((clip) => clip._id === currClip._id)
-            // const clipToPlay = currPlaylist?.clips[currIdx]
-            // dispatch(setClip(clipToPlay))
-            // dispatch(setPlaylist(currPlaylist))
-
         }
-    }, [currClip])
+
+    }, [currMediaPlayerClip, dispatch])
 
     useEffect(() => {
-        if (currClip && isPlaying) {
-            clearInterval(mediaPlayerInterval)
-            dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
+        if (currMediaPlayerClip && isPlaying) {
+            clearInterval(mediaPlayerInterval.current)
+            mediaPlayerInterval.current = setInterval(getTime, 750, playbackMode)
         }
     }, [playbackMode])
 
 
-    const onPlayClip = async () => {
-        if (currClip) {
-            dispatch(setIsPlaying(true))
-            clearInterval(mediaPlayerInterval)
-            if (currClip) {
-                dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
-                playerFunc.playVideo()
-            }
-        }
-    }
+    useEffect(() => {
+        dispatch(setOnTogglePlay(onTogglePlay))
+    }, [isPlaying])
 
     const onReady = async (event) => {
-        playerFunc = event.target
-        dispatch(setPlayerFunc(playerFunc))
-        const Length = playerFunc.getDuration()
-        playerFunc.setVolume(currVolume)
-        dispatch(setClipLength(Length))
+        playerFunc.current = event.target
+        const currLength = await playerFunc.current.getDuration()
+        setClipLength(currLength)
+        playerFunc.current.setVolume(currVolume)
         setCurrVolume(currVolume)
-        if (isPlaying) onPlayClip()
+        if (isPlaying) onPlayClip(currLength)
     }
 
-
-
-    const handleChange = (ev) => {
-        let name = ev.target.name
-        let val = ev.target.value
-        if (name === 'stream-line') {
-            dispatch(setCurrTime(val))
-            storageService.put('currTime', val)
+    const onPlayClip = (currClipLength = clipLength) => {
+        if (currMediaPlayerClip) {
             dispatch(setIsPlaying(true))
-            playerFunc.seekTo(val)
+            clearInterval(mediaPlayerInterval.current)
+            mediaPlayerInterval.current = setInterval(getTime, 750, playbackMode, currClipLength)
+            playerFunc.current.playVideo()
         }
-        if (name === 'volume') {
-            setPrevVolume(currVolume)
-            setCurrVolume(val)
-            storageService.put('currVolume', val)
-            playerFunc.unMute()
-            playerFunc.setVolume(val)
-        }
-    }
-
-
-    const setPosition = (val) => {
-        dispatch(setCurrTime(val))
-        storageService.put('currTime', val)
-        dispatch(setIsPlaying(true))
-        playerFunc.seekTo(val)
     }
 
     const onTogglePlay = () => {
         if (isPlaying) {
-            clearInterval(mediaPlayerInterval)
-            playerFunc.pauseVideo()
+            clearInterval(mediaPlayerInterval.current)
+            playerFunc.current.pauseVideo()
         }
         if (!isPlaying) {
-            clearInterval(mediaPlayerInterval)
-            dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
-            playerFunc.playVideo()
-            if (currTime) playerFunc.seekTo(currTime)
+            clearInterval(mediaPlayerInterval.current)
+            playerFunc.current.playVideo()
+            playerFunc.current.seekTo(currTime)
+            mediaPlayerInterval.current = setInterval(getTime, 750, playbackMode)
         }
         dispatch(setIsPlaying(!isPlaying))
     }
 
+    const setPosition = (val, sliderName) => {
+        if (sliderName === 'time-line') {
+            setCurrTime(val)
+            storageService.saveToStorage('currTime', val)
+            dispatch(setIsPlaying(true))
+            playerFunc.current.seekTo(val)
+        }
+        if (sliderName === 'volume') {
+            setPrevVolume(currVolume)
+            setCurrVolume(val)
+            storageService.saveToStorage('currVolume', val)
+            playerFunc.current.unMute()
+            playerFunc.current.setVolume(val)
+        }
+    }
+
     const toggleMute = () => {
         if (!isMute) {
-            playerFunc.mute()
+            playerFunc.current.mute()
             setIsMute(!isMute)
             setPrevVolume(currVolume)
             setCurrVolume(0)
         }
         if (isMute) {
-            playerFunc.unMute()
+            playerFunc.current.unMute()
             setIsMute(!isMute)
             setCurrVolume(prevVolume)
         }
     }
 
-    const getTime = async (playbackMode = 'default-mode') => {
-        currTime = await playerFunc.getCurrentTime()
-        storageService.put('currTime', currTime)
-        dispatch(setCurrTime(currTime))
-        // const currThumbPos = thumbPos + currTime
-        // setThumbPos(currThumbPos)
-        if (currTime > clipLength - 1.5) switchClipByPlaybackMode(playbackMode)
+    const getTime = async (playbackMode = 'default-mode', currClipLength = clipLength) => {
+        const updatedTime = await playerFunc.current.getCurrentTime()
+        storageService.saveToStorage('currTime', updatedTime)
+        setCurrTime(updatedTime)
+        if (updatedTime > currClipLength - 1.5) switchClipByPlaybackMode(playbackMode)
     }
 
-    const switchClipByPlaybackMode = async (mode = 'default-mode', time = 0) => {
-        const currIdx = currPlaylist.clips.indexOf(currClip)
+    const skipTenSec = (skipNum) => {
+        setCurrTime(currTime + skipNum)
+        playerFunc.current.seekTo(currTime + skipNum)
+    }
+
+    const switchClipByPlaybackMode = async (mode) => {
+        const currIdx = currPlaylist.clips.indexOf(currMediaPlayerClip)
         let nextIdx = currIdx + 1
+        let nextMediaPlayerClip
         switch (mode) {
             case !mode || 'default-mode':
                 if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
-                currClip = currPlaylist.clips[nextIdx]
+                nextMediaPlayerClip = currPlaylist.clips[nextIdx]
                 break
             case 'repeat-mode':
-                clearInterval(mediaPlayerInterval)
-                dispatch(setMediaPlayerInterval(setInterval(getTime, 750, playbackMode)))
-                playerFunc.seekTo(time)
+                clearInterval(mediaPlayerInterval.current)
+                mediaPlayerInterval.current = setInterval(getTime, 750, playbackMode)
+                playerFunc.current.seekTo(0)
                 onPlayClip()
-                break
+                return
             case 'shuffle-mode':
                 nextIdx = utilService.getRandomIntInclusive(0, currPlaylist.clips.length - 1)
                 if (nextIdx === currIdx) nextIdx++
-                currClip = currPlaylist.clips[nextIdx]
+                nextMediaPlayerClip = currPlaylist.clips[nextIdx]
                 break
             default:
         }
-        dispatch(setClip(currClip))
+        dispatch(setMediaPlayerClip(nextMediaPlayerClip))
         dispatch(setIsPlaying(true))
-        const userToUpdate = { ...loggedInUser }
-        userService.updateUserRecentlyPlayedClips(userToUpdate, currClip)
-        dispatch(updateUser(userToUpdate))
     }
 
     const switchClip = async (switchNum) => {
         setIsSwitchClip(false)
-        const currIdx = currPlaylist.clips.indexOf(currClip)
+        const currIdx = currPlaylist.clips.indexOf(currMediaPlayerClip)
         let nextIdx = currIdx + switchNum
         if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
         if (nextIdx < 0) nextIdx = currPlaylist.clips.length - 1
-        currClip = currPlaylist.clips[nextIdx]
-        dispatch(setClip(currClip))
+        let nextMediaPlayerClip = currPlaylist.clips[nextIdx]
+        dispatch(setMediaPlayerClip(nextMediaPlayerClip))
         dispatch(setIsPlaying(true))
         setIsSwitchClip(true)
-        const userToUpdate = { ...loggedInUser }
-        userService.updateUserRecentlyPlayedClips(userToUpdate, currClip)
-        dispatch(updateUser(userToUpdate))
-    }
-
-    const skipTenSec = (skipNum) => {
-        dispatch(setCurrTime(currTime + skipNum))
-        playerFunc.seekTo(currTime + skipNum)
     }
 
     const onToggleQueue = () => {
         const params = window.location.href
-        if (params.includes('clips-queue')) {
+        if (params.includes('queue')) {
             navigate(-1)
         }
         else {
-            navigate('/clips-queue')
+            navigate('/queue')
         }
     }
 
-    const opts = {
-        height: '400',
-        width: '400',
-        playerVars: {
-            autoplay: isPlaying ? 1 : 0,
+    const mainBtns = [
+        {
+            className: 'action-btn fa-solid fa-shuffle',
+            title: playbackMode === 'shuffle-mode' ? 'Disable shuffle' : 'Enable shuffle',
+            style: { color: playbackMode === 'shuffle-mode' ? '#1ED760' : '' },
+            onClickFunc: () => {
+                setPlaybackMode(playbackMode === 'shuffle-mode' ? 'default-mode' : 'shuffle-mode')
+            }
+        },
+        {
+            className: 'skip10sec-btn',
+            title: 'Skip back 10 seconds',
+            style: null,
+            onClickFunc: () => skipTenSec(-10)
+        },
+        {
+            className: 'action-btn fas fa-step-backward',
+            title: 'Previous',
+            style: null,
+            onClickFunc: () => isSwitchClip ? switchClip(-1) : null
+        },
+        {
+            className: 'play-btn ' + (isPlaying ? 'fas fa-pause' : 'fas fa-play playing'),
+            title: isPlaying ? 'Pause' : 'Play',
+            style: null,
+            onClickFunc: onTogglePlay
+        },
+        {
+            className: 'action-btn fas fa-step-forward',
+            title: 'Next',
+            style: null,
+            onClickFunc: () => isSwitchClip ? switchClip(1) : null
+        },
+        {
+            className: 'skip10sec-btn',
+            title: 'Skip forward 10 seconds',
+            style: null,
+            onClickFunc: () => skipTenSec(10)
+        },
+        {
+            className: 'action-btn fa-solid fa-repeat',
+            title: playbackMode === 'repeat-mode' ? 'Disable repeat clip' : 'Enable repeat clip',
+            style: { color: playbackMode === 'repeat-mode' ? '#1ED760' : '' },
+            onClickFunc: () => {
+                setPlaybackMode(playbackMode === 'repeat-mode' ? 'default-mode' : 'repeat-mode')
+            }
         }
-    }
+    ]
 
+    const setSlider = (ariaLable, val, max, type, height, width) => {
+        return (
+            <Slider
+                getAriaLabel={() => ariaLable}
+                size='small'
+                value={val || 0}
+                min={0}
+                step={1}
+                max={+max || 0}
+                onChange={(_, value) => setPosition(value, type)}
+                sx={{
+                    color: '#fff', height, width,
+                    '&:hover': {
+                        color: '#1db954', '& .MuiSlider-thumb': {
+                            width: 12, height: 12, display: 'unset', color: '#fff',
+                        },
+                    },
+                    '& .MuiSlider-thumb': {
+                        display: 'none', transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+                    },
+                    '& .MuiSlider-rail': {
+                        color: '#4d4d4d'
+                    },
+                }}
+            />
+        )
+    }
 
     return (
-
-        <div className='media-player-container'>
-
-            {/***************** YouTube Media Player *****************/}
-            <div className='mp-container'>
+        <footer className='media-player-container'>
+            <section className='mp-container'>
                 <YouTube
-                    videoId={currClip?._id}
-                    opts={opts}
+                    videoId={currMediaPlayerClip?._id}
+                    opts={{ playerVars: { autoplay: isPlaying ? 1 : 0 } }}
                     onReady={onReady} />
-            </div>
-            {/***************** Symphony Media Player *****************/}
-            <div className='media-player-clip-container flex'>
-                {currClip &&
+            </section>
+
+            <section className='media-player-clip-container flex'>
+                {currMediaPlayerClip &&
                     <img
                         className='media-player-clip-img'
-                        src={currClip?.img?.url || ''} />}
-                <div className='media-player-clip-preview flex column'>
-                    {<h1 className='flex'>{shortTitle(currClip)} <LikesBtns clip={currClip} /></h1>}
-                    {<p>{currClip?.artist}</p>}
-                </div>
-            </div>
-            <div className='mp-controller flex column'>
+                        src={currMediaPlayerClip?.img?.url || ''}
+                        alt='mediaplayer-img' />}
 
-                {/***************** Main Buttons *****************/}
-                <UserMsg />
-                <div className='mp-btn-container'>
+                <section className='media-player-clip-preview flex column'>
 
-                    {playbackMode !== 'shuffle-mode' &&
-                        <button className='action-btn fa-solid fa-shuffle'
-                            title='Enable shuffle'
-                            onClick={() => {
-                                setPlaybackMode('shuffle-mode')
-                            }}></button>
-                    }
+                    {<h1 className='flex'>
+                        {clipService.getFormattedTitle(currMediaPlayerClip)}
+                        {(loggedinUser && currMediaPlayerClip) &&
+                            <LikeIcon
+                                isMediaPlayer={true}
+                                currStation={currPlaylist}
+                                currClip={currMediaPlayerClip}
+                                inputId={'mediaPlayerClip'}
+                            />}
+                    </h1>}
+                    {<p>{currMediaPlayerClip?.artist}</p>}
+                </section>
+            </section>
+            <section className='mp-controller flex column'>
 
-                    {playbackMode === 'shuffle-mode' &&
-                        <button className='action-btn fa-solid fa-shuffle'
-                            title='Disable shuffle'
-                            style={{ color: '#1ED760' }}
-                            onClick={() => {
-                                setPlaybackMode('default-mode')
-                            }}></button>
-                    }
+                <section className='mp-btn-container'>
+                    {mainBtns.map((btn, idx) => {
+                        const { className, title, style, onClickFunc } = btn
+                        if (idx !== 1 && idx !== 5)
+                            return (
+                                <button
+                                    key={'mp-btn-' + btn.className}
+                                    className={className}
+                                    title={title}
+                                    style={style}
+                                    onClick={onClickFunc}>
+                                </button>
+                            )
+                        if (idx === 1)
+                            return (
+                                <Replay10RoundedIcon
+                                    key={'mp-btn-' + btn.title}
+                                    className={className}
+                                    title={title}
+                                    onClick={onClickFunc} />
+                            )
+                        if (idx === 5)
+                            return (
+                                <Forward10RoundedIcon
+                                    key={'mp-btn-' + btn.title}
+                                    className={className}
+                                    title={title}
+                                    onClick={onClickFunc} />
+                            )
+                    })}
+                </section>
 
-                    <Replay10RoundedIcon
-                        className='skip10sec-btn'
-                        onClick={() => skipTenSec(-10)} />
+                <section className='action-btn time-line-container'>
+                    <span className='track-time'>{mediaPlayerService.getFormattedTime(currTime || 0)}</span>
 
-                    <button className='action-btn fas fa-step-backward'
-                        title='Previous'
-                        onClick={() => isSwitchClip ? switchClip(-1) : ''}></button>
+                    <section className='time-line-input'>
+                        {setSlider('time-indicator', currTime, clipLength, 'time-line', (window.innerWidth) > 415 ? 4 : 2)}
+                    </section>
 
-                    <button className={'play-btn ' + (isPlaying ? 'fas fa-pause' : 'fas fa-play playing')}
-                        onClick={onTogglePlay}></button>
+                    <span className='track-time'>{mediaPlayerService.getFormattedTime(clipLength || 0)}</span>
+                </section>
+            </section>
 
-                    <button className='action-btn fas fa-step-forward'
-                        title='Next'
-                        onClick={() => isSwitchClip ? switchClip(1) : ''}></button>
-
-                    <Forward10RoundedIcon
-                        className=' skip10sec-btn'
-                        onClick={() => skipTenSec(10)} />
-
-                    {playbackMode !== 'repeat-mode' &&
-                        <button className='action-btn fa-solid fa-repeat'
-                            title={'Enable repeat clip'}
-                            onClick={() => {
-                                setPlaybackMode('repeat-mode')
-                            }}></button>
-                    }
-
-                    {playbackMode === 'repeat-mode' &&
-                        <button className='action-btn fa-solid fa-repeat'
-                            title={'Disable repeat clip'}
-                            style={{ color: '#1ED760' }}
-                            onClick={() => {
-                                setPlaybackMode('default-mode')
-                            }}></button>
-                    }
-
-                </div>
-
-                {/***************** Stream Line *****************/}
-                <div className='action-btn stream-line-container'>
-                    <span className='track-time'>{getTimeFormat(currTime || 0)}</span>
-
-                    <div className='stream-line-input'>
-                        <Slider
-                            aria-label="time-indicator"
-                            size="small"
-                            value={currTime || 0}
-                            min={0}
-                            step={1}
-                            max={+clipLength || 0}
-                            onChange={(_, value) => setPosition(value)}
-                            sx={{
-                                color: '#fff',
-                                height: (window.innerWidth) > 415 ? 4 : 2
-                                ,
-                                '&:hover': {
-                                    color: '#1db954',
-                                    '& .MuiSlider-thumb': {
-                                        width: 12,
-                                        height: 12,
-                                        display: 'unset',
-                                        color: '#fff',
-                                    },
-                                },
-                                '& .MuiSlider-thumb': {
-                                    display: 'none',
-                                    transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
-                                },
-                                '& .MuiSlider-rail': {
-                                    color: '#4d4d4d'
-                                },
-                            }}
-                        />
-                    </div>
-
-                    <span className='track-time'>{getTimeFormat(clipLength || 0)}</span>
-                </div>
-            </div>
-
-            {/***************** Secondary Buttons *****************/}
-            <div className='mp-2nd-controller'>
-
-                <span
-                    className='link-to-queue'
-                    onClick={onToggleQueue} >
-                    <QueueMusicRoundedIcon
-                        className='queue-icon' />
-                </span>
+            <section className='mp-2nd-controller'>
+                {currPlaylist &&
+                    <span
+                        className='link-to-queue'
+                        onClick={onToggleQueue} >
+                        <QueueMusicRoundedIcon
+                            className='queue-icon' />
+                    </span>}
 
                 <button className={'sound-btn ' + (!isMute ? 'sound-btn fas fa-volume-up' : 'sound-btn fas fa-volume-mute')}
                     onClick={toggleMute}>
                 </button>
 
-                {/***************** Volume Input *****************/}
-
-                <label htmlFor='volume-input'></label>
-
-                <input
-                    title={currVolume}
-                    name='volume'
-                    className='volume-input'
-                    value={currVolume || 0}
-                    onChange={handleChange}
-                    type='range' />
-            </div>
-        </div >
+                <section className='volume-input'>
+                    {setSlider('volume-indicator', currVolume, 100, 'volume', 4, 95)}
+                </section>
+            </section>
+        </footer >
     )
 }

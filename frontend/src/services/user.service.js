@@ -1,6 +1,18 @@
+import { store } from '../store/store';
+import { getActionUpdateUser } from '../store/user.actions';
 import { httpService } from './http.service'
+import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service';
+
+export const defaultImg = 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1663788155/pngwing.com_7_smg1dj.png'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+
+    ; (() => {
+        socketService.on(SOCKET_EVENT_USER_UPDATED, (updatedUser) => {
+            console.log('GOT from socket', updatedUser)
+            store.dispatch(getActionUpdateUser(updatedUser))
+        })
+    })()
 
 export const userService = {
     login,
@@ -12,9 +24,8 @@ export const userService = {
     getById,
     remove,
     update,
-    updateFollowers,
     updateUserRecentlyPlayedClips,
-    updateUserStation
+    checkUsername
 }
 
 function getUsers() {
@@ -26,33 +37,14 @@ async function getById(userId) {
     return user
 }
 
-function remove(userId) {
-    return httpService.delete('user/' + userId)
-}
-
-async function update(userToUpdate) {
-    const updatedUser = await httpService.put('user/' + userToUpdate._id, userToUpdate)
-    if (getLoggedinUser()._id === userToUpdate._id) saveLocalUser(updatedUser)
-
-    return updatedUser
-}
-
-function updateUserStation(user, station) {
-    const stationId = station._id
-    const currIdx = user?.createdStations.findIndex(station => station._id === stationId)
-    user.createdStations[currIdx] = station
-}
-
-async function updateFollowers(user) {
-    user = await httpService.put(`user/followers/${user._id}`, user)
-    return user
-}
-
 async function login(currUser) {
-    const user = await httpService.post('auth/login', currUser)
-    console.log('user', user)
-    if (user) {
-        return saveLocalUser(user)
+    try {
+        const user = await httpService.post('auth/login', currUser)
+        if (user) return saveLocalUser(user)
+    }
+    catch (err) {
+        console.log('err', err)
+        throw (err)
     }
 }
 
@@ -61,6 +53,18 @@ async function signup(currUser) {
     if (user) {
         return saveLocalUser(user)
     }
+}
+
+function remove(userId) {
+    return httpService.delete('user/' + userId)
+}
+
+async function update(userToUpdate) {
+    const updatedUser = await httpService.put('user/' + userToUpdate._id, userToUpdate)
+    if (getLoggedinUser()._id === userToUpdate._id) {
+        saveLocalUser(updatedUser)
+    }
+    return updatedUser
 }
 
 async function logout() {
@@ -78,17 +82,34 @@ function getLoggedinUser() {
 }
 
 function updateUserRecentlyPlayedClips(userToUpdate, currClip) {
-    if (!userToUpdate) return
-    let { recentlyPlayedClips } = userToUpdate
-    const existingClipEntry = recentlyPlayedClips.find(clip => clip._id === currClip._id)
-    if (existingClipEntry) return
-    recentlyPlayedClips.unshift(currClip)
-    userToUpdate.recentlyPlayedClips = recentlyPlayedClips.filter((clip, idx) => clip !== null && idx < 10)
+    let { clips } = userToUpdate.recentlyPlayed
+    const existingClipEntry = clips.find(clip => clip._id === currClip._id)
+    if (existingClipEntry) return userToUpdate
+    currClip.playedAt = Date.now()
+    clips.unshift(currClip)
+    userToUpdate.clips = clips.filter((clip, idx) => clip !== null && idx < 10)
     return userToUpdate
 }
 
-export const msg = (itemName, txt) => {
-    return { class: 'shown', msg: itemName + txt }
+function checkUsername(users, currUsername) {
+    let usernames = new Set(users.map(user => user.username))
+    return usernames.has(currUsername)
 }
 
-export const clearMsg = { class: 'hidden', msg: '' }
+export const loginFirstMsgs = {
+    library: {
+        top: '225px',
+        title: 'Enjoy Your Library',
+        txt: 'Log in to see saved songs, artists, and playlists in Your Library'
+    },
+    createPlaylist: {
+        top: '260px',
+        title: 'Create a playlist',
+        txt: 'Log in to create and share playlists.'
+    },
+    likedSongs: {
+        top: '305px',
+        title: 'Enjoy Your Liked Songs',
+        txt: 'Log in to see all the songs you\'ve liked in one easy playlist.'
+    }
+}

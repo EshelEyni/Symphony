@@ -1,121 +1,75 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Loader } from '../cmps/loader.jsx'
+import { ProfileList } from '../cmps/profile-list.jsx'
 import { StationList } from '../cmps/station-list.jsx'
-import { defaultHeaderBgcolor } from '../services/bg-color.service'
+import { loadArtists } from '../store/artist.actions.js'
+import { setGetStationsByTag, setTags } from '../store/station.actions.js'
+import { artistService } from '../services/artist.service.js'
 import { stationService } from '../services/station.service.js'
-import { setHeaderBgcolor } from '../store/app-header.actions.js'
-import { loadStations } from '../store/station.actions.js'
 
 export const SymphonyApp = () => {
-    let stations = useSelector(state => state.stationModule.stations)
+    const { stations, tags, getStationByTag } = useSelector(state => state.stationModule)
+    const { artists } = useSelector(state => state.artistModule)
+    const [randomArtists, setRandomArtists] = useState(null)
+    const [artistsByLike, setArtistsByLike] = useState(null)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
-        if (!stations.length) dispatch(loadStations())
-    }, [stations])
+        if (stations.length)
+            dispatch(setGetStationsByTag(stations))
 
-    return (
-        <div>
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Rock</h1>
-                    <Link to={'/tag/Rock'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Rock')} />
-            </div>
+        if (!tags.length) dispatch(setTags(stationService.getTags(stations)))
 
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Hip Hop</h1>
-                    <Link to={'/tag/Hip Hop'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Hip Hop')} />
-            </div>
+        if (!artists.length) dispatch(loadArtists())
 
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Soothing</h1>
-                    <Link to={'/tag/Soothing'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Soothing')} />
-            </div>
+        if (artists.length > 0 && !randomArtists && !artistsByLike) {
+            setRandomArtists(artistService.getRandomArtists(artists))
+            setArtistsByLike(artistService.getArtistBylikes(artists))
+        }
+    }, [stations, artists])
 
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Pop</h1>
-                    <Link to={'/tag/Pop'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Pop')} />
-            </div>
+    if (!getStationByTag?.getByTag || !randomArtists)
+        return (
+            <Loader
+                size={'large-loader'}
+                loaderType={'page-loader'} />
+        )
 
+    if (getStationByTag?.getByTag && randomArtists)
+        return (
+            <main>
+                <section className='artists-main-container'>
+                    <h1>Artists</h1>
+                    <ProfileList
+                        isArtist={true}
+                        currProfiles={randomArtists}
+                        profileKey={'hp-artists-'} />
 
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>60s</h1>
-                    <Link to={'/tag/60s'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, '60s')} />
-            </div>
+                    {artistsByLike && <section>
+                        <h1>Artists you might like</h1>
+                        <ProfileList
+                            isArtist={true}
+                            currProfiles={artistsByLike}
+                            profileKey={'hp-artists-by-like-'} />
+                    </section>}
+                </section>
 
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Funk</h1>
-                    <Link to={'/tag/Funk'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Funk')} />
-            </div>
-
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Love</h1>
-                    <Link to={'/tag/Love'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Love')} />
-            </div>
-
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Dance</h1>
-                    <Link to={'/tag/Dance'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Dance')} />
-            </div>
-
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Israeli</h1>
-                    <Link to={'/tag/Israeli'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Israeli')} />
-            </div>
-
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Top songs</h1>
-                    <Link to={'/tag/Top songs'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Top songs')} />
-            </div>
-
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Europe</h1>
-                    <Link to={'/tag/Europe'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Europe')} />
-            </div>
-
-            <div className="station-by-tag-container">
-                <div className='tag-link'>
-                    <h1>Metal</h1>
-                    <Link to={'/tag/Metal'}>SEE ALL</Link>
-                </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Metal')} />
-            </div>
-        </div >
-    )
+                <section>{tags.map(tag => (
+                    <section
+                        className='station-by-tag-container'
+                        key={tag}
+                    >
+                        <header className='tag-header-container'>
+                            <h1>{tag}</h1>
+                        </header>
+                        <StationList
+                            stations={getStationByTag.getByTag(tag)}
+                            tag={tag}
+                            stationKey={'hp-' + tag + '-station-'}
+                        />
+                    </section>
+                ))}</section>
+            </main >
+        )
 }
-

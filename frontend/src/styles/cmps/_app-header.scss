@@ -4,7 +4,7 @@
     display: flex;
     grid-row: 1;
     top: 0;
-    justify-content: end;
+    justify-content: flex-end;
     z-index: 1;
     align-items: center;
 
@@ -20,21 +20,27 @@
 .app-header-user-links-container {
     position: fixed;
     right: 0;
-
+    z-index: 20;
 }
 
-.guest-mode-container a {
-    color: #fff;
-    display: flex;
-    gap: 15px;
-    margin-inline-end: 5px;
-    position: relative;
+.guest-mode-container {
+    gap: 25px;
+    align-items: center;
 
+    & a {
+        color: $clr2;
+        margin-inline-end: 5px;
+        position: relative;
+    }
+}
+
+.vl {
+    border-left: 1px solid $clr2;
+    height: 30px;
 }
 
 .guest-mode-links-bar {
-    gap: 5px;
-    margin-inline-end: 10px;
+    gap: 25px;
 
     &>* {
         text-decoration: none;
@@ -43,13 +49,26 @@
 }
 
 .guest-btn-container {
-    gap: 5px;
-    margin-inline-start: 10px;
+    gap: 25px;
     margin-inline-end: 20px;
 
     &>* {
         text-decoration: none;
+        border: none;
+        background-color: #00000000;
+        color: $clr2;
+        font-family: circular;
+        line-height: 1.6;
+        font-size: rem(16px);
+    }
+
+    &>*:last-child {
+        position: relative;
+        background-color: $clr5;
         color: black;
+        height: 50px;
+        width: 110px;
+        border-radius: 25px;
     }
 }
 
@@ -59,46 +78,10 @@
     position: fixed;
     top: 10px;
     right: 0;
+    z-index: 20;
 
     @include for-mobile-layout {
         top: 15px;
-    }
-}
-
-.user-profile-dropdown {
-    position: absolute;
-    top: 35px;
-    right: 0;
-    width: 160px;
-    height: 200px;
-    gap: 12px;
-    margin: 5px;
-    background-color: #222222;
-    padding: 10px;
-    margin-inline-end: 20px;
-    z-index: 20;
-
-    a:hover {
-        background-color: #757575;
-        cursor: pointer;
-    }
-}
-
-.user-profile-dropdown a,
-.logout-link {
-    color: rgb(201, 201, 201);
-    padding: 5px;
-}
-
-
-.profile-pic {
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-
-    @include for-mobile-layout {
-        height: 20px;
-        width: 20px;
     }
 }
 
@@ -116,6 +99,7 @@
     justify-content: center;
     color: rgb(201, 201, 201);
     width: max-content;
+    z-index: 20;
 
     @include for-mobile-layout {
         height: 30px;
@@ -129,5 +113,42 @@
         background-color: rgb(44, 44, 44);
         cursor: pointer;
         transition: 0.3s;
+    }
+}
+
+.user-profile-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 160px;
+    height: 200px;
+    gap: 12px;
+    margin: 5px;
+    background-color: #222222;
+    border-radius: 15px;
+    padding: 10px;
+    margin-inline-end: 20px;
+    z-index: 20;
+
+    &>* {
+        color: #c9c9c9;
+        z-index: 20;
+        padding: 5px;
+    }
+    
+    &>*:hover {
+        background-color: #757575;
+        cursor: pointer;
+    }
+}
+
+.profile-pic {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+
+    @include for-mobile-layout {
+        height: 20px;
+        width: 20px;
     }
 }

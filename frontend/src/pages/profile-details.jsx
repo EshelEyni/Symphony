@@ -1,119 +1,153 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { ProfileHeader } from '../cmps/profile-header'
-import { DraggableClipList } from '../cmps/draggable-clip-list'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { handleDragEnd } from '../services/dragg.service'
-import { ClipListHeader } from '../cmps/clip-list-header'
-import { ProfileList } from '../cmps/profile-list'
-import { userService } from '../services/user.service'
-import { loadStations } from '../store/station.actions'
+import { ClipList } from '../cmps/clip-list'
 import { StationList } from '../cmps/station-list'
-import { loadUser, loadUsers, updateUser } from '../store/user.actions'
-import { getFilteredUsersList } from '../services/profile-service'
+import { ProfileList } from '../cmps/profile-list'
+import { Loader } from '../cmps/loader'
+import { loadStations } from '../store/station.actions'
+import { loadUser, loadUsers } from '../store/user.actions'
+import { setHeaderBgcolor } from '../store/app-header.actions'
+import { loadArtists } from '../store/artist.actions'
+import { userService } from '../services/user.service'
+import { profileService } from '../services/profile-service'
+import { stationService } from '../services/station.service'
+import { socketService, SOCKET_EVENT_USER_UPDATED, USER_REGISTERED_TO_PROFILE } from '../services/socket.service'
+import { defaultHeaderBgcolor } from '../services/bg-color.service'
 
 
-export const UserProfile = () => {
-    const loggedInUser = userService.getLoggedinUser()
-    const watchedProfileUser = useSelector(state => state.userModule.user)
-    const users = useSelector(state => state.userModule.users)
-    let stations = useSelector(state => state.stationModule.stations)
-    let [userMadeStations, setUserMadeStations] = useState([])
+export const ProfileDetails = () => {
+    const loggedinUser = userService.getLoggedinUser()
+    const { user, users } = useSelector(state => state.userModule)
+    const { artists } = useSelector(state => state.artistModule)
+    const { stations } = useSelector(state => state.stationModule)
+    const [publicStations, setPublicStations] = useState(stationService.getUserStations(stations, user, 'public-stations') || [])
+    const [recentlyPlayedClips, setRecentlyPlayedClips] = useState(user?.recentlyPlayed?.clips || [])
+    const [profilesByLike, setProfilesByLike] = useState([])
+
     const params = useParams()
-    let [recentlyPlayedClips, setRecentlyPlayedClips] = useState([])
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        if (user?._id !== params._id) {
+            dispatch(loadUser(params._id))
+        }
+    }, [params])
 
     useEffect(() => {
-        const id = params.id
-        dispatch(loadStations())
         dispatch(loadUsers())
-        if (watchedProfileUser._id !== id) dispatch(loadUser(id))
-    }, [params, watchedProfileUser])
+        dispatch(loadStations())
+        dispatch(loadArtists())
+    }, [])
 
     useEffect(() => {
-        const currStations = stations.filter(station => station.createdBy._id === watchedProfileUser?._id && !station.isSearch)
-        setUserMadeStations(currStations)
-        setRecentlyPlayedClips(watchedProfileUser?.recentlyPlayedClips)
-    }, [stations, watchedProfileUser])
+        const currStations = stationService.getUserStations(stations, user, 'public-stations')
+        setPublicStations(currStations)
+        setProfilesByLike(profileService.getUserProfiles(users, loggedinUser, 'likes'))
+        dispatch(setHeaderBgcolor(user?.bgColor))
+    }, [stations, users, user])
 
 
+    useEffect(() => {
+        socketService.emit(USER_REGISTERED_TO_PROFILE, user?._id)
+        return () => {
+            socketService.off(USER_REGISTERED_TO_PROFILE)
+            socketService.off(SOCKET_EVENT_USER_UPDATED)
+            dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
+        }
+    }, [])
 
-    const onHandleDragEnd = (res) => {
-        const clipsToUpdate = handleDragEnd(res, recentlyPlayedClips)
-        setRecentlyPlayedClips(clipsToUpdate)
-        watchedProfileUser.recentlyPlayedClips = clipsToUpdate
-        dispatch(updateUser(watchedProfileUser))
+
+    if (!user) {
+        return <Loader
+            size={'large-loader'}
+            loaderType={'page-loader'} />
     }
 
-
-    return (
-        <div className='user-profile-container'>
-            {watchedProfileUser &&
-                <div className='main-user-profile-container flex column'>
+    if (user) {
+        return (
+            <section className='profile-details'>
+                <main className='profile-details-main-container flex column'>
                     <ProfileHeader
-                        watchedProfileUser={watchedProfileUser}
+                        userMadePublicStations={publicStations}
+                        user={user}
+                        loggedinUser={loggedinUser}
                     />
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {watchedProfileUser && (loggedInUser?._id === params.id) &&
-                        <div className="personal-profile-content">
+                    {loggedinUser?._id === params._id &&
+                        <section className='personal-profile-content'>
                             {recentlyPlayedClips?.length > 0 &&
-                                <div className="recently-played-container">
+                                <section
+                                    className='recently-played-container'
+                                // style={{ backgroundColor: user.bgColor }}
+                                >
                                     <h1>Recently Played</h1>
-                                    <ClipListHeader />
-                                    <DragDropContext onDragEnd={onHandleDragEnd}>
-                                        <Droppable droppableId='station-clips-main-container'>
-                                            {(provided) => (
-                                                <DraggableClipList
-                                                    // bgColor={bgColor}
-                                                    provided={provided}
-                                                    clipKey={'recently-played'}
-                                                    // station={station}
-                                                    currClips={recentlyPlayedClips}
-                                                />)}
-                                        </Droppable>
-                                    </DragDropContext>
-                                </div>}
-                            <div className='shared-liked-music'>
-                                <h1>People who like the same music</h1>
-                                <ProfileList
-                                    currProfiles={getFilteredUsersList(users, watchedProfileUser, 'likes')}
-                                // currUser={watchedProfileUser}
-                                // filterBy={'likes'}
-                                />
-                            </div>
-                        </div>}
+                                    <ClipList
+                                        bgColor={user.bgColor}
+                                        clipKey={'recently-played'}
+                                        currStation={user.recentlyPlayed}
+                                        currClips={user.recentlyPlayed.clips}
+                                        setCurrClips={setRecentlyPlayedClips}
+                                        isRecentlyPlayed={true}
+                                    />
+
+                                </section>}
+                            {profilesByLike.length > 0 &&
+                                <section className='shared-liked-music'>
+                                    <h1>People who like the same music</h1>
+                                    <ProfileList
+                                        currProfiles={profilesByLike}
+                                        profileKey={'profiles-by-like-'}
+
+                                    />
+                                </section>}
+                        </section>}
 
 
                     {/******************************** Profile Content  ********************************/}
 
-                    <div className="followers-following-container">
-                        <h1>Followers</h1>
-                        <ProfileList
-                            currProfiles={getFilteredUsersList(users, watchedProfileUser, 'followers')}
-                        // currUser={watchedProfileUser}
-                        // filterBy={'followers'}
-                        />
-                        <h1>Following</h1>
-                        <ProfileList
-                            currProfiles={getFilteredUsersList(users, watchedProfileUser, 'following')}
-                        // currUser={watchedProfileUser}
-                        // filterBy={'following'}
-                        />
-                    </div>
-                    <div className="personal-playlist">
-                        <h1>{watchedProfileUser.fullname} Playlists</h1>
-                        <StationList
-                            stations={userMadeStations}
-                        />
-                    </div>
-                </div>}
-        </div>
-    )
+                    {publicStations.length > 0 &&
+                        <section className='personal-playlist'>
+                            <h1>{user.username} Playlists</h1>
+                            <Link to={'/tag/Top songs'}>SEE ALL</Link>
+                            <StationList
+                                stations={publicStations}
+                                stationKey={'profile-details-station-'}
+                            />
+                        </section>}
+
+                    {user.followers.length > 0 &&
+                        <section className='followers-container'>
+                            <h1>Followers</h1>
+                            <ProfileList
+                                currProfiles={profileService.getUserProfiles(users, user, 'followers')}
+                                profileKey={'profile-followers-'}
+                            />
+                        </section>}
+
+                    {user.following.length > 0 &&
+                        <section className='following-container'>
+                            <h1>Following</h1>
+                            <ProfileList
+                                currProfiles={profileService.getUserProfiles(users, user, 'following', artists)}
+                                profileKey={'profiles-followers-'}
+                            />
+                        </section>}
+
+
+                    <hr className='profile-hr' />
+
+                    <h1>PROFILES FOR CHECK - DELETE IN THE END</h1>
+                    <ProfileList
+                        currProfiles={users}
+                        profileKey={'deme-profiles-'}
+                    />
+
+                </main>
+            </section>
+        )
+    }
 }
-
-
-

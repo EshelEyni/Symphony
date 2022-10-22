@@ -1,0 +1,238 @@
+.profile-btn-container {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    // background: linear-gradient(0deg, rgb(15, 15, 15) -45%, rgba(110, 110, 108, 0.8882724965) 115%);
+    background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.6) 115%);
+
+
+    .profile-btn-main-container {
+        margin: 15px;
+        align-items: center;
+
+        .toggle-follow-btn {
+            background-color: #00000000;
+            color: $clr2;
+            border: 1px solid $clr2;
+            font-size: rem(18px);
+            font-weight: bold;
+            padding: 10px 25px;
+        }
+    }
+
+    &>*:not(.shadow-screen) {
+        z-index: 20;
+    }
+}
+
+.dropdown-btn-container {
+    // padding-top: 50px;
+    align-items: center;
+    padding-inline-start: rem(32px);
+    height: 30px;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.dropdown-profile {
+    transition: all 0.5s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 40px;
+    top: 55px;
+    width: max-content;
+    height: max-content;
+    background-color: #222222;
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 20;
+
+    &>*:not(.shadow-screen) {
+        z-index: 20;
+    }
+
+    li {
+        height: 35px;
+        width: max-content;
+    }
+
+    li:hover {
+        background-color: #757575;
+        cursor: pointer;
+    }
+
+    @include for-mobile-layout {
+        height: 95px;
+        top: 200px;
+        left: 40px;
+        font-size: 12px;
+    }
+}
+
+.confirm-delete-profile-msg {
+    position: absolute;
+    background-color: $clr2;
+    color: $clr6;
+    margin-inline-start: 50vw;
+    transform: translate(-100%);
+    height: 200px;
+    width: 350px;
+    padding: 25px;
+    border-radius: 25px;
+    z-index: 20;
+
+    .confirm-delete-profile-btns {
+        margin-top: 35px;
+        justify-content: space-around;
+        height: 40px;
+        gap: rem(10px);
+
+        &>* {
+            z-index: 20;
+        }
+
+        &>:first-child {
+            border: none;
+            color: $clr7;
+            background-color: $clr2;
+            font-weight: 700;
+            font-size: rem(14px);
+
+            &:hover {
+                font-size: rem(16px);
+                color: $clr6;
+                transition: 0s;
+            }
+        }
+
+        &>:last-child {
+            // height: 35px;
+            // width: 75px;
+            padding: 0px 15px;
+            border-radius: 35px;
+            border: none;
+            font-weight: 700;
+            font-size: rem(14px);
+            background-color: $clr8;
+            color: $clr6;
+
+            &:hover {
+                font-size: rem(16px);
+                // height: 37px;
+                // width: 77px;
+                transition: 0s;
+            }
+        }
+    }
+}
+
+.station-dropdown {
+    transition: all 0.5s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    top: 420px;
+    left: 335px;
+    width: 150px;
+    height: 160px;
+    background-color: #222222;
+    padding: 10px;
+    z-index: 20;
+
+    li:hover {
+        background-color: #757575;
+        cursor: pointer;
+    }
+
+    @include for-mobile-layout {
+        width: 130px;
+        height: 150px;
+        top: 300px;
+        left: 100px;
+        font-size: 12px;
+    }
+}
+
+.dropdown-btn {
+    height: 32px;
+    width: 32px;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+
+
+.dropdown-clip {
+    position: absolute;
+    z-index: 20;
+    background-color: #202020;
+    transform: translate(-100%);
+    top: 40px;
+    width: max-content;
+    height: 150px;
+    gap: 12px;
+    padding: 5px;
+    background-color: #1f1f1f;
+    font-family: circular;
+    border-radius: 5px;
+    z-index: 50;
+
+    &>* {
+        font-size: 14px;
+    }
+
+    li,
+    p {
+        padding: 10px;
+        width: max-content;
+        height: fit-content;
+        text-align: start;
+    }
+
+    .add-to-station {
+        position: absolute;
+        width: max-content;
+        height: fit-content;
+        text-align: start;
+        padding: 10px;
+    }
+
+    ul>li,
+    .dropdown-list {
+        width: max-content;
+        height: fit-content;
+    }
+
+    .dropdown-list {
+        position: absolute;
+        background-color: #1f1f1f;
+        top: 0px;
+        left: -110px;
+        display: none;
+    }
+
+    li:hover {
+        background-color: #757575;
+        cursor: pointer;
+
+
+    }
+
+    .add-to-station:hover {
+        color: white;
+        background-color: #757575;
+        cursor: pointer;
+        height: 30px;
+
+        .dropdown-list {
+            display: block;
+            height: fit-content;
+        }
+    }
+}

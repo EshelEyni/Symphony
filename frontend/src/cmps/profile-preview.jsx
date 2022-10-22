@@ -1,22 +1,29 @@
 import { Link } from 'react-router-dom'
-import pic from '../assets/img/blank-user.png'
 
+export const ProfilePreview = ({
+    user,
+    isArtist
+}) => {
 
-export const ProfilePreview = ({ user }) => {
     return (
         <article className='profile-preview' >
-            <Link to={'/user-profile/' + user?._id}>
-                <div className='profile-img-container'>
-                    <img
-                        className='profile-img'
-                        src={user?.imgUrl || pic}
-                        alt='user-profile-img' />
-                </div>
-                <div className='desc-container flex column space-between'>
-                    <div>
-                        <h4>{user?.username}</h4>
-                    </div>
-                </div>
+            <Link to={(!isArtist ? '/profile/' : '/artist/') + user?._id}>
+                <main className='profile-preview-main-container'>
+
+                    <section className='profile-img-container'>
+                        <img
+                            className='profile-img'
+                            src={user?.imgUrl}
+                            alt='user-profile-img' />
+                    </section>
+
+                    <section className='desc-container'>
+                        <div>
+                            <h4>{user?.username}</h4>
+                            <p className='fs12'>{isArtist ? 'Artist' : 'Profile'}</p>
+                        </div>
+                    </section>
+                </main>
             </Link>
         </article>
     )
