@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: circular;
+    line-height: 1.6;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #121212;
+    color: #fff;
+    height: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 0.6em;
+
+    @include for-mobile-layout {
+        width: 0.4em;
+    }
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #666;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(19, 19, 19, 0.3);
+    box-shadow: inset 0 0 6px rgba(19, 19, 19, 0.3);
+}
+
+.main {
+    background-color: #121212;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+button {
+    &:hover {
+        cursor: pointer;
+        transition: 0.3s;
+    }
+}
+
+h1 {
+    color: white;
+    font-size: 22px;
+    text-align: left;
+    margin: 30px 25px 10px 20px
+}
+
+hr {
+    margin: 0;
+}
+
+.fa-solid {
+    font-size: 1.5rem;
+    color: rgb(172, 170, 170);
+    padding: 8px;
+}
+
+
+.img-input {
+    display: none;
+}
+
+.dropdown-btn {
+    height: 32px;
+    width: 32px;
+}
+
+ul {
+    padding: 0;
+}
+
+
+li {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    color: rgb(172, 170, 170);
+    gap: 3px;
+
+    &:hover {
+        color: white;
+    }
+
+    @include for-mobile-layout {
+        display: block;
+    }
+}
+
+hr {
+    border: 1px solid #3a3939;
+}
+
+
+.nav-likes-songs-logo {
+    width: 25px;
+    padding-inline-start: 3px;
+}
+
+.shadow-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .6s;
+    cursor: pointer;
+}
+
+img {
+    object-fit: cover;
+}

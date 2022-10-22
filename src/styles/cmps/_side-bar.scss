@@ -1,0 +1,111 @@
+.sidebar {
+    grid-area: navbar;
+    &>*:not(.nav-list) {
+        display: none;
+
+        @include for-narrow-layout {
+            display: block;
+        }
+    }
+
+
+    @include for-narrow-layout {
+
+        &>* {
+            display: block;
+        }
+
+        grid-area: navbar;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 20;
+
+        background: #121212;
+        background-color: #000;
+        padding: 10px 0;
+
+        .hr-navbar {
+            margin: 0 22px;
+        }
+
+        .user-stations-container {
+            padding: 0;
+            margin:  10px 3px;
+            li {
+                padding: 20px;
+                max-height: 40px;
+                font-size: 16px;
+            }
+        }
+    }
+
+
+
+    // a {
+    //     color: rgb(172, 170, 170);
+    //     text-decoration: none;
+
+    //     @include for-narrow-layout {
+    //         font-size: 14px;
+    //     }
+
+    //     @include for-wide-layout {
+    //         font-size: 16px;
+    //     }
+    // }
+
+    .logo-container {
+        display: flex;
+        padding-inline-start: 8px;
+
+        .logo-container h1 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .logo img {
+            width: 60px;
+            -webkit-transform: rotate(345deg);
+            -moz-transform: rotate(345deg);
+            -ms-transform: rotate(345deg);
+            -o-transform: rotate(345deg);
+            transform: rotate(345deg);
+        }
+
+        .logo-name {
+            background: #25EB6B;
+            background: radial-gradient(circle farthest-corner at left center, #25EB6B 0%, #FFFFFF 91%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: auto 0;
+            display: flex;
+            justify-content: space-evenly;
+            letter-spacing: 0.1em;
+            font-size: 19px;
+        }
+
+        //     @include for-mobile-layout {
+        //         display: none;
+        //     }
+    }
+}
+
+// .sidebar ul { // check if you can put in base?
+//     list-style-type: none;
+//     padding: 0;
+
+//     &:hover {
+//         cursor: pointer;
+//     }
+// }
+
+// .user-stations-container {
+//     @include for-mobile-layout {
+//         display: none;
+//     }
+// }
+
+// [data-rbd-drag-handle-context-id="0"] {
+//     cursor: pointer;
+// }

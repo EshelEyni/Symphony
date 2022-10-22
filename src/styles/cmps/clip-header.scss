@@ -1,0 +1,43 @@
+.clip-header-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
+
+    @include for-mobile-layout {
+        display: none;
+    }
+
+    @include for-normal-layout {
+        display: grid;
+        padding: 0 10px;
+        grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;
+        grid-template-areas: 'num title artist date like dur burger';
+        align-items: center;
+
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            color: rgb(172, 170, 170);
+        }
+
+        .num-area {
+            grid-area: num;
+        }
+
+        .artist-area {
+            grid-area: artist;
+        }
+
+        .date-area {
+            grid-area: date;
+        }
+
+        .like-area {
+            grid-area: like;
+        }
+
+        .clock-area {
+            grid-area: dur;
+            text-align: end;
+        }
+    }
+}

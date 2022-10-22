@@ -1,0 +1,133 @@
+.app-header-container {
+    grid-area: headerpos;
+    position: sticky;
+    display: flex;
+    grid-row: 1;
+    top: 0;
+    justify-content: end;
+    z-index: 1;
+    align-items: center;
+
+    @include for-mobile-layout {
+        z-index: 1;
+    }
+
+    @include for-wide-layout {
+        width: 100%;
+    }
+}
+
+.app-header-user-links-container {
+    position: fixed;
+    right: 0;
+
+}
+
+.guest-mode-container a {
+    color: #fff;
+    display: flex;
+    gap: 15px;
+    margin-inline-end: 5px;
+    position: relative;
+
+}
+
+.guest-mode-links-bar {
+    gap: 5px;
+    margin-inline-end: 10px;
+
+    &>* {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.guest-btn-container {
+    gap: 5px;
+    margin-inline-start: 10px;
+    margin-inline-end: 20px;
+
+    &>* {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.user-btn-container {
+    gap: 15px;
+    margin-inline-start: 5px;
+    position: fixed;
+    top: 10px;
+    right: 0;
+
+    @include for-mobile-layout {
+        top: 15px;
+    }
+}
+
+.user-profile-dropdown {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 160px;
+    height: 200px;
+    gap: 12px;
+    margin: 5px;
+    background-color: #222222;
+    padding: 10px;
+    margin-inline-end: 20px;
+    z-index: 20;
+
+    a:hover {
+        background-color: #757575;
+        cursor: pointer;
+    }
+}
+
+.user-profile-dropdown a,
+.logout-link {
+    color: rgb(201, 201, 201);
+    padding: 5px;
+}
+
+
+.profile-pic {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+
+    @include for-mobile-layout {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+.user-profile {
+    // maybe change to a more specific name...
+    gap: 5px;
+    padding: 2px 10px 2px 5px;
+    display: flex;
+    align-items: center;
+    background: #121212;
+    background-color: #000;
+    font-size: 13px;
+    border-radius: 25px;
+    margin-inline-end: 20px;
+    justify-content: center;
+    color: rgb(201, 201, 201);
+    width: max-content;
+
+    @include for-mobile-layout {
+        height: 30px;
+        font-size: 10px;
+        margin-inline-end: 10px;
+    }
+
+    @include for-narrow-layout {}
+
+    &:hover {
+        background-color: rgb(44, 44, 44);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+}

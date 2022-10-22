@@ -1,0 +1,23 @@
+.search-bar {
+    background-color: hsla(0, 0%, 100%, .1);
+    border: 0;
+    border-radius: 4px;
+    color: rgb(192, 191, 191);
+    height: 40px;
+    opacity: 1;
+    padding: 8px;
+    width: 25%;
+    margin: 15px 20px;
+    font-weight: 500;
+    font-size: rem(14px);
+    padding-inline-start: 16px;
+    
+    &:focus {
+        outline: none;
+    }
+    
+    @include for-mobile-layout {
+        width: 90%;
+        text-align: center;
+    }
+}

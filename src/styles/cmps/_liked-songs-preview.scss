@@ -1,0 +1,32 @@
+.liked-songs {
+    grid-column: 1 / 3;
+
+    background: #4300ff;
+    background: linear-gradient(149.46deg, #450af5, #8e8ee5 99.16%);
+    border-radius: 15px;
+
+    .inner-liked-container {
+        height: 100%;
+        padding-inline-start: 15px;
+        gap: 15px;
+
+        .songs-list-preview {
+            p {
+                font-size: 16px;
+                font-weight: unset;
+            }
+        }
+
+        .title-preview {
+            font-size: 32px;
+            margin: 0;
+            font-weight: 700;
+            padding: 0 0 4px;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+}

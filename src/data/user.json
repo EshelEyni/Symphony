@@ -1,0 +1,29 @@
+[
+    {
+        "_id": "asdasdasd034209asd",
+        "fullname": "Eshel Eyni",
+        "userName": "Eshel",
+        "password": "12345",
+        "imgUrl": "someimg.png",
+        "createdPlaylists": [
+            {
+                "name": "funky Monks",
+                "createdAt": 155687264,
+                "numberOfSongs": 13,
+                "likedByUsers": [
+                    "{minimal-user}",
+                    "{minimal-user}"
+                ]
+            }
+        ],
+        "likedPlaylists": [
+            {
+                "name": "Metal-playlist",
+                "id": "asdkK542DSF"
+            }
+        ],
+        "likedSongs": [
+            {}
+        ]
+    }
+]

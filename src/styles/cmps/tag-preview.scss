@@ -1,0 +1,19 @@
+.tag-preview-container {
+    border-radius: 15px;
+    position: relative;
+    padding: 20px;
+    height: 190px;
+    width: 190px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    @include for-mobile-layout {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+.tag-preview-img {
+    height: 100px;
+    width: 100px;
+}

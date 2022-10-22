@@ -1,0 +1,30 @@
+.search-res-container {
+    flex-direction: column;
+
+    @include for-mobile-layout {
+        // width: 80%;
+        text-align: center;
+        display: grid;
+    }
+}
+
+.search-res-content-container {
+    padding: 10px;
+    // width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.search-main-container{
+    padding: 0 15px;
+    @include for-mobile-layout {
+        padding: 0;
+
+    }
+}

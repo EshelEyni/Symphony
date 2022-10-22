@@ -1,0 +1,24 @@
+.user-msg {
+    min-width: 50%;
+    height: 50px;
+    background-color: #3f7ef4;
+    position: absolute;
+    bottom: 100px;
+    left: 25%;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+    border-radius: 15px;
+
+    &.shown {
+        visibility: visible;
+    }
+
+    &.hidden {
+        visibility: hidden;
+    }
+
+    @include for-mobile-layout {
+        bottom: 10px;
+        left: 13%;
+    }
+}

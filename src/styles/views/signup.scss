@@ -1,0 +1,10 @@
+.form-signup{
+    width: 700px;
+    align-self: center;
+    margin: auto;
+    gap: 15px;
+
+    &>*{
+        height: 30px;
+    }
+}
