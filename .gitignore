@@ -1,4 +1,5 @@
 backend/node_modules
+backend/logs/backend.log
 frontend/node_modules
 
 # dependencies
