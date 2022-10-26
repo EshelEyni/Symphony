@@ -6,6 +6,7 @@ import { ClipPreview } from '../cmps/clip-preview'
 import { setPlaylist } from '../store/media-player.actions'
 import { handleDragEnd } from '../services/dragg.service'
 import { defaultLightGreenColor } from '../services/bg-color.service'
+import { userService } from '../services/user.service'
 
 export const Queue = () => {
 
@@ -26,14 +27,16 @@ export const Queue = () => {
         setQueueClipList(clipsToUpdate)
         const stationToUpdate = { ...currPlaylist }
         stationToUpdate.clips = [currMediaPlayerClip, ...clipsToUpdate]
-        dispatch(setPlaylist(stationToUpdate))
+        const userToUpdate = userService.getLoggedinUser()
+        userToUpdate.prevPlaylist = stationToUpdate
+        userService.update(userToUpdate)
     }
 
     const setNextUpClips = (clips) => {
         const currMediaPlayerClipIdx = clips.findIndex(clip => clip._id === currMediaPlayerClip._id)
         let nextUpClips = clips.filter(clip => clip._id !== currMediaPlayerClip._id)
-        let before = nextUpClips.splice(0, currMediaPlayerClipIdx)
-        nextUpClips.push(...before)
+        const clipsBeforeCurrMediaClip = nextUpClips.splice(0, currMediaPlayerClipIdx)
+        nextUpClips.push(...clipsBeforeCurrMediaClip)
         return nextUpClips
     }
 

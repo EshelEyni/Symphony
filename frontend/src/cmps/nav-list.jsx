@@ -65,7 +65,7 @@ export const NavList = ({
                 'Home', 'text')
         },
         {
-            path: '/search/',
+            path: 'search',
             className: 'search-link',
             onClickFunc: () => setIsHomeClicked(false),
             symbol: setSymbol(
@@ -74,7 +74,7 @@ export const NavList = ({
                 'Search', 'text-search')
         },
         {
-            path: loggedinUser ? '/library' : '/',
+            path: loggedinUser ? 'library' : '',
             className: 'library-link',
             onClickFunc: loggedinUser ? () => setIsHomeClicked(false) : () => setLoginMsg(loginFirstMsgs.library),
             symbol: setSymbol(
@@ -92,7 +92,7 @@ export const NavList = ({
                 'Create Playlist', 'text-create')
         },
         {
-            path: loggedinUser ? '/liked' : '/',
+            path: loggedinUser ? 'liked' : '/',
             className: '',
             onClickFunc: loggedinUser ? () => setIsHomeClicked(false) : () => setLoginMsg(loginFirstMsgs.likedSongs),
             symbol: setSymbol(
@@ -107,8 +107,8 @@ export const NavList = ({
             const { path, className, onClickFunc, symbol } = navLink
             return (
                 <NavLink
-                    key={'nav-link-' + navLink.className}
                     to={path}
+                    key={'nav-link-' + navLink.className}
                     className={className}
                     onClick={onClickFunc}
                 >

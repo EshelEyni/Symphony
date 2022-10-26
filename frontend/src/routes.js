@@ -17,20 +17,20 @@ import { ArtistDetails } from './pages/artist-details.jsx'
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
     { path: '/', component: <SymphonyApp />, },
-    { path: '/tag/:title', component: <TagsDetails /> },
-    { path: '/about', component: <About />, },
-    { path: '/download', component: <DownloadApp />, },
-    { path: '/login', component: <Login />, },
-    { path: '/signup', component: <Signup />, },
-    { path: '/profile/:_id', component: <ProfileDetails />, },
-    { path: '/artist/:_id', component: <ArtistDetails />, },
-    { path: '/followers/:_id', component: <FollowersDetails />, },
-    { path: '/following/:_id', component: <FollowingDetails />, },
-    { path: '/search/', component: <Search />, },
-    { path: '/station/:_id', component: <StationDetails /> },
-    { path: '/liked', component: <LikedSongs />, },
-    { path: '/library', component: <Library /> },
-    { path: '/queue', component: <Queue /> }
+    { path: 'tag/:title', component: <TagsDetails /> },
+    { path: 'about', component: <About />, },
+    { path: 'download', component: <DownloadApp />, },
+    { path: 'login', component: <Login />, },
+    { path: 'signup', component: <Signup />, },
+    { path: 'profile/:_id', component: <ProfileDetails />, },
+    { path: 'artist/:_id', component: <ArtistDetails />, },
+    { path: 'followers/:_id', component: <FollowersDetails />, },
+    { path: 'following/:_id', component: <FollowingDetails />, },
+    { path: 'search/', component: <Search />, },
+    { path: 'station/:_id', component: <StationDetails /> },
+    { path: 'liked', component: <LikedSongs />, },
+    { path: 'library', component: <Library /> },
+    { path: 'queue', component: <Queue /> }
 ]
 
 export default routes

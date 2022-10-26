@@ -35,7 +35,7 @@ export const UserStationList = ({
                             >
                                 <NavLink
                                     style={{ color: style?.color }}
-                                    to={'/station/' + station._id}>
+                                    to={'station/' + station._id}>
                                     {station.name}
                                 </NavLink>
                             </li>
