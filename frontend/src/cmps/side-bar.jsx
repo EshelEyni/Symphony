@@ -14,8 +14,7 @@ import Logo from '../assets/img/note-logo.png'
 export const SideBar = () => {
     const loggedinUser = userService.getLoggedinUser()
     const { user } = useSelector(state => state.userModule)
-
-    const { stations } = useSelector(state => state.stationModule)
+    const { stations, currStation } = useSelector(state => state.stationModule)
     const [userStations, setUserStations] = useState(stationService.getUserStations(stations, loggedinUser, 'user-stations'))
     const [isLoginMsg, setIsLoginMsg] = useState(false)
     const [isAddStation, setIsAddStation] = useState(true)
@@ -32,7 +31,7 @@ export const SideBar = () => {
 
     useEffect(() => {
         dispatch(loadStations())
-    }, [isAddStation])
+    }, [isAddStation, currStation])
 
     const onAddStation = async () => {
         if (!loggedinUser) return

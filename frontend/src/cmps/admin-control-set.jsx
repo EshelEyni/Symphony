@@ -12,7 +12,8 @@ export const AdminControlSet = ({
         if (!station.desc) return alert('Please enter a description to station...')
         station.createdBy = {
             _id: 'a101',
-            username: 'Symphony'
+            username: 'Symphony',
+            fullname: 'Symphony'
         }
 
         dispatch(updateStation(station))

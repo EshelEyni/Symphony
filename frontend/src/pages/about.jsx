@@ -56,8 +56,8 @@ export const About = () => {
                         <li>FollowingDetails</li>
                         <li>Search ✅</li>
                         <li>StationDetails ✅</li>
-                        <li>LikedSongs</li>
-                        <li>Library</li>
+                        <li>LikedSongs ✅</li>
+                        <li>Library ✅</li>
                         <li>Queue</li>
                     </ul>
                 </section>

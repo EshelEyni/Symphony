@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { userService } from '../services/user.service'
 import { setUserMsg, updateUser } from '../store/user.actions'
-import { ReactComponent as HeartIcon } from '../assets/img/heart-icon.svg';
+import { ReactComponent as HeartIcon } from '../assets/img/heart-icon.svg'
 import { updateStation } from '../store/station.actions'
-import { useEffect, useState } from 'react';
 
 export const LikeIcon = ({
     currStation,

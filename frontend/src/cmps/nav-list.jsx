@@ -8,8 +8,8 @@ import LibraryMusicOutlinedIcon from '@mui/icons-material/LibraryMusicOutlined'
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import HomeIcon from '@mui/icons-material/Home'
-import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
-import ScreenSearchDesktopRoundedIcon from '@mui/icons-material/ScreenSearchDesktopRounded';
+import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined'
+import ScreenSearchDesktopRoundedIcon from '@mui/icons-material/ScreenSearchDesktopRounded'
 import AddBoxIcon from '@mui/icons-material/AddBox'
 
 export const NavList = ({

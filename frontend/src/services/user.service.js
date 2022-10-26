@@ -1,7 +1,7 @@
-import { store } from '../store/store';
-import { getActionUpdateUser } from '../store/user.actions';
+import { store } from '../store/store'
+import { getActionUpdateUser } from '../store/user.actions'
 import { httpService } from './http.service'
-import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service';
+import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 
 export const defaultImg = 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1663788155/pngwing.com_7_smg1dj.png'
 
@@ -81,14 +81,15 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-function updateUserRecentlyPlayedClips(userToUpdate, currClip) {
-    let { clips } = userToUpdate.recentlyPlayed
+function updateUserRecentlyPlayedClips(user, currClip) {
+
+    let { clips } = user.recentlyPlayed
     const existingClipEntry = clips.find(clip => clip._id === currClip._id)
-    if (existingClipEntry) return userToUpdate
+    if (existingClipEntry) return user
     currClip.playedAt = Date.now()
     clips.unshift(currClip)
-    userToUpdate.clips = clips.filter((clip, idx) => clip !== null && idx < 10)
-    return userToUpdate
+    user.clips = clips.filter((clip, idx) => clip !== null && idx < 10)
+    return user
 }
 
 function checkUsername(users, currUsername) {

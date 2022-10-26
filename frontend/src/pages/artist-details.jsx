@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ClipList } from '../cmps/clip-list'
 import { Loader } from '../cmps/loader'
 import { ProfileHeader } from '../cmps/profile-header'
 import { ProfileList } from '../cmps/profile-list'
 import { StationList } from '../cmps/station-list'
+import { setHeaderBgcolor } from '../store/app-header.actions'
 import { artistService } from '../services/artist.service'
 import { profileService } from '../services/profile-service'
 import { stationService } from '../services/station.service'
 import { userService } from '../services/user.service'
+import { defaultHeaderBgcolor } from '../services/bg-color.service'
 
 export const ArtistDetails = () => {
     const loggedinUser = userService.getLoggedinUser()
@@ -16,9 +19,13 @@ export const ArtistDetails = () => {
     const [stationsByArtist, setStationsByArtist] = useState([])
     const [profilesByArtist, setProfilesByArtist] = useState([])
     const params = useParams()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         loadArtist(params)
+        return () => {
+            dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
+        }
     }, [params])
 
     const loadArtist = async (params) => {
@@ -28,6 +35,8 @@ export const ArtistDetails = () => {
         setCurrArtist(currArtist)
         setStationsByArtist(stationService.getFilteredStations(stations, { term: currArtist.username, type: 'artist-name' }))
         setProfilesByArtist(profileService.getProfilesByArtist(stations, users, currArtist.username))
+        dispatch(setHeaderBgcolor(currArtist.bgColor))
+
     }
 
     if (!currArtist) {
@@ -40,7 +49,7 @@ export const ArtistDetails = () => {
         return (
             <main className='artist-details-container'>
                 <ProfileHeader
-                    watchedUser={currArtist}
+                    user={currArtist}
                     loggedinUser={loggedinUser}
                     isArtist={true}
                 />

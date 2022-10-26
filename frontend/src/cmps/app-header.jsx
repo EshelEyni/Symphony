@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../services/user.service'
 import { onLogout } from '../store/user.actions'
-import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
-import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
+import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded'
+import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded'
 
 export const AppHeader = () => {
     const loggedinUser = userService.getLoggedinUser()

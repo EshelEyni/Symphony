@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { updateStation } from '../store/station.actions'
 import { uploadImg } from '../services/upload.service'
 import { updateUser } from '../store/user.actions'
-import DisabledByDefaultRoundedIcon from '@mui/icons-material/DisabledByDefaultRounded';
+import DisabledByDefaultRoundedIcon from '@mui/icons-material/DisabledByDefaultRounded'
 import { defaultImg } from '../services/user.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 

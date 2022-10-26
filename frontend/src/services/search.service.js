@@ -9,7 +9,7 @@ export const searchService = {
     updateUserRecentSearches,
 }
 
-// const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
+const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
 const ALEX_API_KEY = 'AIzaSyCufURb4q5k_aJP0We6SJ9dN6T67VtublU'
 
 const cleaner = /\([^\)]*\)|\[[^\]]*\]/g 
@@ -29,10 +29,10 @@ async function getClips(term) {
 
     console.log('Getting from Network')
 
-    const apiStr = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoCategoryId=10&videoEmbeddable=true&type=video&maxResults=100&key=${ALEX_API_KEY}&q=${term}`
+    const apiStr = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoCategoryId=10&videoEmbeddable=true&type=video&maxResults=100&key=${YT_API_Key}&q=${term}`
     const res = await axios.get(apiStr)
     const str = res.data.items.map(item => '' + `${item.id.videoId}%2C`).join('').slice(0, -3)
-    const durationStr = `https://www.googleapis.com/youtube/v3/videos?id=${str}&part=contentDetails&key=${ALEX_API_KEY}`
+    const durationStr = `https://www.googleapis.com/youtube/v3/videos?id=${str}&part=contentDetails&key=${YT_API_Key}`
     const durations = await axios.get(durationStr)
 
    const clips =  res.data.items.map((item, idx) => {
@@ -101,31 +101,23 @@ export const searchFilterBtns = [
 ]
 
 export const tagImgs = [
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/quiet_a0pcc9.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/rock_wr6zfq.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664377614/spotify/loud-music_yz2ucp.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/pop_hjlfb3.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380523/spotify/happy_grrw9u.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/beatles_f9josj.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/60s_xveydc.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/funk_nwpzz5.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/rhytm_l87rkp.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/hiphop_xf6lee.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/90s_xtfhyo.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/aggressive_mda8b1.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/distortion_xipbyw.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/metal_iqji5n.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/love_wxy5j8.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/dance_sju1w9.jpg',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666725807/dance_ktq2o1.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/electronic_ex1zjg.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380057/spotify/israeli_ljbhro.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666720815/middle-east_fitmth.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/top_uyvero.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/billabord_amriev.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666720964/world-wide-music_pljw3g.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664376199/spotify/contest_rvrvwm.jpg',
     'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/eurovision_rsrbb8.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1664247346/pngwing.com_7_ine1ah.png'
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
+    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/funk_nwpzz5.jpg',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666721075/europe-music_v5gaie.webp',
+    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666725930/disney_lw0g5e.jpg',
 ]

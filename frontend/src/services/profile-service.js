@@ -53,12 +53,12 @@ function getUserProfiles(users, currUser, filterBy, artists) {
 
 function getProfilesByArtist(stations, users, artistName) {
     artistName = artistName.toLowerCase()
-    return getProfilesBy(stations, users, clip => clip => clip?.artistName.toLowerCase() == artistName);
+    return getProfilesBy(stations, users, clip => clip => clip?.artistName.toLowerCase() == artistName)
 }
 
 function getProfilesBySearchTerm(stations, users, SearchTerm){
     SearchTerm = SearchTerm.toLowerCase()
-    return getProfilesBy(stations, users, clip => clip => clip.title.toLowerCase().includes(SearchTerm));
+    return getProfilesBy(stations, users, clip => clip => clip.title.toLowerCase().includes(SearchTerm))
 }
 
 function getProfilesBy(stations, users, predicate) {

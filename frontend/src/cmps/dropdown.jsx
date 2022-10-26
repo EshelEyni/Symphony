@@ -40,7 +40,7 @@ export const Dropdown = ({
     }
 
     return (
-        <ul className='dropdown-profile'>
+        <ul className='dropdown'>
             {isDropdown &&
                 <div className='shadow-screen'
                     onClick={() => {

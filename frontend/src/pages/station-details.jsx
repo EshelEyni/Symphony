@@ -181,13 +181,13 @@ export const StationDetails = () => {
                                 isStationDetails={true}
                                 setSearchClips={setSearchClips}
                             />
-                            
+
                             {isSearchLoading && <Loader
                                 size={'medium-loader'}
                                 loaderType={'search-loader'}
                             />}
 
-                            {(isPostSearch && searchClips.length > 0) &&
+                            {(isPostSearch && searchClips.length > 0 && !isSearchLoading) &&
                                 <ClipList
                                     isUserCreatedStation={isUserCreatedStation}
                                     clipKey={'station-search-res'}

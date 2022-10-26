@@ -14,8 +14,7 @@ export const Library = () => {
     const { user } = useSelector(state => state.userModule)
     const { stations } = useSelector(state => state.stationModule)
 
-    const userStations = stationService
-        .getUserStations(stations, user, 'user-stations')
+    const userStations = stationService.getUserStations(stations, user, 'user-stations')
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -24,7 +23,6 @@ export const Library = () => {
         if (!stations.length) {
             dispatch(loadStations())
         }
-
     }, [])
 
     const onAddStation = async () => {

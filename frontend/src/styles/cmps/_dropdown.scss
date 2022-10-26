@@ -34,7 +34,7 @@
     gap: 5px;
 }
 
-.dropdown-profile {
+.dropdown {
     transition: all 0.5s;
     position: absolute;
     display: flex;
@@ -47,6 +47,8 @@
     border-radius: 15px;
     padding: 10px;
     z-index: 20;
+    top: 25%;
+    left: 25%;
 
     &>*:not(.shadow-screen) {
         z-index: 20;

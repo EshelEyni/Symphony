@@ -30,7 +30,7 @@ export const Queue = () => {
     }
 
     const setNextUpClips = (clips) => {
-        const currMediaPlayerClipIdx = currPlaylist.clips.findIndex(clip => clip._id === currMediaPlayerClip._id)
+        const currMediaPlayerClipIdx = clips.findIndex(clip => clip._id === currMediaPlayerClip._id)
         let nextUpClips = clips.filter(clip => clip._id !== currMediaPlayerClip._id)
         let before = nextUpClips.splice(0, currMediaPlayerClipIdx)
         nextUpClips.push(...before)
@@ -59,7 +59,6 @@ export const Queue = () => {
                             className='station-clips-main-container'
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
-
                             {queueClipList.map((clip, idx) => (
                                 <Draggable
                                     key={'queue-clip' + clip._id}
@@ -97,7 +96,6 @@ export const Queue = () => {
                     )}
                 </Droppable>
             </DragDropContext>
-
         </main>
     )
 }

@@ -39,25 +39,24 @@ export const LikedSongs = () => {
             <main className='station-container'>
                 <header className='station-header'>
                     <StationHeader
-                        LikedSongsLogo={LikedSongsLogo}
-                        isLikedSongs={true}
-                        bgColor={likedSongsBgcolor}
-                        isUserStation={true}
-                        clips={likedSongs}
-                        currStation={user.likedSongs}
                         user={user.username}
+                        LikedSongsLogo={LikedSongsLogo}
+                        isUserStation={true}
+                        isLikedSongs={true}
+                        currStation={user.likedSongs}
+                        clips={likedSongs}
+                        bgColor={likedSongsBgcolor}
                     />
                 </header>
 
                 <section className='station-clips-container'>
                     <ClipList
-                        bgColor={likedSongsBgcolor}
-                        clipKey={'liked-clip'}
                         currStation={user.likedSongs}
-                        // currClips={user.likedSongs.clips}
                         currClips={likedSongs}
                         setCurrClips={setLikedSongs}
+                        clipKey={'liked-clip'}
                         isLike={true}
+                        bgColor={likedSongsBgcolor}
                     />
                 </section>
             </main >

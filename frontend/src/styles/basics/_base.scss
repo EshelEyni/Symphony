@@ -118,8 +118,8 @@ hr {
     transition: opacity .6s;
     z-index: 10;
     cursor: pointer;
-    
-    &.confirm-delete-profile{
+
+    &.confirm-delete-profile {
         opacity: 0.5;
         transition: opacity .6s;
         background-color: $clr7;

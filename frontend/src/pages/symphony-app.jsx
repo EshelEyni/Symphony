@@ -16,19 +16,16 @@ export const SymphonyApp = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (stations.length)
-            dispatch(setGetStationsByTag(stations))
-
+        if (stations.length) dispatch(setGetStationsByTag(stations))
         if (!tags.length) dispatch(setTags(stationService.getTags(stations)))
-
         if (!artists.length) dispatch(loadArtists())
-
         if (artists.length > 0 && !randomArtists && !artistsByLike) {
             setRandomArtists(artistService.getRandomArtists(artists))
             setArtistsByLike(artistService.getArtistBylikes(artists))
         }
     }, [stations, artists])
 
+ 
     if (!getStationByTag?.getByTag || !randomArtists)
         return (
             <Loader
@@ -46,7 +43,7 @@ export const SymphonyApp = () => {
                         currProfiles={randomArtists}
                         profileKey={'hp-artists-'} />
 
-                    {artistsByLike && <section>
+                    {artistsByLike?.length > 0 && <section>
                         <h1>Artists you might like</h1>
                         <ProfileList
                             isArtist={true}

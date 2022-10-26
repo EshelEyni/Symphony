@@ -16,7 +16,7 @@ socketService.setup()
 
 
 function createSocketService() {
-    var socket = null;
+    var socket = null
     const socketService = {
         setup() {
             socket = io(baseUrl)
@@ -29,7 +29,7 @@ function createSocketService() {
             socket.on(eventName, cb)
         },
         off(eventName, cb = null) {
-            if (!socket) return;
+            if (!socket) return
             if (!cb) socket.removeAllListeners(eventName)
             else socket.off(eventName, cb)
         },

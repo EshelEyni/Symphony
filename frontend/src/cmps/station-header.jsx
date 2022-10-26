@@ -11,7 +11,7 @@ import { uploadImg } from '../services/upload.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 import { stationService } from '../services/station.service'
 import { defaultImg } from '../services/user.service'
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 export const StationHeader = ({
     currStation,

@@ -1,12 +1,8 @@
-import { storageService } from '../services/storage.service'
 import { userService } from '../services/user.service'
 
 export function setMediaPlayerClip(clip) {
-    storageService.saveToStorage('prevClip', clip)
-
-    let userToUpdate = { ...userService.getLoggedinUser() }
+    let userToUpdate = userService.getLoggedinUser()
     if (userToUpdate) {
-        console.log('userToUpdate', userToUpdate)
         userToUpdate = userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
         userToUpdate.prevClip = clip
         userService.update(userToUpdate)
@@ -22,9 +18,7 @@ export function setMediaPlayerClip(clip) {
 }
 
 export function setPlaylist(playlist) {
-    storageService.saveToStorage('prevPlaylist', playlist)
-
-    let userToUpdate = { ...userService.getLoggedinUser() }
+    let userToUpdate = userService.getLoggedinUser()
     if (userToUpdate) {
         userToUpdate.prevPlaylist = playlist
         userService.update(userToUpdate)

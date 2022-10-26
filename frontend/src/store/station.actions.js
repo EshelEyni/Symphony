@@ -30,7 +30,6 @@ export function loadStation(stationId) {
 }
 
 export function updateStation(stationToUpdate) {
-    console.log('UPDATE_STATION');
     return async (dispatch) => {
         try {
             const updatedStation = await stationService.save(stationToUpdate)

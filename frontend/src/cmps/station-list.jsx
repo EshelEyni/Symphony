@@ -11,17 +11,19 @@ export const StationList = ({
 }) => {
 
     const isSeeAllLink = stations.length > 8 ? true : false
-
-    return <section className='station-list-container'>
-        {(tag && isSeeAllLink) && <Link to={'/tag/' + tag}>SEE ALL</Link>}
-        <main className='station-list-main-container grid'>
-            {isLiked && <LikedSongsPreview />}
-            {stations?.map(station => <article
-                key={stationKey + station._id}>
-                <StationPreview
-                    currStation={station}
-                    isSearch={isSearch} />
-            </article>)}
-        </main>
-    </section>
+    const stationsForDisplay = stations.length > 8 ? stations.slice(0, 8) : stations
+    
+    if (stationsForDisplay)
+        return <section className='station-list-container'>
+            {(tag && isSeeAllLink) && <Link to={'/tag/' + tag}>SEE ALL</Link>}
+            <main className='station-list-main-container grid'>
+                {isLiked && <LikedSongsPreview />}
+                {stationsForDisplay.map(station => <article
+                    key={stationKey + station._id}>
+                    <StationPreview
+                        currStation={station}
+                        isSearch={isSearch} />
+                </article>)}
+            </main>
+        </section>
 }

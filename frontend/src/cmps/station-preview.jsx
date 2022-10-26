@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Equalizer } from './equalizer'
-import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
+import { setIsPlaying, setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
 import { removeStation } from '../store/station.actions'
 import { setUserMsg, updateUser } from '../store/user.actions'
 
@@ -31,13 +31,14 @@ export const StationPreview = ({
     const onTogglePlay = (ev) => {
         ev.stopPropagation()
         ev.preventDefault()
-        const isCurrStationPlaying = currStation._id === currPlaylist?._id
 
-        if (!isClicked && !isCurrStationPlaying) {
+        // const isCurrStationPlaying = currStation._id === currPlaylist?._id
+        // if (!isClicked && !isCurrStationPlaying) {
+
+        if (!isClicked) {
             dispatch(setPlaylist(currStation))
             dispatch(setMediaPlayerClip(currStation.clips[0]))
         }
-
         togglePlayFunc()
     }
 

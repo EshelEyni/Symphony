@@ -7,7 +7,7 @@ import { updateUser } from '../store/user.actions'
 import { uploadImg } from '../services/upload.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 import { defaultImg, userService } from '../services/user.service'
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 export const ProfileHeader = ({
     user,

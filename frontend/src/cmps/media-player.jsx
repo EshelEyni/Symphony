@@ -33,10 +33,12 @@ export const MediaPlayer = () => {
     useEffect(() => {
         const prevClip = mediaPlayerService.getPrevClip()
         if ((!prevClip && currMediaPlayerClip) || (prevClip?._id !== currMediaPlayerClip?._id)) {
+            storageService.saveToStorage('prevClip', currMediaPlayerClip)
+            storageService.saveToStorage('prevPlaylist', currPlaylist)
             dispatch(setIsPlaying(true))
         }
 
-    }, [currMediaPlayerClip, dispatch])
+    }, [currMediaPlayerClip])
 
     useEffect(() => {
         if (currMediaPlayerClip && isPlaying) {

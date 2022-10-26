@@ -1,7 +1,7 @@
-import { getActionUpdateStation } from '../store/station.actions.js';
-import { store } from '../store/store.js';
+import { getActionUpdateStation } from '../store/station.actions.js'
+import { store } from '../store/store.js'
 import { httpService } from './http.service.js'
-import { socketService, SOCKET_EVENT_STATION_UPDATED } from './socket.service.js';
+import { socketService, SOCKET_EVENT_STATION_UPDATED } from './socket.service.js'
 
 const BASE_URL = 'station/'
 
