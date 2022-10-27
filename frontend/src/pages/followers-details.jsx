@@ -12,6 +12,7 @@ export const FollowersDetails = () => {
     const params = useParams()
 
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (user?._id !== params._id) dispatch(loadUser(params._id))
         if (!users.length) dispatch(loadUsers())
     }, [user])
@@ -29,7 +30,7 @@ export const FollowersDetails = () => {
             <main>
                 <h1>Followers</h1>
                 <ProfileList
-                    currProfiles={profileService.getUserProfiles(users, user, 'followers')}
+                    profiles={profileService.getUserProfiles(users, user, 'followers')}
                     profileKey={'followers-details-'}
                 />
             </main>

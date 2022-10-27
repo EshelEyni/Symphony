@@ -12,8 +12,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 export const ProfileHeader = ({
     watchedUser,
     loggedinUser,
-    publicStations,
-    isArtist
+    publicStations
 }) => {
 
     const [profileImgUrl, setProfileImgUrl] = useState(watchedUser.imgUrl)
@@ -101,7 +100,7 @@ export const ProfileHeader = ({
                         onChange={onUploadImg} type='file' />}
                 </section>
                 <section className='profile-header-details flex column'>
-                    <p>{isArtist ? 'ARTIST' : 'PROFILE'}</p>
+                    <p>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
                     <h1 className='profile-h1'>{watchedUser?.username}</h1>
                     {getProfileDetails()}
                 </section>

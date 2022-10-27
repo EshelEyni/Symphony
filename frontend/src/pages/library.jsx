@@ -20,9 +20,8 @@ export const Library = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!stations.length) {
-            dispatch(loadStations())
-        }
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+        if (!stations.length) dispatch(loadStations())
     }, [])
 
     const onAddStation = async () => {

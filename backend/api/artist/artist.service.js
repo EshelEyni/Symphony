@@ -59,16 +59,16 @@ async function add(station) {
     }
 }
 
-async function update(stationToUpdate) {
+async function update(artistToUpdate) {
     try {
-        var id = ObjectId(stationToUpdate._id)
-        delete stationToUpdate._id
+        var id = ObjectId(artistToUpdate._id)
+        delete artistToUpdate._id
         const collection = await dbService.getCollection('artist')
-        await collection.updateOne({ _id: id }, { $set: { ...stationToUpdate } })
+        await collection.updateOne({ _id: id }, { $set: { ...artistToUpdate } })
         
-        return { _id: id, ...stationToUpdate }
+        return { _id: id, ...artistToUpdate }
     } catch (err) {
-        logger.error(`cannot update car ${stationToUpdate._id}`, err)
+        logger.error(`cannot update artist ${artistToUpdate._id}`, err)
         throw err
     }
 }

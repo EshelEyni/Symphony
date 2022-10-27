@@ -11,6 +11,7 @@ export const TagsDetails = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
         if (stations.length && !getStationByTag?.getByTag)
             dispatch(setGetStationsByTag(stations))
     }, [stations])

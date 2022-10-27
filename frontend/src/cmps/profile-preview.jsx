@@ -2,12 +2,11 @@ import { Link } from 'react-router-dom'
 
 export const ProfilePreview = ({
     user,
-    isArtist
 }) => {
 
     return (
         <article className='profile-preview' >
-            <Link to={(!isArtist ? '/profile/' : '/artist/') + user?._id}>
+            <Link to={(user.isArtist ? '/artist/' : '/profile/') + user?._id}>
                 <main className='profile-preview-main-container'>
 
                     <section className='profile-img-container'>
@@ -20,7 +19,7 @@ export const ProfilePreview = ({
                     <section className='desc-container'>
                         <div>
                             <h4>{user?.username}</h4>
-                            <p className='fs12'>{isArtist ? 'Artist' : 'Profile'}</p>
+                            <p className='fs12'>{user.isArtist ? 'Artist' : 'Profile'}</p>
                         </div>
                     </section>
                 </main>

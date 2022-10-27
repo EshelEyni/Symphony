@@ -31,13 +31,13 @@ async function remove(artistId) {
 }
 
 async function save(artistToSave) {
-    var savedStation
+    let savedArtist
     if (artistToSave._id) {
-        savedStation = await httpService.put(BASE_URL + artistToSave._id, artistToSave)
+        savedArtist = await httpService.put(BASE_URL + artistToSave._id, artistToSave)
     } else {
-        savedStation = await httpService.post(BASE_URL, artistToSave)
+        savedArtist = await httpService.post(BASE_URL, artistToSave)
     }
-    return savedStation
+    return savedArtist
 }
 
 function getRandomArtists(artists) {
@@ -55,14 +55,13 @@ function getArtistBySearchTerm(searchResults, artists) {
     return artistsBySearchTerm
 }
 
-function getArtistBylikes(artists) {
-    const loggedinUser = userService.getLoggedinUser()
-    if (!loggedinUser) return
-    const userLikedArtists = new Set(loggedinUser.likedSongs.clips.map(clip => clip.artist))
+function getArtistBylikes(artists, user) {
+    if (!user) return
+    const userLikedArtists = new Set(user.likedSongs.clips.map(clip => clip.artist))
     const artistsByLike = artists.filter(artist => {
         return (
             userLikedArtists.has(artist.username)
-            && !loggedinUser.following.includes(artist._id)
+            && !user.following.includes(artist._id)
         )
     })
     return artistsByLike

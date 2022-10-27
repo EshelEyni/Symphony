@@ -87,7 +87,7 @@ export const StationHeader = ({
                 </section>}
 
                 <div className='station-header-details-container'>
-                    <h5>{currStation.isArtist ? 'Artist' : 'Playlist'}</h5>
+                    <h5>Playlist</h5>
                     <h1 className='station-header-name-container'>{currStation.name}</h1>
                     <section className='desc-container'>{currStation.desc}</section>
 

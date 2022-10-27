@@ -22,6 +22,7 @@ export const ArtistDetails = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
         loadArtist(params)
         return () => {
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
@@ -49,9 +50,8 @@ export const ArtistDetails = () => {
         return (
             <main className='artist-details-container'>
                 <ProfileHeader
-                    user={currArtist}
+                    watchedUser={currArtist}
                     loggedinUser={loggedinUser}
-                    isArtist={true}
                 />
                 <section className='artist-clips-container'>
                     <ClipList
@@ -79,7 +79,7 @@ export const ArtistDetails = () => {
                     className='artist-profile-list'>
                     <h1>Profiles</h1>
                     <ProfileList
-                        currProfiles={profilesByArtist}
+                        profiles={profilesByArtist}
                         profileKey={'artist-profile-'}
                     />
                 </section>}

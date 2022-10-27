@@ -33,6 +33,7 @@ export const Search = () => {
     const inputValue = useRef()
 
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (searchParams.get('q') !== searchTerm) {
             if (inputValue.current?.value) inputValue.current.value = ''
             setSearchTerm(searchParams.get('q'))
@@ -154,8 +155,7 @@ export const Search = () => {
                             <section className='search-artist-container'>
                                 <h1>Artists</h1>
                                 <ProfileList
-                                    isArtist={true}
-                                    currProfiles={searchArtists}
+                                    profiles={searchArtists}
                                     profileKey={'search-artists-'}
                                 />
                             </section>}
@@ -164,7 +164,7 @@ export const Search = () => {
                             <section className='search-profiles-container'>
                                 <h1>Profiles</h1>
                                 <ProfileList
-                                    currProfiles={searchProfiles}
+                                    profiles={searchProfiles}
                                     profileKey={'search-profiles-'}
                                 />
                             </section>}

@@ -15,10 +15,12 @@ export const LikedSongs = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+
         if (!user) {
             navigate('/')
             return
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
         dispatch(setHeaderBgcolor(likedSongsBgcolor))
         setLikedSongs([...user.likedSongs.clips])
 

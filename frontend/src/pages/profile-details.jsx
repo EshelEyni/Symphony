@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { ProfileHeader } from '../cmps/profile-header'
 import { ClipList } from '../cmps/clip-list'
 import { StationList } from '../cmps/station-list'
@@ -28,6 +28,7 @@ export const ProfileDetails = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         dispatch(loadUsers())
         dispatch(loadStations())
         dispatch(loadArtists())
@@ -90,7 +91,7 @@ export const ProfileDetails = () => {
                                 <section className='shared-liked-music'>
                                     <h1>People who like the same music</h1>
                                     <ProfileList
-                                        currProfiles={profilesByLike}
+                                        profiles={profilesByLike}
                                         profileKey={'profiles-by-like-'}
                                     />
                                 </section>}
@@ -102,11 +103,11 @@ export const ProfileDetails = () => {
                     {publicStations.length > 0 &&
                         <section className='personal-playlist'>
                             <h1>{watchedUser.username} Playlists</h1>
-                            <Link to={'/public-playlists/' + watchedUser._id}>SEE ALL</Link>
                             <StationList
                                 stations={publicStations}
                                 stationKey={'profile-details-station-'}
-                                limitedDisplay={true}
+                                isLimitedDisplay={true}
+                                watchedUserId={watchedUser._id}
                             />
                         </section>}
 
@@ -114,7 +115,7 @@ export const ProfileDetails = () => {
                         <section className='followers-container'>
                             <h1>Followers</h1>
                             <ProfileList
-                                currProfiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
+                                profiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
                                 profileKey={'profile-followers-'}
                             />
                         </section>}
@@ -123,7 +124,7 @@ export const ProfileDetails = () => {
                         <section className='following-container'>
                             <h1>Following</h1>
                             <ProfileList
-                                currProfiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
+                                profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
                                 profileKey={'profiles-followers-'}
                             />
                         </section>}
@@ -133,7 +134,7 @@ export const ProfileDetails = () => {
 
                     <h1>PROFILES FOR CHECK - DELETE IN THE END</h1>
                     <ProfileList
-                        currProfiles={users}
+                        profiles={users}
                         profileKey={'deme-profiles-'}
                     />
 

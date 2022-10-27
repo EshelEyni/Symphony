@@ -7,16 +7,19 @@ export const StationList = ({
     isSearch,
     isLiked,
     tag,
-    limitedDisplay,
+    watchedUserId,
+    isLimitedDisplay,
     stationKey
 }) => {
 
     const isSeeAllLink = stations.length > 8 ? true : false
-    const stationsForDisplay = (stations.length > 8 && limitedDisplay) ? stations.slice(0, 8) : stations
+    const stationsForDisplay = (stations.length > 8 && isLimitedDisplay) ? stations.slice(0, 8) : stations
 
     if (stationsForDisplay)
         return <section className='station-list-container'>
             {(tag && isSeeAllLink) && <Link to={'/tag/' + tag}>SEE ALL</Link>}
+            {(watchedUserId && isSeeAllLink) && <Link to={'/public-playlists/' + watchedUserId}>SEE ALL</Link>}
+
             <main className='station-list-main-container grid'>
                 {isLiked && <LikedSongsPreview />}
                 {stationsForDisplay.map(station => <article

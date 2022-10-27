@@ -7,9 +7,10 @@ import { loadArtists } from '../store/artist.actions.js'
 import { setGetStationsByTag, setTags } from '../store/station.actions.js'
 import { artistService } from '../services/artist.service.js'
 import { stationService } from '../services/station.service.js'
-import { userService } from '../services/user.service.js'
+import { searchService } from '../services/search.service.js'
 
 export const SymphonyApp = () => {
+    const { user } = useSelector(state => state.userModule)
     const { stations, tags, getStationByTag } = useSelector(state => state.stationModule)
     const { artists } = useSelector(state => state.artistModule)
     const [randomArtists, setRandomArtists] = useState(null)
@@ -17,27 +18,15 @@ export const SymphonyApp = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (stations.length) dispatch(setGetStationsByTag(stations))
         if (!tags.length) dispatch(setTags(stationService.getTags()))
         if (!artists.length) dispatch(loadArtists())
         if (artists.length > 0 && !randomArtists && !artistsByLike) {
             setRandomArtists(artistService.getRandomArtists(artists))
-            setArtistsByLike(artistService.getArtistBylikes(artists))
+            setArtistsByLike(artistService.getArtistBylikes(artists, user))
         }
     }, [stations, artists])
-
-    // const setSymponhyStation = () => {
-    //     const loggedinUser = userService.getLoggedinUser()
-    //     stations.forEach(async station => {
-    //         if (station.createdBy.username = 'Symphony') {
-    //             loggedinUser.createdStations.push(station._id)
-    //             station.createdBy._id = '635a467870761b52405e9aeb'
-    //             station.isPublic = true
-    //             await stationService.save(station)
-    //         }
-    //     })
-    //     userService.update(loggedinUser)
-    // }
 
     if (!getStationByTag?.getByTag || !randomArtists)
         return (
@@ -52,20 +41,18 @@ export const SymphonyApp = () => {
                 <section className='artists-main-container'>
                     <h1>Artists</h1>
                     <ProfileList
-                        isArtist={true}
-                        currProfiles={randomArtists}
+                        profiles={randomArtists}
                         profileKey={'hp-artists-'} />
 
                     {artistsByLike?.length > 0 && <section>
                         <h1>Artists you might like</h1>
                         <ProfileList
-                            isArtist={true}
-                            currProfiles={artistsByLike}
+                            isArtistByLike={true}
+                            isLimitedDisplay={true}
+                            profiles={artistsByLike}
                             profileKey={'hp-artists-by-like-'} />
                     </section>}
                 </section>
-
-                {/* <button onClick={setSymponhyStation}>Set Symphony Stations</button> */}
 
                 <section>{tags.map(tag => (
                     <section
@@ -78,7 +65,7 @@ export const SymphonyApp = () => {
                         <StationList
                             stations={getStationByTag.getByTag(tag.name)}
                             tag={tag.name}
-                            limitedDisplay={true}
+                            isLimitedDisplay={true}
                             stationKey={'hp-' + tag.name + '-station-'}
                         />
                     </section>

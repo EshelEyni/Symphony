@@ -16,6 +16,7 @@ export const Login = () => {
     })
 
     useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
         if (!users.length) dispatch(loadUsers())
         if (user) navigate('/')
     }, [user])

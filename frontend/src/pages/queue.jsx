@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { ClipPreview } from '../cmps/clip-preview'
-import { setPlaylist } from '../store/media-player.actions'
 import { handleDragEnd } from '../services/dragg.service'
 import { defaultLightGreenColor } from '../services/bg-color.service'
 import { userService } from '../services/user.service'
@@ -12,10 +11,10 @@ export const Queue = () => {
 
     const { currMediaPlayerClip, currPlaylist } = useSelector(state => state.mediaPlayerModule)
     const [queueClipList, setQueueClipList] = useState([])
-    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (!currPlaylist)
             return navigate('/')
         setQueueClipList(setNextUpClips(currPlaylist.clips))
