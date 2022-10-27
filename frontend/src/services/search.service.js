@@ -99,25 +99,3 @@ export const searchFilterBtns = [
     { title: 'Profiles', value: 'profiles' },
     { title: 'Recent Searches', value: 'searches' }
 ]
-
-export const tagImgs = [
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/rock_wr6zfq.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/pop_hjlfb3.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380523/spotify/happy_grrw9u.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/hiphop_xf6lee.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/90s_xtfhyo.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/metal_iqji5n.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/love_wxy5j8.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666725807/dance_ktq2o1.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/electronic_ex1zjg.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380057/spotify/israeli_ljbhro.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666720815/middle-east_fitmth.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/top_uyvero.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666720964/world-wide-music_pljw3g.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664376199/spotify/contest_rvrvwm.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/eurovision_rsrbb8.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg',
-    'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/funk_nwpzz5.jpg',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666721075/europe-music_v5gaie.webp',
-    'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666725930/disney_lw0g5e.jpg',
-]

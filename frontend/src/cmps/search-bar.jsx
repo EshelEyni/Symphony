@@ -35,6 +35,12 @@ export const SearchBar = ({
     useEffect(() => {
         if (isSearchPage && searchParams.get('q'))
             handleSearch(searchParams.get('q'))
+
+        if (isSearchPage) {
+            dispatch(loadUsers())
+            dispatch(loadStations())
+            dispatch(loadArtists())
+        }
     }, [])
 
     const handleSearchChange = ({ target }) => {
@@ -51,7 +57,6 @@ export const SearchBar = ({
     }
 
     const onHandleSubmit = (ev) => {
-        // if (ev) 
         ev.preventDefault()
         handleSearch(searchTerm)
     }
@@ -68,19 +73,11 @@ export const SearchBar = ({
         }
 
         if (isSearchPage) {
-            const stations = await stationService.query()
-            const artists = await artistService.query()
-            const users = await userService.getUsers()
-
-            // await dispatch(loadStations())
-            // await dispatch(loadArtists())
-            // await dispatch(loadUsers())
-            console.log('stations', stations, 'artists', artists, 'users', users)
-
             getSearchStations(stationService.getFilteredStations(stations, { term: searchTerm, type: 'search-term' }))
             getSearchArtists(artistService.getArtistBySearchTerm(searchResults, artists) || [])
             getSearchProfiles(profileService.getProfilesBySearchTerm(stations, users, searchTerm) || [])
         }
+
         setIsSearchLoading(false)
         setIsPostSearch(true)
     }

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.78e76add.css",
-    "main.js": "/static/js/main.9af42e75.js",
+    "main.css": "/static/css/main.f1a5fbd7.css",
+    "main.js": "/static/js/main.2f7e13c7.js",
     "static/media/note-logo.png": "/static/media/note-logo.63d3d8f10afed3a814d4.png",
     "static/media/likedsongs.png": "/static/media/likedsongs.4051e5f8e18b05da446e.png",
     "service-worker.js": "/service-worker.js",
@@ -9,11 +9,11 @@
     "static/media/heart-icon.svg": "/static/media/heart-icon.8df6ed328f04316ecea6103a516cbfae.svg",
     "static/media/library-playlist-icon.svg": "/static/media/library-playlist-icon.5ce5695b63a3f9cc35120e66dd317f47.svg",
     "index.html": "/index.html",
-    "main.78e76add.css.map": "/static/css/main.78e76add.css.map",
-    "main.9af42e75.js.map": "/static/js/main.9af42e75.js.map"
+    "main.f1a5fbd7.css.map": "/static/css/main.f1a5fbd7.css.map",
+    "main.2f7e13c7.js.map": "/static/js/main.2f7e13c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.78e76add.css",
-    "static/js/main.9af42e75.js"
+    "static/css/main.f1a5fbd7.css",
+    "static/js/main.2f7e13c7.js"
   ]
 }

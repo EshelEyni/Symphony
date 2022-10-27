@@ -13,10 +13,11 @@ import QueueMusicRoundedIcon from '@mui/icons-material/QueueMusicRounded'
 import Replay10RoundedIcon from '@mui/icons-material/Replay10Rounded'
 import Forward10RoundedIcon from '@mui/icons-material/Forward10Rounded'
 import { Slider } from '@mui/material'
+import { updateUser } from '../store/user.actions.js'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
-    const loggedinUser = userService.getLoggedinUser()
+    const { user } = useSelector(state => state.userModule)
     const { currMediaPlayerClip, currPlaylist, isPlaying } = useSelector(state => state.mediaPlayerModule)
     const [isMute, setIsMute] = useState(false)
     const [prevVolume, setPrevVolume] = useState()
@@ -35,6 +36,11 @@ export const MediaPlayer = () => {
         if ((!prevClip && currMediaPlayerClip) || (prevClip?._id !== currMediaPlayerClip?._id)) {
             storageService.saveToStorage('prevClip', currMediaPlayerClip)
             storageService.saveToStorage('prevPlaylist', currPlaylist)
+            let userToUpdate = { ...user }
+            userToUpdate = userService.updateUserRecentlyPlayedClips(userToUpdate, currMediaPlayerClip)
+            userToUpdate.prevClip = currMediaPlayerClip
+            userToUpdate.prevPlaylist = currPlaylist
+            dispatch(updateUser(userToUpdate))
             dispatch(setIsPlaying(true))
         }
 
@@ -271,7 +277,7 @@ export const MediaPlayer = () => {
 
                     {<h1 className='flex'>
                         {clipService.getFormattedTitle(currMediaPlayerClip)}
-                        {(loggedinUser && currMediaPlayerClip) &&
+                        {(user && currMediaPlayerClip) &&
                             <LikeIcon
                                 isMediaPlayer={true}
                                 currStation={currPlaylist}

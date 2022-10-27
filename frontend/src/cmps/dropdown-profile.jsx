@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { UserMsg } from "./user-msg"
 import { onLogout } from "../store/user.actions"
@@ -12,24 +12,23 @@ export const DropdownProfile = ({
     isDeleteClicked,
     setIsDeleteClicked,
     isProfileDropDown,
-    isLoggedInUserProfile,
-    watchedProfileId,
     isFollowedProfile,
     setIsFollowedProfile,
     onToggleFollowProfile,
 }) => {
+    const { user, watchedUser } = useSelector(state => state.userModule)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const onRemoveUser = async () => {
+    const onRemoveUser = () => {
         dispatch(onLogout())
-        await userService.remove(watchedProfileId)
         navigate('/')
+        userService.remove(watchedUser._id)
     }
 
     return (
         <div>
-            {isLoggedInUserProfile &&
+            {user._id === watchedUser._id &&
                 <div>
                     <li
                         onClick={() => {
@@ -49,7 +48,7 @@ export const DropdownProfile = ({
                     />}
                 </div>}
 
-            {!isLoggedInUserProfile &&
+            {user._id !== watchedUser._id &&
                 <li onClick={() => {
                     onToggleFollowProfile()
                     setIsFollowedProfile(!isFollowedProfile)

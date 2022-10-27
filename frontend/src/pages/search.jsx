@@ -39,7 +39,7 @@ export const Search = () => {
             setIsPostSearch(false)
         }
 
-        if (!tags.length) dispatch(setTags(stationService.getTags(stations)))
+        if (!tags.length) dispatch(setTags(stationService.getTags()))
 
         setRecentSearches(stationService.getUserStations(stations, user, 'search-stations'))
     }, [stations, searchParams])

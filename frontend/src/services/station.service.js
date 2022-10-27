@@ -99,36 +99,27 @@ function getStationByTag(stations) {
     }
 }
 
-function getTags(stations) {
+function getTags() {
     return [
-        'contest',
-        'europe',
-        'eurovision',
-        'funk',
-        'top songs',
-        'worldwide',
-        'hip hop',
-        'israeli',
-        'rock',
-        'pop',
-        '90s',
-        'dance',
-        'disney',
-        'electronic',
-        'happy',
-        'love', 'metal',
-        'middle-east',
-        'soothing',
+        { name: 'europe', imgUrl: 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666721075/europe-music_v5gaie.webp' },
+        { name: 'eurovision', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/eurovision_rsrbb8.jpg' },
+        { name: 'funk', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/funk_nwpzz5.jpg' },
+        { name: 'top songs', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/top_uyvero.jpg' },
+        { name: 'hip hop', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/hiphop_xf6lee.jpg' },
+        { name: 'israeli', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380057/spotify/israeli_ljbhro.jpg' },
+        { name: 'rock', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370808/spotify/rock_wr6zfq.jpg' },
+        { name: 'pop', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/pop_hjlfb3.jpg' },
+        { name: '90s', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370805/spotify/90s_xtfhyo.jpg' },
+        { name: 'dance', imgUrl: 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666725807/dance_ktq2o1.jpg' },
+        { name: 'contest', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664376199/spotify/contest_rvrvwm.jpg' },
+        { name: 'disney', imgUrl: 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666725930/disney_lw0g5e.jpg' },
+        { name: 'electronic', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370806/spotify/electronic_ex1zjg.jpg' },
+        { name: 'happy', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664380523/spotify/happy_grrw9u.jpg' },
+        { name: 'love', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/love_wxy5j8.jpg' },
+        { name: 'metal', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/metal_iqji5n.jpg' },
+        { name: 'middle-east', imgUrl: 'https://res.cloudinary.com/dng9sfzqt/image/upload/v1666720815/middle-east_fitmth.jpg' },
+        { name: 'soothing', imgUrl: 'https://res.cloudinary.com/dmjfqerbm/image/upload/v1664370807/spotify/soothing_nwhnxy.jpg' },
     ]
-    let tagList = new Set()
-    stations.forEach(station => {
-        const { tags } = station
-        if (tags !== null && tags?.length > 0) {
-            tags.forEach(tag => tagList.add(tag))
-        }
-    })
-    // console.log('tagList', Array.from(tagList).sort((a, b) => a.localeCompare(b)))
-    return Array.from(tagList).sort((a, b) => a.localeCompare(b))
 }
 
 function setDetails(station) {

@@ -15,7 +15,6 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 export const StationHeader = ({
     currStation,
-    isUserStation,
     isLikedSongs,
     LikedSongsLogo,
     bgColor,
@@ -80,7 +79,7 @@ export const StationHeader = ({
                                 src={imgUrl}
                                 alt='playist-img' />}
                     </label>
-                    {(isUserStation && !isLikedSongs) &&
+                    {(currStation.createdBy._id === user?._id && !isLikedSongs) &&
                         <input
                             className='img-input'
                             id='station-header-img'
@@ -113,7 +112,7 @@ export const StationHeader = ({
                 </section>}
 
 
-                {user?.isAdmin &&
+                {user.isAdmin &&
                     <span
                         className='admin-state-btn'
                         onClick={() => setAdminMode(!isAdminMode)}
@@ -145,7 +144,7 @@ export const StationHeader = ({
                     setIsDropdown={setIsDropdown}
                     setIsEdit={setIsEdit}
                     isAdminMode={isAdminMode}
-                    isUserStation={isUserStation}
+                    isUserStation={currStation.createdBy._id === user?._id}
                     onTogglePublicStation={onTogglePublicStation}
                     onSaveSearchStation={onSaveSearchStation}
                     onRemoveStation={onRemoveStation}

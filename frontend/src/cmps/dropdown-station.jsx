@@ -1,4 +1,5 @@
 import { userService } from "../services/user.service"
+import { ConfirmDeleteMsg } from "./confirm-delete-msg"
 import { UserMsg } from "./user-msg"
 
 export const DropdownStation = ({
@@ -27,9 +28,8 @@ export const DropdownStation = ({
 
             <li onClick={() => setIsDeleteClicked(true)}>Delete</li>
 
-            {isDeleteClicked && <UserMsg
+            {isDeleteClicked && <ConfirmDeleteMsg
                 isUserStation={isUserStation}
-                isDeleteMsg={true}
                 setIsDeleteClicked={setIsDeleteClicked}
                 onRemoveStation={onRemoveStation} />}
 

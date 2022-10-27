@@ -13,6 +13,7 @@ import { TagsDetails } from './pages/tag-details.jsx'
 import { FollowersDetails } from './pages/followers-details.jsx'
 import { FollowingDetails } from './pages/following-details.jsx'
 import { ArtistDetails } from './pages/artist-details.jsx'
+import { PublicStationsDetails } from './pages/public-stations-details.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -23,6 +24,7 @@ const routes = [
     { path: 'login', component: <Login />, },
     { path: 'signup', component: <Signup />, },
     { path: 'profile/:_id', component: <ProfileDetails />, },
+    { path: 'public-playlists/:_id', component: <PublicStationsDetails />, },
     { path: 'artist/:_id', component: <ArtistDetails />, },
     { path: 'followers/:_id', component: <FollowersDetails />, },
     { path: 'following/:_id', component: <FollowingDetails />, },

@@ -7,10 +7,9 @@ import { StationList } from '../cmps/station-list'
 import { ProfileList } from '../cmps/profile-list'
 import { Loader } from '../cmps/loader'
 import { loadStations } from '../store/station.actions'
-import { loadUser, loadUsers } from '../store/user.actions'
+import { loadUser, loadUsers, setWatchedUser } from '../store/user.actions'
 import { setHeaderBgcolor } from '../store/app-header.actions'
 import { loadArtists } from '../store/artist.actions'
-import { userService } from '../services/user.service'
 import { profileService } from '../services/profile-service'
 import { stationService } from '../services/station.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, USER_REGISTERED_TO_PROFILE } from '../services/socket.service'
@@ -18,22 +17,15 @@ import { defaultHeaderBgcolor } from '../services/bg-color.service'
 
 
 export const ProfileDetails = () => {
-    const loggedinUser = userService.getLoggedinUser()
-    const { user, users } = useSelector(state => state.userModule)
+    const { watchedUser, user, users } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const { stations } = useSelector(state => state.stationModule)
-    const [publicStations, setPublicStations] = useState(stationService.getUserStations(stations, user, 'public-stations') || [])
+    const [publicStations, setPublicStations] = useState(stationService.getUserStations(stations, watchedUser, 'public-stations') || [])
     const [recentlyPlayedClips, setRecentlyPlayedClips] = useState(user?.recentlyPlayed?.clips || [])
     const [profilesByLike, setProfilesByLike] = useState([])
 
     const params = useParams()
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        if (user?._id !== params._id) {
-            dispatch(loadUser(params._id))
-        }
-    }, [params])
 
     useEffect(() => {
         dispatch(loadUsers())
@@ -42,48 +34,48 @@ export const ProfileDetails = () => {
     }, [])
 
     useEffect(() => {
-        const currStations = stationService.getUserStations(stations, user, 'public-stations')
-        setPublicStations(currStations)
-        setProfilesByLike(profileService.getUserProfiles(users, loggedinUser, 'likes'))
-        dispatch(setHeaderBgcolor(user?.bgColor))
-    }, [stations, users, user])
-
+        dispatch(setHeaderBgcolor(watchedUser?.bgColor))
+        if (watchedUser?._id !== params._id) dispatch(setWatchedUser(params._id))
+        setPublicStations(stationService.getUserStations(stations, watchedUser, 'public-stations'))
+        setProfilesByLike(profileService.getUserProfiles(users, user, 'likes'))
+    }, [params, stations, users, watchedUser])
 
     useEffect(() => {
-        socketService.emit(USER_REGISTERED_TO_PROFILE, user?._id)
+        socketService.emit(USER_REGISTERED_TO_PROFILE, watchedUser?._id)
         return () => {
             socketService.off(USER_REGISTERED_TO_PROFILE)
             socketService.off(SOCKET_EVENT_USER_UPDATED)
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
+            dispatch(setWatchedUser('clear-user'))
+            setPublicStations([])
+            setRecentlyPlayedClips([])
+            setProfilesByLike([])
         }
     }, [])
 
-
-    if (!user) {
+    if (!watchedUser) {
         return <Loader
             size={'large-loader'}
             loaderType={'page-loader'} />
     }
 
-    if (user) {
+    if (watchedUser) {
         return (
             <section className='profile-details'>
                 <main className='profile-details-main-container flex column'>
                     <ProfileHeader
-                        userMadePublicStations={publicStations}
-                        user={user}
-                        loggedinUser={loggedinUser}
+                        publicStations={publicStations}
+                        watchedUser={user && user._id === watchedUser._id ? user : watchedUser}
+                        loggedinUser={user}
                     />
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {loggedinUser?._id === params._id &&
+                    {user?._id === params._id &&
                         <section className='personal-profile-content'>
                             {recentlyPlayedClips?.length > 0 &&
                                 <section
-                                    className='recently-played-container'
-                                // style={{ backgroundColor: user.bgColor }}
-                                >
+                                    className='recently-played-container'>
                                     <h1>Recently Played</h1>
                                     <ClipList
                                         bgColor={user.bgColor}
@@ -93,7 +85,6 @@ export const ProfileDetails = () => {
                                         setCurrClips={setRecentlyPlayedClips}
                                         isRecentlyPlayed={true}
                                     />
-
                                 </section>}
                             {profilesByLike.length > 0 &&
                                 <section className='shared-liked-music'>
@@ -101,7 +92,6 @@ export const ProfileDetails = () => {
                                     <ProfileList
                                         currProfiles={profilesByLike}
                                         profileKey={'profiles-by-like-'}
-
                                     />
                                 </section>}
                         </section>}
@@ -111,28 +101,29 @@ export const ProfileDetails = () => {
 
                     {publicStations.length > 0 &&
                         <section className='personal-playlist'>
-                            <h1>{user.username} Playlists</h1>
-                            <Link to={'/tag/Top songs'}>SEE ALL</Link>
+                            <h1>{watchedUser.username} Playlists</h1>
+                            <Link to={'/public-playlists/' + watchedUser._id}>SEE ALL</Link>
                             <StationList
                                 stations={publicStations}
                                 stationKey={'profile-details-station-'}
+                                limitedDisplay={true}
                             />
                         </section>}
 
-                    {user.followers.length > 0 &&
+                    {watchedUser.followers.length > 0 &&
                         <section className='followers-container'>
                             <h1>Followers</h1>
                             <ProfileList
-                                currProfiles={profileService.getUserProfiles(users, user, 'followers')}
+                                currProfiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
                                 profileKey={'profile-followers-'}
                             />
                         </section>}
 
-                    {user.following.length > 0 &&
+                    {watchedUser.following.length > 0 &&
                         <section className='following-container'>
                             <h1>Following</h1>
                             <ProfileList
-                                currProfiles={profileService.getUserProfiles(users, user, 'following', artists)}
+                                currProfiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
                                 profileKey={'profiles-followers-'}
                             />
                         </section>}

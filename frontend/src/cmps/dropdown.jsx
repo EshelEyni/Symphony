@@ -10,8 +10,6 @@ export const Dropdown = ({
     setIsEdit,
 
     isProfileDropDown,
-    isLoggedInUserProfile,
-    watchedProfileId,
     isFollowedProfile,
     setIsFollowedProfile,
     onToggleFollowProfile,
@@ -49,8 +47,6 @@ export const Dropdown = ({
                 ></div>}
 
             {isProfileDropDown && <DropdownProfile
-                isLoggedInUserProfile={isLoggedInUserProfile}
-                watchedProfileId={watchedProfileId}
                 isFollowedProfile={isFollowedProfile}
                 setIsFollowedProfile={setIsFollowedProfile}
                 onToggleFollowProfile={onToggleFollowProfile}
@@ -60,6 +56,7 @@ export const Dropdown = ({
                 setIsEdit={setIsEdit}
                 isDropdown={isDropdown}
                 setIsDropdown={setIsDropdown}
+                isProfileDropDown={isProfileDropDown}
 
             />}
 
@@ -72,7 +69,7 @@ export const Dropdown = ({
                     isDeleteClicked={isDeleteClicked}
                     setIsDeleteClicked={setIsDeleteClicked}
                     currStation={currStation}
-                    isUserStation={isUserStation}
+                    isUserStation={isUserStation} // check if needed
                     onSaveSearchStation={onSaveSearchStation}
                     onTogglePublicStation={onTogglePublicStation}
                     onRemoveStation={onRemoveStation}

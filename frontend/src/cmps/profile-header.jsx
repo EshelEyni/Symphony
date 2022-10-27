@@ -3,22 +3,20 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Dropdown } from './dropdown'
 import { EditModal } from './edit-modal'
-import { updateUser } from '../store/user.actions'
+import { updateUser, updateWatchedUser } from '../store/user.actions'
 import { uploadImg } from '../services/upload.service'
 import { setBackgroundColor } from '../services/bg-color.service'
-import { defaultImg, userService } from '../services/user.service'
+import { defaultImg } from '../services/user.service'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 export const ProfileHeader = ({
-    user,
-    // loggedinUser,
-    userMadePublicStations,
+    watchedUser,
+    loggedinUser,
+    publicStations,
     isArtist
 }) => {
-    const loggedinUser = userService.getLoggedinUser()
-    const isLoggedinUserProfile = loggedinUser?._id === user?._id
 
-    const [profileImgUrl, setProfileImgUrl] = useState(user?.imgUrl)
+    const [profileImgUrl, setProfileImgUrl] = useState(watchedUser.imgUrl)
     const [isChangedImg, setIsChangedImg] = useState(false)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
@@ -27,20 +25,19 @@ export const ProfileHeader = ({
 
     useEffect(() => {
         setIsFollowedProfile(checkIsFollowedProfile())
-    }, [user, isFollowedProfile])
+        setProfileImgUrl(watchedUser.imgUrl)
+    }, [watchedUser, isFollowedProfile])
 
     function checkIsFollowedProfile() {
         if (!loggedinUser) return
-        return (loggedinUser.following.includes(user?._id))
+        return (loggedinUser.following.includes(watchedUser._id))
     }
 
     const onUploadImg = async (ev) => {
         if (!loggedinUser) return
         const userToUpdate = { ...loggedinUser }
         setIsChangedImg(true)
-
         setProfileImgUrl(defaultImg)
-        // const uploadedImgUrl = await uploadImg(ev)
         userToUpdate.imgUrl = await uploadImg(ev)
         setProfileImgUrl(userToUpdate.imgUrl)
         setIsChangedImg(false)
@@ -49,29 +46,27 @@ export const ProfileHeader = ({
     }
 
     const onToggleFollowProfile = async () => {
-        const watchedUserToUpdate = { ...user }
+        const watchedUserToUpdate = { ...watchedUser }
 
         if (isFollowedProfile) {
-            loggedinUser.following = loggedinUser.following.filter(currId => currId !== user._id)
+            loggedinUser.following = loggedinUser.following.filter(currId => currId !== watchedUser._id)
             watchedUserToUpdate.followers = watchedUserToUpdate.followers.filter(currId => currId !== loggedinUser._id)
         }
-
-        if (!isFollowedProfile) {
-            loggedinUser.following.push(user._id)
+        else {
+            loggedinUser.following.push(watchedUser._id)
             watchedUserToUpdate.followers.push(loggedinUser._id)
         }
 
-        await userService.update(loggedinUser)
-        dispatch(updateUser(watchedUserToUpdate))
+        dispatch(updateUser(loggedinUser))
+        dispatch(updateWatchedUser(watchedUserToUpdate))
     }
 
     const getProfileDetails = () => {
-        if (!user) return
-        const { _id, followers, following } = user
-
+        if (!watchedUser) return
+        const { _id, followers, following } = watchedUser
         return (
             <div>
-                {(userMadePublicStations?.length > 0 ? userMadePublicStations?.length + ' Public Playlists ' : '')}
+                {(publicStations?.length > 0 ? publicStations?.length + ' Public Playlists ' : '')}
                 <Link to={'/followers/' + _id}>
                     {(followers?.length > 0 ? ' ● ' + followers?.length + ' Followers ' : '')}
                 </Link>
@@ -81,79 +76,73 @@ export const ProfileHeader = ({
             </div>
         )
     }
-    return <header
-        className='profile-header'
-        style={{ backgroundColor: user?.bgColor }}
-    >
-        <main
-            className='profile-header-main-container flex'>
-            <section className='profile-img-container'>
-                <label htmlFor='profile-img'>
-                    {!isChangedImg && <img
-                        className='profile-img '
-                        src={profileImgUrl}
-                        alt='profile-img' />}
-                    {isChangedImg &&
-                        <img
-                            className={'profile-img ' + (profileImgUrl === defaultImg ? 'rotate' : '')}
+
+    return (
+        <header
+            className='profile-header'
+            style={{ backgroundColor: watchedUser?.bgColor }}>
+            <main
+                className='profile-header-main-container flex'>
+                <section className='profile-img-container'>
+                    <label htmlFor='profile-img'>
+                        {!isChangedImg && <img
+                            className='profile-img '
                             src={profileImgUrl}
                             alt='profile-img' />}
-                </label>
-                {isLoggedinUserProfile && <input
-                    className='profile-img-input'
-                    id='profile-img'
-                    onChange={onUploadImg} type='file' />}
-            </section>
-            <section className='profile-header-details flex column'>
-                <p>{isArtist ? 'ARTIST' : 'PROFILE'}</p>
-                <h1 className='profile-h1'>{user?.username}</h1>
-                <p className='profile-header-details'>
-                    {user?.isAdmin && <span
-                        title='This user is an Symphony Admin'
-                    >⭐ </span>}
-                </p>
-                {getProfileDetails()}
-            </section>
-        </main>
-
-        <section
-            className='profile-btn-container'>
-            <section className='profile-btn-main-container flex'>
-                {/* {!isLoggedinUserProfile && */}
-                {(loggedinUser && loggedinUser?._id !== user?._id) &&
-                    <button
-                        className='toggle-follow-btn'
-                        onClick={() => onToggleFollowProfile()}
-                    >{isFollowedProfile ? 'Following' : 'Follow'}</button>}
-                <section
-                    className='dropdown-btn-container flex'
-                    title={'More options for ' + user?.username}
-                    onClick={() => { setIsDropdown(!isDropdown) }}>
-
-                    <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                    <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                    <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                        {isChangedImg &&
+                            <img
+                                className={'profile-img ' + (profileImgUrl === defaultImg ? 'rotate' : '')}
+                                src={profileImgUrl}
+                                alt='profile-img' />}
+                    </label>
+                    {loggedinUser?._id === watchedUser._id && <input
+                        className='profile-img-input'
+                        id='profile-img'
+                        onChange={onUploadImg} type='file' />}
                 </section>
+                <section className='profile-header-details flex column'>
+                    <p>{isArtist ? 'ARTIST' : 'PROFILE'}</p>
+                    <h1 className='profile-h1'>{watchedUser?.username}</h1>
+                    {getProfileDetails()}
+                </section>
+            </main>
+
+            <section
+                className='profile-btn-container'>
+                <section className='profile-btn-main-container flex'>
+                    {(loggedinUser && loggedinUser?._id !== watchedUser?._id) &&
+                        <button
+                            className='toggle-follow-btn'
+                            onClick={onToggleFollowProfile}
+                        >{isFollowedProfile ? 'Following' : 'Follow'}</button>}
+
+                    <section
+                        className='dropdown-btn-container flex'
+                        title={'More options for ' + watchedUser?.username}
+                        onClick={() => setIsDropdown(!isDropdown)}>
+                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                    </section>
+                </section>
+
+                {isDropdown && <Dropdown
+                    isDropdown={isDropdown}
+                    setIsDropdown={setIsDropdown}
+                    isEdit={isEdit}
+                    setIsEdit={setIsEdit}
+                    isProfileDropDown={true}
+                    isFollowedProfile={isFollowedProfile}
+                    setIsFollowedProfile={setIsFollowedProfile}
+                    onToggleFollowProfile={onToggleFollowProfile}
+                />}
+
+                {isEdit && <EditModal
+                    user={watchedUser}
+                    setMainImg={setProfileImgUrl}
+                    setIsEdit={setIsEdit}
+                />}
             </section>
-
-            {isDropdown && <Dropdown
-                isDropdown={isDropdown}
-                setIsDropdown={setIsDropdown}
-                isEdit={isEdit}
-                setIsEdit={setIsEdit}
-                isProfileDropDown={true}
-                isLoggedInUserProfile={isLoggedinUserProfile}
-                watchedProfileId={user?._id}
-                isFollowedProfile={isFollowedProfile}
-                setIsFollowedProfile={setIsFollowedProfile}
-                onToggleFollowProfile={onToggleFollowProfile}
-            />}
-
-            {isEdit && <EditModal
-                user={user}
-                setMainImg={setProfileImgUrl}
-                setIsEdit={setIsEdit}
-            />}
-        </section>
-    </header>
+        </header>
+    )
 }

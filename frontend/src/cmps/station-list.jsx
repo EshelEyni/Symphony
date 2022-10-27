@@ -7,12 +7,12 @@ export const StationList = ({
     isSearch,
     isLiked,
     tag,
-    isTagDetails,
+    limitedDisplay,
     stationKey
 }) => {
 
     const isSeeAllLink = stations.length > 8 ? true : false
-    const stationsForDisplay = (stations.length > 8 && !isTagDetails) ? stations.slice(0, 8) : stations
+    const stationsForDisplay = (stations.length > 8 && limitedDisplay) ? stations.slice(0, 8) : stations
 
     if (stationsForDisplay)
         return <section className='station-list-container'>

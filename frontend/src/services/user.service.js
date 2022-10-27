@@ -10,7 +10,7 @@ const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
     ; (() => {
         socketService.on(SOCKET_EVENT_USER_UPDATED, (updatedUser) => {
             console.log('GOT from socket', updatedUser)
-            store.dispatch(getActionUpdateUser(updatedUser))
+            // store.dispatch(getActionUpdateUser(updatedUser))
         })
     })()
 
@@ -29,7 +29,7 @@ export const userService = {
 }
 
 function getUsers() {
-    return httpService.get('user')
+    return httpService.get('user/')
 }
 
 async function getById(userId) {

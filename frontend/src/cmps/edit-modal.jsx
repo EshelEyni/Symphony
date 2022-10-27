@@ -7,7 +7,6 @@ import DisabledByDefaultRoundedIcon from '@mui/icons-material/DisabledByDefaultR
 import { defaultImg } from '../services/user.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 
-
 export const EditModal = ({
     user,
     currStation,

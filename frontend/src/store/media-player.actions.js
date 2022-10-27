@@ -1,13 +1,4 @@
-import { userService } from '../services/user.service'
-
 export function setMediaPlayerClip(clip) {
-    let userToUpdate = userService.getLoggedinUser()
-    if (userToUpdate) {
-        userToUpdate = userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
-        userToUpdate.prevClip = clip
-        userService.update(userToUpdate)
-    }
-
     return async (dispatch) => {
         try {
             dispatch({ type: 'SET_CLIP', clip })
@@ -18,12 +9,6 @@ export function setMediaPlayerClip(clip) {
 }
 
 export function setPlaylist(playlist) {
-    let userToUpdate = userService.getLoggedinUser()
-    if (userToUpdate) {
-        userToUpdate.prevPlaylist = playlist
-        userService.update(userToUpdate)
-    }
-
     return async (dispatch) => {
         try {
             dispatch({ type: 'SET_PLAYLIST', playlist })

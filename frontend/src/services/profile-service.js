@@ -5,32 +5,30 @@ export const profileService = {
 }
 
 
-function getUserProfiles(users, currUser, filterBy, artists) {
-    if (!currUser) return []
-    const profilesList = users
+function getUserProfiles(users, loggedinUser, filterBy, artists) {
+    if (!users || !loggedinUser) return []
     let filteredProfilesList = []
 
     switch (filterBy) {
         case 'likes':
-            const loggedInUserLikedSongsIds = new Set(currUser.likedSongs.clips?.map(likedSong => likedSong?._id))
-            filteredProfilesList = profilesList
-                .filter(user => user._id !== currUser._id)
+            const loggedInUserLikedSongsIds = new Set(loggedinUser.likedSongs.clips?.map(likedSong => likedSong?._id))
+            filteredProfilesList = users
+                .filter(user => user._id !== loggedinUser._id)
                 .map(user => {
                     let matchedLikes = 0
-                    for (let y = 0; y < user.likedSongs.clips?.length; y++) {
-                        if (loggedInUserLikedSongsIds.has(user.likedSongs.clips[y]._id)) {
-                            matchedLikes++
-                        }
-                    }
+                    user.likedSongs.clips.forEach(clip => {
+                        if (loggedInUserLikedSongsIds.has(clip._id)) matchedLikes++
+
+                    })
                     return { ...user, matchedLikes }
                 })
-                .filter(user => user.matchedLikes > 0 && !user.followers.includes(currUser._id))
+                .filter(user => user.matchedLikes > 0 && !loggedinUser.followers.includes(loggedinUser._id))
                 .sort((a, b) => b.matchedLikes - a.matchedLikes)
 
             return filteredProfilesList
 
         case 'following':
-            currUser.following.forEach(followedProfileId => {
+            loggedinUser.following.forEach(followedProfileId => {
                 const usersArtistsList = [...users, ...artists]
                 const currFollowedUser = usersArtistsList.find(user => user._id === followedProfileId)
                 if (!currFollowedUser) return
@@ -39,8 +37,8 @@ function getUserProfiles(users, currUser, filterBy, artists) {
             return filteredProfilesList
 
         case 'followers':
-            currUser.followers.forEach(followerProfileId => {
-                const currFollowerUser = profilesList.find(user => user._id === followerProfileId)
+            loggedinUser.followers.forEach(followerProfileId => {
+                const currFollowerUser = users.find(user => user._id === followerProfileId)
                 if (!currFollowerUser) return
                 filteredProfilesList.push(currFollowerUser)
             })
@@ -56,7 +54,7 @@ function getProfilesByArtist(stations, users, artistName) {
     return getProfilesBy(stations, users, clip => clip => clip?.artistName.toLowerCase() == artistName)
 }
 
-function getProfilesBySearchTerm(stations, users, SearchTerm){
+function getProfilesBySearchTerm(stations, users, SearchTerm) {
     SearchTerm = SearchTerm.toLowerCase()
     return getProfilesBy(stations, users, clip => clip => clip.title.toLowerCase().includes(SearchTerm))
 }

@@ -4,6 +4,10 @@ export function getActionUpdateUser(updatedUser) {
     return { type: 'UPDATE_USER', updatedUser }
 }
 
+export function getActionUpdateWatchedUser(updatedUser) {
+    return { type: 'UPDATE_WATCHED_USER', updatedUser }
+}
+
 export function loadUsers() {
     return async dispatch => {
         try {
@@ -17,9 +21,10 @@ export function loadUsers() {
 }
 
 export function loadUser(userId) {
+    if (!userId) return
     return async dispatch => {
         try {
-            const user = userId === 'clear-user' ? null : await userService.getById(userId)
+            const user = await userService.getById(userId)
             dispatch({ type: 'SET_USER', user })
         }
         catch (err) {
@@ -27,6 +32,20 @@ export function loadUser(userId) {
         }
     }
 }
+
+export function setWatchedUser(userId) {
+    if (!userId) return
+    return async dispatch => {
+        try {
+            const user = userId === 'clear-user' ? null : await userService.getById(userId)
+            dispatch({ type: 'SET_WATCHED_USER', user })
+        }
+        catch (err) {
+            console.log('UserActions: err in user', err)
+        }
+    }
+}
+
 export function updateUser(userToUpdate) {
     return async (dispatch) => {
         try {
@@ -39,6 +58,17 @@ export function updateUser(userToUpdate) {
     }
 }
 
+export function updateWatchedUser(userToUpdate) {
+    return async (dispatch) => {
+        try {
+            const updatedUser = await userService.update(userToUpdate)
+            dispatch(getActionUpdateWatchedUser(updatedUser))
+        }
+        catch (err) {
+            console.log('UserActions: Cannot update user', err)
+        }
+    }
+}
 export function onLogin(credentials) {
     return async (dispatch) => {
         try {

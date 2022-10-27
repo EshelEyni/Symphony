@@ -34,6 +34,7 @@ export const StationDetails = () => {
     const isUserCreatedStation = loggedinUser?._id === currStation?.createdBy?._id
 
     useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
         if (currStation?._id !== params._id) {
             dispatch(loadStation('clear-station'))
             setSearchClips([])
@@ -127,13 +128,12 @@ export const StationDetails = () => {
         )
     }
 
-    if (currStation?._id === params._id) {
+    if (currStation && currStation?._id === params._id) {
         return (
             <main className='station-container'>
                 <section className='station-main-container'>
                     <StationHeader
                         currStation={currStation}
-                        isUserStation={currStation?.createdBy?._id === loggedinUser?._id}
                         bgColor={stationBgcolor}
                         setBgcolor={setStationBgcolor}
                         isAdminMode={isAdminMode}
