@@ -30,7 +30,7 @@ export const TagsDetails = () => {
                 <StationList
                     stations={getStationByTag.getByTag(params.title)}
                     stationKey={'tag-details-station-'}
-                />
+                    isTagDetails={true} />
             </section>
         </section>
     }

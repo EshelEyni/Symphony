@@ -83,7 +83,7 @@ function getFilteredStations(stations, filterBy) {
 
 
 function getStationByTag(stations) {
-    let statsionByTag = stations.reduce((acc, station) => {
+    let statsionByTag = stations.sort((a, b) => a.name.localeCompare(b.name)).reduce((acc, station) => {
         station.tags.forEach(tag => {
             var sbt = acc[tag] || []
             sbt.push(station)
@@ -100,6 +100,26 @@ function getStationByTag(stations) {
 }
 
 function getTags(stations) {
+    return [
+        'contest',
+        'europe',
+        'eurovision',
+        'funk',
+        'top songs',
+        'worldwide',
+        'hip hop',
+        'israeli',
+        'rock',
+        'pop',
+        '90s',
+        'dance',
+        'disney',
+        'electronic',
+        'happy',
+        'love', 'metal',
+        'middle-east',
+        'soothing',
+    ]
     let tagList = new Set()
     stations.forEach(station => {
         const { tags } = station
@@ -107,10 +127,11 @@ function getTags(stations) {
             tags.forEach(tag => tagList.add(tag))
         }
     })
-    return Array.from(tagList)
+    // console.log('tagList', Array.from(tagList).sort((a, b) => a.localeCompare(b)))
+    return Array.from(tagList).sort((a, b) => a.localeCompare(b))
 }
 
-function setDetails(station){
+function setDetails(station) {
     const { clips, likedByUsers } = station
     const durationStr = clips.length > 0 ?
         ` ●  Total of ${clips.length}  ${clips.length === 1 ? ' song ' : ' songs '} ,Total duration: ${getTotalSongDur(clips)}`
