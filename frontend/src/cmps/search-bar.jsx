@@ -73,9 +73,12 @@ export const SearchBar = ({
         }
 
         if (isSearchPage) {
-            getSearchStations(stationService.getFilteredStations(stations, { term: searchTerm, type: 'search-term' }))
-            getSearchArtists(artistService.getArtistBySearchTerm(searchResults, artists) || [])
-            getSearchProfiles(profileService.getProfilesBySearchTerm(stations, users, searchTerm) || [])
+            const stationsForSearch = stations.length ? stations : await stationService.query()
+            const artistsForSearch = artists.length ? artists : await artistService.query()
+            const usersForSearch = users.length ? users : await userService.getUsers()
+            getSearchStations(stationService.getFilteredStations(stationsForSearch, { term: searchTerm, type: 'search-term' }))
+            getSearchArtists(artistService.getArtistBySearchTerm(searchResults, artistsForSearch) || [])
+            getSearchProfiles(profileService.getProfilesBySearchTerm(stationsForSearch, usersForSearch, searchTerm) || [])
         }
 
         setIsSearchLoading(false)

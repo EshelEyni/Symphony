@@ -116,8 +116,10 @@ export const ProfileDetails = () => {
                             <h1>Followers</h1>
                             <ProfileList
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
+                                isLimitedDisplay={true}
+                                isFollowers={true}
                                 profileKey={'profile-followers-'}
-                            />
+                                />
                         </section>}
 
                     {watchedUser.following.length > 0 &&
@@ -125,19 +127,19 @@ export const ProfileDetails = () => {
                             <h1>Following</h1>
                             <ProfileList
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
+                                isLimitedDisplay={true}
+                                isFollowing={true}
                                 profileKey={'profiles-followers-'}
                             />
                         </section>}
 
-
                     <hr className='profile-hr' />
 
-                    <h1>PROFILES FOR CHECK - DELETE IN THE END</h1>
+                    {/* <h1>PROFILES FOR CHECK - DELETE IN THE END</h1>
                     <ProfileList
                         profiles={users}
                         profileKey={'deme-profiles-'}
-                    />
-
+                    /> */}
                 </main>
             </section>
         )

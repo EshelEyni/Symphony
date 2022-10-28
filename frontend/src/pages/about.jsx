@@ -50,7 +50,7 @@ export const About = () => {
                         <li>About ✅</li>
                         <li>Login ✅</li>
                         <li>Signup ✅</li>
-                        <li>ProfileDetails</li>
+                        <li>ProfileDetails ✅</li>
                         <li>ArtistDetails</li>
                         <li>FollowersDetails</li>
                         <li>FollowingDetails</li>

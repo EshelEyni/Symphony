@@ -146,6 +146,7 @@ export const Search = () => {
                             <section className='search-playlist-container'>
                                 <h1>Playlists</h1>
                                 <StationList
+                                    isLimitedDisplay={filterBy === 'playlists' ? false : true}
                                     stations={searchStations}
                                     stationKey={'search-station-'}
                                 />
@@ -155,6 +156,7 @@ export const Search = () => {
                             <section className='search-artist-container'>
                                 <h1>Artists</h1>
                                 <ProfileList
+                                    isLimitedDisplay={filterBy === 'artists' ? false : true}
                                     profiles={searchArtists}
                                     profileKey={'search-artists-'}
                                 />
@@ -164,6 +166,7 @@ export const Search = () => {
                             <section className='search-profiles-container'>
                                 <h1>Profiles</h1>
                                 <ProfileList
+                                    isLimitedDisplay={filterBy === 'profiles' ? false : true}
                                     profiles={searchProfiles}
                                     profileKey={'search-profiles-'}
                                 />
