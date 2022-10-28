@@ -58,6 +58,7 @@ export const SearchBar = ({
 
     const onHandleSubmit = (ev) => {
         ev.preventDefault()
+        if (!searchTerm) return
         handleSearch(searchTerm)
     }
 
@@ -68,7 +69,7 @@ export const SearchBar = ({
 
         if (loggedinUser && !loggedinUser.recentSearches.map(rs => rs.title).includes(searchTerm)) {
             const updatedUser = await searchService.updateUserRecentSearches(searchResults, loggedinUser, searchTerm)
-            dispatch(updateUser(updatedUser))
+            if (updatedUser) dispatch(updateUser(updatedUser))
             dispatch(loadStations())
         }
 

@@ -10,7 +10,6 @@ import { setUserMsg, updateUser } from '../store/user.actions.js'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { stationService } from '../services/station.service.js'
 import { defaultBgcolor, defaultHeaderBgcolor } from '../services/bg-color.service.js'
-import { userService } from '../services/user.service'
 import { socketService, SOCKET_EVENT_STATION_UPDATED, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
 import { AdminControlSet } from '../cmps/admin-control-set.jsx'
 
@@ -104,8 +103,7 @@ export const StationDetails = () => {
             setTimeout(() => dispatch(setUserMsg(null)), 2500)
             return
         }
-        addedClip.createdAt = Date.now()
-        stationToUpdate.clips.push(addedClip)
+        stationToUpdate.clips.push({...addedClip, createdAt: Date.now()})
         if (!stationId) dispatch(updateStation(stationToUpdate))
         else stationService.save(stationToUpdate)
         dispatch(setUserMsg('Added to ' + stationToUpdate.name))

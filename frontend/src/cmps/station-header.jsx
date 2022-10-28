@@ -145,6 +145,7 @@ export const StationHeader = ({
                     setIsEdit={setIsEdit}
                     isAdminMode={isAdminMode}
                     isUserStation={currStation.createdBy._id === loggedinUser?._id}
+                    isStationDropdown={true}
                     onTogglePublicStation={onTogglePublicStation}
                     onSaveSearchStation={onSaveSearchStation}
                     onRemoveStation={onRemoveStation}

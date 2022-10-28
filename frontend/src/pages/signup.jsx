@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { loadUsers, onSignup, setUserMsg } from '../store/user.actions.js'
-import { userService } from '../services/user.service.js'
+import { onSignup } from '../store/user.actions.js'
 
 export const Signup = () => {
-    const { users } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
+    const [isError, setIsError] = useState(false)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
-        if (!users.length) dispatch(loadUsers())
-    }, [])
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+        if (loggedinUser) navigate('/')
+    }, [loggedinUser])
 
     let [currUser, setCurrUser] = useState({
         username: null,
@@ -20,19 +21,21 @@ export const Signup = () => {
         password: null,
     })
 
-    const onHandleSubmit = (ev) => {
+    const onHandleSubmit = async (ev) => {
         ev.preventDefault()
-
-        if (userService.checkUsername(users, currUser.username)) {
-            dispatch(setUserMsg('user name already exits!'))
-            setTimeout(() => dispatch(setUserMsg(null)), 2500)
-            return
+        try {
+            await dispatch(onSignup(currUser))
         }
-        dispatch(onSignup(currUser))
-        navigate('/')
+        catch (err) {
+            const error = await err
+            console.log('error', error)
+            setIsError(true)
+        }
+
     }
 
     const handleChange = ({ target }) => {
+        setIsError(false)
         const { value, name } = target
         setCurrUser({ ...currUser, [name]: value })
     }
@@ -71,6 +74,8 @@ export const Signup = () => {
                     onSubmit={onHandleSubmit}
                     required
                 />
+
+                {isError && <p className='error-msg'>User name already exists</p>}
                 <button className='login-signup-btn'>
                     Signup
                 </button>

@@ -39,9 +39,7 @@ export const Search = () => {
             setSearchTerm(searchParams.get('q'))
             setIsPostSearch(false)
         }
-
         if (!tags.length) dispatch(setTags(stationService.getTags()))
-
         setRecentSearches(stationService.getUserStations(stations, loggedinUser, 'search-stations'))
     }, [stations, searchParams])
 
@@ -107,7 +105,7 @@ export const Search = () => {
 
                 {/***************************************** After a search is made *****************************************/}
 
-                {(isPostSearch && !isSearchLoading) &&
+                {(isPostSearch && !isSearchLoading && searchClips.length > 0) &&
                     <section >
                         {searchFilterBtns.map((btn, idx) => {
                             const renderConditions = [[true], searchClips, searchStations, searchArtists, searchProfiles, recentSearches]

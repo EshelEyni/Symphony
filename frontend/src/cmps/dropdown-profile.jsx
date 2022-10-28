@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { UserMsg } from "./user-msg"
-import { onLogout } from "../store/user.actions"
+import { onLogout, setUserMsg } from "../store/user.actions"
 import { userService } from "../services/user.service"
+import { ConfirmDeleteMsg } from "./confirm-delete-msg"
 
 export const DropdownProfile = ({
     isDropdown,
@@ -24,6 +25,8 @@ export const DropdownProfile = ({
         dispatch(onLogout())
         navigate('/')
         userService.remove(watchedUser._id)
+        dispatch(setUserMsg('User deleted'))
+        setTimeout(() => dispatch(setUserMsg(null)), 2500)
     }
 
     return (
@@ -40,9 +43,9 @@ export const DropdownProfile = ({
 
                     {isDeleteClicked && <div className='shadow-screen confirm-delete-profile'
                         onClick={() => setIsDeleteClicked(false)}></div>}
-                    {isDeleteClicked && <UserMsg
+
+                    {isDeleteClicked && <ConfirmDeleteMsg
                         isProfileDropDown={isProfileDropDown}
-                        isDeleteMsg={true}
                         setIsDeleteClicked={setIsDeleteClicked}
                         onRemoveUser={onRemoveUser}
                     />}

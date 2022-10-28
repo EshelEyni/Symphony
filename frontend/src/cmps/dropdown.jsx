@@ -21,8 +21,6 @@ export const Dropdown = ({
     onTogglePublicStation,
     onRemoveStation,
 
-    isUserClip,
-    artists,
     isClipDropdown,
     currClip,
     onRemoveClip,
@@ -60,6 +58,7 @@ export const Dropdown = ({
 
             />}
 
+            {/*************** User only features are hidden from non-logged in users. ***************/}
             {(isUserStation || isAdminMode) &&
                 <DropdownStation
                     isDropdown={isDropdown}
@@ -69,7 +68,6 @@ export const Dropdown = ({
                     isDeleteClicked={isDeleteClicked}
                     setIsDeleteClicked={setIsDeleteClicked}
                     currStation={currStation}
-                    isUserStation={isUserStation} // check if needed
                     onSaveSearchStation={onSaveSearchStation}
                     onTogglePublicStation={onTogglePublicStation}
                     onRemoveStation={onRemoveStation}
@@ -86,8 +84,6 @@ export const Dropdown = ({
                 <DropdownClip
                     isAdminMode={isAdminMode}
                     setIsDropdown={setIsDropdown}
-                    isUserClip={isUserClip}
-                    artists={artists}
                     currClip={currClip}
                     onRemoveClip={onRemoveClip}
                     onAddClip={onAddClip}

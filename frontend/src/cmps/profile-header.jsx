@@ -135,8 +135,8 @@ export const ProfileHeader = ({
                             className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                             onClick={onTogglePlay}></button>
                         {(watchedUser._id === currPlaylist?._id && isPlaying) && <Equalizer />}
-
                     </section>}
+
                     {(loggedinUser && loggedinUser?._id !== watchedUser?._id) &&
                         <button
                             className='toggle-follow-btn'

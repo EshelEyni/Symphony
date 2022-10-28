@@ -74,7 +74,8 @@ export function onLogin(credentials) {
         try {
             const user = await userService.login(credentials)
             dispatch({ type: 'SET_USER', user })
-        } catch (err) {
+        }
+        catch (err) {
             console.log('UserActions: Cannot login', err)
             throw (err)
         }
@@ -89,8 +90,10 @@ export function onSignup(credentials) {
                 type: 'SET_USER',
                 user
             })
-        } catch (err) {
+        }
+        catch (err) {
             console.log('UserActions: Cannot signup', err)
+            throw (err)
         }
     }
 }

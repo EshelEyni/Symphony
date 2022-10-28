@@ -9,13 +9,12 @@ export const DropdownStation = ({
     isDeleteClicked,
     setIsDeleteClicked,
     currStation,
-    isUserStation,
     onSaveSearchStation,
     onTogglePublicStation,
     onRemoveStation,
 }) => {
 
-    const {loggedinUser} = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const isPublicStation = loggedinUser?.publicStations.includes(currStation?._id)
 
     return (
@@ -28,7 +27,7 @@ export const DropdownStation = ({
             <li onClick={() => setIsDeleteClicked(true)}>Delete</li>
 
             {isDeleteClicked && <ConfirmDeleteMsg
-                isUserStation={isUserStation}
+                isStationDropdown={true}
                 setIsDeleteClicked={setIsDeleteClicked}
                 onRemoveStation={onRemoveStation} />}
 

@@ -21,7 +21,6 @@ export const ClipPreview = ({
 
     const { isPlaying, currMediaPlayerClip, currPlaylist, togglePlayFunc } = useSelector(state => state.mediaPlayerModule)
     const { loggedinUser } = useSelector(state => state.userModule)
-    const { artists } = useSelector(state => state.artistModule)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
     const dispatch = useDispatch()
@@ -103,19 +102,17 @@ export const ClipPreview = ({
                 {currClip.duration ? <div className='clock-area'>{clipService.getDuration(currClip.duration)}</div> : ''}
 
                 <i className='dropdown-btn fa-solid fa-ellipsis'
-                    onClick={() => setIsDropdown(!isDropdown)}>
+                    onClick={() => setIsDropdown(!isDropdown)}/>
 
                     {isDropdown && <Dropdown
+                        isDropdown={isDropdown}
                         setIsDropdown={setIsDropdown}
                         isClipDropdown={true}
                         currClip={currClip}
-                        isUserClip={currStation?.createdBy?._id === loggedinUser?._id}
-                        artists={artists}
                         currStation={currStation}
                         onRemoveClip={onRemoveClip}
                         onAddClip={onAddClip}
                     />}
-                </i>
             </section>}
     </li >
 }

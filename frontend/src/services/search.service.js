@@ -28,7 +28,6 @@ async function getClips(term) {
     }
 
     console.log('Getting from Network')
-
     const apiStr = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoCategoryId=10&videoEmbeddable=true&type=video&maxResults=100&key=${YT_API_Key}&q=${term}`
     const res = await axios.get(apiStr)
     const str = res.data.items.map(item => '' + `${item.id.videoId}%2C`).join('').slice(0, -3)
@@ -85,9 +84,7 @@ async function updateUserRecentSearches(searchResults, loggedinUser, currSearchT
     if (userToUpdate.recentSearches.length > 10) {
         const stationToRemove = userToUpdate.recentSearches.splice(10, 1)[0]
         await stationService.remove(stationToRemove._id)
-        await userService.update(userToUpdate)
     }
-
     return userToUpdate
 }
 

@@ -25,7 +25,6 @@ export const userService = {
     remove,
     update,
     updateUserRecentlyPlayedClips,
-    checkUsername
 }
 
 function getUsers() {
@@ -49,9 +48,13 @@ async function login(currUser) {
 }
 
 async function signup(currUser) {
-    const user = await httpService.post('auth/signup', currUser)
-    if (user) {
-        return saveLocalUser(user)
+    try {
+        const user = await httpService.post('auth/signup', currUser)
+        if (user) return saveLocalUser(user)
+    }
+    catch (err) {
+        console.log('err', err)
+        throw (err)
     }
 }
 
@@ -92,10 +95,6 @@ function updateUserRecentlyPlayedClips(user, currClip) {
     return user
 }
 
-function checkUsername(users, currUsername) {
-    let usernames = new Set(users.map(user => user.username))
-    return usernames.has(currUsername)
-}
 
 export const loginFirstMsgs = {
     library: {

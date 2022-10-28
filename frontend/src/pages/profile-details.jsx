@@ -134,12 +134,6 @@ export const ProfileDetails = () => {
                         </section>}
 
                     <hr className='profile-hr' />
-
-                    {/* <h1>PROFILES FOR CHECK - DELETE IN THE END</h1>
-                    <ProfileList
-                        profiles={users}
-                        profileKey={'deme-profiles-'}
-                    /> */}
                 </main>
             </section>
         )
