@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { userService } from '../services/user.service'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUserMsg, updateUser } from '../store/user.actions'
 import { ReactComponent as HeartIcon } from '../assets/img/heart-icon.svg'
 import { updateStation } from '../store/station.actions'
@@ -14,7 +13,7 @@ export const LikeIcon = ({
     inputId
 }) => {
 
-    const loggedinUser = userService.getLoggedinUser()
+    const {loggedinUser} = useSelector(state => state.userModule)
     const [isLike, setIsLike] = useState(checkIsLike())
     const dispatch = useDispatch()
 

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { stationService } from '../services/station.service'
 
 export const LikedSongsPreview = () => {
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
 
     const getSongs = () => {
-        let songsStr = user.likedSongs.clips.map(song => song?.title).join(' ● ')
+        let songsStr = loggedinUser.likedSongs.clips.map(song => song?.title).join(' ● ')
         songsStr = songsStr.length > 150 ? songsStr.slice(0, 150) + '...' : songsStr
         return songsStr
     }
@@ -19,7 +19,7 @@ export const LikedSongsPreview = () => {
                 <section className='songs-list-preview'><p>{getSongs()}</p></section>
                 <div>
                     <div className='title-preview'> Liked Songs</div>
-                    <div className='summery'>Liked songs: {user.likedSongs.clips.length} | Total Duration: {stationService.getTotalSongDur(user.likedSongs.clips)}</div>
+                    <div className='summery'>Liked songs: {loggedinUser.likedSongs.clips.length} | Total Duration: {stationService.getTotalSongDur(loggedinUser.likedSongs.clips)}</div>
                 </div>
             </main>
         </Link>

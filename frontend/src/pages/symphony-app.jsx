@@ -11,7 +11,7 @@ import { userService } from '../services/user.service.js'
 import { searchService } from '../services/search.service.js'
 
 export const SymphonyApp = () => {
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { stations, tags, getStationByTag } = useSelector(state => state.stationModule)
     const { artists } = useSelector(state => state.artistModule)
     const [randomArtists, setRandomArtists] = useState(null)
@@ -25,7 +25,7 @@ export const SymphonyApp = () => {
         if (!artists.length) dispatch(loadArtists())
         if (artists.length > 0 && !randomArtists && !artistsByLike) {
             setRandomArtists(artistService.getRandomArtists(artists))
-            setArtistsByLike(artistService.getArtistBylikes(artists, user))
+            setArtistsByLike(artistService.getArtistBylikes(artists, loggedinUser))
         }
     }, [stations, artists])
 

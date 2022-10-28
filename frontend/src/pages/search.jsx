@@ -14,7 +14,7 @@ import { SearchFailMsg } from '../cmps/search-fail-msg'
 
 
 export const Search = () => {
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { stations, tags } = useSelector(state => state.stationModule)
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -42,7 +42,7 @@ export const Search = () => {
 
         if (!tags.length) dispatch(setTags(stationService.getTags()))
 
-        setRecentSearches(stationService.getUserStations(stations, user, 'search-stations'))
+        setRecentSearches(stationService.getUserStations(stations, loggedinUser, 'search-stations'))
     }, [stations, searchParams])
 
 
@@ -87,7 +87,7 @@ export const Search = () => {
 
                 {(!isPostSearch && !isSearchLoading) &&
                     <section className='search-default-display'>
-                        {(user && recentSearches.length > 0) && <section className='recently-search-container'>
+                        {(loggedinUser && recentSearches.length > 0) && <section className='recently-search-container'>
                             <h1>Recent Searches</h1>
                             <StationList
                                 isSearch={true}
@@ -172,7 +172,7 @@ export const Search = () => {
                                 />
                             </section>}
 
-                        {(filterCondition('searches', recentSearches) && user) &&
+                        {(filterCondition('searches', recentSearches) && loggedinUser) &&
                             <section className='search-artist-container'>
                                 <h1>Recent Searches</h1>
                                 <StationList

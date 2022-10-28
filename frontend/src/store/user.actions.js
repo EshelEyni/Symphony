@@ -95,7 +95,6 @@ export function onSignup(credentials) {
     }
 }
 
-
 export function onLogout() {
     return async (dispatch) => {
         try {

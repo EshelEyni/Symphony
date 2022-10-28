@@ -11,7 +11,7 @@ export const ProfileList = ({
     isLimitedDisplay
 
 }) => {
-    const { user } = useSelector(state => state.userModule)
+    const { watchedUser } = useSelector(state => state.userModule)
     const isSeeAllLink = profiles.length > 8 ? true : false
     const profilesForDisplay = (profiles.length > 8 && isLimitedDisplay) ? profiles.slice(0, 8) : profiles
 
@@ -25,7 +25,7 @@ export const ProfileList = ({
         return (
             <section className='profile-list-container flex'>
                 {links.map(link => (
-                    (link.condition && isSeeAllLink) && <Link to={link.path + user._id}>See all</Link>
+                    (link.condition && isSeeAllLink) && <Link key={link.path} to={link.path + watchedUser._id}>See all</Link>
                 ))}
 
                 {profilesForDisplay.map(user => {

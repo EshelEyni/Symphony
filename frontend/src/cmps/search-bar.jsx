@@ -26,7 +26,7 @@ export const SearchBar = ({
     isStationDetails,
 }) => {
 
-    const { users, user } = useSelector(state => state.userModule)
+    const { users, loggedinUser } = useSelector(state => state.userModule)
     const { stations } = useSelector(state => state.stationModule)
     const { artists } = useSelector(state => state.artistModule)
 
@@ -66,8 +66,8 @@ export const SearchBar = ({
         const searchResults = await searchService.getClips(searchTerm)
         setSearchClips(searchResults)
 
-        if (user && !user.recentSearches.map(rs => rs.title).includes(searchTerm)) {
-            const updatedUser = await searchService.updateUserRecentSearches(searchResults, user, searchTerm)
+        if (loggedinUser && !loggedinUser.recentSearches.map(rs => rs.title).includes(searchTerm)) {
+            const updatedUser = await searchService.updateUserRecentSearches(searchResults, loggedinUser, searchTerm)
             dispatch(updateUser(updatedUser))
             dispatch(loadStations())
         }

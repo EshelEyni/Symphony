@@ -26,7 +26,7 @@ export const StationHeader = ({
     setAdminMode }) => {
 
     const { isPlaying, currPlaylist, togglePlayFunc } = useSelector(state => state.mediaPlayerModule)
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [imgUrl, setImgUrl] = useState(currStation.imgUrl)
@@ -79,7 +79,7 @@ export const StationHeader = ({
                                 src={imgUrl}
                                 alt='playist-img' />}
                     </label>
-                    {(currStation.createdBy._id === user?._id && !isLikedSongs) &&
+                    {(currStation.createdBy._id === loggedinUser?._id && !isLikedSongs) &&
                         <input
                             className='img-input'
                             id='station-header-img'
@@ -112,7 +112,7 @@ export const StationHeader = ({
                 </section>}
 
 
-                {user.isAdmin &&
+                {loggedinUser?.isAdmin &&
                     <span
                         className='admin-state-btn'
                         onClick={() => setAdminMode(!isAdminMode)}
@@ -127,7 +127,7 @@ export const StationHeader = ({
                     <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
                 </section>
 
-                {(user && !isLikedSongs) &&
+                {(loggedinUser && !isLikedSongs) &&
                     <LikeIcon
                         currStation={currStation}
                         isStationHeader={true}
@@ -144,7 +144,7 @@ export const StationHeader = ({
                     setIsDropdown={setIsDropdown}
                     setIsEdit={setIsEdit}
                     isAdminMode={isAdminMode}
-                    isUserStation={currStation.createdBy._id === user?._id}
+                    isUserStation={currStation.createdBy._id === loggedinUser?._id}
                     onTogglePublicStation={onTogglePublicStation}
                     onSaveSearchStation={onSaveSearchStation}
                     onRemoveStation={onRemoveStation}

@@ -8,7 +8,7 @@ import { defaultLightGreenColor } from '../services/bg-color.service'
 import { userService } from '../services/user.service'
 
 export const Queue = () => {
-
+    const { loggedUser } = useSelector(state => state.userModule)
     const { currMediaPlayerClip, currPlaylist } = useSelector(state => state.mediaPlayerModule)
     const [queueClipList, setQueueClipList] = useState([])
     const navigate = useNavigate()
@@ -26,7 +26,7 @@ export const Queue = () => {
         setQueueClipList(clipsToUpdate)
         const stationToUpdate = { ...currPlaylist }
         stationToUpdate.clips = [currMediaPlayerClip, ...clipsToUpdate]
-        const userToUpdate = userService.getLoggedinUser()
+        const userToUpdate = { ...loggedUser }
         userToUpdate.prevPlaylist = stationToUpdate
         userService.update(userToUpdate)
     }

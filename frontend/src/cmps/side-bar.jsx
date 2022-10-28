@@ -8,12 +8,10 @@ import { updateUser } from '../store/user.actions'
 import { NavList } from './nav-list'
 import { handleDragEnd } from '../services/dragg.service'
 import { stationService } from '../services/station.service'
-import { userService } from '../services/user.service'
 import Logo from '../assets/img/note-logo.png'
 
 export const SideBar = () => {
-    const loggedinUser = userService.getLoggedinUser()
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { stations, currStation } = useSelector(state => state.stationModule)
     const [userStations, setUserStations] = useState(stationService.getUserStations(stations, loggedinUser, 'user-stations'))
     const [isLoginMsg, setIsLoginMsg] = useState(false)
@@ -27,7 +25,7 @@ export const SideBar = () => {
             setUserStations(updatedUserStations)
             setIsAddStation(true)
         }
-    }, [stations, user])
+    }, [stations, loggedinUser])
 
     useEffect(() => {
         dispatch(loadStations())

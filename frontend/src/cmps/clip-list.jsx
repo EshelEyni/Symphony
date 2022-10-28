@@ -25,14 +25,14 @@ export const ClipList = ({
     isRecentlyPlayed
 }) => {
 
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { stations } = useSelector(state => state.stationModule)
     const dispatch = useDispatch()
 
     const onHandleDragEnd = (res) => {
         if (isLike) {
             let { clips } = currStation
-            const userToUpdate = { ...user }
+            const userToUpdate = { ...loggedinUser }
             currStation.clips = handleDragEnd(res, clips)
             setCurrClips(currStation.clips)
             userToUpdate.likedSongs.clips = currStation.clips
@@ -41,7 +41,7 @@ export const ClipList = ({
 
         if (isRecentlyPlayed) {
             let { clips } = currStation
-            const userToUpdate = { ...user }
+            const userToUpdate = { ...loggedinUser }
             currStation.clips = handleDragEnd(res, clips)
             setCurrClips(currStation.clips)
             userToUpdate.recentlyPlayedClips = currStation.clips
@@ -53,8 +53,8 @@ export const ClipList = ({
             clipsToUpdate = handleDragEnd(res, currClips)
             setCurrClips(clipsToUpdate)
 
-            if (user) {
-                const userToUpdate = { ...user }
+            if (loggedinUser) {
+                const userToUpdate = { ...loggedinUser }
                 const searchStationToUpdateId = userToUpdate.recentSearches
                     .find(rs => rs.title === searchTerm)._id
                 const searchStationToUpdate = [...stations]

@@ -7,7 +7,7 @@ import { StationList } from '../cmps/station-list'
 import { ProfileList } from '../cmps/profile-list'
 import { Loader } from '../cmps/loader'
 import { loadStations } from '../store/station.actions'
-import { loadUser, loadUsers, setWatchedUser } from '../store/user.actions'
+import { loadUsers, setWatchedUser } from '../store/user.actions'
 import { setHeaderBgcolor } from '../store/app-header.actions'
 import { loadArtists } from '../store/artist.actions'
 import { profileService } from '../services/profile-service'
@@ -17,11 +17,11 @@ import { defaultHeaderBgcolor } from '../services/bg-color.service'
 
 
 export const ProfileDetails = () => {
-    const { watchedUser, user, users } = useSelector(state => state.userModule)
+    const { watchedUser, loggedinUser, users } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const { stations } = useSelector(state => state.stationModule)
     const [publicStations, setPublicStations] = useState(stationService.getUserStations(stations, watchedUser, 'public-stations') || [])
-    const [recentlyPlayedClips, setRecentlyPlayedClips] = useState(user?.recentlyPlayed?.clips || [])
+    const [recentlyPlayedClips, setRecentlyPlayedClips] = useState(loggedinUser?.recentlyPlayed?.clips || [])
     const [profilesByLike, setProfilesByLike] = useState([])
 
     const params = useParams()
@@ -38,7 +38,7 @@ export const ProfileDetails = () => {
         dispatch(setHeaderBgcolor(watchedUser?.bgColor))
         if (watchedUser?._id !== params._id) dispatch(setWatchedUser(params._id))
         setPublicStations(stationService.getUserStations(stations, watchedUser, 'public-stations'))
-        setProfilesByLike(profileService.getUserProfiles(users, user, 'likes'))
+        setProfilesByLike(profileService.getUserProfiles(users, loggedinUser, 'likes'))
     }, [params, stations, users, watchedUser])
 
     useEffect(() => {
@@ -66,23 +66,23 @@ export const ProfileDetails = () => {
                 <main className='profile-details-main-container flex column'>
                     <ProfileHeader
                         publicStations={publicStations}
-                        watchedUser={user && user._id === watchedUser._id ? user : watchedUser}
-                        loggedinUser={user}
+                        watchedUser={loggedinUser && loggedinUser._id === watchedUser._id ? loggedinUser : watchedUser}
+                        loggedinUser={loggedinUser}
                     />
 
                     {/******************************** Personal Profile Content ********************************/}
 
-                    {user?._id === params._id &&
+                    {loggedinUser?._id === params._id &&
                         <section className='personal-profile-content'>
                             {recentlyPlayedClips?.length > 0 &&
                                 <section
                                     className='recently-played-container'>
                                     <h1>Recently Played</h1>
                                     <ClipList
-                                        bgColor={user.bgColor}
+                                        bgColor={loggedinUser.bgColor}
                                         clipKey={'recently-played'}
-                                        currStation={user.recentlyPlayed}
-                                        currClips={user.recentlyPlayed.clips}
+                                        currStation={loggedinUser.recentlyPlayed}
+                                        currClips={loggedinUser.recentlyPlayed.clips}
                                         setCurrClips={setRecentlyPlayedClips}
                                         isRecentlyPlayed={true}
                                     />
@@ -119,7 +119,7 @@ export const ProfileDetails = () => {
                                 isLimitedDisplay={true}
                                 isFollowers={true}
                                 profileKey={'profile-followers-'}
-                                />
+                            />
                         </section>}
 
                     {watchedUser.following.length > 0 &&
@@ -129,7 +129,7 @@ export const ProfileDetails = () => {
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
                                 isLimitedDisplay={true}
                                 isFollowing={true}
-                                profileKey={'profiles-followers-'}
+                                profileKey={'profiles-following-'}
                             />
                         </section>}
 

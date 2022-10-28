@@ -11,10 +11,10 @@ import { ReactComponent as LibraryIcon } from '../assets/img/library-playlist-ic
 
 
 export const Library = () => {
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { stations } = useSelector(state => state.stationModule)
 
-    const userStations = stationService.getUserStations(stations, user, 'user-stations')
+    const userStations = stationService.getUserStations(stations, loggedinUser, 'user-stations')
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -28,9 +28,9 @@ export const Library = () => {
         const newStation = {
             name: 'My Playlist #1',
             createdBy: {
-                _id: user._id,
-                username: user.username,
-                imgUrl: user.imgUrl
+                _id: loggedinUser._id,
+                username: loggedinUser.username,
+                imgUrl: loggedinUser.imgUrl
             }
         }
 
@@ -38,7 +38,7 @@ export const Library = () => {
         dispatch(addStation(savedStation))
         navigate('/station/' + savedStation._id)
 
-        const userToUpdate = { ...user }
+        const userToUpdate = { ...loggedinUser }
         userToUpdate.createdStations.push(savedStation._id)
         dispatch(updateUser(userToUpdate))
     }

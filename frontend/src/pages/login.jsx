@@ -5,7 +5,7 @@ import { loadUsers, onLogin, setUserMsg } from '../store/user.actions.js'
 import { userService } from '../services/user.service.js'
 
 export const Login = () => {
-    const { user, users } = useSelector(state => state.userModule)
+    const { loggedinUser, users } = useSelector(state => state.userModule)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -16,10 +16,10 @@ export const Login = () => {
     })
 
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (!users.length) dispatch(loadUsers())
-        if (user) navigate('/')
-    }, [user])
+        if (loggedinUser) navigate('/')
+    }, [loggedinUser])
 
     const handleChange = ({ target }) => {
         const { value, name } = target

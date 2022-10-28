@@ -15,7 +15,7 @@ import { socketService, SOCKET_EVENT_STATION_UPDATED, USER_REGISTERED_TO_PLAYLIS
 import { AdminControlSet } from '../cmps/admin-control-set.jsx'
 
 export const StationDetails = () => {
-    const loggedinUser = userService.getLoggedinUser()
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { currStation } = useSelector(state => state.stationModule)
 
     const [currClips, setCurrClips] = useState([]) // Supports DND in non user station
@@ -34,7 +34,7 @@ export const StationDetails = () => {
     const isUserCreatedStation = loggedinUser?._id === currStation?.createdBy?._id
 
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (currStation?._id !== params._id) {
             dispatch(loadStation('clear-station'))
             setSearchClips([])

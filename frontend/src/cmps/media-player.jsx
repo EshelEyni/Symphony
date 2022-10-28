@@ -17,7 +17,7 @@ import { updateUser } from '../store/user.actions.js'
 
 export const MediaPlayer = () => {
     const dispatch = useDispatch()
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { currMediaPlayerClip, currPlaylist, isPlaying } = useSelector(state => state.mediaPlayerModule)
     const [isMute, setIsMute] = useState(false)
     const [prevVolume, setPrevVolume] = useState()
@@ -36,7 +36,7 @@ export const MediaPlayer = () => {
         if ((!prevClip && currMediaPlayerClip) || (prevClip?._id !== currMediaPlayerClip?._id)) {
             storageService.saveToStorage('prevClip', currMediaPlayerClip)
             storageService.saveToStorage('prevPlaylist', currPlaylist)
-            let userToUpdate = { ...user }
+            let userToUpdate = { ...loggedinUser }
             userToUpdate = userService.updateUserRecentlyPlayedClips(userToUpdate, currMediaPlayerClip)
             userToUpdate.prevClip = currMediaPlayerClip
             userToUpdate.prevPlaylist = currPlaylist
@@ -277,7 +277,7 @@ export const MediaPlayer = () => {
 
                     {<h1 className='flex'>
                         {clipService.getFormattedTitle(currMediaPlayerClip)}
-                        {(user && currMediaPlayerClip) &&
+                        {(loggedinUser && currMediaPlayerClip) &&
                             <LikeIcon
                                 isMediaPlayer={true}
                                 currStation={currPlaylist}

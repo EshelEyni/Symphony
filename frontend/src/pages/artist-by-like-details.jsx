@@ -7,7 +7,7 @@ import { userService } from "../services/user.service"
 import { loadArtists } from "../store/artist.actions"
 
 export const ArtistByLikeDetails = () => {
-    const { user, watchedUser } = useSelector(state => state.userModule)
+    const { loggedinUser, watchedUser } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const [artistsByLike, setArtistsByLike] = useState([])
     const dispatch = useDispatch()
@@ -26,8 +26,8 @@ export const ArtistByLikeDetails = () => {
 
     const getUser = async () => {
         switch (params._id) {
-            case user?._id:
-                return user
+            case loggedinUser?._id:
+                return loggedinUser
             case watchedUser?._id:
                 return watchedUser
             default:

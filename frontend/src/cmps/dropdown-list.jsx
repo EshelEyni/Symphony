@@ -4,12 +4,12 @@ import { setUserMsg, updateUser } from '../store/user.actions'
 import { userService } from '../services/user.service'
 
 export const DropdownList = ({
-     clip,
-     onAddClip
-    }) => {
-    const { user } = useSelector(state => state.userModule)
+    clip,
+    onAddClip
+}) => {
+    const { loggedinUser } = useSelector(state => state.userModule)
     // const {stations} = useSelector(state => state.stationModule)
-    const stations = useSelector(state => state.stationModule.stations).filter(station => station.createdBy?._id === user?._id && !station.isSearch)
+    const stations = useSelector(state => state.stationModule.stations).filter(station => station.createdBy?._id === loggedinUser?._id && !station.isSearch)
     // change this to normal convention
 
     return <ul className='dropdown-list'>

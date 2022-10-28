@@ -1,7 +1,7 @@
 import { userService } from '../services/user.service.js'
 
 const initialState = {
-    user: userService.getLoggedinUser(),
+    loggedinUser: userService.getLoggedinUser(),
     users: [],
     watchedUser: null,
     userMsg: null,
@@ -12,7 +12,7 @@ export function userReducer(state = initialState, action) {
         case 'SET_USERS':
             return { ...state, users: action.users }
         case 'SET_USER':
-            return { ...state, user: action.user }
+            return { ...state, loggedinUser: action.user }
         case 'SET_WATCHED_USER':
             return { ...state, watchedUser: action.user }
         case 'REMOVE_USER':
@@ -21,7 +21,7 @@ export function userReducer(state = initialState, action) {
                 users: state.users.filter(user => user._id !== action.userId)
             }
         case 'UPDATE_USER':
-            return { ...state, user: action.updatedUser }
+            return { ...state, loggedinUser: action.updatedUser }
         case 'UPDATE_WATCHED_USER':
             return { ...state, watchedUser: action.updatedUser }
         case 'SET_USER_MSG':

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ClipList } from '../cmps/clip-list'
 import { Loader } from '../cmps/loader'
@@ -14,7 +14,7 @@ import { userService } from '../services/user.service'
 import { defaultHeaderBgcolor } from '../services/bg-color.service'
 
 export const ArtistDetails = () => {
-    const loggedinUser = userService.getLoggedinUser()
+    const { loggedinUser } = useSelector(state => state.userModule)
     const [currArtist, setCurrArtist] = useState()
     const [stationsByArtist, setStationsByArtist] = useState([])
     const [profilesByArtist, setProfilesByArtist] = useState([])
@@ -22,7 +22,7 @@ export const ArtistDetails = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         loadArtist(params)
         return () => {
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))

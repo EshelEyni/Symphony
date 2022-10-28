@@ -9,7 +9,7 @@ import { loadStations } from "../store/station.actions"
 
 export const PublicStationsDetails = () => {
     const { stations } = useSelector(state => state.stationModule)
-    const { user, watchedUser } = useSelector(state => state.userModule)
+    const { loggedinUser, watchedUser } = useSelector(state => state.userModule)
     const [publicStations, setPublicStations] = useState([])
     const params = useParams()
     const dispatch = useDispatch()
@@ -27,8 +27,8 @@ export const PublicStationsDetails = () => {
 
     const getUser = async () => {
         switch (params._id) {
-            case user?._id:
-                return user
+            case loggedinUser?._id:
+                return loggedinUser
             case watchedUser?._id:
                 return watchedUser
             default:

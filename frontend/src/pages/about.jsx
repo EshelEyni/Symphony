@@ -52,8 +52,8 @@ export const About = () => {
                         <li>Signup ✅</li>
                         <li>ProfileDetails ✅</li>
                         <li>ArtistDetails</li>
-                        <li>FollowersDetails</li>
-                        <li>FollowingDetails</li>
+                        <li>FollowersDetails ✅</li>
+                        <li>FollowingDetails ✅</li>
                         <li>Search ✅</li>
                         <li>StationDetails ✅</li>
                         <li>LikedSongs ✅</li>

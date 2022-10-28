@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { userService } from '../services/user.service'
 import { onLogout } from '../store/user.actions'
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded'
 import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded'
 
 export const AppHeader = () => {
-    const loggedinUser = userService.getLoggedinUser()
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { headerBgcolor } = useSelector(state => state.appHeaderModule)
     const [userToDisplay, setUserToDisplay] = useState(loggedinUser)
     const [isUserClicked, setUserClicked] = useState(false)
@@ -17,10 +15,10 @@ export const AppHeader = () => {
 
     useEffect(() => {
         setUserToDisplay(loggedinUser)
-    }, [user])
+    }, [loggedinUser])
 
-    const logout = () => {
-        dispatch(onLogout())
+    const logout = async () => {
+        await dispatch(onLogout())
         setUserClicked(false)
         navigate('/')
     }

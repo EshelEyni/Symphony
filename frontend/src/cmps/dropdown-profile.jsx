@@ -16,7 +16,7 @@ export const DropdownProfile = ({
     setIsFollowedProfile,
     onToggleFollowProfile,
 }) => {
-    const { user, watchedUser } = useSelector(state => state.userModule)
+    const { loggedinUser, watchedUser } = useSelector(state => state.userModule)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ export const DropdownProfile = ({
 
     return (
         <div>
-            {user._id === watchedUser._id &&
+            {loggedinUser._id === watchedUser._id &&
                 <div>
                     <li
                         onClick={() => {
@@ -48,7 +48,7 @@ export const DropdownProfile = ({
                     />}
                 </div>}
 
-            {user._id !== watchedUser._id &&
+            {loggedinUser._id !== watchedUser._id &&
                 <li onClick={() => {
                     onToggleFollowProfile()
                     setIsFollowedProfile(!isFollowedProfile)

@@ -12,7 +12,7 @@ export const StationPreview = ({
 }) => {
 
     const { isPlaying, currPlaylist, togglePlayFunc } = useSelector(state => state.mediaPlayerModule)
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const [isClicked, setIsClicked] = useState(false)
     const dispatch = useDispatch()
 
@@ -45,7 +45,7 @@ export const StationPreview = ({
         dispatch(removeStation(currStation._id))
         dispatch(setUserMsg(currStation.name + ' removed from your library'))
         setTimeout(() => dispatch(setUserMsg(null)), 2500)
-        const userToUpdate = { ...user }
+        const userToUpdate = { ...loggedinUser }
         userToUpdate.createdStations = userToUpdate.createdStations.filter(id => id !== currStation._id)
         userToUpdate.publicStations = userToUpdate.publicStations.filter(id => id !== currStation._id)
         userToUpdate.recentSearches = userToUpdate.recentSearches.filter(recentSearch => recentSearch._id !== currStation._id)

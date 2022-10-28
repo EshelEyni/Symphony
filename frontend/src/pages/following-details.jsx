@@ -3,22 +3,22 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Loader } from '../cmps/loader'
 import { ProfileList } from '../cmps/profile-list'
-import { loadUser, loadUsers } from '../store/user.actions'
+import { loadUsers, setWatchedUser } from '../store/user.actions'
 import { profileService } from '../services/profile-service'
 
 export const FollowingDetails = () => {
-    const { users, user } = useSelector(state => state.userModule)
+    const { users, watchedUser } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const dispatch = useDispatch()
     const params = useParams()
 
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
-        if (user?._id !== params._id) dispatch(loadUser(params._id))
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+        if (watchedUser?._id !== params._id) dispatch(setWatchedUser(params._id))
         if (!users.length) dispatch(loadUsers())
-    }, [user])
+    }, [watchedUser])
 
-    if (!user?._id !== params._id && !users.length) {
+    if (!watchedUser?._id !== params._id && !users.length) {
         return (
             <Loader
                 size={'large-loader'}
@@ -26,13 +26,13 @@ export const FollowingDetails = () => {
         )
     }
 
-    if (user && users.length > 0) {
+    if (watchedUser && users.length > 0) {
 
         return (
             <main>
                 <h1>Following</h1>
                 <ProfileList
-                    profiles={profileService.getUserProfiles(users, user, 'following', artists)}
+                    profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
                     profileKey={'following-details-'}
                 />
             </main>

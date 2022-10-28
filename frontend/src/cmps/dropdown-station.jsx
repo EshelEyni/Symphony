@@ -1,6 +1,5 @@
-import { userService } from "../services/user.service"
+import { useSelector } from "react-redux"
 import { ConfirmDeleteMsg } from "./confirm-delete-msg"
-import { UserMsg } from "./user-msg"
 
 export const DropdownStation = ({
     isDropdown,
@@ -16,7 +15,7 @@ export const DropdownStation = ({
     onRemoveStation,
 }) => {
 
-    const loggedinUser = userService.getLoggedinUser()
+    const {loggedinUser} = useSelector(state => state.userModule)
     const isPublicStation = loggedinUser?.publicStations.includes(currStation?._id)
 
     return (

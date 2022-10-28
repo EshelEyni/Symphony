@@ -20,7 +20,7 @@ export const ClipPreview = ({
 }) => {
 
     const { isPlaying, currMediaPlayerClip, currPlaylist, togglePlayFunc } = useSelector(state => state.mediaPlayerModule)
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
@@ -93,7 +93,7 @@ export const ClipPreview = ({
                 <span className='artist-name'>{currClip.artist}</span>
                 <span className='added' > {getDateAdded()} </span>
 
-                {user && <LikeIcon
+                {loggedinUser && <LikeIcon
                     currStation={currStation}
                     currClip={currClip}
                     inputId={currClip._id}
@@ -109,7 +109,7 @@ export const ClipPreview = ({
                         setIsDropdown={setIsDropdown}
                         isClipDropdown={true}
                         currClip={currClip}
-                        isUserClip={currStation?.createdBy?._id === user?._id}
+                        isUserClip={currStation?.createdBy?._id === loggedinUser?._id}
                         artists={artists}
                         currStation={currStation}
                         onRemoveClip={onRemoveClip}

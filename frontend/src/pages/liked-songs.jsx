@@ -9,20 +9,20 @@ import { defaultHeaderBgcolor, likedSongsBgcolor } from '../services/bg-color.se
 import LikedSongsLogo from '../assets/img/likedsongs.png'
 
 export const LikedSongs = () => {
-    const { user } = useSelector(state => state.userModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const [likedSongs, setLikedSongs] = useState(null)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
 
-        if (!user) {
+        if (!loggedinUser) {
             navigate('/')
             return
         }
-        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         dispatch(setHeaderBgcolor(likedSongsBgcolor))
-        setLikedSongs([...user.likedSongs.clips])
+        setLikedSongs([...loggedinUser.likedSongs.clips])
 
         return () => {
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
@@ -41,11 +41,11 @@ export const LikedSongs = () => {
             <main className='station-container'>
                 <header className='station-header'>
                     <StationHeader
-                        user={user.username}
+                        user={loggedinUser.username}
                         LikedSongsLogo={LikedSongsLogo}
                         isUserStation={true}
                         isLikedSongs={true}
-                        currStation={user.likedSongs}
+                        currStation={loggedinUser.likedSongs}
                         clips={likedSongs}
                         bgColor={likedSongsBgcolor}
                     />
@@ -53,7 +53,7 @@ export const LikedSongs = () => {
 
                 <section className='station-clips-container'>
                     <ClipList
-                        currStation={user.likedSongs}
+                        currStation={loggedinUser.likedSongs}
                         currClips={likedSongs}
                         setCurrClips={setLikedSongs}
                         clipKey={'liked-clip'}
