@@ -15,6 +15,21 @@ export function loadArtists() {
     }
 }
 
+export function loadArtist(artistId) {
+    return async (dispatch) => {
+        try {
+            const artist = artistId === 'clear-artist' ? null : await artistService.getById(artistId)
+            dispatch({
+                type: 'SET_WATCHED_ARTIST',
+                artist
+            })
+        }
+        catch (err) {
+            console.log('ArtistActions: Cannot load artist', err)
+        }
+    }
+}
+
 export function removeArtist(artistId) {
     return async (dispatch) => {
         try {

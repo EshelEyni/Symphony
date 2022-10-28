@@ -46,14 +46,14 @@ export const About = () => {
                         <li>UserMsg ✅</li>
                         <li>MediaPlayer ✅</li>
                         <li>SymphonyApp ✅</li>
-                        <li>TagsDetails ✅</li>
+                        <li>Tags ✅</li>
                         <li>About ✅</li>
                         <li>Login ✅</li>
                         <li>Signup ✅</li>
                         <li>ProfileDetails ✅</li>
                         <li>ArtistDetails</li>
-                        <li>FollowersDetails ✅</li>
-                        <li>FollowingDetails ✅</li>
+                        <li>Followers ✅</li>
+                        <li>Following ✅</li>
                         <li>Search ✅</li>
                         <li>StationDetails ✅</li>
                         <li>LikedSongs ✅</li>

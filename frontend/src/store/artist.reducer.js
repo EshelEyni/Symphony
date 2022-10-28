@@ -1,5 +1,6 @@
 const initialState = {
     artists: [],
+    watchedArtist: null,
 }
 
 export function artistReducer(state = initialState, action) {
@@ -8,6 +9,11 @@ export function artistReducer(state = initialState, action) {
             return {
                 ...state,
                 artists: action.artists
+            }
+        case 'SET_WATCHED_ARTIST':
+            return {
+                ...state,
+                watchedArtist: action.artist
             }
         case 'REMOVE_ARTIST':
             return {
@@ -22,7 +28,7 @@ export function artistReducer(state = initialState, action) {
         case 'UPDATE_ARTIST':
             return {
                 ...state,
-                artists: state.artists.map(artist => artist._id === action.updatedArtist._id ? action.updatedArtist : artist)
+                watchedArtist: action.updatedArtist
             }
         default:
             return state

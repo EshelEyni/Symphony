@@ -7,15 +7,20 @@ import { ProfileHeader } from '../cmps/profile-header'
 import { ProfileList } from '../cmps/profile-list'
 import { StationList } from '../cmps/station-list'
 import { setHeaderBgcolor } from '../store/app-header.actions'
+import { loadUsers } from '../store/user.actions'
+import { loadStations } from '../store/station.actions'
 import { artistService } from '../services/artist.service'
 import { profileService } from '../services/profile-service'
 import { stationService } from '../services/station.service'
 import { userService } from '../services/user.service'
 import { defaultHeaderBgcolor } from '../services/bg-color.service'
+import { loadArtist } from '../store/artist.actions'
 
 export const ArtistDetails = () => {
-    const { loggedinUser } = useSelector(state => state.userModule)
-    const [currArtist, setCurrArtist] = useState()
+    const { loggedinUser, users } = useSelector(state => state.userModule)
+    const { stations } = useSelector(state => state.stationModule)
+    const { watchedArtist } = useSelector(state => state.artistModule)
+    const [currClips, setCurrClips] = useState(watchedArtist?.clips || [])
     const [stationsByArtist, setStationsByArtist] = useState([])
     const [profilesByArtist, setProfilesByArtist] = useState([])
     const params = useParams()
@@ -23,52 +28,57 @@ export const ArtistDetails = () => {
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-        loadArtist(params)
+        dispatch(loadUsers())
+        dispatch(loadStations())
         return () => {
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
+            dispatch(loadArtist('clear-artist'))
+            setCurrClips([])
+            setStationsByArtist([])
+            setProfilesByArtist([])
         }
-    }, [params])
+    }, [])
 
-    const loadArtist = async (params) => {
-        const currArtist = await artistService.getById(params._id)
-        const stations = await stationService.query() // load from store
-        const users = await userService.getUsers() // load from store
-        setCurrArtist(currArtist)
-        setStationsByArtist(stationService.getFilteredStations(stations, { term: currArtist.username, type: 'artist-name' }))
-        setProfilesByArtist(profileService.getProfilesByArtist(stations, users, currArtist.username))
-        dispatch(setHeaderBgcolor(currArtist.bgColor))
+    useEffect(() => {
+        dispatch(setHeaderBgcolor(watchedArtist?.bgColor))
+        if (watchedArtist?._id !== params._id) dispatch(loadArtist(params._id))
+        if (watchedArtist) {
+            setStationsByArtist(stationService.getFilteredStations(stations, { term: watchedArtist.username, type: 'artist-name' }))
+            setProfilesByArtist(profileService.getProfilesByArtist(stations, users, watchedArtist.username) || [])
+            setCurrClips(watchedArtist.clips || [])
+        }
 
-    }
+    }, [params, stations, users, watchedArtist])
 
-    if (!currArtist) {
+    if (!watchedArtist) {
         return <Loader
             size={'large-loader'}
             loaderType={'page-loader'} />
     }
 
-    if (currArtist) {
+    if (watchedArtist) {
         return (
             <main className='artist-details-container'>
                 <ProfileHeader
-                    watchedUser={currArtist}
+                    watchedUser={watchedArtist}
                     loggedinUser={loggedinUser}
                 />
                 <section className='artist-clips-container'>
                     <ClipList
                         //  bgColor={stationBgcolor}
                         clipKey={'artist-clip'}
-                        //  isUserCreatedStation={isUserCreatedStation}
                         isStation={true}
-                        currStation={currArtist}
-                        currClips={currArtist?.clips}
-                        setCurrStation={setCurrArtist}
-                    //  onRemoveClip={onRemoveClip}
+                        currStation={watchedArtist}
+                        currClips={currClips}
+                        setCurrClips={setCurrClips}
                     />
                 </section>
                 {stationsByArtist.length > 0 &&
                     <section className='artist-stations-container'>
                         <h1>Playlists</h1>
                         <StationList
+                            isArtist={true}
+                            isLimitedDisplay={true}
                             stations={stationsByArtist}
                             stationKey={'artists-details-station '}
                         />
@@ -79,6 +89,8 @@ export const ArtistDetails = () => {
                     className='artist-profile-list'>
                     <h1>Profiles</h1>
                     <ProfileList
+                        isArtistDetails={true}
+                        isLimitedDisplay={true}
                         profiles={profilesByArtist}
                         profileKey={'artist-profile-'}
                     />

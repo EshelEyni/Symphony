@@ -6,7 +6,7 @@ import { artistService } from "../services/artist.service"
 import { userService } from "../services/user.service"
 import { loadArtists } from "../store/artist.actions"
 
-export const ArtistByLikeDetails = () => {
+export const ArtistByLike = () => {
     const { loggedinUser, watchedUser } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const [artistsByLike, setArtistsByLike] = useState([])

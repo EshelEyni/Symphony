@@ -30,6 +30,47 @@
             margin-bottom: 16px;
             @include aspect-ratio(1, 1);
         }
+
+        .play-btn {
+            border-radius: 50%;
+            border: none;
+            display: unset;
+            // opacity: 0;
+
+            position: relative;
+
+            text-align: center;
+            bottom: 75px;
+            left: 75px;
+            transition: 0.4s;
+            width: 45px;
+            height: 45px;
+
+            @include for-mobile-layout {
+                display: none;
+            }
+        }
+
+
+        .play-btn-container {
+            display: none;
+
+            &:hover {
+                & .equalizer {
+                    display: none;
+                }
+
+                & .play-btn{
+                    display: unset;
+                }
+            }
+        }
+
+        &:hover {
+            & .play-btn-container {
+                display: unset;
+            }
+        }
     }
 
     .desc-container {

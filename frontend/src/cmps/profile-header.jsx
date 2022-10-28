@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Dropdown } from './dropdown'
 import { EditModal } from './edit-modal'
@@ -8,6 +8,9 @@ import { uploadImg } from '../services/upload.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 import { defaultImg } from '../services/user.service'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
+import { updateArtist } from '../store/artist.actions'
+import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
+import { Equalizer } from './equalizer'
 
 export const ProfileHeader = ({
     watchedUser,
@@ -15,12 +18,30 @@ export const ProfileHeader = ({
     publicStations
 }) => {
 
+    const { isPlaying, currPlaylist, togglePlayFunc } = useSelector(state => state.mediaPlayerModule)
     const [profileImgUrl, setProfileImgUrl] = useState(watchedUser.imgUrl)
     const [isChangedImg, setIsChangedImg] = useState(false)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [isFollowedProfile, setIsFollowedProfile] = useState(checkIsFollowedProfile())
+    const [isClicked, setIsClicked] = useState(false)
+
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (!currPlaylist) return
+        if (watchedUser._id === currPlaylist?._id) setIsClicked(isPlaying)
+        else setIsClicked(false)
+    }, [currPlaylist, watchedUser, isPlaying])
+
+    const onTogglePlay = () => {
+        if (!isClicked && watchedUser._id !== currPlaylist?._id) {
+            dispatch(setPlaylist(watchedUser))
+            dispatch(setMediaPlayerClip(watchedUser.clips[0]))
+        }
+        togglePlayFunc()
+    }
+
 
     useEffect(() => {
         setIsFollowedProfile(checkIsFollowedProfile())
@@ -57,7 +78,7 @@ export const ProfileHeader = ({
         }
 
         dispatch(updateUser(loggedinUser))
-        dispatch(updateWatchedUser(watchedUserToUpdate))
+        watchedUserToUpdate?.isArtist ? dispatch(updateArtist(watchedUserToUpdate)) : dispatch(updateWatchedUser(watchedUserToUpdate))
     }
 
     const getProfileDetails = () => {
@@ -109,6 +130,13 @@ export const ProfileHeader = ({
             <section
                 className='profile-btn-container'>
                 <section className='profile-btn-main-container flex'>
+                    {(watchedUser.clips?.length > 0 && watchedUser?.isArtist) && <section className='play-btn-container'>
+                        <button
+                            className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                            onClick={onTogglePlay}></button>
+                        {(watchedUser._id === currPlaylist?._id && isPlaying) && <Equalizer />}
+
+                    </section>}
                     {(loggedinUser && loggedinUser?._id !== watchedUser?._id) &&
                         <button
                             className='toggle-follow-btn'

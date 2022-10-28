@@ -40,6 +40,13 @@ export const StationHeader = ({
         else setIsClicked(false)
     }, [currPlaylist, currStation, isPlaying])
 
+    const onTogglePlay = () => {
+        if (!isClicked && currStation._id !== currPlaylist?._id) {
+            dispatch(setPlaylist(currStation))
+            dispatch(setMediaPlayerClip(currStation.clips[0]))
+        }
+        togglePlayFunc()
+    }
 
     const onUploadImg = async (ev) => {
         if (!ev.target.value) return
@@ -53,13 +60,6 @@ export const StationHeader = ({
         dispatch(updateStation(stationToUpdate))
     }
 
-    const onTogglePlay = () => {
-        if (!isClicked && currStation._id !== currPlaylist?._id) {
-            dispatch(setPlaylist(currStation))
-            dispatch(setMediaPlayerClip(currStation.clips[0]))
-        }
-        togglePlayFunc()
-    }
 
     if (currStation) {
         return <header className='station-header'>

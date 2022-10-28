@@ -5,7 +5,7 @@ import { Loader } from '../cmps/loader'
 import { StationList } from '../cmps/station-list'
 import { setGetStationsByTag } from '../store/station.actions'
 
-export const TagsDetails = () => {
+export const Tags = () => {
     const { stations, getStationByTag } = useSelector(state => state.stationModule)
     const params = useParams()
     const dispatch = useDispatch()

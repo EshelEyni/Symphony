@@ -71,3 +71,20 @@
 .profile-img-input {
     display: none;
 }
+
+.play-btn {
+    border-radius: 50%;
+    border: none;
+    transform: scale(1.1);
+    background: #1ed760;
+    transition: 0.4s;
+    width: 3.125rem;
+    height: 3.125rem;
+    font-size: 1.2rem;
+
+    @include for-mobile-layout {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1rem;
+    }
+}

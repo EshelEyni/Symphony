@@ -6,7 +6,7 @@ import { ProfileList } from '../cmps/profile-list'
 import { loadUsers, setWatchedUser } from '../store/user.actions'
 import { profileService } from '../services/profile-service'
 
-export const FollowingDetails = () => {
+export const Following = () => {
     const { users, watchedUser } = useSelector(state => state.userModule)
     const { artists } = useSelector(state => state.artistModule)
     const dispatch = useDispatch()

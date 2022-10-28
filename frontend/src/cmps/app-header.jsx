@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { onLogout } from '../store/user.actions'
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded'
 import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded'
+import { PaginationBtns } from './pagination-btns'
 
 export const AppHeader = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
@@ -37,7 +38,7 @@ export const AppHeader = () => {
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
                 ></div>}
-
+            <PaginationBtns />
             <section className='app-header-user-links-container flex'>
 
                 {/************************* GUEST MODE *************************/}

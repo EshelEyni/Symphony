@@ -7,7 +7,7 @@ import { stationService } from "../services/station.service"
 import { userService } from "../services/user.service"
 import { loadStations } from "../store/station.actions"
 
-export const PublicStationsDetails = () => {
+export const PublicStations = () => {
     const { stations } = useSelector(state => state.stationModule)
     const { loggedinUser, watchedUser } = useSelector(state => state.userModule)
     const [publicStations, setPublicStations] = useState([])
@@ -36,11 +36,13 @@ export const PublicStationsDetails = () => {
         }
     }
 
-    if (!publicStations.length) {
-        return <Loader
-            size={'large-loader'}
-            loaderType={'page-loader'} />
-    }
+    if (!publicStations.length)
+        return (
+            <Loader
+                size={'large-loader'}
+                loaderType={'page-loader'} />
+        )
+
 
     if (publicStations.length)
         return (
