@@ -3,11 +3,8 @@ import { userService } from './user.service'
 
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_STATION_UPDATED = 'station-updated'
-export const USER_REGISTERED_TO_PLAYLIST = 'user-register-to-playlist'
-export const USER_REGISTERED_TO_PROFILE = 'user-register-to-profile'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
-
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()

@@ -10,7 +10,7 @@ import { setUserMsg, updateUser } from '../store/user.actions.js'
 import { setHeaderBgcolor } from '../store/app-header.actions.js'
 import { stationService } from '../services/station.service.js'
 import { defaultBgcolor, defaultHeaderBgcolor } from '../services/bg-color.service.js'
-import { socketService, SOCKET_EVENT_STATION_UPDATED, USER_REGISTERED_TO_PLAYLIST } from '../services/socket.service.js'
+import { socketService, SOCKET_EVENT_STATION_UPDATED } from '../services/socket.service.js'
 import { AdminControlSet } from '../cmps/admin-control-set.jsx'
 
 export const StationDetails = () => {
@@ -58,10 +58,7 @@ export const StationDetails = () => {
 
     useEffect(() => {
         if (currStation?._id === params._id) {
-            socketService.emit(USER_REGISTERED_TO_PLAYLIST, currStation?._id)
-            socketService.on('TEST', data => console.log('data', data))
             return () => {
-                socketService.off(USER_REGISTERED_TO_PLAYLIST)
                 socketService.off(SOCKET_EVENT_STATION_UPDATED)
                 dispatch(loadStation('clear-station'))
             }
@@ -103,7 +100,7 @@ export const StationDetails = () => {
             setTimeout(() => dispatch(setUserMsg(null)), 2500)
             return
         }
-        stationToUpdate.clips.push({...addedClip, createdAt: Date.now()})
+        stationToUpdate.clips.push({ ...addedClip, createdAt: Date.now() })
         if (!stationId) dispatch(updateStation(stationToUpdate))
         else stationService.save(stationToUpdate)
         dispatch(setUserMsg('Added to ' + stationToUpdate.name))

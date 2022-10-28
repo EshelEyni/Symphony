@@ -11,6 +11,8 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import { updateArtist } from '../store/artist.actions'
 import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
 import { Equalizer } from './equalizer'
+import { socketService, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
+import { setHeaderBgcolor } from '../store/app-header.actions'
 
 export const ProfileHeader = ({
     watchedUser,
@@ -62,7 +64,9 @@ export const ProfileHeader = ({
         setProfileImgUrl(userToUpdate.imgUrl)
         setIsChangedImg(false)
         await setBackgroundColor(userToUpdate)
+        dispatch(setHeaderBgcolor(userToUpdate.bgColor))
         dispatch(updateUser(userToUpdate))
+        socketService.emit(SOCKET_EVENT_USER_UPDATED, userToUpdate)
     }
 
     const onToggleFollowProfile = async () => {

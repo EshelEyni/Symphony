@@ -40,12 +40,10 @@ async function deleteUser(req, res) {
 }
 
 async function updateUser(req, res) {
-    var loggedInUser = await authService.validateToken(req.cookies.loginToken)
     try {
         const userToUpdate = req.body
         const updatedUser = await userService.update(userToUpdate)
-        socketService.broadcast({ type: 'user-updated', data: userToUpdate, userId: loggedInUser._id })
-
+        socketService.broadcast({ type: 'user-updated', data: updatedUser, userId: updatedUser._id })
         res.send(updatedUser)
     } catch (err) {
         logger.error('Failed to update user', err)

@@ -1,5 +1,6 @@
 import { store } from '../store/store'
-import { getActionUpdateUser } from '../store/user.actions'
+import { getActionUpdateUser, getActionUpdateWatchedUser } from '../store/user.actions'
+import { getWatchedUserId } from '../store/user.reducer'
 import { httpService } from './http.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 
@@ -10,7 +11,9 @@ const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
     ; (() => {
         socketService.on(SOCKET_EVENT_USER_UPDATED, (updatedUser) => {
             console.log('GOT from socket', updatedUser)
-            // store.dispatch(getActionUpdateUser(updatedUser))
+            const watchedUserId = store.getState().userModule.watchedUser._id
+            if (watchedUserId === updatedUser._id)
+                store.dispatch(getActionUpdateWatchedUser(updatedUser))
         })
     })()
 
@@ -39,7 +42,10 @@ async function getById(userId) {
 async function login(currUser) {
     try {
         const user = await httpService.post('auth/login', currUser)
-        if (user) return saveLocalUser(user)
+        if (user) {
+            socketService.login(user._id)
+            return saveLocalUser(user)
+        }
     }
     catch (err) {
         console.log('err', err)
@@ -50,7 +56,10 @@ async function login(currUser) {
 async function signup(currUser) {
     try {
         const user = await httpService.post('auth/signup', currUser)
-        if (user) return saveLocalUser(user)
+        if (user) {
+            socketService.login(user._id)
+            return saveLocalUser(user)
+        }
     }
     catch (err) {
         console.log('err', err)
@@ -72,6 +81,7 @@ async function update(userToUpdate) {
 
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+    socketService.logout()
     return await httpService.post('auth/logout')
 }
 

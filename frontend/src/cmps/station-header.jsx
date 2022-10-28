@@ -40,6 +40,10 @@ export const StationHeader = ({
         else setIsClicked(false)
     }, [currPlaylist, currStation, isPlaying])
 
+    useEffect(() => {
+        setImgUrl(currStation.imgUrl)
+    }, [currStation])
+
     const onTogglePlay = () => {
         if (!isClicked && currStation._id !== currPlaylist?._id) {
             dispatch(setPlaylist(currStation))

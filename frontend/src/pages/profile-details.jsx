@@ -12,7 +12,7 @@ import { setHeaderBgcolor } from '../store/app-header.actions'
 import { loadArtists } from '../store/artist.actions'
 import { profileService } from '../services/profile-service'
 import { stationService } from '../services/station.service'
-import { socketService, SOCKET_EVENT_USER_UPDATED, USER_REGISTERED_TO_PROFILE } from '../services/socket.service'
+import { socketService, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 import { defaultHeaderBgcolor } from '../services/bg-color.service'
 
 
@@ -32,19 +32,8 @@ export const ProfileDetails = () => {
         dispatch(loadUsers())
         dispatch(loadStations())
         dispatch(loadArtists())
-    }, [])
 
-    useEffect(() => {
-        dispatch(setHeaderBgcolor(watchedUser?.bgColor))
-        if (watchedUser?._id !== params._id) dispatch(setWatchedUser(params._id))
-        setPublicStations(stationService.getUserStations(stations, watchedUser, 'public-stations'))
-        setProfilesByLike(profileService.getUserProfiles(users, loggedinUser, 'likes'))
-    }, [params, stations, users, watchedUser])
-
-    useEffect(() => {
-        socketService.emit(USER_REGISTERED_TO_PROFILE, watchedUser?._id)
         return () => {
-            socketService.off(USER_REGISTERED_TO_PROFILE)
             socketService.off(SOCKET_EVENT_USER_UPDATED)
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
             dispatch(setWatchedUser('clear-user'))
@@ -53,6 +42,14 @@ export const ProfileDetails = () => {
             setProfilesByLike([])
         }
     }, [])
+
+    useEffect(() => {
+        dispatch(setHeaderBgcolor(watchedUser?.bgColor))
+        if (watchedUser?._id !== params._id) dispatch(setWatchedUser(params._id))
+        setPublicStations(stationService.getUserStations(stations, watchedUser, 'public-stations'))
+        setProfilesByLike(profileService.getUserProfiles(users, loggedinUser, 'likes'))
+    }, [params, stations, users, watchedUser, loggedinUser])
+
 
     if (!watchedUser) {
         return <Loader
@@ -134,6 +131,10 @@ export const ProfileDetails = () => {
                         </section>}
 
                     <hr className='profile-hr' />
+
+                    <ProfileList
+                        profiles={users}
+                        profileKey={'demouser-'} />
                 </main>
             </section>
         )
