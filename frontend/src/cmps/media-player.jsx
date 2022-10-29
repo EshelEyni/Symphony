@@ -259,24 +259,25 @@ export const MediaPlayer = () => {
 
     return (
         <footer className='media-player-container'>
-            <section className='mp-container'>
-                <YouTube
-                    videoId={currMediaPlayerClip?._id}
-                    opts={{ playerVars: { autoplay: isPlaying ? 1 : 0 } }}
-                    onReady={onReady} />
-            </section>
+            <YouTube
+                className='youtube-player'
+                videoId={currMediaPlayerClip?._id}
+                opts={{ playerVars: { autoplay: isPlaying ? 1 : 0 } }}
+                onReady={onReady} />
 
             <section className='media-player-clip-container flex'>
                 {currMediaPlayerClip &&
                     <img
                         className='media-player-clip-img'
+                        title={clipService.getFormattedTitle(currMediaPlayerClip) + ', ' + currMediaPlayerClip?.artist}
                         src={currMediaPlayerClip?.img?.url || ''}
                         alt='mediaplayer-img' />}
 
                 <section className='media-player-clip-preview flex column'>
-
-                    {<h1 className='flex'>
-                        {clipService.getFormattedTitle(currMediaPlayerClip)}
+                    <div className='flex'>
+                        {<h1 >
+                            {clipService.getFormattedTitle(currMediaPlayerClip)}
+                        </h1>}
                         {(loggedinUser && currMediaPlayerClip) &&
                             <LikeIcon
                                 isMediaPlayer={true}
@@ -284,12 +285,12 @@ export const MediaPlayer = () => {
                                 currClip={currMediaPlayerClip}
                                 inputId={'mediaPlayerClip'}
                             />}
-                    </h1>}
+                    </div>
                     {<p>{currMediaPlayerClip?.artist}</p>}
                 </section>
             </section>
-            <section className='mp-controller flex column'>
 
+            <section className='mp-controller flex column'>
                 <section className='mp-btn-container'>
                     {mainBtns.map((btn, idx) => {
                         const { className, title, style, onClickFunc } = btn

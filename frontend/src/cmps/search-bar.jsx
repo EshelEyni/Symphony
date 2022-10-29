@@ -44,7 +44,7 @@ export const SearchBar = ({
     }, [])
 
     const handleSearchChange = ({ target }) => {
-        if (!target.value) {
+        if (!target.value && isSearchPage) {
             searchParams.delete('q')
             setSearchParams(searchParams)
             setSearchTerm('')

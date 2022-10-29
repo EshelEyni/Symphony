@@ -1,13 +1,6 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 65px minmax(calc(100% - 76px - 125px), 1fr) 65px 76px;
-    grid-template-areas: 
-        'headerpos'
-        'main'
-        'mediaplayer'
-        'navbar'
-    ;
+    grid-template-areas: 'header' 'main' 'mediaplayer' 'navbar';
 
     .main-content {
         grid-area: main;
@@ -15,26 +8,11 @@
 
     @include for-narrow-layout {
         grid-template-columns: 252px 5fr;
-        grid-template-rows: 65px minmax(calc(100vh - 90px - 60px), 1fr) 90px;
-        grid-template-areas: 'navbar headerpos'
+        grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
+        grid-template-areas:
+            'navbar header'
             'navbar main'
             'mediaplayer mediaplayer'
         ;
-    }
-
-    /*720px and above*/
-    @include for-normal-layout {
-        grid-template-columns: 252px 5fr;
-        grid-template-rows: 65px minmax(calc(100vh - 90px - 60px), 1fr) 90px;
-        grid-template-areas: 'navbar headerpos'
-            'navbar main'
-            'mediaplayer mediaplayer'
-        ;
-    }
-
-    /*1180px and above*/
-    @include for-wide-layout {
-        grid-template-columns: 252px 4fr;
-        grid-template-rows: 65px minmax(calc(100vh - 90px - 60px), 1fr) 90px;
     }
 }

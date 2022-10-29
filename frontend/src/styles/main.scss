@@ -11,31 +11,31 @@
 
 
 // Views
-@import 'views/symphony-app'; // Station Lists
+@import 'views/symphony-app'; 
 @import 'views/library.scss';
 @import 'views/search';
-
-// Station Lists Details:
 @import 'views/stations-details';
 @import 'views/queue';
-@import 'views/profile-details'; // Profile Related Pages
+@import 'views/profile-details'; 
 @import 'views/login';
 @import 'views/signup';
 @import 'views/about';
 
 // Components
 
-@import 'cmps/app-header'; // Headers
+@import 'cmps/app-header'; 
+@import 'cmps/pagination-btns'; 
+
+@import 'cmps/side-bar';
+@import 'cmps/nav-list';
+
+@import 'cmps/loader';
 @import 'cmps/station-header';
 @import 'cmps/clip-header';
 @import 'cmps/profile-preview';
 @import 'cmps/profile-list';
 @import 'cmps/profile-header';
 
-@import 'cmps/pagination-btns'; 
-@import 'cmps/user-msg';
-@import 'cmps/side-bar';
-@import 'cmps/nav-list';
 
 @import 'cmps/edit-form';
 @import 'cmps/station-list';
@@ -52,8 +52,8 @@
 @import 'cmps/like-icon';
 
 @import 'cmps/dropdown';
-
 @import 'cmps/clip-preview';
-@import 'cmps/media-player';
 
-@import 'cmps/loader';
+
+@import 'cmps/media-player';
+@import 'cmps/user-msg';

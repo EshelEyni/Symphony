@@ -1,8 +1,3 @@
-.time-line-container {
-    display: flex;
-    justify-content: center;
-}
-
 .media-player-container {
     /************************Below 415px************************/
     grid-area: mediaplayer;
@@ -20,9 +15,15 @@
     z-index: 30;
     border-radius: 8px;
 
-    .mp-container {
+    .youtube-player {
         display: none;
     }
+
+    .time-line-container {
+        display: flex;
+        justify-content: center;
+    }
+
 
     .time-line-input {
         width: 100%;
@@ -33,7 +34,6 @@
         @include for-mobile-layout {
             transform: translateY(20%);
         }
-
     }
 
     .skip10sec-btn {
@@ -80,7 +80,6 @@
     }
 
     .media-player-clip-container {
-        display: flex;
         gap: 10px;
         align-items: center;
         width: 125px;
@@ -113,6 +112,10 @@
 
             h1 {
                 font-size: 12px;
+                max-width: 200px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             p {
@@ -231,12 +234,14 @@
             }
 
             .volume-input {
+                display: flex;
+                justify-content: center;
                 cursor: pointer;
                 accent-color: #4d4d4d;
 
                 &::-webkit-slider-thumb {
                     // display: none;
-                    -webkit-appearance:none;
+                    -webkit-appearance: none;
                     appearance: none;
                     width: 6px;
                     height: 6px;
@@ -271,6 +276,7 @@
 
         .media-player-clip-container {
             z-index: 20;
+
             .like-btn-container {
                 display: block;
                 position: relative;
@@ -320,9 +326,13 @@
 
     /*******************721px-1190px*******************/
     @include for-normal-layout {
+ 
+
         .time-line-input {
             width: 300px;
         }
+
+
     }
 
     /******************1190px and above******************/

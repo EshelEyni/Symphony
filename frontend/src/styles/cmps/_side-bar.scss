@@ -18,7 +18,7 @@
         grid-area: navbar;
         position: sticky;
         top: 0;
-        height: 100vh;
+        height: 100%;
         z-index: 20;
 
         background: #121212;
@@ -32,8 +32,6 @@
         .user-stations-container {
             padding: 0;
             margin: 10px 3px;
-            // max-height: 65%;
-            // overflow-x: hidden;
 
             li {
                 padding: 20px;
@@ -63,17 +61,16 @@
 
         .logo-name {
             position: absolute;
-            right: rem(37.5px);
+            right: rem(29.5px);
             top: rem(60px);
-            background: radial-gradient(circle farthest-corner at left center, $clr3 0%, #FFFFFF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: $green-Clr;
             margin: auto 0;
             display: flex;
             justify-content: space-evenly;
-            font-size: 25px;
+            font-size: 30px;
+            font-weight: lighter;
+            font-family: pacifico, sans-serif;
         }
-
         //     @include for-mobile-layout {
         //         display: none;
         //     }

@@ -33,13 +33,13 @@ export const AppHeader = () => {
     return (
         <header
             style={{ backgroundColor: headerBgcolor }}
-            className='app-header-container full flex'>
+            className='app-header full flex'>
             {isUserClicked &&
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
                 ></div>}
             <PaginationBtns />
-            <section className='app-header-user-links-container flex'>
+            <section className='app-header-links-container flex'>
 
                 {/************************* GUEST MODE *************************/}
                 {!loggedinUser &&
@@ -57,21 +57,22 @@ export const AppHeader = () => {
 
                 {/************************* LOGGED IN MODE *************************/}
                 {loggedinUser && <section className='user-btn-container flex'>
-
                     <section
-                        className='user-profile'
+                        className='app-header-profile'
                         title={userToDisplay?.username}
                         onClick={() => setUserClicked(!isUserClicked)}>
                         <img
                             className='profile-pic'
                             src={userToDisplay?.imgUrl} alt='user-pic' />
-                        {userToDisplay?.username}
-                        {!isUserClicked && <ArrowDropDownRoundedIcon />}
-                        {isUserClicked && <ArrowDropUpRoundedIcon />}
+                        <p className='flex'>
+                            {userToDisplay?.username}
+                            {!isUserClicked && <ArrowDropDownRoundedIcon />}
+                            {isUserClicked && <ArrowDropUpRoundedIcon />}
+                        </p>
                     </section>
 
                     {isUserClicked &&
-                        <section className='user-profile-dropdown flex column'>
+                        <section className='app-header-profile-dropdown flex column'>
                             {dropdownNavLinks.map(navLink => <NavLink
                                 key={'headr-nav-link-' + navLink.txt}
                                 to={navLink.path}
