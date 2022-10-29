@@ -26,7 +26,6 @@ export const SymphonyApp = () => {
             setArtistsByLike(artistService.getArtistBylikes(artists, loggedinUser))
         }
     }, [stations, artists])
-
     
     if (!getStationByTag?.getByTag || !randomArtists)
         return (

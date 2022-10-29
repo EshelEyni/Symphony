@@ -7,6 +7,10 @@
     border-radius: 10px;
     overflow: hidden;
 
+    h3 {
+        text-transform: capitalize;
+    }
+
     @include for-mobile-layout {
         height: 180px;
         width: 180px;

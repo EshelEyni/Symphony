@@ -38,30 +38,6 @@ export const About = () => {
         return (
             < main >
 
-                <section className='flex align-center column'>
-                    <h1>Clean Code Follow Up</h1>
-                    <ul>
-                        <li>AppHeader ✅</li>
-                        <li>SideBar ✅</li>
-                        <li>UserMsg ✅</li>
-                        <li>MediaPlayer ✅</li>
-                        <li>SymphonyApp ✅</li>
-                        <li>Tags ✅</li>
-                        <li>About ✅</li>
-                        <li>Login ✅</li>
-                        <li>Signup ✅</li>
-                        <li>ProfileDetails ✅</li>
-                        <li>ArtistDetails</li>
-                        <li>Followers ✅</li>
-                        <li>Following ✅</li>
-                        <li>Search ✅</li>
-                        <li>StationDetails ✅</li>
-                        <li>LikedSongs ✅</li>
-                        <li>Library ✅</li>
-                        <li>Queue ✅</li>
-                    </ul>
-                </section>
-
                 <section className='app-desc flex column align-center'>
                     <h1>What do we offer?</h1>
                     <article className='desc-container flex'>

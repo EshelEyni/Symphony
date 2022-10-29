@@ -1,8 +1,21 @@
 .developers {
+    .profile-preview {
+        height: fit-content;
+    }
 
     & h1 {
         display: flex;
         justify-content: center;
+    }
+    .dev-link-container{
+        width: 100%;
+        margin-top: 10px;
+        justify-content: flex-end;
+        gap: 5px;
+        &>*{
+            height: 30px;
+            width: 30px;
+        }
     }
 
     .developers-container {

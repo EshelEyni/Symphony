@@ -5,7 +5,7 @@ export const TagPreview = ({ tag, idx }) => {
     return <section
         className='tag-preview-container'>
         <Link to={'/tag/' + tag.name}>
-            <main className='tag-preview-main-container flex column'>
+            <main className='flex column'>
                 <h3>{tag.name}</h3>
                 <img
                     className='tag-preview-img'
