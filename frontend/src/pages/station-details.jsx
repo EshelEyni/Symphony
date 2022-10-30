@@ -125,8 +125,8 @@ export const StationDetails = () => {
 
     if (currStation && currStation?._id === params._id) {
         return (
-            <main className='station-container'>
-                <section className='station-main-container'>
+            <main className='station-details'>
+                <section className='station-details-main-container'>
                     <StationHeader
                         currStation={currStation}
                         bgColor={stationBgcolor}
@@ -143,7 +143,7 @@ export const StationDetails = () => {
                         <AdminControlSet
                             currStation={currStation} />}
 
-                    <section className='station-clips-container'>
+                    <section className='clips-list'>
                         <ClipList
                             bgColor={stationBgcolor}
                             clipKey={'station-clip-'}

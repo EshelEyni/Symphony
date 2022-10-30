@@ -86,27 +86,29 @@ export const ClipList = ({
 
     if (!isStationSearch) {
         return (
-            <section className='station-clips-container'>
+            <section className='clips-list'>
                 <section
                     style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
-                    className='clip-header-container'>
-                    {headerTitles.map((headerTitle, idx) => {
-                        return <h1
-                            key={idx}
-                            className={headerTitle.classname}>
-                            {headerTitle?.txt}
-                            {headerTitle?.icon}
-                        </h1>
-                    })}
+                    className='clip-header'>
+                    <div className="clip-header-container">
+                        {headerTitles.map((headerTitle, idx) => {
+                            return <h1
+                                key={idx}
+                                className={headerTitle.classname}>
+                                {headerTitle?.txt}
+                                {headerTitle?.icon}
+                            </h1>
+                        })}
+                    </div>
                 </section>
 
                 <hr />
 
                 <DragDropContext onDragEnd={onHandleDragEnd}>
-                    <Droppable droppableId='station-clips-main-container'>
+                    <Droppable droppableId='clips-list-main-container'>
                         {(provided) => (
                             <ul
-                                className='station-clips-main-container'
+                                className='clips-list-main-container'
                                 {...provided.droppableProps}
                                 ref={provided.innerRef}>
                                 {currClips.map((clip, idx) => (

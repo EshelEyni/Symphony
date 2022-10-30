@@ -1,7 +1,8 @@
-.station-clips-main-container,
+.clips-list-main-container,
 .clip-preview-container {
     display: grid;
     gap: 5px;
+    max-width: 1995px;
 
     li {
         display: block;

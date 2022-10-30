@@ -1,29 +1,37 @@
-.station-search-header {
-    @include for-mobile-layout {
-        font-size: 17px;
-        margin-left: 20px;
+.station-details-main-container {
+    hr{
+        max-width: 1995px;
+    }
+    .station-search-header {
+        @include for-mobile-layout {
+            font-size: 17px;
+            margin-left: 20px;
+        }
+
+        @include for-wide-layout {
+            display: grid;
+
+        }
     }
 
-    @include for-wide-layout {
-        display:grid;
-        
+    .station-search-container {
+
+        input {
+            padding-inline-start: 6px;
+        }
+
+        @include for-mobile-layout {
+            // display: flex;
+        }
+    }
+
+    .clips-list {
+        hr {
+            max-width: 1995px;
+        }
+
+        &>ul {
+            margin: 0px;
+        }
     }
 }
-
-.station-search-container {
-
-    input {
-        padding-inline-start: 6px;
-    }
-
-    @include for-mobile-layout {
-        // display: flex;
-    }
-}
-
-.station-clips-container {
-    &>ul {
-        margin: 0px;
-    }
-}
-

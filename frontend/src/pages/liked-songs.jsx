@@ -38,7 +38,7 @@ export const LikedSongs = () => {
 
     if (likedSongs) {
         return (
-            <main className='station-container'>
+            <main className='station-details'>
                 <header className='station-header'>
                     <StationHeader
                         user={loggedinUser.username}
@@ -51,7 +51,7 @@ export const LikedSongs = () => {
                     />
                 </header>
 
-                <section className='station-clips-container'>
+                <section className='clips-list'>
                     <ClipList
                         currStation={loggedinUser.likedSongs}
                         currClips={likedSongs}

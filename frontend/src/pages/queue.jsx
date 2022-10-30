@@ -55,10 +55,10 @@ export const Queue = () => {
             <h2>Next up</h2>
 
             <DragDropContext onDragEnd={onHandleDragEnd}>
-                <Droppable droppableId='station-clips-main-container'>
+                <Droppable droppableId='clips-list-main-container'>
                     {(provided) => (
                         <ul
-                            className='station-clips-main-container'
+                            className='clips-list-main-container'
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
                             {queueClipList.map((clip, idx) => (
