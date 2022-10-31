@@ -18,7 +18,6 @@ import { ArtistByLike } from './pages/artist-by-like-details.jsx'
 import { ArtistStations } from './pages/artist-station.jsx'
 import { ArtistProfiles } from './pages/artist-profiles.jsx'
 
-// Routes accesible from the main navigation (in AppHeader)
 const routes = [
     { path: '/', component: <SymphonyApp />, },
     { path: 'tag/:title', component: <Tags /> },

@@ -20,7 +20,6 @@ export const NavList = ({
     setIsLoginMsg
 }) => {
 
-    const [isHomeClicked, setIsHomeClicked] = useState(true)
     const [loginMsgProperties, setLoginMsgProperties] = useState(null)
 
     const setLoginMsg = (properties) => {
@@ -39,16 +38,13 @@ export const NavList = ({
     const setSymbol = (logoUnClicked, logoClicked, txt, txtClassName) => {
         return (
             <ThemeProvider theme={theme}>
-                {(txt === 'Home' ? !isHomeClicked : true) &&
-                    <div className='symbol'>
-                        {logoUnClicked}
-                    </div>
-                }
-                {((txt === 'Home' ? isHomeClicked : true) && logoClicked) &&
+                <div className='symbol'>
+                    {logoUnClicked}
+                </div>
+                {logoClicked &&
                     <div className='symbol'>
                         {logoClicked}
-                    </div>
-                }
+                    </div>}
                 <span className={txtClassName}>{txt}</span>
             </ThemeProvider>
         )
@@ -58,7 +54,7 @@ export const NavList = ({
         {
             path: '/',
             className: 'home-link',
-            onClickFunc: () => setIsHomeClicked(true),
+            onClickFunc: null,
             symbol: setSymbol(
                 <HomeOutlinedIcon sx={{ fontSize: '30px' }} />,
                 <HomeIcon sx={{ fontSize: '30px', }} />,
@@ -67,16 +63,16 @@ export const NavList = ({
         {
             path: 'search',
             className: 'search-link',
-            onClickFunc: () => setIsHomeClicked(false),
+            onClickFunc: null,
             symbol: setSymbol(
                 <ScreenSearchDesktopOutlinedIcon sx={{ fontSize: '26px' }} />,
                 <ScreenSearchDesktopRoundedIcon sx={{ fontSize: '26px' }} />,
                 'Search', 'text-search')
         },
         {
-            path: loggedinUser ? 'library' : '',
+            path: 'library',
             className: 'library-link',
-            onClickFunc: loggedinUser ? () => setIsHomeClicked(false) : () => setLoginMsg(loginFirstMsgs.library),
+            onClickFunc: loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.library),
             symbol: setSymbol(
                 <LibraryMusicOutlinedIcon sx={{ fontSize: '26px' }} />,
                 <LibraryMusicIcon sx={{ fontSize: '26px' }} />,
@@ -92,9 +88,9 @@ export const NavList = ({
                 'Create Playlist', 'text-create')
         },
         {
-            path: loggedinUser ? 'liked' : '/',
+            path: 'liked',
             className: '',
-            onClickFunc: loggedinUser ? () => setIsHomeClicked(false) : () => setLoginMsg(loginFirstMsgs.likedSongs),
+            onClickFunc: loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.likedSongs),
             symbol: setSymbol(
                 <img className='nav-likes-songs-logo' src={LikedSongsLogo} alt='LikedSongsLogo' />,
                 undefined,
@@ -102,12 +98,23 @@ export const NavList = ({
         },
     ]
 
+
+
     return <ul className='nav-list'>
-        {navLinks.map(navLink => {
+        {navLinks.map((navLink, idx) => {
             const { path, className, onClickFunc, symbol } = navLink
+            if (!loggedinUser && idx > 1) {
+                return <span key={'nav-link-' + navLink.className} className={className} onClick={onClickFunc}>
+                    <li>
+                        {symbol}
+                    </li>
+                </span>
+            }
+
             return (
                 <NavLink
                     to={path}
+                    end={true}
                     key={'nav-link-' + navLink.className}
                     className={className}
                     onClick={onClickFunc}

@@ -21,7 +21,7 @@ export function RootCmp() {
             <SideBar />
             <main className='main-content'>
                 <Routes>
-                    {routes.map(route => <Route key={route.path} element={route.component} exact={true} path={route.path} />)}
+                    {routes.map(route => <Route key={route.path} element={route.component} path={route.path} />)}
                 </Routes>
             </main>
             {isUserMsgShown && <UserMsg />}
