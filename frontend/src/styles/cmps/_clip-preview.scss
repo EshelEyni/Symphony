@@ -23,6 +23,7 @@
         // clip: rect(5px, 40px, 35px, 0px);
         width: rem(40px);
         height: rem(40px);
+        clip-path: inset(12.5% 0% 12.5% 0% round 10px);
     }
 
     .title-text {

@@ -36,11 +36,13 @@ export const MediaPlayer = () => {
         if ((!prevClip && currMediaPlayerClip) || (prevClip?._id !== currMediaPlayerClip?._id)) {
             storageService.saveToStorage('prevClip', currMediaPlayerClip)
             storageService.saveToStorage('prevPlaylist', currPlaylist)
-            let userToUpdate = { ...loggedinUser }
-            userToUpdate = userService.updateUserRecentlyPlayedClips(userToUpdate, currMediaPlayerClip)
-            userToUpdate.prevClip = currMediaPlayerClip
-            userToUpdate.prevPlaylist = currPlaylist
-            dispatch(updateUser(userToUpdate))
+            if (loggedinUser) {
+                let userToUpdate = { ...loggedinUser }
+                userToUpdate = userService.updateUserRecentlyPlayedClips(userToUpdate, currMediaPlayerClip)
+                userToUpdate.prevClip = currMediaPlayerClip
+                userToUpdate.prevPlaylist = currPlaylist
+                dispatch(updateUser(userToUpdate))
+            }
             dispatch(setIsPlaying(true))
         }
 
@@ -265,7 +267,7 @@ export const MediaPlayer = () => {
                 opts={{ playerVars: { autoplay: isPlaying ? 1 : 0 } }}
                 onReady={onReady} />
 
-            <section className='media-player-clip-container flex'>
+            <section className='media-player-clip-preview flex'>
                 {currMediaPlayerClip &&
                     <img
                         className='media-player-clip-img'
@@ -273,21 +275,19 @@ export const MediaPlayer = () => {
                         src={currMediaPlayerClip?.img?.url || ''}
                         alt='mediaplayer-img' />}
 
-                <section className='media-player-clip-preview flex column'>
-                    <div className='flex'>
-                        {<h1 >
-                            {clipService.getFormattedTitle(currMediaPlayerClip)}
-                        </h1>}
-                        {(loggedinUser && currMediaPlayerClip) &&
-                            <LikeIcon
-                                isMediaPlayer={true}
-                                currStation={currPlaylist}
-                                currClip={currMediaPlayerClip}
-                                inputId={'mediaPlayerClip'}
-                            />}
-                    </div>
+                <section className='media-player-clip-txt flex column'>
+                    {<h1 >
+                        {clipService.getFormattedTitle(currMediaPlayerClip)}
+                    </h1>}
                     {<p>{currMediaPlayerClip?.artist}</p>}
                 </section>
+                {(loggedinUser && currMediaPlayerClip) &&
+                    <LikeIcon
+                        isMediaPlayer={true}
+                        currStation={currPlaylist}
+                        currClip={currMediaPlayerClip}
+                        inputId={'mediaPlayerClip'}
+                    />}
             </section>
 
             <section className='mp-controller flex column'>

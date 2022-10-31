@@ -27,7 +27,6 @@ export const AppHeader = () => {
     const dropdownNavLinks = [
         { path: 'profile/' + loggedinUser?._id, txt: 'Profile' },
         { path: 'about', txt: 'About' },
-        { path: 'download', txt: 'Download' }
     ]
 
     return (
@@ -46,7 +45,6 @@ export const AppHeader = () => {
                     <section className='guest-mode-container flex'>
                         <section className='guest-mode-links-bar flex'>
                             <NavLink to='about' >About</NavLink>
-                            <NavLink to='download' >Download</NavLink>
                         </section>
                         <div className='vl'></div>
                         <section className='guest-btn-container flex'>
