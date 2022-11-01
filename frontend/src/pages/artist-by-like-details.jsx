@@ -37,10 +37,10 @@ export const ArtistByLike = () => {
 
     return (
         <section className="artist-by-like-details">
-            <h1>Artists you might like</h1>
             <ProfileList
+                title={'Artists you might like'}
                 profiles={artistsByLike}
-                profileKey={'artists-by-like-details-'}
+                profileKey={'artists-by-like-'}
             />
         </section>
     )

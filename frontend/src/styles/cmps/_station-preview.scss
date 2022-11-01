@@ -1,21 +1,84 @@
 .station-preview {
+    height: 270px;
     border-radius: 15px;
     padding: 15px;
     background-color: #181818;
-    justify-content: space-between;
-    overflow: hidden;
-    overflow-y: hidden;
-    height: 270px;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-        margin: 0;
-        padding: 0;
+    .station-preview-main-container {
+
+        a {
+            display: flex;
+            justify-content: center;
+        }
+
+        .recent-search-delete-btn-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        .station-preview-img-container {
+            height: 156px;
+            width: 100%;
+
+            .station-preview-img {
+                float: left;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                margin-bottom: 16px;
+                box-shadow: 0px 7px 24px -2px #000000;
+                border-radius: 5px;
+            }
+
+            .play-btn-container {
+                &>* {
+                    position: relative;
+                    left: 80%;
+                    bottom: 65px;
+
+                }
+
+                .play-btn {
+                    border-radius: 50%;
+                    border: none;
+                    display: none;
+                    text-align: center;
+                    transition: 0.4s;
+                    width: 45px;
+                    height: 45px;
+
+                    @include for-mobile-layout {
+                        display: none;
+                    }
+                }
+
+                .play-btn.fa-pause {
+                    display: block;
+
+                }
+            }
+        }
+
+        .desc-container {
+
+            h4,
+            p {
+                margin: 0;
+                padding: 0;
+            }
+
+            h4 {
+                margin-top: 15px;
+                font-size: 16px;
+                padding-bottom: 4px;
+            }
+
+            p {
+                color: #a7a7a7;
+                text-overflow: ellipsis;
+            }
+        }
     }
 
     &:hover {
@@ -28,98 +91,13 @@
 
             &:hover {
                 .play-btn {
-                    opacity: 1;
+                    display: block;
                     transform: scale(1.1);
                     background: #1ed760;
                     transition: 0.4s;
                     border: none;
                 }
             }
-
-            @include for-mobile-layout {
-                // width: 175px;
-            }
         }
     }
-
-    .desc-container {
-        h4 {
-            margin-top: 15px;
-            font-size: 16px;
-            padding-bottom: 4px;
-        }
-
-        p {
-            color: #a7a7a7;
-            text-overflow: ellipsis;
-        }
-    }
-
-    a {
-        display: flex;
-        justify-content: center;
-    }
-
-    .img-container {
-        height: 156px;
-        width: 100%;
-
-        .station-preview-img {
-            height: 100%;
-            object-fit: cover;
-            margin-bottom: 16px;
-
-            @include aspect-ratio(1, 1);
-            width: 100%;
-            box-shadow: 0px 7px 24px -2px #000000;
-            border-radius: 5px;
-        }
-
-        .play-btn {
-            border-radius: 50%;
-            border: none;
-            display: unset;
-            opacity: 0;
-            position: relative;
-            text-align: center;
-            bottom: 75px;
-            left: 102px;
-            transition: 0.4s;
-            width: 45px;
-            height: 45px;
-
-            @include for-mobile-layout {
-                display: none;
-            }
-        }
-    }
-
-    & .fa-pause {
-        display: none;
-    }
-
-    & .equalizer-img {
-        width: 45px;
-        height: 45px;
-    }
-
-    .play-btn-container {
-
-        &:hover {
-            & .equalizer {
-                display: none;
-            }
-
-            & .play-btn.fa-pause {
-                display: unset;
-            }
-        }
-    }
-}
-
-
-.recent-search-delete-btn-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
 }

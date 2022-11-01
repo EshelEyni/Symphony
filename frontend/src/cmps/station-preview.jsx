@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Equalizer } from './equalizer'
 import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
 import { removeStation } from '../store/station.actions'
 import { setUserMsg, updateUser } from '../store/user.actions'
@@ -61,7 +60,7 @@ export const StationPreview = ({
                 {isSearch && <div className='recent-search-delete-btn-container'>
                     <i className='fa-solid fa-xmark'
                         onClick={onRemoveStation}></i> </div>}
-                <section className='img-container'>
+                <section className='station-preview-img-container'>
                     <img
                         className='station-preview-img'
                         src={currStation.imgUrl}
@@ -72,7 +71,6 @@ export const StationPreview = ({
                                 onClick={(ev) => {
                                     onTogglePlay(ev)
                                 }}></button>
-                            {(currStation._id === currPlaylist?._id && isPlaying) && <Equalizer />}
                         </section>}
                 </section>
                 <section className='desc-container '>

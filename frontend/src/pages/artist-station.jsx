@@ -30,8 +30,8 @@ export const ArtistStations = () => {
     if (watchedArtist)
         return (
             <section className="artist-stations">
-                <h1>{'Playlits for ' + watchedArtist.username}</h1>
                 <StationList
+                    title={'Playlits for ' + watchedArtist.username}
                     stations={stationService.getFilteredStations(stations, { term: watchedArtist.username, type: 'artist-name' })}
                     stationKey={'artists-stations-station '}
                 />

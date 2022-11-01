@@ -75,8 +75,8 @@ export const ArtistDetails = () => {
                 </section>
                 {stationsByArtist.length > 0 &&
                     <section className='artist-stations-container'>
-                        <h1>Playlists</h1>
                         <StationList
+                            title={'Playlists'}
                             isArtist={true}
                             isLimitedDisplay={true}
                             stations={stationsByArtist}
@@ -87,8 +87,8 @@ export const ArtistDetails = () => {
 
                 {profilesByArtist.length > 0 && <section
                     className='artist-profile-list'>
-                    <h1>Profiles</h1>
                     <ProfileList
+                        title={'Profiles'}
                         isArtistDetails={true}
                         isLimitedDisplay={true}
                         profiles={profilesByArtist}

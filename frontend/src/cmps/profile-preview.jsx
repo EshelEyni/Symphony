@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Equalizer } from './equalizer'
 import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
 
 export const ProfilePreview = ({
@@ -52,7 +51,6 @@ export const ProfilePreview = ({
                                     onClick={(ev) => {
                                         onTogglePlay(ev)
                                     }}></button>
-                                {(user._id === currPlaylist?._id && isPlaying) && <Equalizer />}
                             </section>}
 
                     </section>

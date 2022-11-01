@@ -28,8 +28,8 @@ export const Followers = () => {
     if (watchedUser && users.length > 0) {
         return (
             <main>
-                <h1>Followers</h1>
                 <ProfileList
+                    title={'Followers'}
                     profiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
                     profileKey={'followers-details-'}
                 />

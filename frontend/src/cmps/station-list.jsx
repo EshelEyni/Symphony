@@ -4,6 +4,7 @@ import { LikedSongsPreview } from './liked-songs-preview'
 import { useSelector } from 'react-redux'
 
 export const StationList = ({
+    title,
     stations,
     isSearch,
     isLiked,
@@ -21,23 +22,28 @@ export const StationList = ({
     const links = [
         { condition: tag, path: '/tag/' + tag },
         { condition: watchedUserId, path: '/public-playlists/' + watchedUserId },
-        { condition: isArtist, path:'/artist-playlists/'+ watchedArtist?._id }
+        { condition: isArtist, path: '/artist-playlists/' + watchedArtist?._id }
     ]
+
     if (stationsForDisplay)
-        return <section className='station-list-container'>
+        return (
+            <section className='station-list'>
+                <header className="station-list-header flex space-between">
+                    <h1>{title}</h1>
+                    {links.map(link => (
+                        (link.condition && isSeeAllLink) && <Link key={link.path} to={link.path}>see all</Link>
+                    ))}
+                </header>
 
-            {links.map(link => (
-                    (link.condition && isSeeAllLink) && <Link key={link.path} to={link.path}>See all</Link>
-                ))}
-
-            <main className='station-list-main-container grid'>
-                {isLiked && <LikedSongsPreview />}
-                {stationsForDisplay.map(station => <article
-                    key={stationKey + station._id}>
-                    <StationPreview
-                        currStation={station}
-                        isSearch={isSearch} />
-                </article>)}
-            </main>
-        </section>
+                <main className='station-list-main-container grid'>
+                    {isLiked && <LikedSongsPreview />}
+                    {stationsForDisplay.map(station => <article
+                        key={stationKey + station._id}>
+                        <StationPreview
+                            currStation={station}
+                            isSearch={isSearch} />
+                    </article>)}
+                </main>
+            </section>
+        )
 }

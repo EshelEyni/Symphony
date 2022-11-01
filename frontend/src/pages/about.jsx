@@ -37,6 +37,26 @@ export const About = () => {
     if (developers.length > 0) {
         return (
             < main >
+                <ul className="class-pages-list">
+                    <li>SymphonyApp ✅</li>
+                    <li>Tags ✅</li>
+                    <li>Login ✅</li>
+                    <li>Signup ✅</li>
+                    <li>ProfileDetails</li>
+                    <li>PublicStations</li>
+                    <li>ArtistDetails</li>
+                    <li>ArtistByLike</li>
+                    <li>ArtistStations</li>
+                    <li>ArtistProfiles</li>
+                    <li>Followers</li>
+                    <li>Following</li>
+                    <li>Search</li>
+                    <li>StationDetails</li>
+                    <li>LikedSongs</li>
+                    <li>Library</li>
+                    <li>Queue</li>
+                    <li>About</li>
+                </ul>
 
                 <section className='app-desc flex column align-center'>
                     <h1>What do we offer?</h1>

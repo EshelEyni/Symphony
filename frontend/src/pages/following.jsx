@@ -30,8 +30,8 @@ export const Following = () => {
 
         return (
             <main>
-                <h1>Following</h1>
                 <ProfileList
+                    title={'Following'}
                     profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
                     profileKey={'following-details-'}
                 />

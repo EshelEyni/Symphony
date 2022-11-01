@@ -192,10 +192,11 @@ export const MediaPlayer = () => {
             }
         },
         {
-            className: 'skip10sec-btn',
+            className: 'action-btn skip10sec-btn replay',
             title: 'Skip back 10 seconds',
             style: null,
-            onClickFunc: () => skipTenSec(-10)
+            onClickFunc: () => skipTenSec(-10),
+            icon: <Replay10RoundedIcon />
         },
         {
             className: 'action-btn fas fa-step-backward',
@@ -204,7 +205,7 @@ export const MediaPlayer = () => {
             onClickFunc: () => isSwitchClip ? switchClip(-1) : null
         },
         {
-            className: 'play-btn ' + (isPlaying ? 'fas fa-pause' : 'fas fa-play playing'),
+            className: 'action-btn play-btn ' + (isPlaying ? 'fas fa-pause' : 'fas fa-play playing'),
             title: isPlaying ? 'Pause' : 'Play',
             style: null,
             onClickFunc: onTogglePlay
@@ -216,10 +217,11 @@ export const MediaPlayer = () => {
             onClickFunc: () => isSwitchClip ? switchClip(1) : null
         },
         {
-            className: 'skip10sec-btn',
+            className: 'action-btn skip10sec-btn forwrard',
             title: 'Skip forward 10 seconds',
             style: null,
-            onClickFunc: () => skipTenSec(10)
+            onClickFunc: () => skipTenSec(10),
+            icon: <Forward10RoundedIcon />
         },
         {
             className: 'action-btn fa-solid fa-repeat',
@@ -231,7 +233,7 @@ export const MediaPlayer = () => {
         }
     ]
 
-    const setSlider = (ariaLable, val, max, type, height, width) => {
+    const setSlider = (ariaLable, val, max, type, height) => {
         return (
             <Slider
                 getAriaLabel={() => ariaLable}
@@ -242,7 +244,7 @@ export const MediaPlayer = () => {
                 max={+max || 0}
                 onChange={(_, value) => setPosition(value, type)}
                 sx={{
-                    color: '#fff', height, width,
+                    color: '#fff', height,
                     '&:hover': {
                         color: '#1db954', '& .MuiSlider-thumb': {
                             width: 12, height: 12, display: 'unset', color: '#fff',
@@ -275,12 +277,12 @@ export const MediaPlayer = () => {
                         src={currMediaPlayerClip?.img?.url || ''}
                         alt='mediaplayer-img' />}
 
-                <section className='media-player-clip-txt flex column'>
+                <div className='media-player-clip-txt flex column'>
                     {<h1 >
                         {clipService.getFormattedTitle(currMediaPlayerClip)}
                     </h1>}
                     {<p>{currMediaPlayerClip?.artist}</p>}
-                </section>
+                </div>
                 {(loggedinUser && currMediaPlayerClip) &&
                     <LikeIcon
                         isMediaPlayer={true}
@@ -292,38 +294,22 @@ export const MediaPlayer = () => {
 
             <section className='mp-controller flex column'>
                 <section className='mp-btn-container'>
-                    {mainBtns.map((btn, idx) => {
-                        const { className, title, style, onClickFunc } = btn
-                        if (idx !== 1 && idx !== 5)
-                            return (
-                                <button
-                                    key={'mp-btn-' + btn.className}
-                                    className={className}
-                                    title={title}
-                                    style={style}
-                                    onClick={onClickFunc}>
-                                </button>
-                            )
-                        if (idx === 1)
-                            return (
-                                <Replay10RoundedIcon
-                                    key={'mp-btn-' + btn.title}
-                                    className={className}
-                                    title={title}
-                                    onClick={onClickFunc} />
-                            )
-                        if (idx === 5)
-                            return (
-                                <Forward10RoundedIcon
-                                    key={'mp-btn-' + btn.title}
-                                    className={className}
-                                    title={title}
-                                    onClick={onClickFunc} />
-                            )
+                    {mainBtns.map(btn => {
+                        const { className, title, style, onClickFunc, icon } = btn
+                        return (
+                            <button
+                                key={'mp-btn-' + btn.className}
+                                className={className}
+                                title={title}
+                                style={style}
+                                onClick={onClickFunc}>
+                                {icon}
+                            </button>
+                        )
                     })}
                 </section>
 
-                <section className='action-btn time-line-container'>
+                <section className='time-line-container'>
                     <span className='track-time'>{mediaPlayerService.getFormattedTime(currTime || 0)}</span>
 
                     <section className='time-line-input'>
@@ -335,20 +321,24 @@ export const MediaPlayer = () => {
             </section>
 
             <section className='mp-2nd-controller'>
-                {currPlaylist &&
-                    <span
-                        className='link-to-queue'
-                        onClick={onToggleQueue} >
-                        <QueueMusicRoundedIcon
-                            className='queue-icon' />
-                    </span>}
+                <section className='mp-btn-2nd-container flex'>
+                    {currPlaylist &&
+                        <span
+                            className='link-to-queue'
+                            onClick={onToggleQueue} >
+                            <QueueMusicRoundedIcon
+                                className='queue-icon' />
+                        </span>}
 
-                <button className={'sound-btn ' + (!isMute ? 'sound-btn fas fa-volume-up' : 'sound-btn fas fa-volume-mute')}
-                    onClick={toggleMute}>
-                </button>
+                    <button className={'toggle-mute-btn ' + (!isMute ? 'toggle-mute-btn fas fa-volume-up' : 'toggle-mute-btn fas fa-volume-mute')}
+                        onClick={toggleMute}>
+                    </button>
+                </section>
 
-                <section className='volume-input'>
-                    {setSlider('volume-indicator', currVolume, 100, 'volume', 4, 95)}
+                <section className='volume-input-container'>
+                    <section className='volume-input'>
+                        {setSlider('volume-indicator', currVolume, 100, 'volume', 4)}
+                    </section>
                 </section>
             </section>
         </footer >

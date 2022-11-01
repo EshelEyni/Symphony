@@ -32,7 +32,7 @@ export const ProfileDetails = () => {
         dispatch(loadUsers())
         dispatch(loadStations())
         dispatch(loadArtists())
-
+        setRecentlyPlayedClips(loggedinUser?.recentlyPlayed?.clips || [])
         return () => {
             socketService.off(SOCKET_EVENT_USER_UPDATED)
             dispatch(setHeaderBgcolor(defaultHeaderBgcolor))
@@ -86,8 +86,8 @@ export const ProfileDetails = () => {
                                 </section>}
                             {profilesByLike.length > 0 &&
                                 <section className='shared-liked-music'>
-                                    <h1>People who like the same music</h1>
                                     <ProfileList
+                                        title={'People who like the same music'}
                                         profiles={profilesByLike}
                                         profileKey={'profiles-by-like-'}
                                     />
@@ -99,8 +99,8 @@ export const ProfileDetails = () => {
 
                     {publicStations.length > 0 &&
                         <section className='personal-playlist'>
-                            <h1>{watchedUser.username} Playlists</h1>
                             <StationList
+                                title={watchedUser.username + ' Playlists'}
                                 stations={publicStations}
                                 stationKey={'profile-details-station-'}
                                 isLimitedDisplay={true}
@@ -110,8 +110,8 @@ export const ProfileDetails = () => {
 
                     {watchedUser.followers.length > 0 &&
                         <section className='followers-container'>
-                            <h1>Followers</h1>
                             <ProfileList
+                                title={'Followers'}
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
                                 isLimitedDisplay={true}
                                 isFollowers={true}
@@ -121,8 +121,8 @@ export const ProfileDetails = () => {
 
                     {watchedUser.following.length > 0 &&
                         <section className='following-container'>
-                            <h1>Following</h1>
                             <ProfileList
+                                title={'Following'}
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
                                 isLimitedDisplay={true}
                                 isFollowing={true}
@@ -132,9 +132,6 @@ export const ProfileDetails = () => {
 
                     <hr className='profile-hr' />
 
-                    <ProfileList
-                        profiles={users}
-                        profileKey={'demouser-'} />
                 </main>
             </section>
         )

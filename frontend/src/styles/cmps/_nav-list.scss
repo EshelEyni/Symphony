@@ -14,6 +14,11 @@
     background: #121212;
     background-color: #000;
 
+    .text {
+        margin-left: -5px;
+        margin-top: 3px;
+    }
+
     &>:last-child {
         display: none;
     }
@@ -101,90 +106,4 @@
 
 .guest-mode-link {
     cursor: pointer;
-}
-
-.login-first-msg {
-    position: absolute;
-    left: 240px;
-    width: 300px;
-    height: 156px;
-    background-color: $clr4;
-    padding: 1rem;
-    border-radius: 20px;
-    z-index: 20;
-
-    .tippy {
-        position: absolute;
-        height: 0;
-        width: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        left: rem(-10px);
-        top: rem(20px);
-        border-right: 10px solid $clr4;
-    }
-
-    &>*:not(.shadow-screen) {
-        z-index: 20;
-    }
-
-    .login-first-msg-container {
-
-        & .login-first-p-1 {
-            font-size: rem(18px);
-            font-weight: 700;
-            margin: 0px 0px 8px 0px;
-        }
-
-        & .login-first-p-2 {
-            font-size: rem(14px);
-            margin: 0;
-        }
-    }
-
-    .login-first-btns {
-        margin-top: 35px;
-        justify-content: flex-end;
-        height: 40px;
-        gap: rem(10px);
-
-        &>* {
-            z-index: 20;
-        }
-
-        &>:first-child {
-            border: none;
-            background-color: $clr4;
-            font-weight: 700;
-            font-size: rem(14px);
-            color: $clr2;
-
-            &:hover {
-                font-size: rem(16px);
-                transition: 0s;
-            }
-        }
-
-        &>:last-child {
-            height: 35px;
-            width: 75px;
-            border-radius: 35px;
-            border: none;
-            font-weight: 700;
-            font-size: rem(14px);
-            color: $clr7;
-
-            &:hover {
-                font-size: rem(16px);
-                height: 37px;
-                width: 77px;
-                transition: 0s;
-            }
-        }
-    }
-}
-
-.text {
-    margin-left: -5px;
-    margin-top: 3px;
 }

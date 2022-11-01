@@ -69,7 +69,7 @@ export const Library = () => {
                     </main>}
 
                 {userStations.length > 0 &&
-                    <main className='main-stations-container'>
+                    <main>
                         <StationList
                             stations={userStations}
                             isLiked={true}

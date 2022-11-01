@@ -10,19 +10,23 @@ export const LoginMsg = ({ loginMsgProperties, setIsLoginMsg }) => {
             onClick={() => setIsLoginMsg(false)}></div>
         <section className='login-first-msg-container'>
             <span className='tippy'></span>
-            <p className='login-first-p-1'>
-               {loginMsgProperties.title}
+            <p className='login-first-msg-title'>
+                {loginMsgProperties.title}
             </p>
-            <p className='login-first-p-2'>
-               {loginMsgProperties.txt}
+            <p className='login-first-msg-txt'>
+                {loginMsgProperties.txt}
             </p>
         </section>
-        <section className='login-first-btns flex'>
-            <button onClick={() => setIsLoginMsg(false)}>Not now</button>
-            <button onClick={() => {
-                setIsLoginMsg(false)
-                navigate('/login')
-            }}>Log in</button>
+        <section className='login-first-btns grid'>
+            <div className='flex justify-center align-center'>
+                <button onClick={() => setIsLoginMsg(false)}>Not now</button>
+            </div>
+            <div className='flex justify-center align-center'>
+                <button onClick={() => {
+                    setIsLoginMsg(false)
+                    navigate('/login')
+                }}>Log in</button>
+            </div>
         </section>
-    </section>
+    </section >
 }

@@ -16,15 +16,16 @@ import { PublicStations } from './pages/public-stations.jsx'
 import { ArtistByLike } from './pages/artist-by-like-details.jsx'
 import { ArtistStations } from './pages/artist-station.jsx'
 import { ArtistProfiles } from './pages/artist-profiles.jsx'
+import { Artists } from './pages/artists.jsx'
 
 const routes = [
     { path: '/', component: <SymphonyApp />, },
-    { path: 'tag/:title', component: <Tags /> },
     { path: 'about', component: <About />, },
     { path: 'login', component: <Login />, },
     { path: 'signup', component: <Signup />, },
     { path: 'profile/:_id', component: <ProfileDetails />, },
     { path: 'public-playlists/:_id', component: <PublicStations />, },
+    { path: 'artists', component: <Artists />, },
     { path: 'artist/:_id', component: <ArtistDetails />, },
     { path: 'artist-by-likes/:_id', component: <ArtistByLike />, },
     { path: 'artist-playlists/:_id', component: <ArtistStations />, },
@@ -32,6 +33,7 @@ const routes = [
     { path: 'followers/:_id', component: <Followers />, },
     { path: 'following/:_id', component: <Following />, },
     { path: 'search/', component: <Search />, },
+    { path: 'tag/:title', component: <Tags /> },
     { path: 'station/:_id', component: <StationDetails /> },
     { path: 'liked', component: <LikedSongs />, },
     { path: 'library', component: <Library /> },

@@ -5,22 +5,16 @@
     justify-content: space-between;
     overflow: hidden;
     overflow-y: hidden;
-    height: 270px;
+    height: 285px;
 
-    h4,
-    p {
-        margin: 0;
-        padding: 0;
-    }
-
-    &:hover {
-        background-color: rgb(49, 49, 49);
-        transition: all 0.5s;
+    a {
+        display: flex;
+        justify-content: center;
     }
 
     .profile-img-container {
-        height: 165px;
-        width: 165px;
+        height: 185px;
+        width: 185px;
         border-radius: 50%;
 
         img {
@@ -31,53 +25,47 @@
             @include aspect-ratio(1, 1);
         }
 
-        .play-btn {
-            border-radius: 50%;
-            border: none;
-            display: unset;
-            // opacity: 0;
-
-            position: relative;
-
-            text-align: center;
-            bottom: 75px;
-            left: 75px;
-            transition: 0.4s;
-            width: 45px;
-            height: 45px;
-
-            @include for-mobile-layout {
-                display: none;
-            }
-        }
-
-
         .play-btn-container {
-            display: none;
+            &>* {
+                position: relative;
+                left: 70%;
+                bottom: 65px;
+            }
 
-            &:hover {
-                & .equalizer {
+            .play-btn {
+                position: relative;
+                border-radius: 50%;
+                border: none;
+                display: none;
+                text-align: center;
+                transition: 0.4s;
+                width: 45px;
+                height: 45px;
+
+                @include for-mobile-layout {
                     display: none;
                 }
-
-                & .play-btn{
-                    display: unset;
-                }
             }
-        }
 
-        &:hover {
-            & .play-btn-container {
-                display: unset;
+            .play-btn.fa-pause {
+                display: block;
+
             }
         }
     }
+
 
     .desc-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
+
+        h4,
+        p {
+            margin: 0;
+            padding: 0;
+        }
 
         h4 {
             margin-top: 15px;
@@ -90,9 +78,21 @@
         }
     }
 
-    a {
-        display: flex;
-        justify-content: center;
-    }
 
+    &:hover {
+        background-color: rgb(49, 49, 49);
+        transition: all 0.5s;
+
+        .profile-preview-main-container {
+            &:hover {
+                .play-btn {
+                    display: block;
+                    transform: scale(1.1);
+                    background: #1ed760;
+                    transition: 0.4s;
+                    border: none;
+                }
+            }
+        }
+    }
 }

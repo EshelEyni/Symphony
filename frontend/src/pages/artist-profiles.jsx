@@ -31,8 +31,8 @@ export const ArtistProfiles = () => {
 
     return (
         <section className="artist-profiles">
-            <h1>{'Profiles for ' + watchedArtist.username}</h1>
             <ProfileList
+                title={'Profiles for ' + watchedArtist.username}
                 profiles={profileService.getProfilesByArtist(stations, users, watchedArtist.username)}
                 profileKey={'artist-profile-'}
             />

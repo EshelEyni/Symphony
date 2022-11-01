@@ -11,14 +11,12 @@
 
 
 // Views
-@import 'views/symphony-app'; 
 @import 'views/library.scss';
 @import 'views/search';
 @import 'views/stations-details';
 @import 'views/queue';
 @import 'views/profile-details'; 
-@import 'views/login';
-@import 'views/signup';
+@import 'views/_login-signup';
 @import 'views/about';
 
 // Components
@@ -57,3 +55,4 @@
 
 @import 'cmps/media-player';
 @import 'cmps/user-msg';
+@import 'cmps/login-first-msg';

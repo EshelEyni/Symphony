@@ -47,8 +47,8 @@ export const PublicStations = () => {
     if (publicStations.length)
         return (
             <section className='public-stations-details'>
-                <h1>Public Playlists</h1>
                 <StationList
+                    title={'Public Playlists'}
                     stations={publicStations}
                     stationKey={'public-playlists-station-'}
                 />

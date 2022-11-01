@@ -86,8 +86,8 @@ export const Search = () => {
                 {(!isPostSearch && !isSearchLoading) &&
                     <section className='search-default-display'>
                         {(loggedinUser && recentSearches.length > 0) && <section className='recently-search-container'>
-                            <h1>Recent Searches</h1>
                             <StationList
+                                title={'Recent-Searches'}
                                 isSearch={true}
                                 stations={recentSearches}
                                 stationKey={'pre-search-recent-search-station'} />
@@ -142,8 +142,8 @@ export const Search = () => {
 
                         {filterCondition('playlists', searchStations) &&
                             <section className='search-playlist-container'>
-                                <h1>Playlists</h1>
                                 <StationList
+                                    title={'Playlists'}
                                     isLimitedDisplay={filterBy === 'playlists' ? false : true}
                                     stations={searchStations}
                                     stationKey={'search-station-'}
@@ -152,8 +152,8 @@ export const Search = () => {
 
                         {filterCondition('artists', searchArtists) &&
                             <section className='search-artist-container'>
-                                <h1>Artists</h1>
                                 <ProfileList
+                                    title={'Artists'}
                                     isLimitedDisplay={filterBy === 'artists' ? false : true}
                                     profiles={searchArtists}
                                     profileKey={'search-artists-'}
@@ -162,8 +162,8 @@ export const Search = () => {
 
                         {filterCondition('profiles', searchProfiles) &&
                             <section className='search-profiles-container'>
-                                <h1>Profiles</h1>
                                 <ProfileList
+                                    title={'Profiles'}
                                     isLimitedDisplay={filterBy === 'profiles' ? false : true}
                                     profiles={searchProfiles}
                                     profileKey={'search-profiles-'}
@@ -172,8 +172,8 @@ export const Search = () => {
 
                         {(filterCondition('searches', recentSearches) && loggedinUser) &&
                             <section className='search-artist-container'>
-                                <h1>Recent Searches</h1>
                                 <StationList
+                                    title={'Recent Searches'}
                                     isSearch={true}
                                     stations={recentSearches}
                                     stationKey={'recent-search-station-'} />
