@@ -17,6 +17,7 @@
 @import 'views/queue';
 @import 'views/profile-details'; 
 @import 'views/_login-signup';
+@import 'views/artist-details';
 @import 'views/about';
 
 // Components
@@ -29,7 +30,7 @@
 
 @import 'cmps/loader';
 @import 'cmps/station-header';
-@import 'cmps/clip-header';
+@import 'cmps/clip-list-header';
 @import 'cmps/profile-preview';
 @import 'cmps/profile-list';
 @import 'cmps/profile-header';
@@ -49,8 +50,12 @@
 @import 'cmps/tag-preview';
 @import 'cmps/like-icon';
 
-@import 'cmps/dropdown';
 @import 'cmps/clip-preview';
+@import 'cmps/clip-list';
+@import 'cmps/dropdown';
+@import 'cmps/dropdown-station';
+@import 'cmps/dropdown-clip';
+@import 'cmps/confirm-delete-msg';
 
 
 @import 'cmps/media-player';

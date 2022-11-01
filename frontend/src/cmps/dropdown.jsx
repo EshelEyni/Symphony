@@ -55,7 +55,6 @@ export const Dropdown = ({
                 isDropdown={isDropdown}
                 setIsDropdown={setIsDropdown}
                 isProfileDropDown={isProfileDropDown}
-
             />}
 
             {/*************** User only features are hidden from non-logged in users. ***************/}
@@ -91,5 +90,3 @@ export const Dropdown = ({
         </ul>
     )
 }
-
-

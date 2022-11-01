@@ -10,7 +10,6 @@ import { defaultImg } from '../services/user.service'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import { updateArtist } from '../store/artist.actions'
 import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
-import { Equalizer } from './equalizer'
 import { socketService, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 import { setHeaderBgcolor } from '../store/app-header.actions'
 
@@ -107,7 +106,7 @@ export const ProfileHeader = ({
             style={{ backgroundColor: watchedUser?.bgColor }}>
             <main
                 className='profile-header-main-container flex'>
-                <section className='profile-img-container'>
+                <section className='profile-header-img-container'>
                     <label htmlFor='profile-img'>
                         {!isChangedImg && <img
                             className='profile-img '
@@ -126,7 +125,7 @@ export const ProfileHeader = ({
                 </section>
                 <section className='profile-header-details flex column'>
                     <p>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
-                    <h1 className='profile-h1'>{watchedUser?.username}</h1>
+                    <h1 className='profile-name'>{watchedUser?.username}</h1>
                     {getProfileDetails()}
                 </section>
             </main>
@@ -138,7 +137,6 @@ export const ProfileHeader = ({
                         <button
                             className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                             onClick={onTogglePlay}></button>
-                        {(watchedUser._id === currPlaylist?._id && isPlaying) && <Equalizer />}
                     </section>}
 
                     {(loggedinUser && loggedinUser?._id !== watchedUser?._id) &&

@@ -42,8 +42,8 @@ export const About = () => {
                     <li>Tags ✅</li>
                     <li>Login ✅</li>
                     <li>Signup ✅</li>
-                    <li>ProfileDetails</li>
-                    <li>PublicStations</li>
+                    <li>ProfileDetails ✅</li>
+                    <li>PublicStations ✅</li>
                     <li>ArtistDetails</li>
                     <li>ArtistByLike</li>
                     <li>ArtistStations</li>

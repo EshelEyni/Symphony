@@ -9,10 +9,8 @@ import { StationList } from '../cmps/station-list'
 import { setHeaderBgcolor } from '../store/app-header.actions'
 import { loadUsers } from '../store/user.actions'
 import { loadStations } from '../store/station.actions'
-import { artistService } from '../services/artist.service'
 import { profileService } from '../services/profile-service'
 import { stationService } from '../services/station.service'
-import { userService } from '../services/user.service'
 import { defaultHeaderBgcolor } from '../services/bg-color.service'
 import { loadArtist } from '../store/artist.actions'
 
@@ -58,7 +56,7 @@ export const ArtistDetails = () => {
 
     if (watchedArtist) {
         return (
-            <main className='artist-details-container'>
+            <main className='artist-details'>
                 <ProfileHeader
                     watchedUser={watchedArtist}
                     loggedinUser={loggedinUser}

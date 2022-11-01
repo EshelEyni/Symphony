@@ -29,36 +29,37 @@ export const DropdownProfile = ({
         setTimeout(() => dispatch(setUserMsg(null)), 2500)
     }
 
-    return (
-        <div>
-            {loggedinUser._id === watchedUser._id &&
-                <div>
-                    <li
-                        onClick={() => {
-                            setIsDropdown(!isDropdown)
-                            setIsEdit(!isEdit)
-                        }}
-                    >Edit profile</li>
-                    <li onClick={() => setIsDeleteClicked(true)}>Delete Acount</li>
+    if (loggedinUser)
+        return (
+            <div>
+                {loggedinUser._id === watchedUser?._id &&
+                    <div>
+                        <li
+                            onClick={() => {
+                                setIsDropdown(!isDropdown)
+                                setIsEdit(!isEdit)
+                            }}
+                        >Edit profile</li>
+                        <li onClick={() => setIsDeleteClicked(true)}>Delete Acount</li>
 
-                    {isDeleteClicked && <div className='shadow-screen confirm-delete-profile'
-                        onClick={() => setIsDeleteClicked(false)}></div>}
+                        {isDeleteClicked && <div className='shadow-screen confirm-delete-profile'
+                            onClick={() => setIsDeleteClicked(false)}></div>}
 
-                    {isDeleteClicked && <ConfirmDeleteMsg
-                        isProfileDropDown={isProfileDropDown}
-                        setIsDeleteClicked={setIsDeleteClicked}
-                        onRemoveUser={onRemoveUser}
-                    />}
-                </div>}
+                        {isDeleteClicked && <ConfirmDeleteMsg
+                            isProfileDropDown={isProfileDropDown}
+                            setIsDeleteClicked={setIsDeleteClicked}
+                            onRemoveUser={onRemoveUser}
+                        />}
+                    </div>}
 
-            {loggedinUser._id !== watchedUser._id &&
-                <li onClick={() => {
-                    onToggleFollowProfile()
-                    setIsFollowedProfile(!isFollowedProfile)
-                }}>
-                    {isFollowedProfile ? 'Unfollow' : 'Follow'}
-                </li>}
-        </div>
-    )
+                {loggedinUser._id !== watchedUser?._id &&
+                    <li onClick={() => {
+                        onToggleFollowProfile()
+                        setIsFollowedProfile(!isFollowedProfile)
+                    }}>
+                        {isFollowedProfile ? 'Unfollow' : 'Follow'}
+                    </li>}
+            </div>
+        )
 
 }

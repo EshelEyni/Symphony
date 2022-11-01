@@ -1,55 +1,18 @@
-.recently-played-container {
-    padding-inline-start: rem(32px);
-    padding-top: rem(32px);
-    // background: rgb(0, 0, 0);
-    // background: linear-gradient(0deg, rgba(15, 15, 15, 0.8882) 70%, rgba(110, 110, 108, 0.8882) 170%);
-    // background: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.6) 170%);
+.profile-details-main-container {
+    gap: 35px;
 
-    h1 {
-        margin: 0;
-        padding-inline-start: 15px;
-    }
+    .recently-played-container {
+        padding-inline-start: rem(32px);
+        padding-top: rem(32px);
 
-    .clip-preview-main-container {
-        padding: 0 5px;
-    }
-}
+        & .clip-list-header {
+            background: #121212;
+        }
 
-.shared-liked-music {
+        h1 {
+            margin: 0;
+            padding-inline-start: 15px;
+        }
 
-    h1 {
-        margin: 0;
-        padding: 15px;
-        padding-bottom: 0px;
-    }
-
-}
-
-.personal-playlist {
-    h1 {
-        margin: 0;
-        padding: 15px;
-    }
-
-    .no-res-msg {
-        margin-inline-start: 15px;
     }
 }
-
-.followers-following-container {
-    h1 {
-        margin: 0;
-        padding-inline-start: 15px;
-    }
-}
-
-
-.no-liked-profiles-msg{
-
-    padding-inline-start: 150px;
-}
-
-.profile-hr{
-    margin: 65px 50px;
-}
-

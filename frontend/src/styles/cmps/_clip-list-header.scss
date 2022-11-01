@@ -1,7 +1,7 @@
-.clip-header {
+.clip-list-header {
     background: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
 
-    .clip-header-container {
+    .clip-list-header-container {
         max-width: 1995px;
 
         @include for-mobile-layout {

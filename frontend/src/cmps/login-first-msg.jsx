@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-export const LoginMsg = ({ loginMsgProperties, setIsLoginMsg }) => {
+export const LoginFirstMsg = ({ loginMsgProperties, setIsLoginMsg }) => {
     const navigate = useNavigate()
 
     return <section

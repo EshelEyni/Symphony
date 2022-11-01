@@ -89,8 +89,8 @@ export const ClipList = ({
             <section className='clips-list'>
                 <section
                     style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
-                    className='clip-header'>
-                    <div className="clip-header-container">
+                    className='clip-list-header'>
+                    <div className="clip-list-header-container">
                         {headerTitles.map((headerTitle, idx) => {
                             return <h1
                                 key={idx}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { LoginMsg } from './login-msg'
+import { LoginFirstMsg } from './login-first-msg'
 import { loginFirstMsgs } from '../services/user.service'
 import LikedSongsLogo from '../../src/assets/img/likedsongs.png'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
@@ -127,7 +127,7 @@ export const NavList = ({
         })}
 
         {/***************************************** Guest mode properties  *****************************************/}
-        {isLoginMsg && <LoginMsg
+        {isLoginMsg && <LoginFirstMsg
             loginMsgProperties={loginMsgProperties}
             setIsLoginMsg={setIsLoginMsg}
         />}

@@ -15,12 +15,12 @@
     .profile-img-container {
         height: 185px;
         width: 185px;
-        border-radius: 50%;
-
+        
         img {
             height: 100%;
             width: 100%;
             object-fit: cover;
+            border-radius: 50%;
             margin-bottom: 16px;
             @include aspect-ratio(1, 1);
         }

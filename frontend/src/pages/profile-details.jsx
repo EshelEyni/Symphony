@@ -72,11 +72,9 @@ export const ProfileDetails = () => {
                     {loggedinUser?._id === params._id &&
                         <section className='personal-profile-content'>
                             {recentlyPlayedClips?.length > 0 &&
-                                <section
-                                    className='recently-played-container'>
+                                <section className='recently-played-container'>
                                     <h1>Recently Played</h1>
                                     <ClipList
-                                        bgColor={loggedinUser.bgColor}
                                         clipKey={'recently-played'}
                                         currStation={loggedinUser.recentlyPlayed}
                                         currClips={loggedinUser.recentlyPlayed.clips}
@@ -85,7 +83,7 @@ export const ProfileDetails = () => {
                                     />
                                 </section>}
                             {profilesByLike.length > 0 &&
-                                <section className='shared-liked-music'>
+                                <section className='profiles-by-like'>
                                     <ProfileList
                                         title={'People who like the same music'}
                                         profiles={profilesByLike}
@@ -129,9 +127,6 @@ export const ProfileDetails = () => {
                                 profileKey={'profiles-following-'}
                             />
                         </section>}
-
-                    <hr className='profile-hr' />
-
                 </main>
             </section>
         )

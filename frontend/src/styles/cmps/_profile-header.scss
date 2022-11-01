@@ -1,90 +1,130 @@
-.profile-header-main-container {
+.profile-header {
+    .profile-header-main-container {
+        padding: 10px 25px 0;
+        gap: 35px;
+        margin-bottom: 50px;
 
-    padding: 10px 25px 0;
-    gap: 35px;
-    margin-bottom: 50px;
-}
+        .profile-header-img-container {
 
-.profile-img {
-    height: 110px;
-    width: 110px;
-    border-radius: 50%;
-    cursor: pointer;
+            .profile-img {
+                height: 110px;
+                width: 110px;
+                border-radius: 50%;
+                cursor: pointer;
 
-    @include for-wide-layout {
-        height: 232px;
-        width: 232px;
-        // margin-inline-start: 40px;
+                @include for-wide-layout {
+                    height: 232px;
+                    width: 232px;
+                }
+            }
+
+            .profile-img-input {
+                display: none;
+            }
+        }
+
+        .profile-header-details {
+            gap: 35px;
+            justify-content: center;
+            font-size: rem(14px);
+
+            &>*:first-child {
+                font-size: rem(10.5px);
+            }
+
+            .profile-name {
+                line-height: rem(32px);
+                padding-inline-start: 10px;
+
+                @include for-mobile-layout {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: rem(22.4px);
+                    letter-spacing: -1px;
+                    text-indent: -2px;
+                    margin-top: 0;
+                    margin-inline-start: 0;
+                    top: 245px;
+                    left: 10px;
+                }
+
+                @include for-normal-layout {
+                    font-size: 2.75rem;
+                    margin-left: 0;
+                }
+
+                @include for-wide-layout {
+                    margin-inline-start: 0;
+                    margin-top: 0;
+                    font-size: rem(88px);
+                    height: rem(88px);
+                    letter-spacing: -5px;
+                }
+            }
+
+            p {
+                margin-bottom: 0;
+
+                @include for-mobile-layout {
+                    font-size: 15px;
+                }
+            }
+        }
     }
-}
 
-.profile-header-details {
-    gap: 35px;
-    justify-content: center;
-    font-size: rem(14px);
+    .profile-btn-container {
+        position: relative;
+        padding-top: 50px;
+        padding-bottom: 15px;
+        gap: 25px;
+        background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.6) 115%);
 
-    &>*:first-child {
-        font-size: rem(10.5px);
-    }
 
-    .profile-h1 {
-        line-height: rem(32px);
-        padding-inline-start: 10px;
-
-        @include for-mobile-layout {
-            display: flex;
-            flex-direction: column;
+        .profile-btn-main-container {
             align-items: center;
-            font-size: rem(22.4px);
-            letter-spacing: -1px;
-            text-indent: -2px;
-            margin-top: 0;
-            margin-inline-start: 0;
-            top: 245px;
-            left: 10px;
+            margin: 15px;
+            gap: 20px;
+
+            .play-btn {
+                border-radius: 50%;
+                border: none;
+                background: $green-Clr2;
+                transition: 0.4s;
+                width: rem(65px);
+                height: rem(65px);
+                font-size: rem(25px);
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                @include for-mobile-layout {
+                    width: 2.75rem;
+                    height: 2.75rem;
+                    font-size: 1rem;
+                }
+            }
+
+            .toggle-follow-btn {
+                background-color: #00000000;
+                color: $clr2;
+                border: 1px solid $clr2;
+                font-size: rem(18px);
+                font-weight: bold;
+                padding: 10px 25px;
+            }
+
+            .dropdown-btn-container {
+                padding-inline-start: 10px;
+                gap: 3.5px;
+                cursor: pointer;
+            }
         }
 
-        @include for-normal-layout {
-            font-size: 2.75rem;
-            margin-left: 0;
+        .dropdown {
+            left: 17.5%;
+            top: 50%;
         }
-
-        @include for-wide-layout {
-            // text-indent: -6px;
-            margin-inline-start: 0;
-            margin-top: 0;
-            font-size: rem(88px);
-            height: rem(88px);
-            letter-spacing: -5px;
-        }
-    }
-
-    p {
-        margin-bottom: 0;
-
-        @include for-mobile-layout {
-            font-size: 15px;
-        }
-    }
-}
-
-.profile-img-input {
-    display: none;
-}
-
-.play-btn {
-    border-radius: 50%;
-    border: none;
-    transform: scale(1.1);
-    background: #1ed760;
-    transition: 0.4s;
-    width: 3.125rem;
-    height: 3.125rem;
-    font-size: 1.2rem;
-
-    @include for-mobile-layout {
-        width: 2.75rem;
-        height: 2.75rem;
-        font-size: 1rem;
     }
 }

@@ -9,10 +9,14 @@ export const ConfirmDeleteMsg = ({
     return (
         <section className='confirm-delete-profile-msg'>
             <p>Are you sure...?</p>
-            <section className='confirm-delete-profile-btns flex'>
-                <button onClick={() => setIsDeleteClicked(false)}>{isProfileDropDown ? 'Not now' : 'CANCEL'}</button>
-                {isProfileDropDown && <button onClick={onRemoveUser}>Delete account</button>}
-                {isStationDropdown && <button onClick={onRemoveStation}>DELETE</button>}
+            <section className='confirm-delete-profile-btns grid'>
+                <div className='flex justify-center align-center'>
+                    <button onClick={() => setIsDeleteClicked(false)}>{isProfileDropDown ? 'Not now' : 'CANCEL'}</button>
+                </div>
+                <div className='flex justify-center align-center'>
+                    {isProfileDropDown && <button onClick={onRemoveUser}>Delete Account</button>}
+                    {isStationDropdown && <button onClick={onRemoveStation}>DELETE</button>}
+                </div>
             </section>
         </section>
     )
