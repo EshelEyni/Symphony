@@ -1,0 +1,86 @@
+.login-first-msg {
+    position: absolute;
+    left: 240px;
+    width: 300px;
+    height: fit-content;
+    background-color: $clr4;
+    padding: 1rem;
+    border-radius: 20px;
+    z-index: 20;
+
+    .tippy {
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        left: rem(-10px);
+        top: rem(20px);
+        border-right: 10px solid $clr4;
+    }
+
+    &>*:not(.shadow-screen) {
+        z-index: 20;
+    }
+
+    .login-first-msg-container {
+
+        & .login-first-msg-title {
+            font-size: rem(18px);
+            font-weight: 700;
+            margin: 0px 0px 8px 0px;
+        }
+
+        & .login-first-msg-txt {
+            font-size: rem(14px);
+            margin: 0;
+        }
+    }
+
+    .login-first-btns {
+        margin-top: 35px;
+        justify-content: flex-end;
+        grid-template-columns: 2;
+        height: 40px;
+
+        &>* {
+            z-index: 20;
+            
+            &:hover {
+                transform: scale(1.1);
+                transition: 0.4s;
+            }
+        }
+
+        &>:first-child {
+            grid-column: 1;
+            height: 40px;
+            width: 80px;
+
+            button {
+                border: none;
+                background-color: $clr4;
+                font-weight: 700;
+                font-size: rem(14px);
+                color: $clr2;
+            }
+
+        }
+
+        &>:last-child {
+            grid-column: 2;
+            height: 40px;
+            width: 100px;
+
+            button {
+                height: 35px;
+                width: 75px;
+                border-radius: 35px;
+                border: none;
+                font-weight: 700;
+                font-size: rem(14px);
+                color: $clr7;
+            }        
+        }
+    }
+}
