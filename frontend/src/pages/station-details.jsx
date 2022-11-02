@@ -25,7 +25,6 @@ export const StationDetails = () => {
     const [isSearchLoading, setIsSearchLoading] = useState(false)
     const [isPostSearch, setIsPostSearch] = useState(false)
 
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const params = useParams()
@@ -125,7 +124,8 @@ export const StationDetails = () => {
 
     if (currStation && currStation?._id === params._id) {
         return (
-            <main className='station-details'>
+            <main className='station-details'
+                style={{ backgroundColor: stationBgcolor }}>
                 <section className='station-details-main-container'>
                     <StationHeader
                         currStation={currStation}
@@ -145,7 +145,6 @@ export const StationDetails = () => {
 
                     <section className='clips-list'>
                         <ClipList
-                            bgColor={stationBgcolor}
                             clipKey={'station-clip-'}
                             isUserCreatedStation={isUserCreatedStation}
                             isStation={true}

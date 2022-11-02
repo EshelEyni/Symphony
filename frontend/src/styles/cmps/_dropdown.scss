@@ -9,8 +9,9 @@
     border-radius: 15px;
     transition: all 0.5s;
     list-style: none;
-    padding: 15px;
-   
+    // padding: 15px;
+    z-index: 20;
+
     &>*:not(.shadow-screen) {
         z-index: 20;
     }

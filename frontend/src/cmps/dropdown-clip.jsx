@@ -54,7 +54,7 @@ export const DropdownClip = ({
         <div className='dropdown-clip'>
             <li onClick={addToQueue}>Add to queue</li>
             <li onClick={onGoToArtist}>Go to artist</li>
-            {(currStation.createdBy._id === loggedinUser?._id || isAdminMode) && <li
+            {(currStation && currStation?.createdBy._id === loggedinUser?._id || isAdminMode) && <li
                 className='remove-clip'
                 onClick={(ev) => {
                     setIsDropdown(false)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { clipService } from '../services/clip.service'
 import { LikeIcon } from './like-icon'
@@ -23,6 +23,7 @@ export const ClipPreview = ({
     const { loggedinUser } = useSelector(state => state.userModule)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
+    const dropdownBtnRef = useRef()
     const dispatch = useDispatch()
     const isCurrClipPlaying = currStation?._id === currPlaylist?._id && currClip?._id === currMediaPlayerClip?._id && isPlaying
 
@@ -96,9 +97,11 @@ export const ClipPreview = ({
                 {currClip.duration ? <div className='clip-header-clock'>{clipService.getDuration(currClip.duration)}</div> : ''}
 
                 <i className='dropdown-btn fa-solid fa-ellipsis'
+                    ref={dropdownBtnRef}
                     onClick={() => setIsDropdown(!isDropdown)} />
 
                 {isDropdown && <Dropdown
+                    leftPos={dropdownBtnRef.current.offsetLeft}
                     isDropdown={isDropdown}
                     setIsDropdown={setIsDropdown}
                     isClipDropdown={true}

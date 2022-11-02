@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { EditModal } from './edit-modal'
@@ -17,7 +17,6 @@ export const StationHeader = ({
     currStation,
     isLikedSongs,
     LikedSongsLogo,
-    bgColor,
     setBgcolor,
     onRemoveStation,
     onSaveSearchStation,
@@ -32,6 +31,7 @@ export const StationHeader = ({
     const [imgUrl, setImgUrl] = useState(currStation.imgUrl)
     const [isChangedImg, setIsChangedImg] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
+    const dropdownBtnRef = useRef()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -68,7 +68,6 @@ export const StationHeader = ({
     if (currStation) {
         return <header className='station-header'>
             <main
-                style={{ backgroundColor: bgColor }}
                 className='station-header-main-container flex'>
                 {<section className='station-img-container'>
                     <label htmlFor='station-header-img'>
@@ -106,8 +105,7 @@ export const StationHeader = ({
                 </div>
             </main>
 
-            <section className='playlist-btns'
-                style={{ backgroundColor: bgColor }}>
+            <section className='playlist-btns'>
                 {currStation.clips?.length > 0 && <section className='play-btn-container'>
                     <button
                         className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
@@ -125,6 +123,7 @@ export const StationHeader = ({
                 <section
                     className='dropdown-btn-container flex'
                     title={'More options for ' + currStation?.name}
+                    ref={dropdownBtnRef}
                     onClick={() => { setIsDropdown(!isDropdown) }}>
                     <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
                     <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
@@ -139,29 +138,26 @@ export const StationHeader = ({
                     />}
             </section>
 
-            <section
-                style={{ backgroundColor: bgColor }}>
+            {isDropdown && <Dropdown
+                leftPos={dropdownBtnRef.current.offsetLeft + 45}
+                currStation={currStation}
+                isDropdown={isDropdown}
+                setIsDropdown={setIsDropdown}
+                setIsEdit={setIsEdit}
+                isAdminMode={isAdminMode}
+                isUserStation={currStation.createdBy._id === loggedinUser?._id}
+                isStationDropdown={true}
+                onTogglePublicStation={onTogglePublicStation}
+                onSaveSearchStation={onSaveSearchStation}
+                onRemoveStation={onRemoveStation}
+            />}
 
-                {isDropdown && <Dropdown
-                    currStation={currStation}
-                    isDropdown={isDropdown}
-                    setIsDropdown={setIsDropdown}
-                    setIsEdit={setIsEdit}
-                    isAdminMode={isAdminMode}
-                    isUserStation={currStation.createdBy._id === loggedinUser?._id}
-                    isStationDropdown={true}
-                    onTogglePublicStation={onTogglePublicStation}
-                    onSaveSearchStation={onSaveSearchStation}
-                    onRemoveStation={onRemoveStation}
-                />}
-
-                {isEdit && <EditModal
-                    currStation={currStation}
-                    setIsEdit={setIsEdit}
-                    setMainImg={setImgUrl}
-                    setBgcolor={setBgcolor}
-                />}
-            </section>
+            {isEdit && <EditModal
+                currStation={currStation}
+                setIsEdit={setIsEdit}
+                setMainImg={setImgUrl}
+                setBgcolor={setBgcolor}
+            />}
         </header >
     }
 }
