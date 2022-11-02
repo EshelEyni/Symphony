@@ -1,77 +1,67 @@
 .search-filter-btns {
-    padding: 8px 10px;
-    gap: 10px;
-    display: contents;
-    padding-right: 20px;
+    margin-top: 25px;
+    gap: 7.5px;
 
-    & .active {
-        background: rgb(47, 46, 46);
-        background: radial-gradient(circle, rgba(47, 46, 46, 1) 0%, rgba(103, 99, 99, 1) 100%);
+    
+    .search-filter-btn {
+        border-radius: 25px;
+        background-color: rgb(26, 26, 26);
+        color: white;
+        border: none;
+        padding: 8.5px 25px;
+        font-size: rem(20px);
+        font-family: circular;
+        
+        &.active {
+            background-color: #676363;
+        }
 
-    }
-
-    @include for-mobile-layout {}
-}
-
-// .search-main-container {
-
-//     .search-loader-container {
-//         margin: 150px;
-//         display: flex;
-//         justify-content: center;
-//         height: 200px;
-//     }
-// }
-
-.search-filter-btn {
-    border-radius: 25px;
-    background-color: rgb(26, 26, 26);
-    color: white;
-    border: none;
-    padding: 5px 15px;
-    margin: 5px;
-    font-family: circular;
-
-    @include for-mobile-layout {
-        font-size: 12px;
+        @include for-mobile-layout {
+            font-size: 12px;
+        }
     }
 }
 
-.scroller {
-    width: 300px;
-    height: 100px;
-    overflow-y: scroll;
-    scrollbar-color: rebeccapurple green;
-    scrollbar-width: thin;
+.recently-search-container {
+    .station-preview {
+        .station-preview-main-container {
+            .recent-search-delete-btn-container {
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+
+                .fa-xmark {
+                    font-size: rem(30px);
+
+                    &:hover {
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .station-preview-img-container {
+                // width: 150px;
+
+                .station-preview-img {
+                    clip-path: inset(12.5% 0% 12.5% 0% round 10px);
+                    margin: 0;
+                }
+            }
+
+            .desc-container {
+                h4 {
+                    margin-top: 0;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
 }
+
 
 .browse-all {
     @include for-mobile-layout {
         padding: 0;
     }
 }
-
-// .search-loader-img{
-//     width: rem(405px);
-//     height: rem(414px);
-//     padding: 30px;
-
-//     animation: rotation 4s infinite linear;
-
-//     @keyframes rotation {
-//         from {
-//             transform: rotate(0deg);
-//         }
-
-//         to {
-//             transform: rotate(359deg);
-//         }
-//     }
-
-//     @include for-mobile-layout {
-//         height: 230px;
-//         width: 230px;
-//         padding: 10px;
-
-//     }
-// }

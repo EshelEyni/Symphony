@@ -45,12 +45,12 @@ export const About = () => {
                     <li>ProfileDetails ✅</li>
                     <li>PublicStations ✅</li>
                     <li>ArtistDetails ✅</li>
-                    <li>ArtistByLike</li>
-                    <li>ArtistStations</li>
-                    <li>ArtistProfiles</li>
-                    <li>Followers</li>
-                    <li>Following</li>
-                    <li>Search</li>
+                    <li>ArtistByLike ✅</li>
+                    <li>ArtistStations ✅</li>
+                    <li>ArtistProfiles ✅</li>
+                    <li>Followers ✅</li>
+                    <li>Following ✅</li>
+                    <li>Search ✅</li>
                     <li>StationDetails</li>
                     <li>LikedSongs</li>
                     <li>Library</li>

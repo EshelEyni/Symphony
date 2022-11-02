@@ -8,16 +8,24 @@
     overflow: hidden;
 
     h3 {
+        margin: 0;
         text-transform: capitalize;
+    }  
+        
+    .tag-preview-img {
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+        transform: rotate(25deg) translate(18%, 2%);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        opacity: 0.8;
     }
 
     @include for-mobile-layout {
         height: 180px;
         width: 180px;
     }
-}
-
-.tag-preview-img {
-    height: 100px;
-    width: 100px;
 }

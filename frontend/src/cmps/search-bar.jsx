@@ -90,6 +90,7 @@ export const SearchBar = ({
         <form
             action=''
             onSubmit={onHandleSubmit}
+            style={{ left: window.outerWidth * 0.35 }}
             className={isStationDetails ? 'search-form-station' : 'search-form'} >
             <button className='fas fa-search search-btn'></button>
             <input

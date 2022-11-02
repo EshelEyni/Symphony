@@ -73,7 +73,7 @@ export const StationPreview = ({
                                 }}></button>
                         </section>}
                 </section>
-                <section className='desc-container '>
+                <section className='desc-container'>
                     <div>
                         <h4>{currStation.name}</h4>
                     </div>

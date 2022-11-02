@@ -11,12 +11,6 @@
             justify-content: center;
         }
 
-        .recent-search-delete-btn-container {
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-        }
-
         .station-preview-img-container {
             height: 156px;
             width: 100%;
@@ -34,7 +28,7 @@
             .play-btn-container {
                 &>* {
                     position: relative;
-                    left:75%;
+                    left: 75%;
                     bottom: 65px;
 
                 }
@@ -53,12 +47,14 @@
                     @include for-mobile-layout {
                         display: none;
                     }
-                }
 
+                }
+                
                 .play-btn.fa-pause {
                     display: block;
-
+                    
                 }
+                
             }
         }
 

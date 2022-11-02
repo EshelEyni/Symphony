@@ -85,9 +85,10 @@ export const Search = () => {
 
                 {(!isPostSearch && !isSearchLoading) &&
                     <section className='search-default-display'>
-                        {(loggedinUser && recentSearches.length > 0) && <section className='recently-search-container'>
+                        {(loggedinUser && recentSearches.length > 0) && <section
+                            className='recently-search-container'>
                             <StationList
-                                title={'Recent-Searches'}
+                                title={'Recent Searches'}
                                 isSearch={true}
                                 stations={recentSearches}
                                 stationKey={'pre-search-recent-search-station'} />
@@ -106,21 +107,17 @@ export const Search = () => {
                 {/***************************************** After a search is made *****************************************/}
 
                 {(isPostSearch && !isSearchLoading && searchClips.length > 0) &&
-                    <section >
+                    <section className='search-filter-btns flex'>
                         {searchFilterBtns.map((btn, idx) => {
                             const renderConditions = [[true], searchClips, searchStations, searchArtists, searchProfiles, recentSearches]
                             const { title, value } = btn
                             return (
-                                <section
-                                    className='search-filter-btns flex'
-                                    key={'search-filter-btn' + btn.title}>
-                                    {
-                                        renderConditions[idx]?.length > 0 && <button
-                                            className={'search-filter-btn' + (filterBy === value ? ' active' : '')}
-                                            onClick={() => { setFilterBy(value) }}
-                                        >{title}</button>
-                                    }
-                                </section>
+                                <div key={'search-filter-btn' + btn.title}>
+                                    {renderConditions[idx]?.length > 0 && <button
+                                        className={'search-filter-btn' + (filterBy === value ? ' active' : '')}
+                                        onClick={() => { setFilterBy(value) }}
+                                    >{title}</button>}
+                                </div>
                             )
                         })}
                     </section>}
@@ -184,7 +181,6 @@ export const Search = () => {
                 {(!isPostSearch && isSearchLoading) && <Loader
                     size={'large-loader'}
                     loaderType={'page-loader'} />}
-
 
                 {(!isSearchLoading && isPostSearch && !searchClips.length) &&
                     <SearchFailMsg
