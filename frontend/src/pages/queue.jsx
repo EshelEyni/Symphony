@@ -40,7 +40,7 @@ export const Queue = () => {
     }
 
     return (
-        <main className='clips-queue-container'>
+        <main className='queue'>
             <h1>
                 Queue
             </h1>
@@ -71,7 +71,6 @@ export const Queue = () => {
                                             ...provided.draggableProps.style,
                                             backgroundColor: snapshot.isDragging ? defaultLightGreenColor : null,
                                             color: snapshot.isDragging ? '#000000' : '',
-                                            // borderRadius: snapshot.isDragging ? '15px' : '',
                                             cursor: snapshot.isDragging ? 'grabbing' : 'default'
                                         }
                                         return (
@@ -82,7 +81,6 @@ export const Queue = () => {
                                                 className='clip-preview'>
                                                 <ClipPreview
                                                     dndStyle={style}
-                                                    // bgColor={idx === 0 ? bgColor : null}
                                                     currClip={clip}
                                                     idx={idx}
                                                     clipNum={idx + 2}

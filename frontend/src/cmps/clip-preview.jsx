@@ -13,7 +13,6 @@ export const ClipPreview = ({
     clipNum,
     onRemoveClip,
     onAddClip,
-    bgColor,
     dndStyle,
     isLike,
     isRecentlyPlayed

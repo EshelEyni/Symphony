@@ -1,9 +1,10 @@
-.queue-container{
+.queue {
     color: white;
     border-radius: 15px;
     height: 300px;
+
+    .clip-preview{
+        list-style: none;
+    }
 }
 
-.queue-clips-container{
-    gap: 10px;
-}

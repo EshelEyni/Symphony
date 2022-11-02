@@ -38,7 +38,8 @@ export const LikedSongs = () => {
 
     if (likedSongs) {
         return (
-            <main className='station-details'>
+            <main className='station-details'
+                style={{ backgroundColor: likedSongsBgcolor }}>
                 <header className='station-header'>
                     <StationHeader
                         user={loggedinUser.username}
