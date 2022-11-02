@@ -18,16 +18,5 @@
 
             }
         }
-
-        .station-search-container {
-
-            input {
-                padding-inline-start: 6px;
-            }
-
-            @include for-mobile-layout {
-                // display: flex;
-            }
-        }
     }
 }

@@ -51,7 +51,7 @@ export const DropdownClip = ({
     }
 
     return (
-        <div className='dropdown-clip'>
+        <div >
             <li onClick={addToQueue}>Add to queue</li>
             <li onClick={onGoToArtist}>Go to artist</li>
             {(currStation && currStation?.createdBy._id === loggedinUser?._id || isAdminMode) && <li

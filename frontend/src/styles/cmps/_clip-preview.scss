@@ -69,6 +69,19 @@
             font-size: 15px;
         }
 
+        .dropdown {
+            font-size: rem(16px);
+
+            .dropdown-station-list {
+                position: absolute;
+                background-color: #1f1f1f;
+                padding: 5px;
+                border-radius: 5px;
+                top: 90px;
+                left: -195px;
+            }
+        }
+
         @include for-normal-layout {
 
             font-size: 14px;

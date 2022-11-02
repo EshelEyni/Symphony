@@ -51,7 +51,7 @@ export const About = () => {
                     <li>Followers ✅</li>
                     <li>Following ✅</li>
                     <li>Search ✅</li>
-                    <li>StationDetails</li>
+                    <li>StationDetails ✅</li>
                     <li>LikedSongs</li>
                     <li>Library</li>
                     <li>Queue</li>

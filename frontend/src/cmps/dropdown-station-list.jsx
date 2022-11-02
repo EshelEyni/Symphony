@@ -10,9 +10,9 @@ export const DropdownStationList = ({
     const { loggedinUser } = useSelector(state => state.userModule)
     const { stations } = useSelector(state => state.stationModule)
 
-    return <ul className='dropdown-list'>
+    return <ul className='dropdown-station-list'>
         {stationService.getUserStations(stations, loggedinUser, 'user-stations').map(station => <li
-            key={'dropdown-list-station-' + station._id}
+            key={'dropdown-station-list-station-' + station._id}
             onClick={() => {
                 setIsDropdown(false)
                 onAddClip(clip, station._id)

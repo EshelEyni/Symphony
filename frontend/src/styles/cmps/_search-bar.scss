@@ -1,18 +1,16 @@
 .search-form {
-    position: absolute;
     display: flex;
+    position: absolute;
     top: 15px;
     z-index: 10;
 
-
-
     .search-bar-input {
+        display: flex;
         width: 365px;
         height: 40px;
         border-radius: 2rem;
         background-color: white;
         border: none;
-        display: flex;
         padding-left: 50px;
 
         @include for-mobile-layout {
@@ -46,23 +44,18 @@
 
 .search-form-station {
     .search-bar-station-input {
+        margin: 15px 20px;
+        height: 40px;
+        width: 375px;
         background-color: hsla(0, 0%, 100%, .1);
-        border: 0;
+        border: none;
         border-radius: 4px;
         color: rgb(192, 191, 191);
-        height: 40px;
-        opacity: 1;
-        padding: 8px;
-        width: 375px;
-        margin: 15px 20px;
         font-weight: 500;
         font-size: rem(14px);
-        padding-left: 25px;
+        padding-left: 30px;
 
-        &::placeholder {
-            padding-inline-start: 22.5px;
-        }
-
+        
         &:focus {
             outline: none;
         }

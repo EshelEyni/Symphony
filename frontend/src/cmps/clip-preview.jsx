@@ -101,7 +101,7 @@ export const ClipPreview = ({
                     onClick={() => setIsDropdown(!isDropdown)} />
 
                 {isDropdown && <Dropdown
-                    leftPos={dropdownBtnRef.current.offsetLeft}
+                    leftPos={dropdownBtnRef.current.offsetLeft - 120}
                     isDropdown={isDropdown}
                     setIsDropdown={setIsDropdown}
                     isClipDropdown={true}
