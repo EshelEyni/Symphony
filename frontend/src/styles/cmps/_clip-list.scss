@@ -1,9 +1,44 @@
 .clips-list {
-    hr {
+    &>* {
         max-width: 1995px;
     }
+    .clip-list-header {
+        .clip-list-header-container {
 
-    &>ul {
-        margin: 0px;
+            @include for-mobile-layout {
+                display: none;
+            }
+
+            @include for-normal-layout {
+                display: grid;
+                padding: 0 10px;
+                grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;
+                align-items: center;
+
+                h1 {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 14px;
+                    color: rgb(172, 170, 170);
+                }
+
+                .clip-header-clock {
+                    grid-column: 6;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .clips-list-main-container {
+        display: grid;
+        gap: 5px;
+        max-width: 1995px;
+
+        li {
+            display: block;
+            max-height: 60px;
+            padding: 4px;
+        }
     }
 }

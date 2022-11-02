@@ -44,7 +44,7 @@ export const About = () => {
                     <li>Signup ✅</li>
                     <li>ProfileDetails ✅</li>
                     <li>PublicStations ✅</li>
-                    <li>ArtistDetails</li>
+                    <li>ArtistDetails ✅</li>
                     <li>ArtistByLike</li>
                     <li>ArtistStations</li>
                     <li>ArtistProfiles</li>

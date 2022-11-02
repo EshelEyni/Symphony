@@ -15,8 +15,6 @@ export const SymphonyApp = () => {
     const [artistsByLike, setArtistsByLike] = useState(null)
     const dispatch = useDispatch()
 
-    console.log('SYMPHONY_APP')
-
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
         if (stations.length) dispatch(setGetStationsByTag(stations))

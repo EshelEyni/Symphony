@@ -28,8 +28,8 @@
         .play-btn-container {
             &>* {
                 position: relative;
-                left: 70%;
-                bottom: 65px;
+                left: 65%;
+                bottom: 75px;
             }
 
             .play-btn {
@@ -39,8 +39,9 @@
                 display: none;
                 text-align: center;
                 transition: 0.4s;
-                width: 45px;
-                height: 45px;
+                width: 55px;
+                height: 55px;
+                font-size: rem(20px);
 
                 @include for-mobile-layout {
                     display: none;

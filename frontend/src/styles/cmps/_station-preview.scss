@@ -34,19 +34,21 @@
             .play-btn-container {
                 &>* {
                     position: relative;
-                    left: 80%;
+                    left:75%;
                     bottom: 65px;
 
                 }
 
                 .play-btn {
                     border-radius: 50%;
+                    background: #1ed760;
                     border: none;
                     display: none;
                     text-align: center;
                     transition: 0.4s;
-                    width: 45px;
-                    height: 45px;
+                    width: 55px;
+                    height: 55px;
+                    font-size: rem(20px);
 
                     @include for-mobile-layout {
                         display: none;
@@ -93,7 +95,6 @@
                 .play-btn {
                     display: block;
                     transform: scale(1.1);
-                    background: #1ed760;
                     transition: 0.4s;
                     border: none;
                 }

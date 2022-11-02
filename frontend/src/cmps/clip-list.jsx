@@ -12,7 +12,6 @@ export const ClipList = ({
     currStation,
     currClips,
     setCurrClips,
-    bgColor,
     clipKey,
     onAddClip,
     onRemoveClip,
@@ -75,20 +74,17 @@ export const ClipList = ({
     }
 
     const headerTitles = [
-        { classname: 'num-area' },
-        { classname: 'title-area', txt: '# TITLE' },
-        { classname: 'artist-area', txt: 'ARTIST' },
-        { classname: 'date-area', txt: isSearch ? '' : 'DATE ADDED' },
-        { classname: 'like-area' },
-        { classname: 'clock-area', icon: <AccessTimeOutlinedIcon /> },
-        { classname: 'burger-area' },
+        { classname: 'clip-header-num' },
+        { classname: 'clip-header-title', txt: '# TITLE' },
+        { classname: 'clip-header-artist', txt: 'ARTIST' },
+        { classname: 'clip-header-date', txt: isSearch ? '' : 'DATE ADDED' },
+        { classname: 'clip-header-clock', icon: <AccessTimeOutlinedIcon /> },
     ]
 
     if (!isStationSearch) {
         return (
             <section className='clips-list'>
                 <section
-                    style={{ backgroundColor: bgColor ? bgColor : '#121212' }}
                     className='clip-list-header'>
                     <div className="clip-list-header-container">
                         {headerTitles.map((headerTitle, idx) => {
@@ -128,11 +124,10 @@ export const ClipList = ({
                                                     ref={provided.innerRef}
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
-                                                    className='clip-preview-container'>
+                                                    className='clip-preview'>
                                                     <ClipPreview
                                                         dndStyle={style}
                                                         idx={idx}
-                                                        bgColor={idx === 0 ? bgColor : null}
                                                         currStation={currStation}
                                                         currClip={clip}
                                                         isLike={isLike}

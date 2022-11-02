@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Dropdown } from './dropdown'
@@ -26,7 +26,7 @@ export const ProfileHeader = ({
     const [isEdit, setIsEdit] = useState(false)
     const [isFollowedProfile, setIsFollowedProfile] = useState(checkIsFollowedProfile())
     const [isClicked, setIsClicked] = useState(false)
-
+    const dropdownBtnRef = useRef()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -102,8 +102,7 @@ export const ProfileHeader = ({
 
     return (
         <header
-            className='profile-header'
-            style={{ backgroundColor: watchedUser?.bgColor }}>
+            className='profile-header'>
             <main
                 className='profile-header-main-container flex'>
                 <section className='profile-header-img-container'>
@@ -147,6 +146,7 @@ export const ProfileHeader = ({
 
                     <section
                         className='dropdown-btn-container flex'
+                        ref={dropdownBtnRef}
                         title={'More options for ' + watchedUser?.username}
                         onClick={() => setIsDropdown(!isDropdown)}>
                         <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
@@ -156,6 +156,7 @@ export const ProfileHeader = ({
                 </section>
 
                 {isDropdown && <Dropdown
+                    leftPos={dropdownBtnRef.current.offsetLeft + 45}
                     isDropdown={isDropdown}
                     setIsDropdown={setIsDropdown}
                     isEdit={isEdit}

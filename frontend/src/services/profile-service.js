@@ -50,13 +50,14 @@ function getUserProfiles(users, loggedinUser, filterBy, artists) {
 }
 
 function getProfilesByArtist(stations, users, artistName) {
+    // debugger
     artistName = artistName.toLowerCase()
-    return getProfilesBy(stations, users, clip => clip => clip?.artistName.toLowerCase() == artistName)
+    return getProfilesBy(stations, users, clip => clip.artist.toLowerCase() === artistName)
 }
 
 function getProfilesBySearchTerm(stations, users, SearchTerm) {
     SearchTerm = SearchTerm.toLowerCase()
-    return getProfilesBy(stations, users, clip => clip => clip.title.toLowerCase().includes(SearchTerm))
+    return getProfilesBy(stations, users, clip => clip.title.toLowerCase().includes(SearchTerm))
 }
 
 function getProfilesBy(stations, users, predicate) {
@@ -82,6 +83,6 @@ function getProfilesBy(stations, users, predicate) {
         if (!matchedTerms) return undefined
         return { ...user, matchedTerms }
     })
-        .filter(user => user !== undefined)
+        .filter(user => user !== undefined && user.matchedTerms > 0)
         .sort((a, b) => b.matchedTerms - a.matchedTerms)
 }

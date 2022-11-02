@@ -4,6 +4,7 @@ import { DropdownStation } from './dropdown-station'
 import { DropdownClip } from './dropdown-clip'
 
 export const Dropdown = ({
+    leftPos,
     isDropdown,
     setIsDropdown,
     isEdit,
@@ -36,7 +37,9 @@ export const Dropdown = ({
     }
 
     return (
-        <ul className='dropdown'>
+        <ul
+            className='dropdown'
+            style={{ left: leftPos + 'px' }}>
             {isDropdown &&
                 <div className='shadow-screen'
                     onClick={() => {

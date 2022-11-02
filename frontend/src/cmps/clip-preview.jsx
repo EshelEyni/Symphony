@@ -48,12 +48,6 @@ export const ClipPreview = ({
         togglePlayFunc()
     }
 
-    const getBgcolor = () => {
-        let currBgcolor = bgColor
-        if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
-        return currBgcolor
-    }
-
     const getDateAdded = () => {
         let currTimeStamp = currClip.createdAt
         if (isRecentlyPlayed) currTimeStamp = currClip.playedAt
@@ -62,16 +56,16 @@ export const ClipPreview = ({
         return clipService.getTimeStr(currTimeStamp, formattedTimeStamp)
     }
 
-    return <li
-        style={{
-            backgroundColor: dndStyle?.backgroundColor,
-            // backgroundColor: getBgcolor(),
-            color: dndStyle?.color,
-            borderRadius: dndStyle?.borderRadius,
-            cursor: dndStyle?.cursor,
-        }}
-        className={'clip-preview-container '} >
-        {currClip &&
+    if (currClip)
+        return <li
+            style={{
+                backgroundColor: dndStyle?.backgroundColor,
+                color: dndStyle?.color,
+                borderRadius: dndStyle?.borderRadius,
+                cursor: dndStyle?.cursor,
+            }}
+            className='clip-preview'>
+
             <section className='clip-preview-main-container'>
                 <div>
                     <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
@@ -99,20 +93,20 @@ export const ClipPreview = ({
                     isClipPreview={true}
                 />}
 
-                {currClip.duration ? <div className='clock-area'>{clipService.getDuration(currClip.duration)}</div> : ''}
+                {currClip.duration ? <div className='clip-header-clock'>{clipService.getDuration(currClip.duration)}</div> : ''}
 
                 <i className='dropdown-btn fa-solid fa-ellipsis'
-                    onClick={() => setIsDropdown(!isDropdown)}/>
+                    onClick={() => setIsDropdown(!isDropdown)} />
 
-                    {isDropdown && <Dropdown
-                        isDropdown={isDropdown}
-                        setIsDropdown={setIsDropdown}
-                        isClipDropdown={true}
-                        currClip={currClip}
-                        currStation={currStation}
-                        onRemoveClip={onRemoveClip}
-                        onAddClip={onAddClip}
-                    />}
-            </section>}
-    </li >
+                {isDropdown && <Dropdown
+                    isDropdown={isDropdown}
+                    setIsDropdown={setIsDropdown}
+                    isClipDropdown={true}
+                    currClip={currClip}
+                    currStation={currStation}
+                    onRemoveClip={onRemoveClip}
+                    onAddClip={onAddClip}
+                />}
+            </section>
+        </li >
 }

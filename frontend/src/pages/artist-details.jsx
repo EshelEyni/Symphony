@@ -40,7 +40,7 @@ export const ArtistDetails = () => {
     useEffect(() => {
         dispatch(setHeaderBgcolor(watchedArtist?.bgColor))
         if (watchedArtist?._id !== params._id) dispatch(loadArtist(params._id))
-        if (watchedArtist) {
+        if (watchedArtist && users.length > 0 && stations.length > 0) {
             setStationsByArtist(stationService.getFilteredStations(stations, { term: watchedArtist.username, type: 'artist-name' }))
             setProfilesByArtist(profileService.getProfilesByArtist(stations, users, watchedArtist.username) || [])
             setCurrClips(watchedArtist.clips || [])
@@ -56,14 +56,15 @@ export const ArtistDetails = () => {
 
     if (watchedArtist) {
         return (
-            <main className='artist-details'>
+            <main className='artist-details'
+                style={{ backgroundColor: watchedArtist.bgColor ? watchedArtist.bgColor : '#121212' }}>
                 <ProfileHeader
                     watchedUser={watchedArtist}
                     loggedinUser={loggedinUser}
                 />
                 <section className='artist-clips-container'>
                     <ClipList
-                        //  bgColor={stationBgcolor}
+                        bgColor={watchedArtist.bgColor}
                         clipKey={'artist-clip'}
                         isStation={true}
                         currStation={watchedArtist}
@@ -93,7 +94,6 @@ export const ArtistDetails = () => {
                         profileKey={'artist-profile-'}
                     />
                 </section>}
-
             </main>
         )
     }

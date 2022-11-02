@@ -79,7 +79,7 @@ export const Queue = () => {
                                                 ref={provided.innerRef}
                                                 {...provided.draggableProps}
                                                 {...provided.dragHandleProps}
-                                                className='clip-preview-container'>
+                                                className='clip-preview'>
                                                 <ClipPreview
                                                     dndStyle={style}
                                                     // bgColor={idx === 0 ? bgColor : null}
