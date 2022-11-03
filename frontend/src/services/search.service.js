@@ -10,14 +10,13 @@ export const searchService = {
 }
 
 const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
-const ALEX_API_KEY = 'AIzaSyCufURb4q5k_aJP0We6SJ9dN6T67VtublU'
 
-const cleaner = /\([^\)]*\)|\[[^\]]*\]/g 
-const emojiCleaner = /(\u00a9|\u00ae|HD|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
+const cleaner = /\([^\)]*\)|\[[^\]]*\]|HD|/g
+const emojiCleaner = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
+const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
 const apostrophe = /&#39|&quot/g
 const ampersand = /&amp;/gi
-const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
-const cleanArtistName = /vevo|music|-topic| - topic|official/gi
+const artistNameCleaner = /vevo|music|-topic| - topic|official/gi
 
 async function getClips(term) {
     const termClipsMap = storageService.loadFromStorage('searchDB') || {}
@@ -34,17 +33,17 @@ async function getClips(term) {
     const durationStr = `https://www.googleapis.com/youtube/v3/videos?id=${str}&part=contentDetails&key=${YT_API_Key}`
     const durations = await axios.get(durationStr)
 
-   const clips =  res.data.items.map((item, idx) => {
+    const clips = res.data.items.map((item, idx) => {
         const { snippet, id } = item
         const { title, thumbnails, channelTitle } = snippet
         const { contentDetails } = durations.data.items[idx]
         return {
             _id: id.videoId,
-            title: title.replaceAll(cleaner, '').trim().replaceAll(emojiCleaner, '').trim().replaceAll(apostrophe, '\'').trim().replaceAll(ampersand, '&').trim().replaceAll(symbolsCleaner, '').trim(),
+            title: title.replaceAll(cleaner, '').replaceAll(emojiCleaner, '').replaceAll(symbolsCleaner, '').replaceAll(apostrophe, '\'').replaceAll(ampersand, '&').trim(),
             img: {
                 url: thumbnails.high.url || thumbnails.medium.url || thumbnails.default.url
             },
-            artist: channelTitle.replaceAll(cleanArtistName, ''),
+            artist: channelTitle.replaceAll(artistNameCleaner, '').trim(),
             duration: {
                 hours: duration.parse(contentDetails.duration).hours,
                 min: duration.parse(contentDetails.duration).minutes,
