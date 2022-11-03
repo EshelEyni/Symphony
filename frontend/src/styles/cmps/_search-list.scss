@@ -20,11 +20,3 @@
         cursor: pointer;
     }
 }
-
-.search-main-container{
-    padding: 0 15px;
-    @include for-mobile-layout {
-        padding: 0;
-
-    }
-}

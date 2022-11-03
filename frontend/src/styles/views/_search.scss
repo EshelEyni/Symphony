@@ -1,8 +1,16 @@
+.search {
+    padding: 0 15px;
+    @include for-mobile-layout {
+        padding: 0;
+
+    }
+}
+
 .search-filter-btns {
     margin-top: 25px;
     gap: 7.5px;
 
-    
+
     .search-filter-btn {
         border-radius: 25px;
         background-color: rgb(26, 26, 26);
@@ -11,7 +19,7 @@
         padding: 8.5px 25px;
         font-size: rem(20px);
         font-family: circular;
-        
+
         &.active {
             background-color: #676363;
         }

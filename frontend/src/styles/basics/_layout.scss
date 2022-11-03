@@ -3,6 +3,7 @@
     grid-template-areas: 'header' 'main' 'mediaplayer' 'navbar';
 
     .main-content {
+        min-height:2000px ;
         grid-area: main;
     }
 

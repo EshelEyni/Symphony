@@ -7,12 +7,14 @@
         display: flex;
         justify-content: center;
     }
-    .dev-link-container{
+
+    .dev-link-container {
         width: 100%;
         margin-top: 10px;
         justify-content: flex-end;
         gap: 5px;
-        &>*{
+
+        &>* {
             height: 30px;
             width: 30px;
         }
@@ -28,17 +30,28 @@
 
 .app-desc {
     background-color: #252525;
-    height: 450px;
+    height:650px;
     width: 50vw;
     margin: auto;
+    margin-top: 50px;
     padding: 25px;
     border-radius: 25px;
 
-    & .desc-container {
+    .desc-container {
         height: 100%;
         width: 100%;
         justify-content: space-around;
         align-items: center;
+
+        .desc-txt-container {
+            position: relative;
+            top: -100px;
+            width: 30vw;
+
+            h1{
+                text-align: center;
+            }
+        }
 
         &>button {
             background-color: rgba(255, 255, 255, 0);

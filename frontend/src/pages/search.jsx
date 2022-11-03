@@ -19,7 +19,6 @@ export const Search = () => {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [searchTerm, setSearchTerm] = useState(searchParams.get('q') || '')
-
     const [isPostSearch, setIsPostSearch] = useState(searchTerm ? true : false)
     const [isSearchLoading, setIsSearchLoading] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
@@ -29,6 +28,7 @@ export const Search = () => {
     const [searchArtists, getSearchArtists] = useState([])
     const [searchProfiles, getSearchProfiles] = useState([])
     const [recentSearches, setRecentSearches] = useState([])
+    
     const dispatch = useDispatch()
     const inputValue = useRef()
 
@@ -63,8 +63,7 @@ export const Search = () => {
 
     if (!isLoading) {
         return (
-            <section className='search-main-container'>
-
+            <section className='search'>
                 <SearchBar
                     inputValue={inputValue}
                     isSearchPage={true}

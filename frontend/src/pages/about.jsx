@@ -41,7 +41,7 @@ export const About = () => {
                     <h1>What do we offer?</h1>
                     <article className='desc-container flex'>
                         <button onClick={() => switchDesc(-1)}><KeyboardArrowLeftRoundedIcon sx={{ fontSize: '75px' }} /></button>
-                        <section>
+                        <section className='desc-txt-container'>
                             <h1>{currDesc.title}</h1>
                             <p>{currDesc.txt}</p>
                         </section>

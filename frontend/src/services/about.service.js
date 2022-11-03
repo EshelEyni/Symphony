@@ -28,7 +28,9 @@ export const team = [
 ]
 
 export const appDesc = [
-    { title: '1 title', txt: '1 desc' },
+    { title: 'Playlists', txt: `
+    1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc
+    1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc1 desc` },
     { title: '2 title', txt: '2 desc' },
     { title: '3 title', txt: '3 desc' },
     { title: '4 title', txt: '4 desc' },
