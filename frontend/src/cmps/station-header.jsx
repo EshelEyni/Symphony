@@ -100,6 +100,10 @@ export const StationHeader = ({
                                 to={'/profile/' + currStation.createdBy._id}
                                 className='station-user-name'>{currStation.createdBy.username}</Link>
                             {stationService.setDetails(currStation)}
+                            {currStation.likedByUsers.length > 0 && <Link
+                                to={'/station-like-profiles/' + currStation._id}>
+                                {` ● ${currStation.likedByUsers.length} likes`}
+                            </Link>}
                         </p>
                     </section>
                 </div>

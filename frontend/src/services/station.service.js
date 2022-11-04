@@ -121,12 +121,12 @@ function getTags() {
 }
 
 function setDetails(station) {
-    const { clips, likedByUsers } = station
+    const { clips } = station
     const durationStr = clips.length > 0 ?
         ` ●  Total of ${clips.length}  ${clips.length === 1 ? ' song ' : ' songs '} ,Total duration: ${getTotalSongDur(clips)}`
         : ''
-    const likeStr = likedByUsers?.length > 0 ? ` ● ${likedByUsers.length} likes` : ''
-    return durationStr + likeStr
+
+    return durationStr
 }
 
 function getTotalSongDur(clips) {

@@ -1,7 +1,8 @@
 export const profileService = {
     getUserProfiles,
     getProfilesByArtist,
-    getProfilesBySearchTerm
+    getProfilesBySearchTerm,
+    getUserByStationLike
 }
 
 
@@ -50,7 +51,6 @@ function getUserProfiles(users, loggedinUser, filterBy, artists) {
 }
 
 function getProfilesByArtist(stations, users, artistName) {
-    // debugger
     artistName = artistName.toLowerCase()
     return getProfilesBy(stations, users, clip => clip.artist.toLowerCase() === artistName)
 }
@@ -85,4 +85,9 @@ function getProfilesBy(stations, users, predicate) {
     })
         .filter(user => user !== undefined && user.matchedTerms > 0)
         .sort((a, b) => b.matchedTerms - a.matchedTerms)
+}
+
+function getUserByStationLike(station, users) {
+    const { likedByUsers } = station
+    return users.filter(user => likedByUsers.includes(user._id))
 }

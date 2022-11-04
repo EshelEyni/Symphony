@@ -17,6 +17,7 @@ import { ArtistByLike } from './pages/artist-by-like-details.jsx'
 import { ArtistStations } from './pages/artist-station.jsx'
 import { ArtistProfiles } from './pages/artist-profiles.jsx'
 import { Artists } from './pages/artists.jsx'
+import { StationProfilesByLike } from './pages/station-like-profiles.jsx'
 
 const routes = [
     { path: '/', component: <SymphonyApp />, },
@@ -35,6 +36,7 @@ const routes = [
     { path: 'search/', component: <Search />, },
     { path: 'tag/:title', component: <Tags /> },
     { path: 'station/:_id', component: <StationDetails /> },
+    { path: 'station-like-profiles/:_id', component: <StationProfilesByLike /> },
     { path: 'liked', component: <LikedSongs />, },
     { path: 'library', component: <Library /> },
     { path: 'queue', component: <Queue /> }
