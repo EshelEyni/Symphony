@@ -67,6 +67,7 @@ export const ArtistDetails = () => {
                         bgColor={watchedArtist.bgColor}
                         clipKey={'artist-clip'}
                         isStation={true}
+                        isArtistDetails={true}
                         currStation={watchedArtist}
                         currClips={currClips}
                         setCurrClips={setCurrClips}

@@ -20,6 +20,7 @@ export const ClipList = ({
     isSearch,
     isStationSearch,
     isStation,
+    isArtistDetails,
     isUserCreatedStation,
     isRecentlyPlayed
 }) => {
@@ -131,6 +132,7 @@ export const ClipList = ({
                                                         currStation={currStation}
                                                         currClip={clip}
                                                         isLike={isLike}
+                                                        isArtistDetails={isArtistDetails}
                                                         isRecentlyPlayed={isRecentlyPlayed}
                                                         onRemoveClip={onRemoveClip}
                                                         onAddClip={onAddClip}

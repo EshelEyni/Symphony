@@ -1,10 +1,8 @@
 // Default Bgcolors
 export const defaultHeaderBgcolor = '#1A1A1A'
-// export const stationHeaderDefaultBgcolor = '#03435C'
 export const likedSongsBgcolor = '#4723B3'
 export const defaultGreenColor = '#1db954'
 export const defaultLightGreenColor = '#3dd773bd'
-export const defaultBlueColor = '#3f7ef4'
 export const defaultBgcolor = '#121212'
 export const defaultProfileBgcolor = '#646462'
 

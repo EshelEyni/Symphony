@@ -23,20 +23,27 @@
             }
         }
 
-        .error-msg{
+        .error-msg {
             background-color: red;
             padding: 15px;
             border-radius: 25px;
         }
 
-        & .login-signup-btn {
-            width: 200px;
-            height: 75px;
+        .form-btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
             margin-top: 75px;
-            color: $clr2;
-            background-color: $clr1;
-            font-size: rem(28px);
-            border-radius: 45px;
+
+            .login-signup-btn {
+                width: 200px;
+                height: 75px;
+                color: $clr2;
+                background-color: $clr1;
+                font-size: rem(28px);
+                border-radius: 45px;
+            }
         }
     }
 }

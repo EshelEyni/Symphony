@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { LoginSignupForm } from '../cmps/login-signup-form.jsx'
 import { onLogin } from '../store/user.actions.js'
 
 export const Login = () => {
@@ -40,38 +41,14 @@ export const Login = () => {
 
     return (
         <section className='login-signup-form-container flex column'>
-            <h1>
-                Login
-            </h1>
-            <form
-                onSubmit={onHandleSubmit}
-                className='login-signup-form flex column'>
-                <input
-                    className='login-signup-input'
-                    type='txt'
-                    name='username'
-                    placeholder='Username*'
-                    onChange={handleChange}
-                    onSubmit={onHandleSubmit}
-                    required
-                />
-                <input
-                    className='login-signup-input'
-                    type='password'
-                    name='password'
-                    placeholder='Password*'
-                    onChange={handleChange}
-                    onSubmit={onHandleSubmit}
-                    required
-                />
-                {isError && <p className='error-msg'>Wrong username or password</p>}
-                <button
-                    onClick={onHandleSubmit}
-                    className='login-signup-btn'
-                >
-                    Login
-                </button>
-            </form>
+            <h1>Login</h1>
+            <LoginSignupForm
+                onHandleSubmit={onHandleSubmit}
+                handleChange={handleChange}
+                isError={isError}
+                errorTxt={'Wrong username or password'}
+                link={{ path: '/signup', txt: 'Don\'t have an acount? Sign Up!' }}
+            />
         </section>
     )
 }

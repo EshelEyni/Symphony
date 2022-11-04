@@ -15,6 +15,7 @@ export const ClipPreview = ({
     onAddClip,
     dndStyle,
     isLike,
+    isArtistDetails,
     isRecentlyPlayed
 }) => {
 
@@ -104,6 +105,7 @@ export const ClipPreview = ({
                     isDropdown={isDropdown}
                     setIsDropdown={setIsDropdown}
                     isClipDropdown={true}
+                    isArtistDetails={isArtistDetails}
                     currClip={currClip}
                     currStation={currStation}
                     onRemoveClip={onRemoveClip}

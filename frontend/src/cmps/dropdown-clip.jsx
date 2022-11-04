@@ -9,6 +9,7 @@ import { loadArtists } from '../store/artist.actions'
 export const DropdownClip = ({
     setIsDropdown,
     isAdminMode,
+    isArtistDetails,
     currClip,
     onRemoveClip,
     onAddClip,
@@ -53,7 +54,7 @@ export const DropdownClip = ({
     return (
         <div >
             <li onClick={addToQueue}>Add to queue</li>
-            <li onClick={onGoToArtist}>Go to artist</li>
+            {!isArtistDetails && <li onClick={onGoToArtist}>Go to artist</li>}
             {(currStation && currStation?.createdBy._id === loggedinUser?._id || isAdminMode) && <li
                 className='remove-clip'
                 onClick={(ev) => {

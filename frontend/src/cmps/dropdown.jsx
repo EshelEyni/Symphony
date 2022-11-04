@@ -14,6 +14,7 @@ export const Dropdown = ({
     isFollowedProfile,
     setIsFollowedProfile,
     onToggleFollowProfile,
+    isArtistDetails,
 
     isAdminMode,
     currStation,
@@ -85,6 +86,7 @@ export const Dropdown = ({
             {isClipDropdown &&
                 <DropdownClip
                     isAdminMode={isAdminMode}
+                    isArtistDetails={isArtistDetails}
                     setIsDropdown={setIsDropdown}
                     currClip={currClip}
                     onRemoveClip={onRemoveClip}

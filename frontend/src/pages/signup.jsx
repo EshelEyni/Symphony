@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { LoginSignupForm } from '../cmps/login-signup-form.jsx'
 import { onSignup } from '../store/user.actions.js'
 
 export const Signup = () => {
@@ -42,44 +43,15 @@ export const Signup = () => {
 
     return (
         <section className='login-signup-form-container flex column'>
-            <h1>
-                Signup
-            </h1>
-            <form
-                onSubmit={onHandleSubmit}
-                className='login-signup-form flex column'>
-                <input
-                    className='login-signup-input'
-                    type='txt'
-                    name='username'
-                    placeholder='Username*'
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    className='login-signup-input'
-                    type='txt'
-                    name='fullname'
-                    placeholder='Fullname*'
-                    onChange={handleChange}
-                    onSubmit={onHandleSubmit}
-                    required
-                />
-                <input
-                    className='login-signup-input'
-                    type='password'
-                    name='password'
-                    placeholder='Password*'
-                    onChange={handleChange}
-                    onSubmit={onHandleSubmit}
-                    required
-                />
-
-                {isError && <p className='error-msg'>User name already exists</p>}
-                <button className='login-signup-btn'>
-                    Signup
-                </button>
-            </form>
+            <h1>Signup</h1>
+            <LoginSignupForm
+                onHandleSubmit={onHandleSubmit}
+                handleChange={handleChange}
+                isError={isError}
+                errorTxt={'User name already exists'}
+                link={{ path: '/login', txt: 'Already have an acount? Login!' }}
+                isSignup={true}
+            />
         </section>
     )
 }
