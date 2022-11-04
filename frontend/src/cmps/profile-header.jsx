@@ -85,11 +85,12 @@ export const ProfileHeader = ({
     }
 
     const getProfileDetails = () => {
-        if (!watchedUser) return
         const { _id, followers, following } = watchedUser
         return (
             <div>
-                {(publicStations?.length > 0 ? publicStations?.length + ' Public Playlists ' : '')}
+                <Link to={'/public-playlists/' + watchedUser._id}>
+                    {(publicStations?.length > 0 ? publicStations?.length + ' Public Playlists ' : '')}
+                </Link>
                 <Link to={'/followers/' + _id}>
                     {(followers?.length > 0 ? ' ● ' + followers?.length + ' Followers ' : '')}
                 </Link>
@@ -122,8 +123,9 @@ export const ProfileHeader = ({
                         id='profile-img'
                         onChange={onUploadImg} type='file' />}
                 </section>
+
                 <section className='profile-header-details flex column'>
-                    <p>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
+                    <p className='profile-name-title'>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
                     <h1 className='profile-name'>{watchedUser?.username}</h1>
                     {getProfileDetails()}
                 </section>
@@ -132,11 +134,9 @@ export const ProfileHeader = ({
             <section
                 className='profile-btn-container'>
                 <section className='profile-btn-main-container flex'>
-                    {(watchedUser.clips?.length > 0 && watchedUser?.isArtist) && <section className='play-btn-container'>
-                        <button
-                            className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                            onClick={onTogglePlay}></button>
-                    </section>}
+                    {(watchedUser.clips?.length > 0 && watchedUser?.isArtist) && <button
+                        className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                        onClick={onTogglePlay}/>}
 
                     {(loggedinUser && loggedinUser?._id !== watchedUser?._id) &&
                         <button

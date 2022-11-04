@@ -40,7 +40,7 @@ h1 {
 
 .fa-solid {
     font-size: 1.5rem;
-    color: rgb(172, 170, 170);
+    color: $grey-txt;
     padding: 8px;
 }
 
@@ -56,7 +56,7 @@ li {
     position: relative;
     display: flex;
     padding: 10px;
-    color: rgb(172, 170, 170);
+    color: $grey-txt;
     gap: 3px;
 
     &:hover {
@@ -85,12 +85,57 @@ hr {
 
     a {
         text-transform: uppercase;
-        color: #a7a7a7;
+        color: $grey-txt-2;
 
         &:hover {
             text-decoration: underline;
         }
     }
+}
+
+.play-btn {
+    border-radius: 50%;
+    background: $green;
+    border: none;
+    text-align: center;
+    transition: 0.4s;
+    width: 55px;
+    height: 55px;
+    font-size: rem(20px);
+
+    &.fa-pause {
+        display: block;
+    }
+
+    @include for-mobile-layout {
+        display: none;
+    }
+}
+
+.desc-container {
+    &>* {
+        margin: 0;
+        padding: 0;
+    }
+
+    h4 {
+        margin-top: 15px;
+        font-size: 16px;
+        padding-bottom: 4px;
+    }
+
+    p {
+        color: $grey-txt-2;
+        text-overflow: ellipsis;
+    }
+}
+
+.dropdown-btn-container {
+    height: 25px;
+    align-items: center;
+    padding-inline-start: 10px;
+    gap: 3.5px;
+    cursor: pointer;
 }
 
 .shadow-screen {

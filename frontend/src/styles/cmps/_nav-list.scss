@@ -57,7 +57,7 @@
         .symbol {
             font-size: 18px;
             text-align: center;
-            color: #acaaaa;
+            color: $grey-txt;
 
             &:hover {
                 color: white;
@@ -86,7 +86,7 @@
                 font-size: 18px;
                 padding: 5px 5px 5px 0;
                 margin-top: 6px;
-                color: rgb(172, 170, 170);
+                color: $grey-txt;
 
                 &:hover {
                     visibility: visible;

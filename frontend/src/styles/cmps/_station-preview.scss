@@ -2,7 +2,7 @@
     height: 270px;
     border-radius: 15px;
     padding: 15px;
-    background-color: #181818;
+    background-color: $black-bcg;
 
     .station-preview-main-container {
 
@@ -34,57 +34,19 @@
                 }
 
                 .play-btn {
-                    border-radius: 50%;
-                    background: $green;
-                    border: none;
                     display: none;
-                    text-align: center;
-                    transition: 0.4s;
-                    width: 55px;
-                    height: 55px;
-                    font-size: rem(20px);
-
-                    @include for-mobile-layout {
-                        display: none;
-                    }
-
                 }
-                
-                .play-btn.fa-pause {
-                    display: block;
-                    
-                }
-                
-            }
-        }
 
-        .desc-container {
-
-            h4,
-            p {
-                margin: 0;
-                padding: 0;
-            }
-
-            h4 {
-                margin-top: 15px;
-                font-size: 16px;
-                padding-bottom: 4px;
-            }
-
-            p {
-                color: #a7a7a7;
-                text-overflow: ellipsis;
             }
         }
     }
 
     &:hover {
-        background-color: rgb(49, 49, 49);
+        background-color: $grey-hover;
         transition: all 0.5s;
 
         .station-preview-main-container {
-            background-color: rgb(49, 49, 49);
+            background-color: $grey-hover;
             transition: all 0.5s;
 
             &:hover {

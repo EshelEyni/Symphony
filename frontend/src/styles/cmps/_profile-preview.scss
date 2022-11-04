@@ -1,7 +1,7 @@
 .profile-preview {
     border-radius: 15px;
     padding: 15px;
-    background-color: #181818;
+    background-color: $black-bcg;
     justify-content: space-between;
     overflow: hidden;
     overflow-y: hidden;
@@ -15,7 +15,7 @@
     .profile-img-container {
         height: 185px;
         width: 185px;
-        
+
         img {
             height: 100%;
             width: 100%;
@@ -25,74 +25,24 @@
             @include aspect-ratio(1, 1);
         }
 
-        .play-btn-container {
-            &>* {
-                position: relative;
-                left: 65%;
-                bottom: 75px;
-            }
-
-            .play-btn {
-                position: relative;
-                border-radius: 50%;
-                border: none;
-                display: none;
-                text-align: center;
-                transition: 0.4s;
-                width: 55px;
-                height: 55px;
-                font-size: rem(20px);
-
-                @include for-mobile-layout {
-                    display: none;
-                }
-            }
-
-            .play-btn.fa-pause {
-                display: block;
-
-            }
+        .play-btn {
+            position: relative;
+            left: 65%;
+            bottom: 75px;
+            display: none;
         }
     }
-
-
-    .desc-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-
-        h4,
-        p {
-            margin: 0;
-            padding: 0;
-        }
-
-        h4 {
-            margin-top: 15px;
-            font-size: 16px;
-            padding-bottom: 4px;
-        }
-
-        p {
-            color: #a7a7a7;
-        }
-    }
-
 
     &:hover {
-        background-color: rgb(49, 49, 49);
+        background-color: $grey-hover;
         transition: all 0.5s;
 
-        .profile-preview-main-container {
-            &:hover {
-                .play-btn {
-                    display: block;
-                    transform: scale(1.1);
-                    background: $green;
-                    transition: 0.4s;
-                    border: none;
-                }
+        &:hover {
+            .play-btn {
+                display: block;
+                transform: scale(1.1);
+                transition: 0.4s;
+                border: none;
             }
         }
     }

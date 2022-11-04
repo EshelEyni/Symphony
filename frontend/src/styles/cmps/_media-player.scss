@@ -9,7 +9,7 @@
     bottom: 75px;
     margin: auto;
     position: fixed;
-    background-color: #181818;
+    background-color: $black-bcg;
     border-top: 1px solid #282828;
     padding: 0 10px;
     border-radius: 8px;
@@ -55,7 +55,7 @@
 
             .mp-clip-artist {
                 font-size: 12px;
-                color: rgb(172, 170, 170);
+                color: $grey-txt;
             }
         }
 
@@ -78,7 +78,7 @@
 
             .action-btn {
                 font-size: rem(16px);
-                color: #acaaaa;
+                color: $grey-txt;
                 background: none;
                 border: none;
                 cursor: pointer;
@@ -136,7 +136,7 @@
         .queue-icon {
             display: block;
             cursor: pointer;
-            color: rgb(172, 170, 170);
+            color: $grey-txt;
         }
 
         .volume-input-container {
@@ -218,7 +218,7 @@
             display: unset;
             font-size: 12px;
             padding: 8px;
-            color: rgb(172, 170, 170);
+            color: $grey-txt;
         }
 
         .mp-2nd-controller {

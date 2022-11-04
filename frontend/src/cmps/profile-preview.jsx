@@ -46,20 +46,15 @@ export const ProfilePreview = ({
                             alt='user-profile-img' />
 
                         {(user.isArtist && user.clips.length > 0) &&
-                            <section className='play-btn-container'>
-                                <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                                    onClick={(ev) => {
-                                        onTogglePlay(ev)
-                                    }}></button>
-                            </section>}
-
+                            <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                                onClick={(ev) => {
+                                    onTogglePlay(ev)
+                                }} />}
                     </section>
 
                     <section className='desc-container'>
-                        <div>
-                            <h4>{user?.username}</h4>
-                            <p className='fs12'>{user.isArtist ? 'Artist' : 'Profile'}</p>
-                        </div>
+                        <h4>{user?.username}</h4>
+                        <p className='fs12'>{user.isArtist ? 'Artist' : 'Profile'}</p>
                     </section>
                 </main>
             </Link>

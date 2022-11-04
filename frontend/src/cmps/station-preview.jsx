@@ -74,12 +74,8 @@ export const StationPreview = ({
                         </section>}
                 </section>
                 <section className='desc-container'>
-                    <div>
-                        <h4>{currStation.name}</h4>
-                    </div>
-                    <div>
-                        <p className='fs12'>{currStation.desc}</p>
-                    </div>
+                    <h4>{currStation.name}</h4>
+                    <p className='fs12'>{currStation.desc}</p>
                 </section>
             </main>
         </Link>

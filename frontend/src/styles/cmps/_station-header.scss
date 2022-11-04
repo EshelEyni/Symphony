@@ -15,9 +15,10 @@
         margin: 30px 0 0;
     }
 }
-.dropdown-btn-container{
-    cursor: pointer;
-}
+
+// .dropdown-btn-container {
+//     cursor: pointer;
+// }
 
 .station-header-details-container-2 {
     font-size: 0.80em;
@@ -30,7 +31,7 @@
 
     @include for-mobile-layout {
         font-size: 0.60em;
-        color: rgb(172, 170, 170);
+        color: $grey-txt;
     }
 }
 
@@ -103,14 +104,14 @@
     }
 
     .play-btn {
-        border-radius: 50%;
-        border: none;
-        transform: scale(1.1);
-        background: $green;
         transition: 0.4s;
-        width: 3.125rem;
-        height: 3.125rem;
-        font-size: 1.2rem;
+        width: rem(65px);
+        height: rem(65px);
+        font-size: rem(25px);
+
+        &:hover {
+            transform: scale(1.1);
+        }
 
         @include for-mobile-layout {
             width: 2.75rem;
@@ -128,8 +129,8 @@
     }
 
     & .equalizer-img {
-        width: 3.125rem;
-        height: 3.125rem;
+        width: rem(55px);
+        height: rem(55px);
     }
 
     .play-btn-container {
@@ -146,6 +147,7 @@
     }
 
 }
+
 .station-header .dropdown {
     top: 25%;
 }

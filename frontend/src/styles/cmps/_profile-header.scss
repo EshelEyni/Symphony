@@ -1,12 +1,10 @@
 .profile-header {
-
     .profile-header-main-container {
         padding: 10px 25px 0;
         gap: 35px;
         margin-bottom: 50px;
 
         .profile-header-img-container {
-
             .profile-img {
                 height: 110px;
                 width: 110px;
@@ -17,7 +15,7 @@
                     height: 232px;
                     width: 232px;
                 }
-            }         
+            }
         }
 
         .profile-header-details {
@@ -25,8 +23,13 @@
             justify-content: center;
             font-size: rem(14px);
 
-            &>*:first-child {
+            .profile-name-title {
                 font-size: rem(10.5px);
+                margin-bottom: 0;
+
+                @include for-mobile-layout {
+                    font-size: 15px;
+                }
             }
 
             .profile-name {
@@ -59,21 +62,12 @@
                     letter-spacing: -5px;
                 }
             }
-
-            p {
-                margin-bottom: 0;
-
-                @include for-mobile-layout {
-                    font-size: 15px;
-                }
-            }
         }
     }
 
     .profile-btn-container {
         position: relative;
-        padding-top: 50px;
-        padding-bottom: 15px;
+        padding: 50px 0 15px 0;
         gap: 25px;
 
         .profile-btn-main-container {
@@ -82,10 +76,6 @@
             gap: 20px;
 
             .play-btn {
-                border-radius: 50%;
-                border: none;
-                background: $green;
-                transition: 0.4s;
                 width: rem(65px);
                 height: rem(65px);
                 font-size: rem(25px);
@@ -108,14 +98,6 @@
                 font-size: rem(18px);
                 font-weight: bold;
                 padding: 10px 25px;
-            }
-
-            .dropdown-btn-container {
-                height: 25px;
-                align-items: center;
-                padding-inline-start: 10px;
-                gap: 3.5px;
-                cursor: pointer;
             }
         }
     }
