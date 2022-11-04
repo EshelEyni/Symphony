@@ -15,6 +15,9 @@
         margin: 30px 0 0;
     }
 }
+.dropdown-btn-container{
+    cursor: pointer;
+}
 
 .station-header-details-container-2 {
     font-size: 0.80em;
@@ -103,7 +106,7 @@
         border-radius: 50%;
         border: none;
         transform: scale(1.1);
-        background: #1ed760;
+        background: $green;
         transition: 0.4s;
         width: 3.125rem;
         height: 3.125rem;

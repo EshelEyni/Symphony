@@ -36,7 +36,7 @@ export const AppHeader = () => {
             {isUserClicked &&
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
-                ></div>}
+                />}
             <PaginationBtns />
             <section className='app-header-links-container flex'>
 

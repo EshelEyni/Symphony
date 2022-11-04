@@ -35,7 +35,7 @@ export const NavList = ({
         },
     })
 
-    const setSymbol = (logoUnClicked, logoClicked, txt, txtClassName) => {
+    const setSymbol = (logoUnClicked, logoClicked, txt) => {
         return (
             <ThemeProvider theme={theme}>
                 <div className='symbol'>
@@ -45,7 +45,7 @@ export const NavList = ({
                     <div className='symbol'>
                         {logoClicked}
                     </div>}
-                <span className={txtClassName}>{txt}</span>
+                <span className='symbol-txt'>{txt}</span>
             </ThemeProvider>
         )
     }
@@ -58,7 +58,7 @@ export const NavList = ({
             symbol: setSymbol(
                 <HomeOutlinedIcon sx={{ fontSize: '30px' }} />,
                 <HomeIcon sx={{ fontSize: '30px', }} />,
-                'Home', 'text')
+                'Home')
         },
         {
             path: 'search',
@@ -67,7 +67,7 @@ export const NavList = ({
             symbol: setSymbol(
                 <ScreenSearchDesktopOutlinedIcon sx={{ fontSize: '26px' }} />,
                 <ScreenSearchDesktopRoundedIcon sx={{ fontSize: '26px' }} />,
-                'Search', 'text-search')
+                'Search')
         },
         {
             path: 'library',
@@ -76,7 +76,7 @@ export const NavList = ({
             symbol: setSymbol(
                 <LibraryMusicOutlinedIcon sx={{ fontSize: '26px' }} />,
                 <LibraryMusicIcon sx={{ fontSize: '26px' }} />,
-                'Library', 'text-library')
+                'Library')
         },
         {
             path: null,
@@ -85,51 +85,53 @@ export const NavList = ({
             symbol: setSymbol(
                 <AddBoxIcon sx={{ fontSize: '26px' }} />,
                 undefined,
-                'Create Playlist', 'text-create')
+                'Create Playlist')
         },
         {
             path: 'liked',
-            className: '',
+            className: 'liked-songs-link',
             onClickFunc: loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.likedSongs),
             symbol: setSymbol(
                 <img className='nav-likes-songs-logo' src={LikedSongsLogo} alt='LikedSongsLogo' />,
                 undefined,
-                'Liked Songs', 'text')
+                'Liked Songs')
         },
     ]
 
 
 
-    return <ul className='nav-list'>
-        {navLinks.map((navLink, idx) => {
-            const { path, className, onClickFunc, symbol } = navLink
-            if (!loggedinUser && idx > 1) {
-                return <span key={'nav-link-' + navLink.className} className={className} onClick={onClickFunc}>
-                    <li>
-                        {symbol}
-                    </li>
-                </span>
-            }
+    return (
+        <ul className='nav-list'>
+            {navLinks.map((navLink, idx) => {
+                const { path, className, onClickFunc, symbol } = navLink
+                if (!loggedinUser && idx > 1) {
+                    return <span key={'nav-link-' + navLink.className} className={className} onClick={onClickFunc}>
+                        <li className='symbol-container'>
+                            {symbol}
+                        </li>
+                    </span>
+                }
 
-            return (
-                <NavLink
-                    to={path}
-                    end={true}
-                    key={'nav-link-' + navLink.className}
-                    className={className}
-                    onClick={onClickFunc}
-                >
-                    <li>
-                        {symbol}
-                    </li>
-                </NavLink>
-            )
-        })}
+                return (
+                    <NavLink
+                        to={path}
+                        end={true}
+                        key={'nav-link-' + navLink.className}
+                        className={className}
+                        onClick={onClickFunc}
+                    >
+                        <li className='symbol-container'>
+                            {symbol}
+                        </li>
+                    </NavLink>
+                )
+            })}
 
-        {/***************************************** Guest mode properties  *****************************************/}
-        {isLoginMsg && <LoginFirstMsg
-            loginMsgProperties={loginMsgProperties}
-            setIsLoginMsg={setIsLoginMsg}
-        />}
-    </ul>
+            {/***************************************** Guest mode properties  *****************************************/}
+            {isLoginMsg && <LoginFirstMsg
+                loginMsgProperties={loginMsgProperties}
+                setIsLoginMsg={setIsLoginMsg}
+            />}
+        </ul>
+    )
 }

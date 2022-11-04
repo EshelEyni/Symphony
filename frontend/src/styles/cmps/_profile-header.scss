@@ -17,11 +17,7 @@
                     height: 232px;
                     width: 232px;
                 }
-            }
-
-            .profile-img-input {
-                display: none;
-            }
+            }         
         }
 
         .profile-header-details {
@@ -88,7 +84,7 @@
             .play-btn {
                 border-radius: 50%;
                 border: none;
-                background: $green-Clr2;
+                background: $green;
                 transition: 0.4s;
                 width: rem(65px);
                 height: rem(65px);
@@ -107,8 +103,8 @@
 
             .toggle-follow-btn {
                 background-color: #00000000;
-                color: $clr2;
-                border: 1px solid $clr2;
+                color: white;
+                border: 1px solid white;
                 font-size: rem(18px);
                 font-weight: bold;
                 padding: 10px 25px;

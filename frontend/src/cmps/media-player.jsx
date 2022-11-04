@@ -278,10 +278,10 @@ export const MediaPlayer = () => {
                         alt='mediaplayer-img' />}
 
                 <div className='media-player-clip-txt flex column'>
-                    {<h1 >
+                    {<h1 className='mp-clip-title'>
                         {clipService.getFormattedTitle(currMediaPlayerClip)}
                     </h1>}
-                    {<p>{currMediaPlayerClip?.artist}</p>}
+                    {<p className='mp-clip-artist'>{currMediaPlayerClip?.artist}</p>}
                 </div>
                 {(loggedinUser && currMediaPlayerClip) &&
                     <LikeIcon

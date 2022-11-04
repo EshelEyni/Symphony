@@ -47,35 +47,37 @@ export const EditModal = ({
     }
 
     return (
-        <section className='edit-form-container'>
-            <main className='edit-form-main-container flex column'>
-                <header className='edit-form-header-container flex'>
+        <section className='edit-modal' >
+            <div className='shadow-screen'
+                onClick={() => setIsEdit(false)} />
+
+            <main className='edit-modal-container flex column'>
+                <header className='edit-modal-header flex'>
                     <h2>{user ? 'Edit Profile' : 'Edit Playlist'}</h2>
                     < button
                         className='btn-close'
                         onClick={() => setIsEdit(false)}
-                    ><DisabledByDefaultRoundedIcon /></button></header>
+                    ><DisabledByDefaultRoundedIcon />
+                    </button>
+                </header>
 
-                <section className='station-edit-main-container flex'>
-                    <section className='station-img-container'>
-                        <label htmlFor='station-edit-img'>
-                            {!isChangedImg && <img
-                                className='edit-form-img '
-                                src={imgUrl}
-                                alt='playist-img' />}
-                            {isChangedImg && <img
-                                className={'edit-form-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
-                                src={imgUrl}
-                                alt='playist-img' />}
-                        </label>
-                        <input
-                            className='img-input'
-                            id='station-edit-img'
-                            onChange={onUploadImgEdit} type='file' />
-                    </section>
+                <section className='edit-modal-form-container flex'>
+                    <label htmlFor='edit-img'>
+                        {!isChangedImg && <img
+                            className='edit-form-img '
+                            src={imgUrl}
+                            alt='playist-img' />}
+                        {isChangedImg && <img
+                            className={'edit-form-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
+                            src={imgUrl}
+                            alt='playist-img' />}
+                    </label>
+                    <input
+                        className='img-input'
+                        id='edit-img'
+                        onChange={onUploadImgEdit} type='file' />
 
                     <form
-                        className='edit-form flex column'
                         onSubmit={onUpdateObject}>
                         <input
                             className='edit-form-input-name'
@@ -101,6 +103,6 @@ export const EditModal = ({
                     </form>
                 </section>
             </main>
-        </section>
+        </section >
     )
 }

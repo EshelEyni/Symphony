@@ -1,37 +1,34 @@
-.library{
-    .station-list-header{
+.library {
+    .station-list-header {
         display: none;
     }
-}
 
-.call-to-action {
-    height: 60vh;
-    font-size: 1.5em;
-    margin-inline-start: 20px;
-    gap: 16px;
+    .create-1st-playlist {
+        height: 60vh;
+        font-size: rem(24px);
+        gap: rem(16px);
 
-    h1 {
-        margin: 0;
-        font-size: 32px;
+        .library-icon {
+            height: 100px;
+            width: 100px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: rem(32px);
+        }
+
+        span {
+            font-size: 0.85em;
+        }
+
+        button {
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.65em;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 50px;
+        }
     }
-
-    span {
-        font-size: 0.85em;
-    }
-
-    button {
-        text-align: center;
-        font-weight: 700;
-        font-size: 0.65em;
-        padding:  12px 32px;
-        border: none;
-        border-radius: 50px;
-    }
-
-
-}
-
-.library-icon{
-    height: 100px;
-    width: 100px;
 }

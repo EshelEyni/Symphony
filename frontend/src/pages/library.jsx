@@ -58,17 +58,16 @@ export const Library = () => {
             <section className='library'>
 
                 {!userStations.length &&
-                    <main className='flex column align-center justify-center call-to-action'>
+                    <main className='flex column align-center justify-center create-1st-playlist'>
                         <LibraryIcon className='library-icon' />
                         <h1> Create your first playlist </h1>
                         <span>It's easy, we'll help you.</span>
                         <button className='btn' onClick={onAddStation}>Create playlist</button>
-                    </main>
-                }
+                    </main>}
 
                 {userStations.length > 0 &&
                     <main>
-                        <h1>                        Playlists                    </h1>
+                        <h1>Playlists</h1>
                         <StationList
                             stations={userStations}
                             isLiked={true}

@@ -46,7 +46,7 @@ export const Dropdown = ({
                     onClick={() => {
                         setIsDropdown(false)
                     }}
-                ></div>}
+                />}
 
             {isProfileDropDown && <DropdownProfile
                 isFollowedProfile={isFollowedProfile}

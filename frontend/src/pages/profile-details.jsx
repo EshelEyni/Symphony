@@ -60,7 +60,7 @@ export const ProfileDetails = () => {
     if (watchedUser) {
         return (
             <section className='profile-details'
-            style={{ backgroundColor: watchedUser.bgColor ? watchedUser.bgColor : '#121212' }}>
+            style={{ backgroundColor: watchedUser.bgColor ? watchedUser.bgColor : '$black' }}>
                 <main className='profile-details-main-container flex column'>
                     <ProfileHeader
                         publicStations={publicStations}

@@ -28,14 +28,14 @@ export const StationList = ({
     if (stationsForDisplay)
         return (
             <section className='station-list'>
-                <header className="station-list-header flex align-center space-between">
-                    <h1>{title}</h1>
-                    {links.map(link => (
-                        (link.condition && isSeeAllLink) && <Link key={link.path} to={link.path}>see all</Link>
-                    ))}
-                </header>
-
                 <main className='station-list-main-container grid'>
+                    <header className="list-header flex space-between">
+                        <h1>{title}</h1>
+                        {links.map(link => (
+                            (link.condition && isSeeAllLink) && <Link key={link.path} to={link.path}>see all</Link>
+                        ))}
+                    </header>
+
                     {isLiked && <LikedSongsPreview />}
                     {stationsForDisplay.map(station => <article
                         key={stationKey + station._id}>

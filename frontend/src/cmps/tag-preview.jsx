@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export const TagPreview = ({ tag, idx }) => {
 
     return <section
-        className='tag-preview-container'>
+        className='tag-preview'>
         <Link to={'/tag/' + tag.name}>
             <main className='flex column'>
                 <h3>{tag.name}</h3>

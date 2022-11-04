@@ -41,61 +41,61 @@ export const Queue = () => {
 
     return (
         <main className='queue'>
-            <h1>
-                Queue
-            </h1>
+            <h1>Queue</h1>
 
-            <h2>Now playing</h2>
-            <article>
-                <ClipPreview
-                    currClip={currMediaPlayerClip}
-                    idx={0}
-                    clipNum={1} />
-            </article>
-            <h2>Next up</h2>
+            <section className='queue-main-container'>
+                <h2>Now playing</h2>
+                <article>
+                    <ClipPreview
+                        currClip={currMediaPlayerClip}
+                        idx={0}
+                        clipNum={1} />
+                </article>
+                <h2>Next up</h2>
 
-            <DragDropContext onDragEnd={onHandleDragEnd}>
-                <Droppable droppableId='clips-list-main-container'>
-                    {(provided) => (
-                        <ul
-                            className='clips-list-main-container'
-                            {...provided.droppableProps}
-                            ref={provided.innerRef}>
-                            {queueClipList.map((clip, idx) => (
-                                <Draggable
-                                    key={'queue-clip' + clip._id}
-                                    draggableId={'queue-clip' + clip._id}
-                                    index={idx}>
-                                    {(provided, snapshot) => {
-                                        const style = {
-                                            ...provided.draggableProps.style,
-                                            backgroundColor: snapshot.isDragging ? defaultLightGreenColor : null,
-                                            color: snapshot.isDragging ? '#000000' : '',
-                                            cursor: snapshot.isDragging ? 'grabbing' : 'default'
-                                        }
-                                        return (
-                                            <article
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                className='clip-preview'>
-                                                <ClipPreview
-                                                    dndStyle={style}
-                                                    currClip={clip}
-                                                    idx={idx}
-                                                    clipNum={idx + 2}
-                                                />
-                                            </article>
-                                        )
-                                    }}
-                                </Draggable>
-                            )
-                            )}
-                            {provided.placeholder}
-                        </ul>
-                    )}
-                </Droppable>
-            </DragDropContext>
+                <DragDropContext onDragEnd={onHandleDragEnd}>
+                    <Droppable droppableId='clips-list-main-container'>
+                        {(provided) => (
+                            <ul
+                                className='clips-list-main-container'
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}>
+                                {queueClipList.map((clip, idx) => (
+                                    <Draggable
+                                        key={'queue-clip' + clip._id}
+                                        draggableId={'queue-clip' + clip._id}
+                                        index={idx}>
+                                        {(provided, snapshot) => {
+                                            const style = {
+                                                ...provided.draggableProps.style,
+                                                backgroundColor: snapshot.isDragging ? defaultLightGreenColor : null,
+                                                color: snapshot.isDragging ? '#000000' : '',
+                                                cursor: snapshot.isDragging ? 'grabbing' : 'default'
+                                            }
+                                            return (
+                                                <article
+                                                    ref={provided.innerRef}
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                    className='clip-preview'>
+                                                    <ClipPreview
+                                                        dndStyle={style}
+                                                        currClip={clip}
+                                                        idx={idx}
+                                                        clipNum={idx + 2}
+                                                    />
+                                                </article>
+                                            )
+                                        }}
+                                    </Draggable>
+                                )
+                                )}
+                                {provided.placeholder}
+                            </ul>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            </section>
         </main>
     )
 }

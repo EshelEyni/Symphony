@@ -57,7 +57,7 @@ export const ArtistDetails = () => {
     if (watchedArtist) {
         return (
             <main className='artist-details'
-                style={{ backgroundColor: watchedArtist.bgColor ? watchedArtist.bgColor : '#121212' }}>
+                style={{ backgroundColor: watchedArtist.bgColor ? watchedArtist.bgColor : '$black' }}>
                 <ProfileHeader
                     watchedUser={watchedArtist}
                     loggedinUser={loggedinUser}

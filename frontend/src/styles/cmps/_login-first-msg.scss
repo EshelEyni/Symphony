@@ -3,7 +3,7 @@
     left: 240px;
     width: 300px;
     height: fit-content;
-    background-color: $clr4;
+    background-color: $login-first-blue;
     padding: 1rem;
     border-radius: 20px;
     z-index: 20;
@@ -16,15 +16,14 @@
         border-bottom: 10px solid transparent;
         left: rem(-10px);
         top: rem(20px);
-        border-right: 10px solid $clr4;
+        border-right: 10px solid $login-first-blue;
     }
 
     &>*:not(.shadow-screen) {
         z-index: 20;
     }
 
-    .login-first-msg-container {
-
+    .login-first-txt-container {
         & .login-first-msg-title {
             font-size: rem(18px);
             font-weight: 700;
@@ -42,10 +41,9 @@
         justify-content: flex-end;
         grid-template-columns: 2;
         height: 40px;
+        z-index: 20;
 
         &>* {
-            z-index: 20;
-            
             &:hover {
                 transform: scale(1.1);
                 transition: 0.4s;
@@ -59,12 +57,11 @@
 
             button {
                 border: none;
-                background-color: $clr4;
+                background-color: $login-first-blue;
                 font-weight: 700;
                 font-size: rem(14px);
-                color: $clr2;
+                color: white;
             }
-
         }
 
         &>:last-child {
@@ -79,8 +76,8 @@
                 border: none;
                 font-weight: 700;
                 font-size: rem(14px);
-                color: $clr7;
-            }        
+                color: $grey;
+            }
         }
     }
 }

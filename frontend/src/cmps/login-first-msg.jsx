@@ -7,9 +7,9 @@ export const LoginFirstMsg = ({ loginMsgProperties, setIsLoginMsg }) => {
         style={{ top: loginMsgProperties.top }}
         className='login-first-msg flex column'>
         <div className='shadow-screen'
-            onClick={() => setIsLoginMsg(false)}></div>
-        <section className='login-first-msg-container'>
-            <span className='tippy'></span>
+            onClick={() => setIsLoginMsg(false)}/>
+        <span className='tippy'></span>
+        <section className='login-first-txt-container'>
             <p className='login-first-msg-title'>
                 {loginMsgProperties.title}
             </p>

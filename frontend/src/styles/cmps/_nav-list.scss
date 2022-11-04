@@ -1,53 +1,79 @@
 .nav-list {
     display: grid;
-    position: fixed;
-    bottom: 0;
-    font-size: 10px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 76px;
-    z-index: 10;
+    position: fixed;
     width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    justify-items: center;
+    bottom: 0;
     margin: 0;
-    background: #121212;
-    background-color: #000;
+    z-index: 10;
+    background-color: black;
 
-    .text {
-        margin-left: -5px;
-        margin-top: 3px;
+    .home-link,
+    .liked-songs-link {
+        .symbol-txt {
+            margin-left: -5px;
+            margin-top: 3px;
+        }
     }
 
-    &>:last-child {
+    .home-link,
+    .library-link,
+    .search-link {
+        .symbol-container {
+            &>:nth-child(2) {
+                display: none;
+            }
+        }
+
+        &.active {
+            &>.symbol-container {
+                &>:nth-child(1) {
+                    display: none;
+                }
+
+                &>:nth-child(2) {
+                    display: unset;
+                }
+            }
+        }
+    }
+
+    .liked-songs-link {
         display: none;
+
+        .nav-likes-songs-logo {
+            width: 25px;
+            padding-inline-start: 3px;
+            margin-inline-end: 6px;
+        }
     }
 
-    & li {
-        padding: 0;
+    .symbol-container {
+        padding: 2.5px 0 0 0;
         text-align: center;
+        cursor: pointer;
 
         .symbol {
             font-size: 18px;
             text-align: center;
-            color: rgb(172, 170, 170);
+            color: #acaaaa;
 
             &:hover {
-                // color: rgb(255, 255, 255);
+                color: white;
                 visibility: visible;
             }
         }
     }
 
     @include for-narrow-layout {
-        position: static;
         display: block;
+        position: static;
         margin: 10px 0;
-        z-index: 10;
         padding: 0;
         padding: 15px 0 15px;
 
-        & li {
+        & .symbol-container {
             padding: 20px;
             max-height: 40px;
             display: flex;
@@ -66,44 +92,10 @@
                     visibility: visible;
                 }
             }
-
-            .nav-likes-songs-logo {
-                margin-inline-end: 6px;
-            }
         }
 
-        &>:last-child {
+        .liked-songs-link {
             display: unset;
         }
     }
-
-}
-.home-link,
-.library-link,
-.search-link,
-.text-create {
-    cursor: pointer;
-
-    &>li {
-        &>:nth-child(2) {
-            display: none;
-        }
-    }
-
-    &.active {
-        &>li {
-            &>:nth-child(1) {
-                display: none;
-            }
-
-            &>:nth-child(2) {
-                display: unset;
-            }
-        }
-    }
-
-}
-
-.guest-mode-link {
-    cursor: pointer;
 }

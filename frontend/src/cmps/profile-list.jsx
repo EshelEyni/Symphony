@@ -19,6 +19,7 @@ export const ProfileList = ({
     const { watchedUser } = useSelector(state => state.userModule)
     const { watchedArtist } = useSelector(state => state.artistModule)
     let profilesForDisplay = useRef()
+
     const isSeeAllLink = profiles.length > 8 ? true : false
     if (!isRandomArtist) profilesForDisplay.current = (profiles.length > 8 && isLimitedDisplay) ? profiles.slice(0, 8) : profiles
     if (isRandomArtist && !profilesForDisplay.current) profilesForDisplay.current = artistService.getRandomArtists(profiles)
@@ -34,14 +35,19 @@ export const ProfileList = ({
     if (profiles) {
         return (
             <section className='profile-list'>
-                <header className="profile-list-header flex space-between">
-                    <h1>{title}</h1>
-                    {links.map(link => (
-                        (link.condition && isSeeAllLink) && <Link key={link.path} to={link.path}>See all</Link>
-                    ))}
-                </header>
-
                 <section className='profile-list-main-container grid'>
+                    <header className="list-header flex space-between">
+                        <h1>{title}</h1>
+                        {links.map(link => (
+                            (link.condition && isSeeAllLink) &&
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                            >See all
+                            </Link>
+                        ))}
+                    </header>
+
                     {profilesForDisplay.current.map(user => {
                         return <ProfilePreview
                             key={profileKey + user._id}

@@ -1,0 +1,41 @@
+    .login-signup-form {
+        align-items: center;
+        margin: auto;
+        gap: 15px;
+
+        & .login-signup-input {
+            width: 500px;
+            height: 50px;
+            border-radius: 25px;
+            padding-inline-start: 25px;
+            font-size: rem(20px);
+
+
+            &::placeholder {
+                font-size: rem(20px);
+            }
+        }
+
+        .error-msg {
+            background-color: red;
+            padding: 15px;
+            border-radius: 25px;
+        }
+
+        .form-btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 75px;
+
+            .login-signup-btn {
+                width: 200px;
+                height: 75px;
+                color: white;
+                background-color: $login-first-blue;
+                font-size: rem(28px);
+                border-radius: 45px;
+            }
+        }
+    }

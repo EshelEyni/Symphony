@@ -1,10 +1,10 @@
 .queue {
-    color: white;
-    border-radius: 15px;
-    height: 300px;
+    h1 {
+        margin-left: 0;
+        padding-inline-start: 15px;
+    }
 
-    .clip-preview{
-        list-style: none;
+    .queue-main-container {
+        padding-inline-start: 30px;
     }
 }
-

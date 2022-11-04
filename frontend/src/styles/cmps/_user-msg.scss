@@ -1,23 +1,13 @@
 .user-msg {
-    // min-width: 50%;
+    position: fixed;
     min-width: fit-content;
     height: 50px;
-    background-color: $clr1;
-    position: absolute;
+    background-color: $user-msg-blue;
     bottom: 100px;
     left: 50%;
-    transform: translate(-50%);
-    padding-inline-start: 40px;
-    padding-inline-end: 40px;
+    transform: translate(-35%);
+    padding: 0 40px;
     border-radius: 15px;
-
-    // &.shown {
-    //     visibility: visible;
-    // }
-
-    // &.hidden {
-    //     visibility: hidden;
-    // }
 
     @include for-mobile-layout {
         bottom: 10px;

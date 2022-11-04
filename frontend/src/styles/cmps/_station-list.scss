@@ -1,26 +1,10 @@
 .station-list {
     max-width: 2020px;
 
-    .station-list-header {
-        padding: 25px 25px 0;
-
-        h1 {
-            margin: 0;
-            text-transform: capitalize;
-        }
-
-        a {
-            text-transform: uppercase;
-            color: #a7a7a7;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
     .station-list-main-container {
         grid-template-columns: repeat(auto-fit, minmax(180px, 225px));
+        grid-template-rows: 50px 1fr;
+
         gap: 24px;
         padding: 25px 25px 0;
     }

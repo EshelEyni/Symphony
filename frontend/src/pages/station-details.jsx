@@ -17,7 +17,7 @@ export const StationDetails = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
     const { currStation } = useSelector(state => state.stationModule)
 
-    const [currClips, setCurrClips] = useState([]) // Supports DND in non user station
+    const [currClips, setCurrClips] = useState([])
     const [searchClips, setSearchClips] = useState([])
     const [stationBgcolor, setStationBgcolor] = useState(defaultBgcolor)
     const [isAdminMode, setAdminMode] = useState(false)

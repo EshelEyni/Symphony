@@ -26,6 +26,7 @@
         height: 53px;
 
         &:not(:last-child) {
+            // for mobile - expect play button
             justify-content: flex-start;
         }
 
@@ -39,13 +40,12 @@
         .media-player-clip-txt {
             font-size: 10px;
 
-            h1,
-            p {
+            &>* {
                 margin: 0;
                 padding: 0;
             }
 
-            h1 {
+            .mp-clip-title {
                 font-size: 14px;
                 max-width: 200px;
                 white-space: nowrap;
@@ -53,13 +53,13 @@
                 text-overflow: ellipsis;
             }
 
-            p {
+            .mp-clip-artist {
                 font-size: 12px;
                 color: rgb(172, 170, 170);
             }
         }
 
-        .like-btn-container {
+        .like-icon {
             display: none;
         }
 
@@ -162,16 +162,10 @@
             }
 
             .media-player-clip-txt {
-                white-space: normal;
-                letter-spacing: -.01rem;
-
-                h1,
-                p {
-                    display: none;
-                }
+                display: none;
             }
 
-            .like-btn-container {
+            .like-icon {
                 display: block
             }
         }
@@ -236,11 +230,9 @@
     @include for-normal-layout {
         .media-player-clip-preview {
             .media-player-clip-txt {
-
-                h1,
-                p {
-                    display: block;
-                }
+                white-space: normal;
+                letter-spacing: -.01rem;
+                display: block;
             }
         }
 
@@ -255,7 +247,7 @@
 
     /******************1190px and above******************/
     @include for-wide-layout {
-              .mp-controller {
+        .mp-controller {
             position: relative;
             text-align: center;
             width: 50%;
@@ -278,7 +270,7 @@
                     font-size: rem(20px);
                     width: 45px;
                     height: 45px;
-                   
+
                 }
             }
         }

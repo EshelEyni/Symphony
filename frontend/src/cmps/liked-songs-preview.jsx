@@ -13,7 +13,7 @@ export const LikedSongsPreview = () => {
 
     return (
         <Link
-            className='liked-songs '
+            className='liked-songs-preview'
             to={'/liked'}>
             <main className='inner-liked-container flex column space-around'>
                 <section className='songs-list-preview'><p>{getSongs()}</p></section>

@@ -118,7 +118,7 @@ export const ProfileHeader = ({
                                 alt='profile-img' />}
                     </label>
                     {loggedinUser?._id === watchedUser._id && <input
-                        className='profile-img-input'
+                        className='img-input'
                         id='profile-img'
                         onChange={onUploadImg} type='file' />}
                 </section>

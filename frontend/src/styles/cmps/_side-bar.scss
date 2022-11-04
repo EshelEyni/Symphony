@@ -1,56 +1,36 @@
 .sidebar {
     grid-area: navbar;
-
-    &>*:not(.nav-list) {
-        display: none;
-
-        @include for-narrow-layout {
-            display: block;
-        }
-    }
-
-    @include for-narrow-layout {
-
-        &>* {
-            display: block;
-        }
-
-        grid-area: navbar;
-        position: sticky;
-        top: 0;
-        height: 100%;
-        z-index: 20;
-
-        background: #121212;
-        background-color: #000;
-        padding: 10px 0;
-
-        .navbar-hr {
-            margin: 0 22px;
-        }
-
-        .user-stations-container {
-            padding: 0;
-            margin: 10px 3px;
-
-            li {
-                padding: 20px;
-                max-height: 40px;
-                font-size: 16px;
-            }
-        }
-    }
+    position: sticky;
+    top: 0;
+    height: 100%;
+    padding: 10px 0;
+    background: $black;
+    background-color: black;
+    z-index: 10;
 
     .logo-container {
         display: flex;
         padding-inline-start: 8px;
 
-        .logo-container h1 {
+        h1 {
             font-size: 20px;
             margin-top: 20px;
         }
 
-        .logo img {
+        .logo-name {
+            position: absolute;
+            right: rem(29.5px);
+            top: rem(60px);
+            color: $green;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 30px;
+            font-weight: lighter;
+            font-family: pacifico, sans-serif;
+        }
+
+        .logo-img {
             width: 100px;
             -webkit-transform: rotate(345deg);
             -moz-transform: rotate(345deg);
@@ -58,21 +38,32 @@
             -o-transform: rotate(345deg);
             transform: rotate(345deg);
         }
+    }
 
-        .logo-name {
-            position: absolute;
-            right: rem(29.5px);
-            top: rem(60px);
-            color: $green-Clr;
-            margin: auto 0;
-            display: flex;
-            justify-content: space-evenly;
-            font-size: 30px;
-            font-weight: lighter;
-            font-family: pacifico, sans-serif;
+    hr {
+        margin: 0 22px;
+    }
+
+    .user-stations-container {
+        padding: 0;
+        margin: 10px 3px;
+
+        li {
+            padding: 20px;
+            max-height: 40px;
+            font-size: 16px;
         }
-        //     @include for-mobile-layout {
-        //         display: none;
-        //     }
+    }
+
+    &>*:not(.nav-list) {
+        display: none;
+    }
+
+    @include for-narrow-layout {
+
+        &>*:not(.nav-list) {
+            display: block;
+        }
+
     }
 }

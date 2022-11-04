@@ -66,7 +66,7 @@ export const SideBar = () => {
             >
                 <section className='logo-container'>
                     <h1 className='logo-name'>Symphony</h1>
-                    <section className='logo'><img src={Logo} alt='Logo' /></section>
+                    <img  className='logo-img' src={Logo} alt='Logo' />
                 </section>
             </Link>
             <NavList
@@ -76,7 +76,7 @@ export const SideBar = () => {
                 isLoginMsg={isLoginMsg}
                 setIsLoginMsg={setIsLoginMsg}
             />
-            <hr className='navbar-hr' />
+            <hr />
             {(userStations && loggedinUser) &&
                 <DragDropContext onDragEnd={onHandleDragEnd}>
                     <Droppable droppableId='user-stations-container'>

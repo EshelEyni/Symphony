@@ -67,7 +67,7 @@ export const LikeIcon = ({
 
     return (
         <section
-            className='like-btn-container'>
+            className='like-icon'>
             <input
                 type='checkbox'
                 defaultChecked={isLike}

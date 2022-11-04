@@ -1,75 +1,72 @@
 .search {
     padding: 0 15px;
+
     @include for-mobile-layout {
         padding: 0;
-
     }
-}
-
-.search-filter-btns {
-    margin-top: 25px;
-    gap: 7.5px;
 
 
-    .search-filter-btn {
-        border-radius: 25px;
-        background-color: rgb(26, 26, 26);
-        color: white;
-        border: none;
-        padding: 8.5px 25px;
-        font-size: rem(20px);
-        font-family: circular;
+    .search-filter-btns {
+        margin-top: 25px;
+        gap: 7.5px;
 
-        &.active {
-            background-color: #676363;
-        }
+        .search-filter-btn {
+            border-radius: 25px;
+            background-color: rgb(26, 26, 26);
+            color: white;
+            border: none;
+            padding: 8.5px 25px;
+            font-size: rem(20px);
+            font-family: circular;
 
-        @include for-mobile-layout {
-            font-size: 12px;
+            &.active {
+                background-color: #676363;
+            }
+
+            @include for-mobile-layout {
+                font-size: 12px;
+            }
         }
     }
-}
 
-.recently-search-container {
-    .station-preview {
-        .station-preview-main-container {
-            .recent-search-delete-btn-container {
-                display: flex;
-                align-items: flex-end;
-                justify-content: flex-end;
+    .recently-search-container {
+        .station-preview {
+            .station-preview-main-container {
+                .recent-search-delete-btn-container {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
 
-                .fa-xmark {
-                    font-size: rem(30px);
+                    .fa-xmark {
+                        font-size: rem(30px);
 
-                    &:hover {
-                        color: #fff;
-                        cursor: pointer;
+                        &:hover {
+                            color: #fff;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .station-preview-img-container {
+                    .station-preview-img {
+                        clip-path: inset(12.5% 0% 12.5% 0% round 10px);
+                        margin: 0;
+                    }
+                }
+
+                .desc-container {
+                    h4 {
+                        margin-top: 0;
+                        text-transform: capitalize;
                     }
                 }
             }
-
-            .station-preview-img-container {
-                // width: 150px;
-
-                .station-preview-img {
-                    clip-path: inset(12.5% 0% 12.5% 0% round 10px);
-                    margin: 0;
-                }
-            }
-
-            .desc-container {
-                h4 {
-                    margin-top: 0;
-                    text-transform: capitalize;
-                }
-            }
         }
     }
-}
 
-
-.browse-all {
-    @include for-mobile-layout {
-        padding: 0;
+    .browse-all {
+        @include for-mobile-layout {
+            padding: 0;
+        }
     }
 }
