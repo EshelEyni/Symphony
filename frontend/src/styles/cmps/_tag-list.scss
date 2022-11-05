@@ -5,69 +5,13 @@
     gap: 14px 7px;
     cursor: pointer;
 
-    &>*:nth-child(1) {
-        background-color: rgb(78, 114, 204);
-    }
+    $colors: #4e72cc #8ed9ec #25be77 #b4b4b4 #f8c69ee1 #e8115b #b4f8c9d7 #cc6b4e #dfd768 #4bbafa8a #9e6cf0c5 #f5a6fcc4 #4e43ee6b #effc7cd5 #bebebec4 #e4a7d6;
 
-    &>*:nth-child(2) {
-        background-color: rgb(142, 217, 236);
+    @each $color in $colors {
+        &>*:nth-child(#{index($colors, $color)}) {
+            background-color: $color;
+        }
     }
-
-    &>*:nth-child(3) {
-        background-color: rgb(37, 190, 119);
-    }
-
-    &>*:nth-child(4) {
-        background-color: rgb(180, 180, 180);
-    }
-
-    &>*:nth-child(5) {
-        background-color: rgba(248, 198, 158, 0.884);
-    }
-
-    &>*:nth-child(6) {
-        background-color: rgb(232, 17, 91);
-    }
-
-    &>*:nth-child(7) {
-        background-color: rgba(180, 248, 201, 0.842);
-    }
-
-    &>*:nth-child(8) {
-        background-color: rgb(204, 107, 78);
-    }
-
-    &>*:nth-child(9) {
-        background-color: rgb(223, 215, 104);
-    }
-
-    &>*:nth-child(10) {
-        background-color: rgba(75, 186, 250, 0.541);
-    }
-
-    &>*:nth-child(11) {
-        background-color: rgba(158, 108, 240, 0.774);
-    }
-
-    &>*:nth-child(12) {
-        background-color: rgba(245, 166, 252, 0.767);
-    }
-
-    &>*:nth-child(13) {
-        background-color: rgba(78, 67, 238, 0.418);
-    }
-
-    &>*:nth-child(14) {
-        background-color: rgba(239, 252, 124, 0.836);
-    }
-
-    &>*:nth-child(15) {
-        background-color: rgba(190, 190, 190, 0.767);
-    }
-
-    &>*:nth-child(16) {
-        background-color: rgb(228, 167, 214);
-    }   
 
     @include for-mobile-layout {
         gap: 12px;
