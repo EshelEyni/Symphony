@@ -75,30 +75,28 @@ export const ClipList = ({
     }
 
     const headerTitles = [
-        { classname: 'clip-header-num' },
-        { classname: 'clip-header-title', txt: '# TITLE' },
-        { classname: 'clip-header-artist', txt: 'ARTIST' },
-        { classname: 'clip-header-date', txt: isSearch ? '' : 'DATE ADDED' },
-        { classname: 'clip-header-clock', icon: <AccessTimeOutlinedIcon /> },
+        { classname: 'num' },
+        { classname: 'title', txt: '# TITLE' },
+        { classname: 'artist', txt: 'ARTIST' },
+        { classname: 'date', txt: isSearch ? '' : 'DATE ADDED' },
+        { classname: 'clock', icon: <AccessTimeOutlinedIcon /> },
     ]
 
     if (!isStationSearch) {
         return (
             <section className='clips-list'>
-                <section
+                <header
                     className='clip-list-header'>
-                    <div className="clip-list-header-container">
-                        {headerTitles.map((headerTitle, idx) => {
-                            return <h1
-                                key={idx}
-                                className={headerTitle.classname}>
-                                {headerTitle?.txt}
-                                {headerTitle?.icon}
-                            </h1>
-                        })}
-                    </div>
-                </section> 
-                
+                    {headerTitles.map((headerTitle, idx) => {
+                        return <span
+                            key={idx}
+                            className={headerTitle.classname}>
+                            {headerTitle?.txt}
+                            {headerTitle?.icon}
+                        </span>
+                    })}
+                </header>
+
                 <hr />
 
                 <DragDropContext onDragEnd={onHandleDragEnd}>

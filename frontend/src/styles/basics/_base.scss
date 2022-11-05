@@ -52,22 +52,6 @@ ul {
     padding: 0;
 }
 
-li {
-    position: relative;
-    display: flex;
-    padding: 10px;
-    color: $grey-txt;
-    gap: 3px;
-
-    &:hover {
-        color: white;
-    }
-
-    @include for-mobile-layout {
-        display: block;
-    }
-}
-
 hr {
     margin: 0;
     border: 1px solid #3a3939;

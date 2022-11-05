@@ -65,10 +65,10 @@ export const ClipPreview = ({
                 borderRadius: dndStyle?.borderRadius,
                 cursor: dndStyle?.cursor,
             }}
-            className='clip-preview'>
+            className='clip-preview-container'>
 
             <section className='clip-preview-main-container'>
-                <div>
+                <div className='play-btn-container'>
                     <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                         onClick={onTogglePlay}></i>
                     {isCurrClipPlaying ? <Equalizer /> :
@@ -77,7 +77,7 @@ export const ClipPreview = ({
 
                 <section className='clip-title flex align-center'>
                     <section className='clip-img-container'>
-                        <img className='clip-img' src={currClip.img?.url} alt='clip-img' />
+                        <img src={currClip.img?.url} alt='clip-img' />
                     </section>
                     <section className='title-text flex column'>
                         <h1 style={{ color: dndStyle?.color }}>{clipService.getFormattedTitle(currClip)}</h1>
@@ -94,7 +94,7 @@ export const ClipPreview = ({
                     isClipPreview={true}
                 />}
 
-                {currClip.duration ? <div className='clip-header-clock'>{clipService.getDuration(currClip.duration)}</div> : ''}
+                {currClip.duration ? <div className='clip-header-clock'>{clipService.getDuration(currClip.duration)||''}</div> : ''}
 
                 <i className='dropdown-btn fa-solid fa-ellipsis'
                     ref={dropdownBtnRef}
