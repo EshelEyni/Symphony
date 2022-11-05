@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { ClipPreview } from './clip-preview'
-import { UserSearchResult } from './user-search-result'
+import { InStationSearchResult } from './user-search-result'
 import { updateStation } from '../store/station.actions'
 import { handleDragEnd } from '../services/dragg.service'
 import { updateUser } from '../store/user.actions'
@@ -154,8 +154,8 @@ export const ClipList = ({
 
     if (isStationSearch) {
         return (
-            <ul className='search-res-container flex'>
-                {currClips.map(clip => <UserSearchResult
+            <ul className='station-details-search-list flex'>
+                {currClips.map(clip => <InStationSearchResult
                     key={'user-search-res' + clip._id}
                     clip={clip}
                     currStation={currStation}

@@ -88,13 +88,12 @@ export const SearchBar = ({
 
     return (
         <form
-            action=''
             onSubmit={onHandleSubmit}
             style={{ left: window.outerWidth * 0.35 }}
-            className={isStationDetails ? 'search-form-station' : 'search-form'} >
-            <button className='fas fa-search search-btn'></button>
+            className='search-form'>
+            <button className='fas fa-search search-btn'/>
             <input
-                className={isStationDetails ? 'search-bar-station-input' : 'search-bar-input'}
+                className='search-bar-input'
                 type='text'
                 name='search-bar'
                 placeholder='What do you want do listen to?'

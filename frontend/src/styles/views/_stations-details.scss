@@ -7,14 +7,38 @@
             max-width: 1995px;
         }
 
-        .station-search-header {
-            @include for-mobile-layout {
-                font-size: 17px;
-                margin-left: 20px;
+        .station-search-container {
+            .search-form {
+                position: unset;
+
+                .search-bar-input {
+                    margin: 15px 20px;
+                    height: 40px;
+                    width: 375px;
+                    background-color: #ffffff1a;
+                    border-radius: 4px;
+                    color: #c0bfbf;
+                    font-weight: 500;
+                    font-size: rem(14px);
+                    padding-left: 30px;
+
+                    @include for-mobile-layout {
+                        width: 90%;
+                        text-align: center;
+                    }
+                }
+
+                .search-btn {
+                    top: 2px;
+                    left: 52px;
+                }
             }
 
-            @include for-wide-layout {
-                display: grid;
+            .station-search-header {
+                @include for-mobile-layout {
+                    font-size: 17px;
+                    margin-left: 20px;
+                }
 
             }
         }

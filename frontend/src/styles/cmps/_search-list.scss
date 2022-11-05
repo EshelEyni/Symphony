@@ -1,22 +1,9 @@
-.search-res-container {
+.station-details-search-list {
     flex-direction: column;
+    margin-inline-start: 45px;
 
     @include for-mobile-layout {
-        // width: 80%;
         text-align: center;
         display: grid;
-    }
-}
-
-.search-res-content-container {
-    padding: 10px;
-    // width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    align-items: center;
-
-    &:hover {
-        cursor: pointer;
     }
 }

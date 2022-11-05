@@ -40,11 +40,13 @@ function getFormattedTitle(clip) {
     if (!clip) return ''
 
     const { title, artist } = clip
+    const lowerJoinedTitle = title.split(' ').join('').toLowerCase()
+    const lowerJoinedArtist = artist.split(' ').join('').toLowerCase()
 
-    const isIncluded = title.split(' ').join('').toLowerCase().includes(artist.split(' ').join('').toLowerCase())
+    const isIncluded = lowerJoinedTitle.includes(lowerJoinedArtist)
     if (isIncluded) {
         let newTitle
-        const artistIdx = title.split(' ').join('').toLowerCase().indexOf(artist.split(' ').join('').toLowerCase())
+        const artistIdx = lowerJoinedTitle.indexOf(lowerJoinedArtist)
         const isTitleWithDash = title.includes('-')
         if (isTitleWithDash) {
             return newTitle = artistIdx <= 0 ? title.substring(title.indexOf('-') + 1, title.length) :
