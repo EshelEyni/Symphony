@@ -97,7 +97,8 @@ export const ClipList = ({
                             </h1>
                         })}
                     </div>
-                </section>
+                </section> 
+                
 
                 <hr />
 
