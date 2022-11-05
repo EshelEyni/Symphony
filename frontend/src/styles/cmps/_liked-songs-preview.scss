@@ -4,16 +4,15 @@
     background: linear-gradient(149.46deg, #450af5, #8e8ee5 99.16%);
     border-radius: 15px;
 
-    .inner-liked-container {
+    .liked-songs-preview-container {
         height: 100%;
         padding-inline-start: 15px;
         gap: 15px;
 
-        .songs-list-preview {
-            p {
-                font-size: 16px;
-                font-weight: unset;
-            }
+        p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: unset;
         }
 
         .title-preview {
@@ -22,10 +21,17 @@
             font-weight: 700;
             padding: 0 0 4px;
         }
-    }
 
-    &:hover {
-        cursor: pointer;
-    }
+        .play-btn-container {
+            align-self: flex-end;
+            margin-inline-end: 15px;
+            display: none;
+        }
 
+        &:hover {
+            .play-btn-container {
+                display: flex;
+            }
+        }
+    }
 }

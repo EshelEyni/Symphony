@@ -102,7 +102,12 @@ hr {
     width: 55px;
     height: 55px;
     font-size: rem(20px);
-
+    
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.4s;
+    }
+    
     &.fa-pause {
         display: block;
     }

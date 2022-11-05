@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { LoginFirstMsg } from './login-first-msg'
 import { loginFirstMsgs } from '../services/user.service'
@@ -11,6 +11,8 @@ import HomeIcon from '@mui/icons-material/Home'
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined'
 import ScreenSearchDesktopRoundedIcon from '@mui/icons-material/ScreenSearchDesktopRounded'
 import AddBoxIcon from '@mui/icons-material/AddBox'
+import { Equalizer } from './equalizer'
+import { useSelector } from 'react-redux'
 
 export const NavList = ({
     loggedinUser,
@@ -20,7 +22,16 @@ export const NavList = ({
     setIsLoginMsg
 }) => {
 
+    const { currPlaylist, isPlaying } = useSelector(state => state.mediaPlayerModule)
+    const [isLikedSongsPlaying, setIsLikedSongsPlaying] = useState(false)
     const [loginMsgProperties, setLoginMsgProperties] = useState(null)
+
+    useEffect(() => {
+        if (!currPlaylist) return
+        if (currPlaylist.name === 'Liked Songs' && isPlaying) setIsLikedSongsPlaying(true)
+        else setIsLikedSongsPlaying(false)
+    }, [currPlaylist, isPlaying])
+
 
     const setLoginMsg = (properties) => {
         setLoginMsgProperties(properties)
@@ -122,6 +133,10 @@ export const NavList = ({
                     >
                         <li className='symbol-container'>
                             {symbol}
+                            {(navLink.className === 'liked-songs-link' && isLikedSongsPlaying) && <span
+                                className='liked-songs-playing-icon'>
+                                <Equalizer />
+                            </span>}
                         </li>
                     </NavLink>
                 )

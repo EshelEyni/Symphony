@@ -65,103 +65,104 @@ export const StationHeader = ({
     }
 
 
-    if (currStation) {
-        return <header className='station-header'>
-            <main
-                className='station-header-main-container flex'>
-                {<section className='station-img-container'>
-                    <label htmlFor='station-header-img'>
-                        {!isChangedImg &&
-                            <img
-                                className='station-img '
-                                src={LikedSongsLogo || imgUrl}
-                                alt='playist-img' />}
-                        {isChangedImg &&
-                            <img
-                                className={'station-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
-                                src={imgUrl}
-                                alt='playist-img' />}
-                    </label>
-                    {(currStation.createdBy._id === loggedinUser?._id && !isLikedSongs) &&
-                        <input
-                            className='img-input'
-                            id='station-header-img'
-                            onChange={onUploadImg} type='file' />}
-                </section>}
-
-                <div className='station-header-details-container'>
-                    <h5>Playlist</h5>
-                    <h1 className='station-header-name-container'>{currStation.name}</h1>
-                    <section className='desc-container'>{currStation.desc}</section>
-
-                    <section>
-                        <p className='station-header-details-container-2'>
-                            <Link
-                                to={'/profile/' + currStation.createdBy._id}
-                                className='station-user-name'>{currStation.createdBy.username}</Link>
-                            {stationService.setDetails(currStation)}
-                            {currStation.likedByUsers?.length > 0 && <Link
-                                to={'/station-like-profiles/' + currStation._id}>
-                                {` ● ${currStation.likedByUsers.length} likes`}
-                            </Link>}
-                        </p>
-                    </section>
-                </div>
-            </main>
-
-            <section className='playlist-btns'>
-                {currStation.clips?.length > 0 && <section className='play-btn-container'>
-                    <button
-                        className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                        onClick={onTogglePlay}></button>
-                    {(currStation._id === currPlaylist?._id && isPlaying) && <Equalizer />}
-                </section>}
-
-
-                {loggedinUser?.isAdmin &&
-                    <span
-                        className='admin-state-btn'
-                        onClick={() => setAdminMode(!isAdminMode)}
-                    >⭐</span>}
-
+    if (currStation)
+        return (
+            <header className='station-header'>
                 <section
-                    className='dropdown-btn-container flex'
-                    title={'More options for ' + currStation?.name}
-                    ref={dropdownBtnRef}
-                    onClick={() => { setIsDropdown(!isDropdown) }}>
-                    <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                    <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                    <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                    className='station-header-title flex'>
+                    {<section className='station-img-container'>
+                        <label htmlFor='station-header-img'>
+                            {!isChangedImg &&
+                                <img
+                                    className='station-img '
+                                    src={LikedSongsLogo || imgUrl}
+                                    alt='playist-img' />}
+                            {isChangedImg &&
+                                <img
+                                    className={'station-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
+                                    src={imgUrl}
+                                    alt='playist-img' />}
+                        </label>
+                        {(currStation.createdBy._id === loggedinUser?._id && !isLikedSongs) &&
+                            <input
+                                className='img-input'
+                                id='station-header-img'
+                                onChange={onUploadImg} type='file' />}
+                    </section>}
+
+                    <section className='station-header-txt'>
+                        <h5>Playlist</h5>
+                        <h1 className='station-header-name-container'>{currStation.name}</h1>
+                        <section className='desc-container'>{currStation.desc}</section>
+
+                        <section>
+                            <p className='station-header-details'>
+                                <Link
+                                    to={'/profile/' + currStation.createdBy._id}
+                                    className='station-user-name'>{currStation.createdBy.username}</Link>
+                                {stationService.setDetails(currStation)}
+                                {currStation.likedByUsers?.length > 0 && <Link
+                                    to={'/station-like-profiles/' + currStation._id}>
+                                    {` ● ${currStation.likedByUsers.length} likes`}
+                                </Link>}
+                            </p>
+                        </section>
+                    </section>
                 </section>
 
-                {(loggedinUser && !isLikedSongs) &&
-                    <LikeIcon
-                        currStation={currStation}
-                        isStationHeader={true}
-                        inputId={currStation._id}
-                    />}
-            </section>
+                <section className='playlist-btns'>
+                    {currStation.clips?.length > 0 && <section className='play-btn-container'>
+                        <button
+                            className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                            onClick={onTogglePlay}></button>
+                        {(currStation._id === currPlaylist?._id && isPlaying) && <Equalizer />}
+                    </section>}
 
-            {isDropdown && <Dropdown
-                leftPos={dropdownBtnRef.current.offsetLeft + 45}
-                currStation={currStation}
-                isDropdown={isDropdown}
-                setIsDropdown={setIsDropdown}
-                setIsEdit={setIsEdit}
-                isAdminMode={isAdminMode}
-                isUserStation={currStation.createdBy._id === loggedinUser?._id}
-                isStationDropdown={true}
-                onTogglePublicStation={onTogglePublicStation}
-                onSaveSearchStation={onSaveSearchStation}
-                onRemoveStation={onRemoveStation}
-            />}
 
-            {isEdit && <EditModal
-                currStation={currStation}
-                setIsEdit={setIsEdit}
-                setMainImg={setImgUrl}
-                setBgcolor={setBgcolor}
-            />}
-        </header >
-    }
+                    {loggedinUser?.isAdmin &&
+                        <span
+                            className='admin-state-btn'
+                            onClick={() => setAdminMode(!isAdminMode)}
+                        >⭐</span>}
+
+                    <section
+                        className='dropdown-btn-container flex'
+                        title={'More options for ' + currStation?.name}
+                        ref={dropdownBtnRef}
+                        onClick={() => { setIsDropdown(!isDropdown) }}>
+                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
+                    </section>
+
+                    {(loggedinUser && !isLikedSongs) &&
+                        <LikeIcon
+                            currStation={currStation}
+                            isStationHeader={true}
+                            inputId={currStation._id}
+                        />}
+                </section>
+
+                {isDropdown && <Dropdown
+                    leftPos={dropdownBtnRef.current.offsetLeft + 45}
+                    currStation={currStation}
+                    isDropdown={isDropdown}
+                    setIsDropdown={setIsDropdown}
+                    setIsEdit={setIsEdit}
+                    isAdminMode={isAdminMode}
+                    isUserStation={currStation.createdBy._id === loggedinUser?._id}
+                    isStationDropdown={true}
+                    onTogglePublicStation={onTogglePublicStation}
+                    onSaveSearchStation={onSaveSearchStation}
+                    onRemoveStation={onRemoveStation}
+                />}
+
+                {isEdit && <EditModal
+                    currStation={currStation}
+                    setIsEdit={setIsEdit}
+                    setMainImg={setImgUrl}
+                    setBgcolor={setBgcolor}
+                />}
+            </header >
+        )
 }

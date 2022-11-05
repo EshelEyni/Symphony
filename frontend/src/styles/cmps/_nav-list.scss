@@ -74,10 +74,9 @@
         padding: 15px 0 15px;
 
         & .symbol-container {
-            padding: 20px;
+            margin-inline-start: 20px;
             max-height: 40px;
             display: flex;
-            justify-content: flex-start;
             align-items: center;
             gap: 16px;
             font-size: 15px;
@@ -91,6 +90,12 @@
                 &:hover {
                     visibility: visible;
                 }
+            }
+
+            .equalizer-img{
+                width: 20px;
+                height: 20px;
+                margin-top: 6px;
             }
         }
 

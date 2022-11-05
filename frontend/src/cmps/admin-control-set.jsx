@@ -34,7 +34,7 @@ export const AdminControlSet = ({
 
     return (
         <section className='admin-control-set'>
-            <button onClick={() => onAdminSaveStation(currStation)}>Save With Admin Mode</button>
+            <button onClick={() => onAdminSaveStation(currStation)}>Save</button>
             <button onClick={() => onAddTag(currStation)}>Add Tag</button>
             <button onClick={() => onAddDesc(currStation)}>Add Desc</button>
             <button onClick={() => onSetArtistStation(currStation)}>Set Artist Mode</button>

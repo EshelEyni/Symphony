@@ -66,12 +66,10 @@ export const StationPreview = ({
                         src={currStation.imgUrl}
                         alt='Playlist-img' />
                     {currStation.clips.length > 0 &&
-                        <section className='play-btn-container'>
-                            <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                                onClick={(ev) => {
-                                    onTogglePlay(ev)
-                                }}></button>
-                        </section>}
+                        <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
+                            onClick={(ev) => {
+                                onTogglePlay(ev)
+                            }} />}
                 </section>
                 <section className='desc-container'>
                     <h4>{currStation.name}</h4>

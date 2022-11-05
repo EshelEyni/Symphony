@@ -142,6 +142,10 @@
         .volume-input-container {
             width: 60px;
             margin-inline-end: 5px;
+            .volume-input{
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 

@@ -1,153 +1,147 @@
-.station-header-main-container {
+.station-header {
+    .station-header-title {
 
-    @include for-mobile-layout {
+        .station-img {
+            width: rem(270px);
+            height: 276px;
+            padding: 30px;
+
+            @include for-mobile-layout {
+                height: 230px;
+                width: 230px;
+                padding: 10px;
+
+            }
+        }
+
+        .station-header-txt {
+            display: flex;
+            flex-direction: column;
+
+            h5 {
+                margin: 30px 0 0;
+            }
+
+            .station-header-name-container {
+                @include for-normal-layout {
+                    font-size: 2.75rem;
+                    margin: 0;
+                }
+
+                @include for-wide-layout {
+                    text-indent: -6px;
+                    margin-inline-start: 0;
+                    font-size: 5.5rem;
+                    letter-spacing: -5px;
+                }
+
+
+                @include for-mobile-layout {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 1.4rem;
+                    letter-spacing: -1px;
+                    text-indent: -2px;
+                    width: 85%;
+                    margin-top: 0;
+                    position: absolute;
+                    top: 245px;
+                    left: 10px;
+                }
+            }
+
+            .station-header-details {
+                font-size: 0.80em;
+
+                margin-top: 10px;
+
+                .station-user-name {
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+
+                @include for-mobile-layout {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 0.60em;
+                    color: $grey-txt;
+                }
+            }
+        }
+    }
+
+    .playlist-btns {
         display: flex;
-        flex-direction: column;
+        gap: 35px;
+        height: 150px;
         align-items: center;
-    }
-}
+        padding: 30px;
 
-.station-header-details-container {
-    display: flex;
-    flex-direction: column;
+        & svg {
+            height: 32px;
+        }
 
-    h5 {
-        margin: 30px 0 0;
-    }
-}
+        .play-btn-container {
+            .play-btn {
+                width: rem(65px);
+                height: rem(65px);
+                font-size: rem(25px);
 
-// .dropdown-btn-container {
-//     cursor: pointer;
-// }
+                &.fa-pause {
+                    display: none;
+                }
 
-.station-header-details-container-2 {
-    font-size: 0.80em;
+                &:hover {
+                    transform: scale(1.1);
+                    transition: 0.4s;
+                }
 
-    margin-top: 10px;
+                @include for-mobile-layout {
+                    width: rem(44px);
+                    height: rem(44px);
+                    font-size: rem(16px);
+                }
+            }
 
-    &.station-user-name {
-        text-transform: capitalize;
-    }
+            .equalizer-img {
+                width: rem(55px);
+                height: rem(55px);
+            }
 
-    @include for-mobile-layout {
-        font-size: 0.60em;
-        color: $grey-txt;
-    }
-}
+            &:hover {
+                transition: 0.4s;
 
-.station-header-name-container {
-    @include for-normal-layout {
-        font-size: 2.75rem;
-        margin: 0;
-    }
+                & .equalizer {
+                    display: none;
+                    transition: 0.4s;
+                }
 
-    @include for-wide-layout {
-        text-indent: -6px;
-        margin-inline-start: 0;
-        font-size: 5.5rem;
-        letter-spacing: -5px;
-    }
+                & .play-btn.fa-pause {
+                    display: unset;
+                    transform: scale(1);
+                    transition: 0.4s;
+                }
+            }
+        }
 
-
-    @include for-mobile-layout {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 1.4rem;
-        letter-spacing: -1px;
-        text-indent: -2px;
-        width: 85%;
-        margin-top: 0;
-        position: absolute;
-        top: 245px;
-        left: 10px;
-    }
-}
-
-.station-img {
-    width: rem(270px);
-    height: 276px;
-    padding: 30px;
-
-    @include for-mobile-layout {
-        height: 230px;
-        width: 230px;
-        padding: 10px;
-
-    }
-}
-
-.admin-state-btn {
-    font-size: 32px;
-    cursor: pointer;
-}
-
-
-.station-user-name {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.playlist-btns {
-    display: flex;
-    gap: 35px;
-    height: 150px;
-    align-items: center;
-    padding: 30px;
-
-    @include for-mobile-layout {
-        height: 65px;
-        gap: 20px;
-        justify-content: space-between;
-        padding: 14px;
-        flex-direction: row-reverse;
-    }
-
-    .play-btn {
-        transition: 0.4s;
-        width: rem(65px);
-        height: rem(65px);
-        font-size: rem(25px);
-
-        &:hover {
-            transform: scale(1.1);
+        .admin-state-btn {
+            font-size: 32px;
+            cursor: pointer;
         }
 
         @include for-mobile-layout {
-            width: 2.75rem;
-            height: 2.75rem;
-            font-size: 1rem;
+            height: 65px;
+            gap: 20px;
+            justify-content: space-between;
+            padding: 14px;
+            flex-direction: row-reverse;
         }
     }
 
-    & svg {
-        height: 32px;
+    .dropdown {
+        top: 25%;
     }
-
-    & .fa-pause {
-        display: none;
-    }
-
-    & .equalizer-img {
-        width: rem(55px);
-        height: rem(55px);
-    }
-
-    .play-btn-container {
-
-        &:hover {
-            & .equalizer {
-                display: none;
-            }
-
-            & .play-btn.fa-pause {
-                display: unset;
-            }
-        }
-    }
-
-}
-
-.station-header .dropdown {
-    top: 25%;
 }

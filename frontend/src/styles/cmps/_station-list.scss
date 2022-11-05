@@ -4,7 +4,6 @@
     .station-list-main-container {
         grid-template-columns: repeat(auto-fit, minmax(180px, 225px));
         grid-template-rows: 50px 1fr;
-
         gap: 24px;
         padding: 25px 25px 0;
     }
@@ -16,5 +15,4 @@
             gap: 15px 8px;
         }
     }
-
 }

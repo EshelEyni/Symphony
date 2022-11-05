@@ -25,18 +25,11 @@
                 border-radius: 5px;
             }
 
-            .play-btn-container {
-                &>* {
-                    position: relative;
-                    left: 75%;
-                    bottom: 65px;
-
-                }
-
-                .play-btn {
-                    display: none;
-                }
-
+            .play-btn {
+                position: relative;
+                left: 68%;
+                bottom: 78.5px;
+                display: none;
             }
         }
     }
@@ -52,9 +45,6 @@
             &:hover {
                 .play-btn {
                     display: block;
-                    transform: scale(1.1);
-                    transition: 0.4s;
-                    border: none;
                 }
             }
         }
