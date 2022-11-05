@@ -99,7 +99,6 @@ export const ClipList = ({
                     </div>
                 </section> 
                 
-
                 <hr />
 
                 <DragDropContext onDragEnd={onHandleDragEnd}>
