@@ -1,24 +1,33 @@
 .pagination-btn-container {
-    margin-inline-start: 30px;
-    width: 120px;
-    gap: 5px;
+    margin-inline-start: rem(30px);
+    width: rem(120px);
+    gap: rem(5px);
 
     .pagination-btn {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 40px;
-        width: 40px;
+        height: rem(40px);
+        width: rem(40px);
+        border-radius: 50%;
         background-color: #000;
         border: none;
         color: white;
-        border-radius: 50%;
-    }
-    
-    &>*:nth-child(2) {
         display: none;
+
+        &>* {
+            font-size: rem(30px);
+        }
+
     }
-    
+
+    @include for-narrow-layout {
+        &>*:nth-child(1) {
+            display: unset;
+        }
+    }
+
+
     @include for-wide-layout {
         &>*:nth-child(2) {
             display: flex;

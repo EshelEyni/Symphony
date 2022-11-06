@@ -1,19 +1,39 @@
 .nav-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 76px;
     position: fixed;
-    width: 100%;
     bottom: 0;
+    height: 50px;
+    width: 100%;
     margin: 0;
+    padding-top: 7.5px;
     z-index: 10;
     background-color: black;
 
-    .home-link,
-    .liked-songs-link {
-        .symbol-txt {
-            margin-left: -5px;
-            margin-top: 3px;
+    .symbol-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        cursor: pointer;
+
+        .symbol {
+            height: rem(45px);
+            text-align: center;
+            color: $grey-txt;
+
+            svg {
+                font-size: rem(35px);
+            }
+
+            .symbol-txt {
+                font-size: 5px;
+            }
+
+            &:hover {
+                color: white;
+                visibility: visible;
+            }
         }
     }
 
@@ -43,48 +63,32 @@
         display: none;
 
         .nav-likes-songs-logo {
-            width: 25px;
-            padding-inline-start: 3px;
-            margin-inline-end: 6px;
+            width: rem(30px);
         }
     }
 
-    .symbol-container {
-        padding: 2.5px 0 0 0;
-        text-align: center;
-        cursor: pointer;
-
-        .symbol {
-            font-size: 18px;
-            text-align: center;
-            color: $grey-txt;
-
-            &:hover {
-                color: white;
-                visibility: visible;
-            }
-        }
-    }
 
     @include for-narrow-layout {
-        display: block;
-        position: static;
+        display: flex;
+        flex-direction: column;
+        position: unset;
+        height: fit-content;
         margin: 10px 0;
         padding: 0;
         padding: 15px 0 15px;
 
-        & .symbol-container {
-            margin-inline-start: 20px;
-            max-height: 40px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .symbol-container {
+            position: initial;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
             font-size: 15px;
 
             .symbol {
+                grid-column: 1 / 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 font-size: 18px;
-                padding: 5px 5px 5px 0;
-                margin-top: 6px;
                 color: $grey-txt;
 
                 &:hover {
@@ -92,7 +96,14 @@
                 }
             }
 
-            .equalizer-img{
+            .symbol-txt {
+                grid-column: 2 / 3;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .equalizer-img {
                 width: 20px;
                 height: 20px;
                 margin-top: 6px;

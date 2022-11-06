@@ -5,12 +5,33 @@
 html {
     font-family: circular;
     line-height: 1.6;
+    font-size: 8px;
+    
+    overflow-x: hidden;
+    // overflow-y: hidden;
+
+    @include for-narrow-layout {
+        font-size: 14px;
+    }
+
+    @include for-normal-layout {
+        font-size: 16px;
+    }
+
+    @include for-wide-layout {
+        font-size: 18px;
+    }
 }
 
 body {
     margin: 0;
+    padding: 0;
     background-color: $black;
     color: white;
+    
+    overflow-x: hidden;
+    // overflow-y: hidden;
+    position: relative;
 }
 
 a {
@@ -31,17 +52,8 @@ button {
     }
 }
 
-h1 {
-    color: white;
-    font-size: 22px;
-    text-align: left;
-    margin: 30px 25px 10px 20px
-}
-
-.fa-solid {
-    font-size: 1.5rem;
-    color: $grey-txt;
-    padding: 8px;
+li {
+    list-style: none;
 }
 
 .img-input {
@@ -86,12 +98,12 @@ hr {
     width: 55px;
     height: 55px;
     font-size: rem(20px);
-    
+
     &:hover {
         transform: scale(1.1);
         transition: 0.4s;
     }
-    
+
     &.fa-pause {
         display: block;
     }

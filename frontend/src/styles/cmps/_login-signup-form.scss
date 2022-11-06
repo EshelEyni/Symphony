@@ -1,15 +1,15 @@
     .login-signup-form {
         align-items: center;
         margin: auto;
-        gap: 15px;
+        gap: rem(15px);
 
         & .login-signup-input {
-            width: 500px;
-            height: 50px;
+            width: 100%;
+            height: rem(50px);
+            border: none;
             border-radius: 25px;
-            padding-inline-start: 25px;
+            padding-inline-start: rem(25px);
             font-size: rem(20px);
-
 
             &::placeholder {
                 font-size: rem(20px);
@@ -30,12 +30,17 @@
             margin-top: 75px;
 
             .login-signup-btn {
-                width: 200px;
-                height: 75px;
+                width: rem(200px);
+                height: rem(75px);
                 color: white;
                 background-color: $login-first-blue;
                 font-size: rem(28px);
+                border: none;
                 border-radius: 45px;
+            }
+
+            a {
+                font-size: rem(25px);
             }
         }
     }

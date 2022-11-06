@@ -14,7 +14,6 @@ export const SideBar = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
     const { stations, currStation } = useSelector(state => state.stationModule)
     const [userStations, setUserStations] = useState(stationService.getUserStations(stations, loggedinUser, 'user-stations'))
-    const [isLoginMsg, setIsLoginMsg] = useState(false)
     const [isAddStation, setIsAddStation] = useState(true)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -59,22 +58,20 @@ export const SideBar = () => {
     }
 
     return (
-        <nav className='sidebar' >
+        <section className='sidebar' >
             <Link
                 to='/'
                 title='Symphony'
             >
                 <section className='logo-container'>
-                    <h1 className='logo-name'>Symphony</h1>
                     <img  className='logo-img' src={Logo} alt='Logo' />
+                    <h1 className='logo-name'>Symphony</h1>
                 </section>
             </Link>
             <NavList
                 loggedinUser={loggedinUser}
                 isAddStation={isAddStation}
                 onAddStation={onAddStation}
-                isLoginMsg={isLoginMsg}
-                setIsLoginMsg={setIsLoginMsg}
             />
             <hr />
             {(userStations && loggedinUser) &&
@@ -91,6 +88,6 @@ export const SideBar = () => {
                     </Droppable>
                 </DragDropContext>
             }
-        </nav >
+        </section >
     )
 }

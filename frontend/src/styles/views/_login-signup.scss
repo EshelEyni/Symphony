@@ -1,7 +1,11 @@
 .login-signup-form-container {
     align-items: center;
+    &>* {
+        width: 55%;
+    }
 
     h1 {
-        margin-bottom: 50px;
+        text-align: center;
+        margin-bottom: rem(50px);
     }
 }

@@ -244,7 +244,7 @@ export const MediaPlayer = () => {
                 max={+max || 0}
                 onChange={(_, value) => setPosition(value, type)}
                 sx={{
-                    color: '#fff', height,
+                    color: '#fff', height,padding: '0',
                     '&:hover': {
                         color: '#1db954', '& .MuiSlider-thumb': {
                             width: 12, height: 12, display: 'unset', color: '#fff',

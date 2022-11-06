@@ -10,14 +10,12 @@ export const PaginationBtns = () => {
             <button
                 onClick={() => navigate(-1)}
                 className='pagination-btn'>
-                <ArrowBackIosNewRoundedIcon
-                    sx={{ fontSize: '30px', }} />
+                <ArrowBackIosNewRoundedIcon />
             </button>
             <button
                 onClick={() => navigate(1)}
                 className='pagination-btn'>
-                <ArrowForwardIosRoundedIcon
-                    sx={{ fontSize: '30px', }} />
+                <ArrowForwardIosRoundedIcon />
             </button>
         </section>
     )

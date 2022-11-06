@@ -1,18 +1,19 @@
 .media-player-container {
-    /************************Below 415px************************/
     grid-area: mediaplayer;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 65px;
+    position: fixed;
+    height: 7%;
     width: 95%;
     left: 2.5%;
-    bottom: 75px;
+    bottom: 50px;
     margin: auto;
-    position: fixed;
     background-color: $black-bcg;
     border-top: 1px solid #282828;
     padding: 0 10px;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
     z-index: 20;
 
     .youtube-player {
@@ -20,10 +21,13 @@
     }
 
     .media-player-clip-preview {
+        position: relative;
+        top: 10%;
+        left: -35%;
         gap: 10px;
         align-items: center;
         width: fit-content;
-        height: 53px;
+        height: 65%;
 
         &:not(:last-child) {
             // for mobile - expect play button
@@ -32,21 +36,19 @@
 
         .media-player-clip-img {
             position: relative;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             clip-path: inset(12.5% 0% 12.5% 0% round 10px);
         }
 
         .media-player-clip-txt {
-            font-size: 10px;
-
             &>* {
                 margin: 0;
                 padding: 0;
             }
 
             .mp-clip-title {
-                font-size: 14px;
+                font-size: 1rem;
                 max-width: 200px;
                 white-space: nowrap;
                 overflow: hidden;
@@ -54,7 +56,7 @@
             }
 
             .mp-clip-artist {
-                font-size: 12px;
+                font-size: calc(1rem - 2px);
                 color: $grey-txt;
             }
         }
@@ -62,27 +64,25 @@
         .like-icon {
             display: none;
         }
-
     }
 
     .mp-controller {
-        position: absolute;
+        position: relative;
+        top: -20px;
         width: 90vw;
-        bottom: -6px;
 
         .mp-btn-container {
             display: flex;
             justify-content: flex-end;
-            padding-top: 20px;
-            gap: 5px;
+            gap: rem(10px);
 
             .action-btn {
-                font-size: rem(16px);
+                font-size: rem(20px);
                 color: $grey-txt;
                 background: none;
                 border: none;
-                cursor: pointer;
                 padding: 0px;
+                cursor: pointer;
 
                 &:hover {
                     color: white;
@@ -95,27 +95,34 @@
 
             .play-btn {
                 position: relative;
+                font-size: rem(36px);
+                height: rem(40px);
+                width: rem(40px);
             }
-        }
-    }
 
-    .time-line-container {
-        display: flex;
-        justify-content: center;
+            .skip10sec-btn {
+                transform: translateY(5%);
 
-        .time-line-input {
-            width: 90%;
-            outline: 0;
-            cursor: pointer;
-            transform: translateY(6%);
-
-            @include for-mobile-layout {
-                transform: translateY(20%);
+                svg {
+                    font-size: rem(27.5px);
+                }
             }
+
         }
 
-        .track-time {
-            display: none;
+        .time-line-container {
+            display: flex;
+            justify-content: center;
+
+            .time-line-input {
+                width: 90%;
+                outline: 0;
+                transform: translateY(5%);
+            }
+
+            .track-time {
+                display: none;
+            }
         }
     }
 
@@ -142,23 +149,26 @@
         .volume-input-container {
             width: 60px;
             margin-inline-end: 5px;
-            .volume-input{
+
+            .volume-input {
                 display: flex;
                 justify-content: center;
             }
         }
     }
 
-
-    /*******************415px-720px*******************/
     @include for-narrow-layout {
-        display: flex;
+        flex-direction: row;
         bottom: 0;
         width: 100%;
         height: 90px;
         left: 0;
 
         .media-player-clip-preview {
+            display: flex;
+            top: 0;
+            left: 0;
+
             .media-player-clip-img {
                 margin-left: 5px;
                 width: 60px;
@@ -174,40 +184,25 @@
             }
         }
 
-        .time-line-container {
-            .time-line-input {
-                width: 100%;
-            }
-        }
 
         .mp-controller {
-            position: relative;
-            text-align: center;
+            position: unset;
             width: 50%;
-            justify-content: space-between;
             margin: 15px;
-            bottom: 4px;
+            padding-top: 20.5px;
 
             .mp-btn-container {
                 justify-content: space-between;
                 margin: 0 auto;
-                gap: 7.5px;
 
                 &>:not(.play-btn) {
                     display: block;
                 }
 
-                .action-btn {
-                    font-size: rem(16px);
-                }
-
                 .play-btn {
+                    font-size: rem(16px);
                     background-color: #c5c5c5;
-                    font-size: rem(12px);
                     color: black;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 50%;
 
                     &:hover {
                         background-color: white;
@@ -216,13 +211,20 @@
                     }
                 }
             }
-        }
 
-        .time-line-container.track-time {
-            display: unset;
-            font-size: 12px;
-            padding: 8px;
-            color: $grey-txt;
+            .time-line-container {
+                .time-line-input {
+                    width: 100%;
+                    transform: translateY(0);
+                }
+
+                .track-time {
+                    display: unset;
+                    font-size: 12px;
+                    padding: 8px;
+                    color: $grey-txt;
+                }
+            }
         }
 
         .mp-2nd-controller {
@@ -230,7 +232,6 @@
         }
     }
 
-    /*******************721px-1190px*******************/
     @include for-normal-layout {
         .media-player-clip-preview {
             .media-player-clip-txt {
@@ -245,37 +246,6 @@
 
             .volume-input-container {
                 width: 95px;
-            }
-        }
-    }
-
-    /******************1190px and above******************/
-    @include for-wide-layout {
-        .mp-controller {
-            position: relative;
-            text-align: center;
-            width: 50%;
-            justify-content: space-between;
-            margin: 15px;
-            bottom: 4px;
-
-            .mp-btn-container {
-                gap: 15px;
-
-                &>:not(.play-btn) {
-                    display: block;
-                }
-
-                .action-btn {
-                    font-size: rem(20px);
-                }
-
-                .play-btn {
-                    font-size: rem(20px);
-                    width: 45px;
-                    height: 45px;
-
-                }
             }
         }
     }

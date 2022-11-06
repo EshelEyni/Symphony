@@ -32,13 +32,13 @@ export const AppHeader = () => {
     return (
         <header
             style={{ backgroundColor: headerBgcolor }}
-            className='app-header full flex'>
+            className='app-header full'>
             {isUserClicked &&
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
                 />}
             <PaginationBtns />
-            <section className='app-header-links-container flex'>
+            <main className='app-header-main-container flex'>
 
                 {/************************* GUEST MODE *************************/}
                 {!loggedinUser &&
@@ -54,9 +54,9 @@ export const AppHeader = () => {
                     </section>}
 
                 {/************************* LOGGED IN MODE *************************/}
-                {loggedinUser && <section className='user-btn-container flex'>
+                {loggedinUser && <section className='user-mode-container flex'>
                     <section
-                        className='app-header-profile'
+                        className='profile-details'
                         title={userToDisplay?.username}
                         onClick={() => setUserClicked(!isUserClicked)}>
                         <img
@@ -81,7 +81,7 @@ export const AppHeader = () => {
                                 onClick={logout} >Logout</div>
                         </section>}
                 </section>}
-            </section>
+            </main>
         </header>
     )
 }

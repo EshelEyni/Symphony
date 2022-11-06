@@ -1,37 +1,25 @@
 .sidebar {
-    grid-area: navbar;
-    position: sticky;
-    top: 0;
-    height: 100%;
-    padding: 10px 0;
-    background: $black;
-    background-color: black;
+    grid-area: sidebar;
     z-index: 10;
 
     .logo-container {
+        padding-inline-start: rem(8px);
         display: flex;
-        padding-inline-start: 8px;
-
-        h1 {
-            font-size: 20px;
-            margin-top: 20px;
-        }
+        align-items: center;
+        gap: 2.5px;
 
         .logo-name {
-            position: absolute;
-            right: rem(29.5px);
-            top: rem(60px);
+            position: relative;
+            left: -50%;
+            transform: translateX(50%);
             color: $green;
-            margin: auto;
-            display: flex;
-            justify-content: space-evenly;
-            font-size: 30px;
+            font-size: rem(30px);
             font-weight: lighter;
             font-family: pacifico, sans-serif;
         }
 
         .logo-img {
-            width: 100px;
+            width: rem(100px);
             -webkit-transform: rotate(345deg);
             -moz-transform: rotate(345deg);
             -ms-transform: rotate(345deg);
@@ -41,7 +29,7 @@
     }
 
     hr {
-        margin: 0 22px;
+        margin: 0 rem(22px);
     }
 
     .user-stations-container {
@@ -49,9 +37,9 @@
         margin: 10px 3px;
 
         li {
-            padding: 20px;
-            max-height: 40px;
-            font-size: 16px;
+            padding: rem(20px);
+            max-height: rem(40px);
+            font-size: rem(16px);
         }
     }
 
@@ -60,6 +48,11 @@
     }
 
     @include for-narrow-layout {
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        padding: 10px 0;
+        background-color: black;
 
         &>*:not(.nav-list) {
             display: block;

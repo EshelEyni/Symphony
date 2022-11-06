@@ -1,18 +1,30 @@
 .main-layout {
     display: grid;
-    grid-template-areas: 'header' 'main' 'mediaplayer' 'navbar';
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr 75px 60px;
+    grid-template-areas: 'header' 'main' 'mediaplayer' 'sidebar';
 
     .main-content {
-        min-height: 2500px;
         grid-area: main;
     }
 
     @include for-narrow-layout {
-        grid-template-columns: 252px 5fr;
+        grid-template-columns: 200px 1fr;
         grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
         grid-template-areas:
-            'navbar header'
-            'navbar main'
+            'sidebar header'
+            'sidebar main'
+            'mediaplayer mediaplayer'
+        ;
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: 252px 1fr;
+        grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
+        grid-template-areas:
+            'sidebar header'
+            'sidebar main'
             'mediaplayer mediaplayer'
         ;
     }

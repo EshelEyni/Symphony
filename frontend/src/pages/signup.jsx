@@ -7,6 +7,11 @@ import { onSignup } from '../store/user.actions.js'
 export const Signup = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
     const [isError, setIsError] = useState(false)
+    const [currUser, setCurrUser] = useState({
+        username: null,
+        fullname: null,
+        password: null,
+    })
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -16,11 +21,6 @@ export const Signup = () => {
         if (loggedinUser) navigate('/')
     }, [loggedinUser])
 
-    let [currUser, setCurrUser] = useState({
-        username: null,
-        fullname: null,
-        password: null,
-    })
 
     const onHandleSubmit = async (ev) => {
         ev.preventDefault()
@@ -49,7 +49,7 @@ export const Signup = () => {
                 handleChange={handleChange}
                 isError={isError}
                 errorTxt={'User name already exists'}
-                link={{ path: '/login', txt: 'Already have an acount? Login!' }}
+                link={{ path: '/login', txt: 'Already have an account? Login!' }}
                 isSignup={true}
             />
         </section>

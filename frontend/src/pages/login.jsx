@@ -7,13 +7,13 @@ import { onLogin } from '../store/user.actions.js'
 export const Login = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
     const [isError, setIsError] = useState(false)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
     const [currUser, setCurrUser] = useState({
         username: null,
         password: null
     })
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -47,7 +47,7 @@ export const Login = () => {
                 handleChange={handleChange}
                 isError={isError}
                 errorTxt={'Wrong username or password'}
-                link={{ path: '/signup', txt: 'Don\'t have an acount? Sign Up!' }}
+                link={{ path: '/signup', txt: 'Don\'t have an account? Sign Up!' }}
             />
         </section>
     )

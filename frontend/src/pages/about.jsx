@@ -36,20 +36,27 @@ export const About = () => {
 
     if (developers.length > 0) {
         return (
-            < main >
-                <section className='app-desc flex column align-center'>
+            < main className='about'>
+
+                <section className='app-desc'>
                     <h1>What do we offer?</h1>
-                    <article className='desc-container flex'>
-                        <button onClick={() => switchDesc(-1)}><KeyboardArrowLeftRoundedIcon sx={{ fontSize: '75px' }} /></button>
-                        <section className='desc-txt-container'>
-                            <h1>{currDesc.title}</h1>
-                            <p>{currDesc.txt}</p>
-                        </section>
-                        <button onClick={() => switchDesc(1)}><KeyboardArrowRightRoundedIcon sx={{ fontSize: '75px' }} /></button>
+                    <button
+                    className='back-btn'
+                    onClick={() => switchDesc(-1)}>
+                        <KeyboardArrowLeftRoundedIcon />
+                    </button>
+                    <article className='desc-txt-container'>
+                        <h1>{currDesc.title}</h1>
+                        <p>{currDesc.txt}</p>
                     </article>
+                    <button 
+                    className='next-btn'
+                    onClick={() => switchDesc(1)}>
+                        <KeyboardArrowRightRoundedIcon />
+                    </button>
                 </section>
 
-                <section className="developers">
+                {/* <section className="developers">
                     <h1>Our Team</h1>
                     <DragDropContext onDragEnd={handleOnDragEnd}>
                         <Droppable droppableId='developers-container' direction='horizontal'>
@@ -82,7 +89,7 @@ export const About = () => {
                             )}
                         </Droppable>
                     </DragDropContext>
-                </section>
+                </section> */}
             </main >
         )
     }

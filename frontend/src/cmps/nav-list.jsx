@@ -18,13 +18,12 @@ export const NavList = ({
     loggedinUser,
     isAddStation,
     onAddStation,
-    isLoginMsg,
-    setIsLoginMsg
 }) => {
 
     const { currPlaylist, isPlaying } = useSelector(state => state.mediaPlayerModule)
     const [isLikedSongsPlaying, setIsLikedSongsPlaying] = useState(false)
     const [loginMsgProperties, setLoginMsgProperties] = useState(null)
+    const [isLoginMsg, setIsLoginMsg] = useState(false)
 
     useEffect(() => {
         if (!currPlaylist) return
@@ -34,21 +33,14 @@ export const NavList = ({
 
 
     const setLoginMsg = (properties) => {
+        if (window.innerWidth < 420) properties.top = '-245px'
         setLoginMsgProperties(properties)
         setIsLoginMsg(true)
     }
 
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: '#92D3C3',
-            },
-        },
-    })
-
     const setSymbol = (logoUnClicked, logoClicked, txt) => {
         return (
-            <ThemeProvider theme={theme}>
+            <React.Fragment>
                 <div className='symbol'>
                     {logoUnClicked}
                 </div>
@@ -57,7 +49,7 @@ export const NavList = ({
                         {logoClicked}
                     </div>}
                 <span className='symbol-txt'>{txt}</span>
-            </ThemeProvider>
+            </React.Fragment>
         )
     }
 
@@ -67,8 +59,8 @@ export const NavList = ({
             className: 'home-link',
             onClickFunc: null,
             symbol: setSymbol(
-                <HomeOutlinedIcon sx={{ fontSize: '30px' }} />,
-                <HomeIcon sx={{ fontSize: '30px', }} />,
+                <HomeOutlinedIcon  />,
+                <HomeIcon  />,
                 'Home')
         },
         {
@@ -76,8 +68,8 @@ export const NavList = ({
             className: 'search-link',
             onClickFunc: null,
             symbol: setSymbol(
-                <ScreenSearchDesktopOutlinedIcon sx={{ fontSize: '26px' }} />,
-                <ScreenSearchDesktopRoundedIcon sx={{ fontSize: '26px' }} />,
+                <ScreenSearchDesktopOutlinedIcon  />,
+                <ScreenSearchDesktopRoundedIcon  />,
                 'Search')
         },
         {
@@ -85,16 +77,16 @@ export const NavList = ({
             className: 'library-link',
             onClickFunc: loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.library),
             symbol: setSymbol(
-                <LibraryMusicOutlinedIcon sx={{ fontSize: '26px' }} />,
-                <LibraryMusicIcon sx={{ fontSize: '26px' }} />,
+                <LibraryMusicOutlinedIcon  />,
+                <LibraryMusicIcon  />,
                 'Library')
         },
         {
             path: null,
-            className: 'create-link',
+            className: 'create-playlist-link',
             onClickFunc: loggedinUser ? (isAddStation ? onAddStation : null) : () => setLoginMsg(loginFirstMsgs.createPlaylist),
             symbol: setSymbol(
-                <AddBoxIcon sx={{ fontSize: '26px' }} />,
+                <AddBoxIcon />,
                 undefined,
                 'Create Playlist')
         },
@@ -108,8 +100,6 @@ export const NavList = ({
                 'Liked Songs')
         },
     ]
-
-
 
     return (
         <ul className='nav-list'>
@@ -142,7 +132,6 @@ export const NavList = ({
                 )
             })}
 
-            {/***************************************** Guest mode properties  *****************************************/}
             {isLoginMsg && <LoginFirstMsg
                 loginMsgProperties={loginMsgProperties}
                 setIsLoginMsg={setIsLoginMsg}
