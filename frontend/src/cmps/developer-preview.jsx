@@ -11,21 +11,17 @@ export const DeveloperPreview = ({
     ]
 
     return (
-        <article className='profile-preview' >
-            <section className='profile-preview-main-container'>
-                <section className='profile-img-container'>
+        <article className='developer-preview' >
+            <section className='developer-preview-main-container'>
+                <section className='developer-img-container'>
                     <img
-                        className='profile-img'
+                        className='developer-img'
                         src={developer?.imgUrl}
-                        alt='user-profile-img' />
+                        alt='developer-img' />
                 </section>
                 <section className='desc-container'>
-                    <div>
-                        <h4>{developer?.name}</h4>
-                    </div>
-                    <div>
-                        <p className='fs12'>Developer</p>
-                    </div>
+                    <h4>{developer?.name}</h4>
+                    <p className='fs12'>Developer</p>
                     <section className='dev-link-container flex'>
                         {links.map(link => {
                             return (

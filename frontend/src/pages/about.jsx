@@ -56,7 +56,7 @@ export const About = () => {
                     </button>
                 </section>
 
-                {/* <section className="developers">
+                <section className="developers">
                     <h1>Our Team</h1>
                     <DragDropContext onDragEnd={handleOnDragEnd}>
                         <Droppable droppableId='developers-container' direction='horizontal'>
@@ -89,7 +89,7 @@ export const About = () => {
                             )}
                         </Droppable>
                     </DragDropContext>
-                </section> */}
+                </section>
             </main >
         )
     }

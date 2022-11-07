@@ -1,0 +1,40 @@
+.developer-preview {
+    border-radius: 15px;
+    padding: rem(10px);
+    background-color: $black-bcg;
+    height: fit-content;
+
+    .developer-img-container {
+        height: rem(195px);
+        width: rem(195px);
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: rem(16px);
+            @include aspect-ratio(1, 1);
+        }
+
+    }
+h4{
+    font-size: rem(16px);
+}
+    .dev-link-container {
+        margin-top: rem(10px);
+        justify-content: flex-end;
+        gap: rem(5px);
+
+        img {
+            height: rem(30px);
+            width: rem(30px);
+        }
+    }
+
+    &:hover {
+        background-color: $grey-hover;
+        transition: all 0.5s;
+
+    }
+}
