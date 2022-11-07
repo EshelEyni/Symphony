@@ -1,78 +1,48 @@
 .profile-header {
+    width: 100%;
+
     .profile-header-main-container {
+        display: flex;
+        align-items: center;
         padding: 10px 25px 0;
-        gap: 35px;
+        gap: rem(15px);
         margin-bottom: 50px;
 
         .profile-header-img-container {
             .profile-img {
-                height: 110px;
-                width: 110px;
+                height: 25vw;
+                width: 25vw;
                 border-radius: 50%;
                 cursor: pointer;
-
-                @include for-wide-layout {
-                    height: 232px;
-                    width: 232px;
-                }
             }
         }
 
         .profile-header-details {
-            gap: 35px;
             justify-content: center;
-            font-size: rem(14px);
+            font-size: 2.225vw;
 
             .profile-name-title {
-                font-size: rem(10.5px);
                 margin-bottom: 0;
-
-                @include for-mobile-layout {
-                    font-size: 15px;
-                }
             }
 
             .profile-name {
-                line-height: rem(32px);
-                padding-inline-start: 10px;
+                font-size: 10vw;
+                // padding-inline-start: 10px;
+                margin: 10px;
+                line-height: 1;
+            }
 
-                @include for-mobile-layout {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    font-size: rem(22.4px);
-                    letter-spacing: -1px;
-                    text-indent: -2px;
-                    margin-top: 0;
-                    margin-inline-start: 0;
-                    top: 245px;
-                    left: 10px;
-                }
-
-                @include for-normal-layout {
-                    font-size: 2.75rem;
-                    margin-left: 0;
-                }
-
-                @include for-wide-layout {
-                    margin-inline-start: 0;
-                    margin-top: 0;
-                    font-size: rem(88px);
-                    height: rem(88px);
-                    letter-spacing: -5px;
-                }
+            .personal-details-container {
+                margin-top: 5px;
             }
         }
     }
 
     .profile-btn-container {
-        position: relative;
-        padding: 50px 0 15px 0;
-        gap: 25px;
+        margin-inline-start: rem(20px);
 
         .profile-btn-main-container {
             align-items: center;
-            margin: 15px;
             gap: 20px;
 
             .play-btn {
@@ -84,11 +54,6 @@
                     transform: scale(1.1);
                 }
 
-                @include for-mobile-layout {
-                    width: 2.75rem;
-                    height: 2.75rem;
-                    font-size: 1rem;
-                }
             }
 
             .toggle-follow-btn {
@@ -98,6 +63,57 @@
                 font-size: rem(18px);
                 font-weight: bold;
                 padding: 10px 25px;
+            }
+        }
+    }
+
+    @include for-tablet-layout {
+        .profile-header-main-container {
+
+            gap: rem(35px);
+
+            .profile-header-img-container {
+                .profile-img {
+                    height: rem(175px);
+                    width: rem(175px);
+                }
+            }
+
+            .profile-header-details {
+
+                .profile-name-title {
+                    font-size: 2vw;
+                }
+
+                .profile-name {
+                    font-size: 7vw;
+                }
+
+                .personal-details-container {}
+            }
+        }
+    }
+
+    @include for-desktop-layout {
+        .profile-header-main-container {
+            gap: rem(10px);
+
+            .profile-header-details {
+                font-size: rem(10px);
+
+                .profile-name {
+                    font-size: 8vw;
+                }
+            }
+        }
+    }
+
+    @include for-large-desktop-layout {
+        .profile-header-main-container {
+            .profile-header-details {
+                .profile-name {
+                    font-size: 7vw;
+                }
             }
         }
     }

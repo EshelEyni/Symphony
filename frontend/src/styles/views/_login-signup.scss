@@ -9,7 +9,7 @@
         margin-bottom: rem(50px);
     }
 
-    @include for-wide-layout {
+    @include for-large-desktop-layout {
         &>* {
             width: 40%;
         }

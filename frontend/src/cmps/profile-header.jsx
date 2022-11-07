@@ -87,7 +87,7 @@ export const ProfileHeader = ({
     const getProfileDetails = () => {
         const { _id, followers, following } = watchedUser
         return (
-            <div>
+            <section className='personal-details-container'>
                 <Link to={'/public-playlists/' + watchedUser._id}>
                     {(publicStations?.length > 0 ? publicStations?.length + ' Public Playlists ' : '')}
                 </Link>
@@ -97,7 +97,7 @@ export const ProfileHeader = ({
                 <Link to={'/following/' + _id}>
                     {(following?.length > 0 ? ' ● ' + following?.length + ' Following ' : '')}
                 </Link>
-            </div>
+            </section>
         )
     }
 
@@ -105,7 +105,7 @@ export const ProfileHeader = ({
         <header
             className='profile-header'>
             <main
-                className='profile-header-main-container flex'>
+                className='profile-header-main-container'>
                 <section className='profile-header-img-container'>
                     <label htmlFor='profile-img'>
                         {!isChangedImg && <img

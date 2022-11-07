@@ -157,7 +157,7 @@
         }
     }
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
         flex-direction: row;
         bottom: 0;
         width: 100%;
@@ -232,7 +232,7 @@
         }
     }
 
-    @include for-normal-layout {
+    @include for-desktop-layout {
         .media-player-clip-preview {
             .media-player-clip-txt {
                 white-space: normal;

@@ -35,6 +35,16 @@
                 visibility: visible;
             }
         }
+
+        .liked-songs-playing-icon {
+            .equalizer-img {
+                width: rem(25px);
+                height: rem(25px);
+                margin-top: 6px;
+            }
+        }
+
+
     }
 
     .home-link,
@@ -68,7 +78,7 @@
     }
 
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
         display: flex;
         flex-direction: column;
         position: unset;
@@ -80,7 +90,7 @@
         .symbol-container {
             position: initial;
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 2fr 1fr;
             font-size: 15px;
 
             .symbol {
@@ -97,21 +107,66 @@
             }
 
             .symbol-txt {
-                grid-column: 2 / 3;
+                grid-column: 2 / 4;
+                grid-row: 1;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
             }
 
-            .equalizer-img {
-                width: 20px;
-                height: 20px;
-                margin-top: 6px;
+            .liked-songs-playing-icon {
+                grid-row: 1;
+                grid-column: 3/4;
             }
         }
 
         .liked-songs-link {
+            .symbol-container.symbol-txt {
+                grid-column: 2/3;
+            }
+
             display: unset;
+        }
+
+
+        .library-link .symbol-container .login-first-msg {
+            top: 21vh;
+        }
+
+        .create-playlist-link .symbol-container .login-first-msg {
+            top: 24vh;
+        }
+
+        .liked-songs-link .symbol-container .login-first-msg {
+            top: 28.5vh;
+        }
+    }
+
+    @include for-desktop-layout {
+        .library-link .symbol-container .login-first-msg {
+            top: 23vh;
+        }
+
+        .create-playlist-link .symbol-container .login-first-msg {
+            top: 27vh;
+        }
+
+        .liked-songs-link .symbol-container .login-first-msg {
+            top: 31.5vh;
+        }
+    }
+
+    @include for-large-desktop-layout {
+        .library-link .symbol-container .login-first-msg {
+            top: 26vh;
+        }
+
+        .create-playlist-link .symbol-container .login-first-msg {
+            top: 30vh;
+        }
+
+        .liked-songs-link .symbol-container .login-first-msg {
+            top: 35.5vh;
         }
     }
 }

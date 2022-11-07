@@ -3,18 +3,36 @@
 
     .clip-list-header {
         display: grid;
-        grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;
+        grid-template-columns: 1fr 20fr 5fr 5fr 7.5fr;
         align-items: center;
-        padding: 0 10px;
+        padding: 4px;
 
         &>* {
-            font-size: 14px;
+            font-size: 2.5vw;
             color: $grey-txt;
         }
 
-        .clock {
-            grid-column: 6;
-            text-align: center;
+        .num {
+            width: 60px;
+        }
+
+        .artist,
+        .date-added {
+            display: none;
+        }
+
+        .title {
+            grid-column: 2/3;
+        }
+
+        .duration {
+            grid-column: 4/5;
+            // display: flex;
+            // justify-content: center;
+
+            svg {
+                font-size: 3.5vw;
+            }
         }
     }
 
@@ -24,9 +42,4 @@
         gap: 5px;
     }
 
-    @include for-mobile-layout {
-        .clip-list-header-container {
-            display: none;
-        }
-    }
 }

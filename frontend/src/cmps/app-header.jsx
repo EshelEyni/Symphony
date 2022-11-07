@@ -32,13 +32,13 @@ export const AppHeader = () => {
     return (
         <header
             style={{ backgroundColor: headerBgcolor }}
-            className='app-header full'>
+            className='app-header'>
             {isUserClicked &&
                 <div className='shadow-screen'
                     onClick={() => setUserClicked(false)}
                 />}
-            <PaginationBtns />
             <main className='app-header-main-container flex'>
+            <PaginationBtns />
 
                 {/************************* GUEST MODE *************************/}
                 {!loggedinUser &&

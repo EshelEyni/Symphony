@@ -23,12 +23,12 @@
             }
 
             .station-header-name-container {
-                @include for-normal-layout {
+                @include for-desktop-layout {
                     font-size: 2.75rem;
                     margin: 0;
                 }
 
-                @include for-wide-layout {
+                @include for-large-desktop-layout {
                     text-indent: -6px;
                     margin-inline-start: 0;
                     font-size: 5.5rem;

@@ -65,9 +65,9 @@ export const ClipPreview = ({
                 borderRadius: dndStyle?.borderRadius,
                 cursor: dndStyle?.cursor,
             }}
-            className='clip-preview-container'>
+            className='clip-preview'>
 
-            <section className='clip-preview-main-container'>
+            <section className='clip-preview-container'>
                 <div className='play-btn-container'>
                     <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                         onClick={onTogglePlay}></i>

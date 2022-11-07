@@ -1,13 +1,14 @@
 .login-first-msg {
     position: absolute;
-    left: 45px;
-    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -250px;
     width: 300px;
     height: fit-content;
     background-color: $login-first-blue;
     padding: 1rem;
     border-radius: 20px;
-    // z-index: 20;
+    z-index: 20;
 
     .tippy {
         position: absolute;
@@ -19,10 +20,6 @@
         top: rem(20px);
         border-right: 10px solid $login-first-blue;
         display: none;
-    }
-
-    &>*:not(.shadow-screen) {
-        z-index: 20;
     }
 
     .login-first-txt-container {
@@ -37,7 +34,7 @@
             margin: 0;
         }
     }
-    
+
     .login-first-btns {
         margin-top: 35px;
         justify-content: flex-end;
@@ -82,11 +79,18 @@
         }
     }
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
+        left: 200px;
+        .tippy {
+            display: unset;
+        }
+    }
+
+    @include for-desktop-layout {
         left: 240px;
 
         .tippy {
-            display: unset;
+            left: rem(-8.4px);
         }
     }
 }

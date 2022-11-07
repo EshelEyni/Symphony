@@ -108,17 +108,14 @@ function updateUserRecentlyPlayedClips(user, currClip) {
 
 export const loginFirstMsgs = {
     library: {
-        top: '225px',
         title: 'Enjoy Your Library',
         txt: 'Log in to see saved songs, artists, and playlists in Your Library'
     },
     createPlaylist: {
-        top: '260px',
         title: 'Create a playlist',
         txt: 'Log in to create and share playlists.'
     },
     likedSongs: {
-        top: '305px',
         title: 'Enjoy Your Liked Songs',
         txt: 'Log in to see all the songs you\'ve liked in one easy playlist.'
     }

@@ -53,10 +53,11 @@ export const NavListSymbol = ({
                     {symbol.clicked}
                 </div>}
             <span className='symbol-txt'>{symbol.txt}</span>
-            {(symbol.txt === 'Liked Songs' && isLikedSongsPlaying) && <span
-                className='liked-songs-playing-icon'>
-                <Equalizer />
-            </span>}
+            {(symbol.txt === 'Liked Songs' && isLikedSongsPlaying) &&
+                <span
+                    className='liked-songs-playing-icon'>
+                    <Equalizer />
+                </span>}
             {isLoginMsg && <LoginFirstMsg
                 loginMsgProperties={loginMsgProperties}
                 setIsLoginMsg={setIsLoginMsg}

@@ -2,14 +2,14 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 60px 1fr 75px 60px;
+    grid-template-rows: 50px 1fr 75px 60px;
     grid-template-areas: 'header' 'main' 'mediaplayer' 'sidebar';
 
     .main-content {
         grid-area: main;
     }
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
         grid-template-columns: 200px 1fr;
         grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
         grid-template-areas:
@@ -19,7 +19,7 @@
         ;
     }
 
-    @include for-normal-layout {
+    @include for-desktop-layout {
         grid-template-columns: 252px 1fr;
         grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
         grid-template-areas:

@@ -21,14 +21,14 @@
 
     }
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
         &>*:nth-child(1) {
             display: unset;
         }
     }
 
 
-    @include for-wide-layout {
+    @include for-desktop-layout {
         &>*:nth-child(2) {
             display: flex;
             justify-content: center;

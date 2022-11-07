@@ -1,28 +1,30 @@
-.clip-preview-container {
+.clip-preview {
     display: block;
     align-items: center;
     padding: 4px;
 
-    .clip-preview-main-container {
-        display: flex;
-        justify-content: space-between;
+    .clip-preview-container {
+        display: grid;
+        grid-template-columns: 1fr 20fr 5fr 5fr 7.5fr;
         align-items: center;
         padding: 5px;
-        font-size: 12px;
+        font-size: 2vw;
         height: fit-content;
 
         .play-btn-container {
-            display: none;
+            grid-column: 1/2;
+            padding: 20px;
+            font-size: 3vw;
             cursor: pointer;
-            padding: 10px;
 
-            .clip-play-btn {
-                font-size: 13px;
+            .clip-num {
+                display: none;
             }
 
             .equalizer {
                 padding: 10px;
                 max-width: 28.3px;
+                display: none;
 
                 img {
                     width: 150%;
@@ -37,8 +39,8 @@
             align-items: center;
 
             img {
-                width: rem(60px);
-                height: rem(60px);
+                width: 8vw;
+                height: 8vw;
                 clip-path: inset(12.5% 0% 12.5% 0% round 10px);
             }
         }
@@ -48,25 +50,26 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
+        
         .title-text {
-            padding: 3px 0;
-            padding-inline-start: 15px;
+            padding-inline-start: rem(15px);
 
             &>* {
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                width: fit-content;
             }
 
             h1 {
-                font-size: 12px;
+                font-size: 2.5vw;
+                width: fit-content;
                 margin: 0;
                 padding: 0;
             }
 
             p {
-                font-size: 11px;
+                // font-size: 11px;
                 margin: 0;
                 padding: 0;
                 color: #6f6969;
@@ -79,13 +82,15 @@
             display: none;
         }
 
-        .clip-header-clock {
-            display: none;
+        .like-icon {
+            display: flex;
+            justify-content: center;
+            // width: fit-content;
         }
 
         .dropdown-btn {
             visibility: visible;
-            font-size: 15px;
+            // font-size: 15px;
             cursor: pointer;
         }
 
@@ -102,10 +107,10 @@
             }
         }
 
-        @include for-narrow-layout {
+        @include for-tablet-layout {
 
             .play-btn-container {
-                display: unset;
+                // display: unset;
             }
 
             .title-text {
@@ -120,7 +125,7 @@
             }
         }
 
-        @include for-normal-layout {
+        @include for-desktop-layout {
             display: grid;
             grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;
             align-items: center;
@@ -137,9 +142,7 @@
                 display: grid;
             }
 
-            .clip-play-btn {
-                display: none;
-            }
+
 
             .clip-header-clock {
                 grid-column: 6;
@@ -158,7 +161,7 @@
         background-color: $grey-hover;
         border-radius: 5px;
 
-        .clip-preview-main-container {
+        .clip-preview-container {
             .clip-play-btn {
                 display: unset;
             }

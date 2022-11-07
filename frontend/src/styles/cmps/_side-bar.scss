@@ -47,7 +47,7 @@
         display: none;
     }
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
         height: 100vh;
         position: sticky;
         top: 0;

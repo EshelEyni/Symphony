@@ -1,14 +1,18 @@
 .app-header {
     grid-area: header;
     display: flex;
-    top: 0;
-    justify-content: flex-end;
     align-items: center;
-z-index: 10;
+    width: 100%;
+
     .app-header-main-container {
-        right: 0;
-        z-index: 20;
+        display: flex;
+        align-items: center;
+        width: 100vw;
+
+        height: 50px;
         font-size: rem(32px);
+        z-index: 10;
+        justify-content: flex-end;
 
         .guest-mode-container {
             gap: 15px;
@@ -30,11 +34,12 @@ z-index: 10;
 
             .guest-btn-container {
                 gap: 5px;
+                padding: 5px 0;
 
                 &>* {
                     text-decoration: none;
                     border: none;
-                    background-color: #00000000;
+                    background-color: transparent;
                     color: white;
                     font-family: circular;
                     line-height: 1.6;
@@ -44,10 +49,9 @@ z-index: 10;
                     position: relative;
                     background-color: #F6F6F6;
                     color: black;
-                    min-height: rem(90px);
+                    min-height: rem(80px);
                     min-width: rem(150px);
                     margin-inline-end: 20px;
-
                     border-radius: 25px;
                 }
             }
@@ -60,6 +64,7 @@ z-index: 10;
             top: 15px;
             right: 0;
             z-index: 20;
+            cursor: pointer;
 
             .profile-details {
                 display: flex;
@@ -88,7 +93,6 @@ z-index: 10;
 
                 &:hover {
                     background-color: rgb(44, 44, 44);
-                    cursor: pointer;
                     transition: 0.3s;
                 }
             }
@@ -121,12 +125,13 @@ z-index: 10;
         }
     }
 
-    @include for-narrow-layout {
-        position: sticky;
-        justify-content: space-between;
+    @include for-tablet-layout {
+        height: 65px;
 
         .app-header-main-container {
+            justify-content: space-between;
             font-size: rem(15px);
+            width: 100%;
 
             .guest-mode-container {
                 gap: 25px;
@@ -142,7 +147,6 @@ z-index: 10;
             }
 
             .user-mode-container {
-
                 .profile-details {
                     padding: 2px 10px 2px 5px;
                     width: max-content;
@@ -166,5 +170,16 @@ z-index: 10;
                 }
             }
         }
+    }
+
+    @include for-desktop-layout {
+        .app-header-main-container {
+            .guest-btn-container {
+                &>* {
+                    font-size: rem(18px);
+                }
+            }
+        }
+
     }
 }

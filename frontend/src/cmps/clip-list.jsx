@@ -78,8 +78,8 @@ export const ClipList = ({
         { classname: 'num' },
         { classname: 'title', txt: '# TITLE' },
         { classname: 'artist', txt: 'ARTIST' },
-        { classname: 'date', txt: isSearch ? '' : 'DATE ADDED' },
-        { classname: 'clock', icon: <AccessTimeOutlinedIcon /> },
+        { classname: 'date-added', txt: isSearch ? '' : 'DATE ADDED' },
+        { classname: 'duration', icon: <AccessTimeOutlinedIcon /> },
     ]
 
     if (!isStationSearch) {

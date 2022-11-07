@@ -10,15 +10,15 @@ html {
     overflow-x: hidden;
     // overflow-y: hidden;
 
-    @include for-narrow-layout {
+    @include for-tablet-layout {
         font-size: 14px;
     }
 
-    @include for-normal-layout {
+    @include for-desktop-layout {
         font-size: 16px;
     }
 
-    @include for-wide-layout {
+    @include for-large-desktop-layout {
         font-size: 18px;
     }
 }
