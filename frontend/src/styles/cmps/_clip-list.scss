@@ -7,12 +7,11 @@
         align-items: center;
         padding: 4px;
 
-        &>* {
-            font-size: 2.5vw;
-            color: $grey-txt;
-        }
+        font-size: 2.5vw;
+        color: $grey-txt;
 
-        .num {
+        .cl-play-btn {
+            grid-column: 1/2;
             width: 60px;
         }
 
@@ -27,8 +26,6 @@
 
         .duration {
             grid-column: 4/5;
-            // display: flex;
-            // justify-content: center;
 
             svg {
                 font-size: 3.5vw;
@@ -42,4 +39,34 @@
         gap: 5px;
     }
 
+    @include for-desktop-layout {
+        .clip-list-header {
+            grid-template-columns: 1fr 20fr 5fr 5fr 5fr 5fr 5fr;
+            font-size: 1.5vw;
+
+            .cl-play-btn {
+                width: 80px;
+            }
+
+            .artist {
+                grid-column: 3/4;
+                display: block;
+            }
+            
+            .date-added {
+                grid-column: 4/5;
+                display: block;
+            }
+            
+            .duration {
+                display: flex;
+                justify-content: flex-end;
+                grid-column: 6;
+
+                svg {
+                    font-size: 2.5vw;
+                }
+            }
+        }
+    }
 }

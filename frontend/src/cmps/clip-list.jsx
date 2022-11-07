@@ -75,7 +75,7 @@ export const ClipList = ({
     }
 
     const headerTitles = [
-        { classname: 'num' },
+        { classname: 'cl-play-btn' },
         { classname: 'title', txt: '# TITLE' },
         { classname: 'artist', txt: 'ARTIST' },
         { classname: 'date-added', txt: isSearch ? '' : 'DATE ADDED' },

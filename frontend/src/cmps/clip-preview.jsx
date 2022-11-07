@@ -84,8 +84,8 @@ export const ClipPreview = ({
                         <p style={{ color: dndStyle?.color }}>{currClip.artist}</p>
                     </section>
                 </section>
-                <span className='artist-name'>{currClip.artist}</span>
-                <span className='added' > {getDateAdded()} </span>
+                <span className='cp-artist-name'>{currClip.artist}</span>
+                <span className='cp-date-added' > {getDateAdded()} </span>
 
                 {loggedinUser && <LikeIcon
                     currStation={currStation}
@@ -94,7 +94,7 @@ export const ClipPreview = ({
                     isClipPreview={true}
                 />}
 
-                {currClip.duration ? <div className='clip-header-clock'>{clipService.getDuration(currClip.duration)||''}</div> : ''}
+                {currClip.duration ? <div className='cp-duration'>{clipService.getDuration(currClip.duration)||''}</div> : ''}
 
                 <i className='dropdown-btn fa-solid fa-ellipsis'
                     ref={dropdownBtnRef}

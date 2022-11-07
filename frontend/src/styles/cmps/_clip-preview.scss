@@ -50,7 +50,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .title-text {
             padding-inline-start: rem(15px);
 
@@ -69,7 +69,6 @@
             }
 
             p {
-                // font-size: 11px;
                 margin: 0;
                 padding: 0;
                 color: #6f6969;
@@ -77,8 +76,8 @@
             }
         }
 
-        .artist-name,
-        .added {
+        .cp-artist-name,
+        .cp-date-added {
             display: none;
         }
 
@@ -110,7 +109,13 @@
         @include for-tablet-layout {
 
             .play-btn-container {
-                // display: unset;
+                .clip-play-btn {
+                    display: none;
+                }
+
+                .clip-num {
+                    display: unset;
+                }
             }
 
             .title-text {
@@ -125,26 +130,44 @@
             }
         }
 
-        @include for-desktop-layout {
-            display: grid;
-            grid-template-columns: 40px 5fr 2.5fr 1.5fr 50px 40px 32px;
+    }
+
+    @include for-desktop-layout {
+        .clip-preview-container {
+            grid-template-columns: 1fr 20fr 5fr 5fr 5fr 5fr 5fr;
             align-items: center;
-            font-size: 14px;
+            font-size: 1vw;
             padding: 0 10px;
 
-            .clip-num,
-            .clip-play-btn,
-            .artist-name,
-            .added,
-            .clip-header-clock,
-            .like,
-            .equalizer {
+            .clip-img-container {
+                img {
+                    width: 6vw;
+                    height: 6vw;
+                }
+            }
+
+            .play-btn-container {
+                font-size: 2vw;
+            }
+
+            .title-text {
+                h1 {
+                    font-size: 1.5vw;
+                }
+            }
+
+            .cp-artist-name {
+                padding-inline-start: 5px;
+                grid-column: 3/4;
                 display: grid;
             }
 
+            .cp-date-added {
+                grid-column: 4/5;
+                display: grid;
+            }
 
-
-            .clip-header-clock {
+            .cp-duration {
                 grid-column: 6;
                 text-align: right;
             }
