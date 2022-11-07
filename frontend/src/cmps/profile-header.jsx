@@ -125,7 +125,7 @@ export const ProfileHeader = ({
                 </section>
 
                 <section className='profile-header-details flex column'>
-                    <p className='profile-name-title'>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
+                    <p className='profile-title'>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
                     <h1 className='profile-name'>{watchedUser?.username}</h1>
                     {getProfileDetails()}
                 </section>

@@ -1,5 +1,5 @@
 .station-preview {
-    height: 285px;
+    height: 255px;
     border-radius: 15px;
     padding: 15px;
     background-color: $black-bcg;
@@ -12,8 +12,8 @@
         }
 
         .station-preview-img-container {
-            height: 175px;
-            width: 175px;
+            height: 85%;
+            width: 85%;
             margin: auto;
 
             .station-preview-img {
@@ -30,6 +30,17 @@
                 left: 68%;
                 bottom: 78.5px;
                 display: none;
+            }
+        }
+    }
+
+    @include for-tablet-layout {
+        height: 285px;
+
+        .station-preview-main-container {
+            .station-preview-img-container {
+                height: 175px;
+                width: 175px;
             }
         }
     }

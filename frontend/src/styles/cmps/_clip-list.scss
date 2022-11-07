@@ -15,8 +15,13 @@
             width: 60px;
         }
 
-        .artist,
+        .artist {
+            display: none;
+        }
+
         .date-added {
+            position: relative;
+            width: max-content;
             display: none;
         }
 
@@ -52,12 +57,12 @@
                 grid-column: 3/4;
                 display: block;
             }
-            
+
             .date-added {
                 grid-column: 4/5;
                 display: block;
             }
-            
+
             .duration {
                 display: flex;
                 justify-content: flex-end;

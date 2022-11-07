@@ -1,18 +1,26 @@
 .station-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 2020px;
 
     .station-list-main-container {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 225px));
+        display: grid;
+        grid-template-columns: repeat(2, minmax(160px, 225px));
         grid-template-rows: 50px 1fr;
-        gap: 24px;
-        padding: 25px 25px 0;
+        padding: 25px 15px 0 15px;
+        gap: 15px 5px;
+
     }
 
-    @include for-mobile-layout {
+    @include for-tablet-layout {
+        display: block;
+        align-items: initial;
+
         .station-list-main-container {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 15px 8px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 225px));
+            padding: 25px 25px 0;
+            gap: 24px;
         }
     }
 }

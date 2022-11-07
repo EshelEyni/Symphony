@@ -21,7 +21,7 @@
             justify-content: center;
             font-size: 2.225vw;
 
-            .profile-name-title {
+            .profile-title {
                 margin-bottom: 0;
             }
 
@@ -69,7 +69,6 @@
 
     @include for-tablet-layout {
         .profile-header-main-container {
-
             gap: rem(35px);
 
             .profile-header-img-container {
@@ -81,15 +80,17 @@
 
             .profile-header-details {
 
-                .profile-name-title {
-                    font-size: 2vw;
+                .profile-title {
+                    font-size: rem(15px);
                 }
 
                 .profile-name {
-                    font-size: 7vw;
+                    font-size: rem(55px);
                 }
 
-                .personal-details-container {}
+                .personal-details-container {
+                    font-size: rem(12px);
+                }
             }
         }
     }
@@ -98,11 +99,26 @@
         .profile-header-main-container {
             gap: rem(10px);
 
+            .profile-header-img-container {
+                .profile-img {
+                    height: rem(175px);
+                    width: rem(175px);
+                }
+            }
+
             .profile-header-details {
                 font-size: rem(10px);
 
+                .profile-title {
+                    font-size: rem(20px);
+                }
+
                 .profile-name {
-                    font-size: 8vw;
+                    font-size: rem(65px);
+                }
+
+                .personal-details-container {
+                    font-size: rem(15px);
                 }
             }
         }
@@ -110,9 +126,17 @@
 
     @include for-large-desktop-layout {
         .profile-header-main-container {
+
+            .profile-header-img-container {
+                .profile-img {
+                    height: rem(295px);
+                    width: rem(295px);
+                }
+            }
+
             .profile-header-details {
                 .profile-name {
-                    font-size: 7vw;
+                    font-size: rem(100px);
                 }
             }
         }

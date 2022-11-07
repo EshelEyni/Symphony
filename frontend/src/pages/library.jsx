@@ -67,8 +67,8 @@ export const Library = () => {
 
                 {userStations.length > 0 &&
                     <main>
-                        <h1>Playlists</h1>
                         <StationList
+                            title={'Playlists'}
                             stations={userStations}
                             isLiked={true}
                             stationKey={'library-station-'}
