@@ -13,7 +13,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <Router>
-      <RootCmp />
+      <React.StrictMode>
+        <RootCmp />
+      </React.StrictMode>
     </Router>
   </Provider>
 );

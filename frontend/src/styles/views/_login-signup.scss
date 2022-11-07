@@ -8,4 +8,10 @@
         text-align: center;
         margin-bottom: rem(50px);
     }
+
+    @include for-wide-layout {
+        &>* {
+            width: 40%;
+        }
+    }
 }

@@ -69,7 +69,6 @@ export const SideBar = () => {
                 </section>
             </Link>
             <NavList
-                loggedinUser={loggedinUser}
                 isAddStation={isAddStation}
                 onAddStation={onAddStation}
             />
