@@ -1,5 +1,6 @@
 .liked-songs-preview {
-    height: 255px;
+    height: 225px;
+    width: minmax(320px, 450px);
     grid-column: 1 / 3;
     background: #4300ff;
     background: linear-gradient(149.46deg, #450af5, #8e8ee5 99.16%);
@@ -38,7 +39,7 @@
     }
 
     @include for-tablet-layout {
-        height: 285px;
+        height: 245px;
 
         .liked-songs-preview-container {
             height: 100%;
@@ -46,24 +47,31 @@
             gap: 15px;
 
             p {
-                font-size: rem(20px);
+                font-size: rem(12px);
             }
 
             .title-preview {
-                font-size: rem(32px);
+                font-size: rem(25px);
             }
         }
     }
 
+    @include for-desktop-layout {
+        height: 285px;
+    }
+
     @include for-large-desktop-layout {
+        height: 350px;
+        width: minmax(320px, 500px);
+
         .liked-songs-preview-container {
 
             p {
-                font-size: rem(15px);
+                font-size: rem(20px);
             }
 
             .title-preview {
-                font-size: rem(32px);
+                font-size: rem(35px);
             }
         }
     }

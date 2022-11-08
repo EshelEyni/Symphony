@@ -56,7 +56,7 @@ export const StationPreview = ({
         <Link
             title={currStation.name}
             to={'/station/' + currStation._id}>
-            <main className='station-preview-main-container'>
+            <main className='station-preview-container'>
                 {isSearch && <div className='recent-search-delete-btn-container'>
                     <i className='fa-solid fa-xmark'
                         onClick={onRemoveStation}></i> </div>}
@@ -72,8 +72,8 @@ export const StationPreview = ({
                             }} />}
                 </section>
                 <section className='desc-container'>
-                    <h4>{currStation.name}</h4>
-                    <p className='fs12'>{currStation.desc}</p>
+                    <h4 title={currStation.name}>{currStation.name}</h4>
+                    <p title={currStation.desc}>{currStation.desc}</p>
                 </section>
             </main>
         </Link>

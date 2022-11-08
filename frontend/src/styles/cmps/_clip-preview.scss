@@ -186,60 +186,17 @@
     }
 
 
-    // @include for-large-desktop-layout {
-    //     .clip-preview-container {
-    //         grid-template-columns: 1fr 20fr 5fr 5fr 5fr 5fr 5fr;
-    //         align-items: center;
-    //         font-size: 1vw;
-    //         padding: 0 10px;
+    @include for-large-desktop-layout {
+        .clip-preview-container {
 
-    //         .clip-img-container {
-    //             img {
-    //                 width: 6vw;
-    //                 height: 6vw;
-    //             }
-    //         }
-
-    //         .play-btn-container {
-    //             font-size: 2vw;
-    //         }
-
-    //         .title-text {
-    //             h1 {
-    //                 font-size: 1.5vw;
-    //             }
-    //         }
-
-    //         .cp-artist-name {
-    //             padding-inline-start: 5px;
-    //             grid-column: 3/4;
-    //             display: grid;
-    //         }
-
-    //         .cp-date-added {
-    //             grid-column: 4/5;
-    //             display: grid;
-    //         }
-
-    //         .like-icon {
-    //             svg {
-    //                 width: 5vw;
-    //                 height: 5vw;
-    //             }
-    //         }
-
-
-    //         .cp-duration {
-    //             grid-column: 6;
-    //             text-align: right;
-    //         }
-
-    //         .dropdown-btn {
-    //             visibility: hidden;
-    //         }
-
-    //     }
-    // }
+            .clip-img-container {
+                img {
+                    width: 85px;
+                    height: 85px;
+                }
+            }
+        }
+    }
 
     &:hover {
         border-bottom: 1px solid transparent;

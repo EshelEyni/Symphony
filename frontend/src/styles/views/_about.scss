@@ -3,8 +3,8 @@
     .app-desc {
         display: grid;
         grid-template-columns: 1fr 6fr 1fr;
-        grid-template-rows: 2fr 8fr;
-        height: 50vh;
+        grid-template-rows: 2fr 6fr;
+        height: min-content;
         width: 80%;
         margin: 10px auto;
         background-color: #252525;
@@ -19,6 +19,14 @@
         .desc-txt-container {
             grid-column: 2/3;
             grid-row: 2/3;
+
+            h1 {
+                margin: 0;
+            }
+
+            p {
+                height: fit-content;
+            }
         }
 
         .back-btn {
@@ -28,39 +36,57 @@
         .next-btn {
             grid-column: 3/4;
         }
-        
-        
+
+
         &>button {
+            grid-row: 2/3;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            grid-row: 2/3;
+            height: 100%;
+            width: 100%;
             background-color: transparent;
             border: none;
-            color: #fff;
-            height: 50px;
-            width: 50px;
+            color: white;
 
             svg {
-                font-size: 75px;
+                font-size: rem(75px);
             }
         }
     }
-}
 
 
-.developers {
-    h1 {
-        display: flex;
-        justify-content: center;
+    .developers {
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .developers-container {
+            // margin: 10px 10px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
     }
 
-    .developers-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
+    @include for-tablet-layout {
+        .app-desc {
+            &>button {
+                svg {
+                    font-size: rem(60px);
+                }
+            }
+        }
+    }
+
+    @include for-desktop-layout {
+        .developers {
+            .developers-container {
+                gap: 15px;
+            }
+        }
+
+
     }
 }

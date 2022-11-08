@@ -9,9 +9,9 @@
         margin-bottom: rem(50px);
     }
 
-    @include for-large-desktop-layout {
+    @include for-desktop-layout {
         &>* {
-            width: 40%;
+            max-width: 450px;
         }
     }
 }

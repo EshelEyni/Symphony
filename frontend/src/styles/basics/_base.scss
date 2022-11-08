@@ -6,7 +6,7 @@ html {
     font-family: circular;
     line-height: 1.6;
     font-size: 8px;
-    
+
     overflow-x: hidden;
     // overflow-y: hidden;
 
@@ -28,7 +28,7 @@ body {
     padding: 0;
     background-color: $black;
     color: white;
-    
+
     overflow-x: hidden;
     // overflow-y: hidden;
     position: relative;
@@ -97,7 +97,7 @@ hr {
     transition: 0.4s;
     width: 55px;
     height: 55px;
-    font-size: rem(20px);
+    font-size: clamp(20px, 50%, 30px);
 
     &:hover {
         transform: scale(1.1);
@@ -137,6 +137,10 @@ hr {
     padding-inline-start: 10px;
     gap: 3.5px;
     cursor: pointer;
+
+    svg {
+        font-size: 7.5px;
+    }
 }
 
 .shadow-screen {

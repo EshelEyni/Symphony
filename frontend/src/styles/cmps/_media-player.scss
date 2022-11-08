@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    height: 7%;
+    height:10%;
     width: 95%;
     left: 2.5%;
     bottom: 50px;
@@ -68,13 +68,16 @@
 
     .mp-controller {
         position: relative;
-        top: -20px;
+        top: -35px;
         width: 90vw;
 
         .mp-btn-container {
             display: flex;
             justify-content: flex-end;
             gap: rem(10px);
+            position: relative;
+            bottom: -11px;
+            left: -5px;
 
             .action-btn {
                 font-size: rem(20px);

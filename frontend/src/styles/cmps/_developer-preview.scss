@@ -7,21 +7,24 @@
     .developer-img-container {
         height: rem(195px);
         width: rem(195px);
+        margin: 0 auto;
 
         img {
             height: 100%;
             width: 100%;
-            object-fit: cover;
             border-radius: 50%;
             margin-bottom: rem(16px);
             @include aspect-ratio(1, 1);
         }
 
     }
-h4{
-    font-size: rem(16px);
-}
+
+    h4 {
+        font-size: rem(16px);
+    }
+
     .dev-link-container {
+        display: flex;
         margin-top: rem(10px);
         justify-content: flex-end;
         gap: rem(5px);
@@ -31,6 +34,64 @@ h4{
             width: rem(30px);
         }
     }
+
+    @include for-tablet-layout {
+
+        .developer-img-container {
+            height: rem(100px);
+            width: rem(100px);
+        }
+
+        h4 {
+            font-size: rem(10px);
+        }
+
+        p {
+            font-size: rem(8px);
+        }
+
+        .dev-link-container {
+            gap: rem(2.5px);
+
+            img {
+                height: rem(18px);
+                width: rem(18px);
+            }
+        }
+    }
+
+
+    @include for-desktop-layout {
+        .developer-img-container {
+            height: rem(130px);
+            width: rem(130px);
+        }
+    }
+
+    @include for-large-desktop-layout {
+        .developer-img-container {
+            height: rem(160px);
+            width: rem(160px);
+        }
+
+        h4 {
+            font-size: rem(15px);
+        }
+
+        p {
+            font-size: rem(12px);
+        }
+
+        .dev-link-container {
+            gap: rem(5px);
+
+            img {
+                height: rem(23px);
+                width: rem(23px);
+            }
+        }
+    }
+
 
     &:hover {
         background-color: $grey-hover;

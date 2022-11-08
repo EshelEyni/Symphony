@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 2020px;
+    max-width: $list-max-width;
 
-    .station-list-main-container {
+    .station-list-container {
         display: grid;
         grid-template-columns: repeat(2, minmax(160px, 225px));
         grid-template-rows: 50px 1fr;
@@ -17,10 +17,30 @@
         display: block;
         align-items: initial;
 
-        .station-list-main-container {
-            grid-template-columns: repeat(auto-fit, minmax(180px, 225px));
+        .station-list-container {
+            padding: 25px 25px 0 25px;
+            gap: 10px;
+        }
+    }
+
+    @include for-desktop-layout {
+        .station-list-container {
             padding: 25px 25px 0;
-            gap: 24px;
+            gap: 20px;
+        }
+    }
+
+    @include for-large-desktop-layout {
+        .list-header {
+            h1 {
+                font-size: rem(30px);
+            }
+        }
+
+        .station-list-container {
+            grid-template-columns: repeat(auto-fit, minmax(160px, 250px));
+            grid-template-rows: 75px 1fr;
+
         }
     }
 }

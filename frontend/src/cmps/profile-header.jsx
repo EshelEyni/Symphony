@@ -7,11 +7,11 @@ import { updateUser, updateWatchedUser } from '../store/user.actions'
 import { uploadImg } from '../services/upload.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 import { defaultImg } from '../services/user.service'
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import { updateArtist } from '../store/artist.actions'
 import { setMediaPlayerClip, setPlaylist } from '../store/media-player.actions'
 import { socketService, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 import { setHeaderBgcolor } from '../store/app-header.actions'
+import { DropdownBtn } from './dropdown-btn'
 
 export const ProfileHeader = ({
     watchedUser,
@@ -136,7 +136,7 @@ export const ProfileHeader = ({
                 <section className='profile-btn-main-container flex'>
                     {(watchedUser.clips?.length > 0 && watchedUser?.isArtist) && <button
                         className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                        onClick={onTogglePlay}/>}
+                        onClick={onTogglePlay} />}
 
                     {(loggedinUser && loggedinUser?._id !== watchedUser?._id) &&
                         <button
@@ -144,15 +144,12 @@ export const ProfileHeader = ({
                             onClick={onToggleFollowProfile}
                         >{isFollowedProfile ? 'Following' : 'Follow'}</button>}
 
-                    <section
-                        className='dropdown-btn-container flex'
-                        ref={dropdownBtnRef}
-                        title={'More options for ' + watchedUser?.username}
-                        onClick={() => setIsDropdown(!isDropdown)}>
-                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                    </section>
+                    <DropdownBtn
+                        dropdownBtnRef={dropdownBtnRef}
+                        name={watchedUser?.name}
+                        setIsDropdown={setIsDropdown}
+                        isDropdown={isDropdown}
+                    />
                 </section>
 
                 {isDropdown && <Dropdown

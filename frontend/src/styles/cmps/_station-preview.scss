@@ -1,10 +1,10 @@
 .station-preview {
-    height: 255px;
+    height: 225px;
     border-radius: 15px;
     padding: 15px;
     background-color: $black-bcg;
 
-    .station-preview-main-container {
+    .station-preview-container {
 
         a {
             display: flex;
@@ -12,44 +12,98 @@
         }
 
         .station-preview-img-container {
-            height: 85%;
-            width: 85%;
+            height: clamp(135px, 20vw, 200px);
+            width: clamp(135px, 20vw, 200px);
             margin: auto;
 
             .station-preview-img {
                 height: 100%;
                 width: 100%;
-                object-fit: cover;
                 margin-bottom: 16px;
-                box-shadow: 0px 7px 24px -2px #000000;
+                box-shadow: 0px 15px 24px -2px $grey-hover;
                 border-radius: 5px;
             }
 
             .play-btn {
                 position: relative;
-                left: 68%;
-                bottom: 78.5px;
+                left: calc(clamp(135px, 20vw, 200px) - 60px);
+                bottom: 85px;
                 display: none;
+            }
+        }
+
+
+        .desc-container {
+            h4 {
+                font-size: 3vw;
+            }
+
+            p {
+                font-size: 1.5vw;
             }
         }
     }
 
     @include for-tablet-layout {
-        height: 285px;
+        height: 245px;
 
-        .station-preview-main-container {
-            .station-preview-img-container {
-                height: 175px;
-                width: 175px;
+        .station-preview-container {
+            .desc-container {
+                h4 {
+                    font-size: rem(20px);
+                }
+
+                p {
+                    font-size: rem(10px);
+                }
             }
         }
     }
+
+    @include for-desktop-layout {
+        height: 285px;
+
+        .station-preview-container {
+            .station-preview-img-container {
+                height: clamp(135px, 16.5vw, 220px);
+                width: clamp(135px, 16.5vw, 220px);
+
+                .play-btn {
+                left: calc(clamp(135px, 16.5vw, 220px) - 60px);
+                }
+            }
+
+            .desc-container {
+                h4 {
+                    font-size: rem(17.5px);
+                }
+            }
+        }
+
+    }
+
+    @include for-large-desktop-layout {
+        height: 350px;
+
+        .station-preview-container {
+            .desc-container {
+                h4 {
+                    font-size: rem(25px);
+                }
+
+                p {
+                    font-size: rem(14px);
+                }
+            }
+        }
+    }
+
 
     &:hover {
         background-color: $grey-hover;
         transition: all 0.5s;
 
-        .station-preview-main-container {
+        .station-preview-container {
             background-color: $grey-hover;
             transition: all 0.5s;
 

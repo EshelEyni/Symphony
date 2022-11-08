@@ -38,19 +38,15 @@ export const AppHeader = () => {
                     onClick={() => setUserClicked(false)}
                 />}
             <main className='app-header-main-container flex'>
-            <PaginationBtns />
-
+                <PaginationBtns />
+ 
                 {/************************* GUEST MODE *************************/}
                 {!loggedinUser &&
-                    <section className='guest-mode-container flex'>
-                        <section className='guest-mode-links-bar flex'>
-                            <NavLink to='about' >About</NavLink>
-                        </section>
+                    <section className='guest-mode-container '>
+                        <NavLink to='about' >About</NavLink>
                         <div className='vl'></div>
-                        <section className='guest-btn-container flex'>
-                            <button onClick={() => navigate('signup')}>Sign up</button>
-                            <button onClick={() => navigate('login')}>Log in</button>
-                        </section>
+                        <NavLink to='/signup'>Sign up</NavLink>
+                        <NavLink to='/login'>Log in</NavLink>
                     </section>}
 
                 {/************************* LOGGED IN MODE *************************/}

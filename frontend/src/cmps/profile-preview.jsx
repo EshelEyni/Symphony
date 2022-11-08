@@ -37,7 +37,7 @@ export const ProfilePreview = ({
     return (
         <article className='profile-preview' >
             <Link to={(user.isArtist ? '/artist/' : '/profile/') + user?._id}>
-                <main className='profile-preview-main-container'>
+                <main className='profile-preview-container'>
 
                     <section className='profile-img-container'>
                         <img
@@ -54,7 +54,7 @@ export const ProfilePreview = ({
 
                     <section className='desc-container'>
                         <h4>{user?.username}</h4>
-                        <p className='fs12'>{user.isArtist ? 'Artist' : 'Profile'}</p>
+                        <p>{user.isArtist ? 'Artist' : 'Profile'}</p>
                     </section>
                 </main>
             </Link>

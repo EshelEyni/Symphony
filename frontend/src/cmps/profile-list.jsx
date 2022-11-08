@@ -35,7 +35,7 @@ export const ProfileList = ({
     if (profiles) {
         return (
             <section className='profile-list'>
-                <section className='profile-list-main-container grid'>
+                <main className='profile-list-container'>
                     <header className="list-header flex space-between">
                         <h1>{title}</h1>
                         {links.map(link => (
@@ -47,14 +47,14 @@ export const ProfileList = ({
                             </Link>
                         ))}
                     </header>
-
+                    
                     {profilesForDisplay.current.map(user => {
                         return <ProfilePreview
                             key={profileKey + user._id}
                             user={user}
                         />
                     })}
-                </section>
+                </main>
             </section>
         )
     }

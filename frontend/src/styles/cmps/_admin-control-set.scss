@@ -1,17 +1,17 @@
-
 .admin-control-set {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    background-color:$user-msg-blue;
+    background-color: $user-msg-blue;
     height: 350px;
     width: 350px;
     border-radius: 25px;
     top: 5%;
     right: 50px;
     padding: 25px;
+
 
     &>* {
         border: none;
@@ -22,10 +22,9 @@
         font-weight: bold;
         font-size: rem(20px);
         color: $black;
+    }
 
-        @include for-mobile-layout {
-            height: 50px;
-            width: 50px;
-        }
+    @include for-desktop-layout {
+        display: flex;
     }
 }

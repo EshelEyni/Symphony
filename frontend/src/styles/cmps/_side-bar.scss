@@ -48,7 +48,7 @@
     }
 
     @include for-tablet-layout {
-        height: 100vh;
+        height: fit-content;
         position: sticky;
         top: 0;
         padding: 10px 0;
@@ -58,5 +58,15 @@
             display: block;
         }
 
+    }
+
+    @include for-desktop-layout {
+        .user-stations-container {
+
+            li {
+                white-space: nowrap;
+                font-size: rem(20px);
+            }
+        }
     }
 }

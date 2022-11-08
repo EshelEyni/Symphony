@@ -11,7 +11,7 @@ import { uploadImg } from '../services/upload.service'
 import { setBackgroundColor } from '../services/bg-color.service'
 import { stationService } from '../services/station.service'
 import { defaultImg } from '../services/user.service'
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
+import { DropdownBtn } from './dropdown-btn'
 
 export const StationHeader = ({
     currStation,
@@ -118,22 +118,18 @@ export const StationHeader = ({
                         {(currStation._id === currPlaylist?._id && isPlaying) && <Equalizer />}
                     </section>}
 
-
                     {loggedinUser?.isAdmin &&
                         <span
                             className='admin-state-btn'
                             onClick={() => setAdminMode(!isAdminMode)}
                         >⭐</span>}
-
-                    <section
-                        className='dropdown-btn-container flex'
-                        title={'More options for ' + currStation?.name}
-                        ref={dropdownBtnRef}
-                        onClick={() => { setIsDropdown(!isDropdown) }}>
-                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                        <FiberManualRecordIcon sx={{ fontSize: '7.5px' }} />
-                    </section>
+                    
+                    <DropdownBtn
+                        dropdownBtnRef={dropdownBtnRef}
+                        name={currStation?.name}
+                        setIsDropdown={setIsDropdown}
+                        isDropdown={isDropdown}
+                    />
 
                     {(loggedinUser && !isLikedSongs) &&
                         <LikeIcon

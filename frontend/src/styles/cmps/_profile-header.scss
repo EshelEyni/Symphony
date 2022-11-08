@@ -69,27 +69,27 @@
 
     @include for-tablet-layout {
         .profile-header-main-container {
-            gap: rem(35px);
+            gap: rem(20px);
 
             .profile-header-img-container {
                 .profile-img {
-                    height: rem(175px);
-                    width: rem(175px);
+                    height: rem(120px);
+                    width: rem(120px);
                 }
             }
 
             .profile-header-details {
 
                 .profile-title {
-                    font-size: rem(15px);
+                    font-size: rem(10px);
                 }
 
                 .profile-name {
-                    font-size: rem(55px);
+                    font-size: rem(40px);
                 }
 
                 .personal-details-container {
-                    font-size: rem(12px);
+                    font-size: rem(8px);
                 }
             }
         }

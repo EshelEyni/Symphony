@@ -28,7 +28,7 @@ export const StationList = ({
     if (stationsForDisplay)
         return (
             <section className='station-list'>
-                <main className='station-list-main-container'>
+                <main className='station-list-container'>
                     <header className="list-header flex space-between">
                         <h1>{title}</h1>
                         {links.map(link => (

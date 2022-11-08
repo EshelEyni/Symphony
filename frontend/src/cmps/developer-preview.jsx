@@ -12,26 +12,23 @@ export const DeveloperPreview = ({
 
     return (
         <article className='developer-preview' >
-            <section className='developer-preview-main-container'>
-                <section className='developer-img-container'>
-                    <img
-                        className='developer-img'
-                        src={developer?.imgUrl}
-                        alt='developer-img' />
-                </section>
-                <section className='desc-container'>
-                    <h4>{developer?.name}</h4>
-                    <p className='fs12'>Developer</p>
-                    <section className='dev-link-container flex'>
-                        {links.map(link => {
-                            return (
-                                <a key={link.alt} href={link.href} target='_blank' rel='noreferrer'>
-                                    <img src={link.src} alt={link.alt} />
-                                </a>
-                            )
-                        })}
-                    </section>
-                </section>
+            <section className='developer-img-container'>
+                <img
+                    src={developer?.imgUrl}
+                    alt='developer-img' />
+            </section>
+            <section className='desc-container'>
+                <h4>{developer?.name}</h4>
+                <p>Developer</p>
+            </section>
+            <section className='dev-link-container'>
+                {links.map(link => {
+                    return (
+                        <a key={link.alt} href={link.href} target='_blank' rel='noreferrer'>
+                            <img src={link.src} alt={link.alt} />
+                        </a>
+                    )
+                })}
             </section>
         </article>
     )
