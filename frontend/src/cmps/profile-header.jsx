@@ -87,7 +87,7 @@ export const ProfileHeader = ({
     const getProfileDetails = () => {
         const { _id, followers, following } = watchedUser
         return (
-            <section className='personal-details-container'>
+            <div className='personal-details-container'>
                 <Link to={'/public-playlists/' + watchedUser._id}>
                     {(publicStations?.length > 0 ? publicStations?.length + ' Public Playlists ' : '')}
                 </Link>
@@ -97,7 +97,7 @@ export const ProfileHeader = ({
                 <Link to={'/following/' + _id}>
                     {(following?.length > 0 ? ' ● ' + following?.length + ' Following ' : '')}
                 </Link>
-            </section>
+            </div>
         )
     }
 
@@ -106,7 +106,7 @@ export const ProfileHeader = ({
             className='profile-header'>
             <main
                 className='profile-header-main-container'>
-                <section className='profile-header-img-container'>
+                <div className='profile-header-img-container'>
                     <label htmlFor='profile-img'>
                         {!isChangedImg && <img
                             className='profile-img '
@@ -122,18 +122,18 @@ export const ProfileHeader = ({
                         className='img-input'
                         id='profile-img'
                         onChange={onUploadImg} type='file' />}
-                </section>
+                </div>
 
-                <section className='profile-header-details flex column'>
+                <div className='profile-header-details flex column'>
                     <p className='profile-title'>{watchedUser.isArtist ? 'ARTIST' : 'PROFILE'}</p>
                     <h1 className='profile-name'>{watchedUser?.username}</h1>
                     {getProfileDetails()}
-                </section>
+                </div>
             </main>
 
             <section
                 className='profile-btn-container'>
-                <section className='profile-btn-main-container flex'>
+                <div className='profile-btn-main-container flex'>
                     {(watchedUser.clips?.length > 0 && watchedUser?.isArtist) && <button
                         className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                         onClick={onTogglePlay} />}
@@ -150,7 +150,7 @@ export const ProfileHeader = ({
                         setIsDropdown={setIsDropdown}
                         isDropdown={isDropdown}
                     />
-                </section>
+                </div>
 
                 {isDropdown && <Dropdown
                     leftPos={dropdownBtnRef.current.offsetLeft + 45}

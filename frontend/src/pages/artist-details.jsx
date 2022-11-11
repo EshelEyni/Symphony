@@ -62,7 +62,7 @@ export const ArtistDetails = () => {
                     watchedUser={watchedArtist}
                     loggedinUser={loggedinUser}
                 />
-                <section className='artist-clips-container'>
+                <div className='artist-clips-container'>
                     <ClipList
                         bgColor={watchedArtist.bgColor}
                         clipKey={'artist-clip'}
@@ -72,9 +72,9 @@ export const ArtistDetails = () => {
                         currClips={currClips}
                         setCurrClips={setCurrClips}
                     />
-                </section>
+                </div>
                 {stationsByArtist.length > 0 &&
-                    <section className='artist-stations-container'>
+                    <div className='artist-stations-container'>
                         <StationList
                             title={'Playlists'}
                             isArtist={true}
@@ -82,10 +82,10 @@ export const ArtistDetails = () => {
                             stations={stationsByArtist}
                             stationKey={'artists-details-station '}
                         />
-                    </section>
+                    </div>
                 }
 
-                {profilesByArtist.length > 0 && <section
+                {profilesByArtist.length > 0 && <div
                     className='artist-profile-list'>
                     <ProfileList
                         title={'Profiles'}
@@ -94,7 +94,7 @@ export const ArtistDetails = () => {
                         profiles={profilesByArtist}
                         profileKey={'artist-profile-'}
                     />
-                </section>}
+                </div>}
             </main>
         )
     }

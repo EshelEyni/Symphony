@@ -13,14 +13,14 @@ export const LoginFirstMsg = ({
         <div className='shadow-screen'
             onClick={() => setIsLoginMsg(false)} />
         <span className='tippy'></span>
-        <section className='login-first-txt-container'>
+        <div className='login-first-txt-container'>
             <p className='login-first-msg-title'>
                 {loginMsgProperties.title}
             </p>
             <p className='login-first-msg-txt'>
                 {loginMsgProperties.txt}
             </p>
-        </section>
+        </div>
         <section className='login-first-btns grid'>
             <div className='flex justify-center align-center'>
                 <button onClick={() => setIsLoginMsg(false)}>Not now</button>

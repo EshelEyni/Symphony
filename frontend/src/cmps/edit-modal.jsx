@@ -61,7 +61,7 @@ export const EditModal = ({
                     </button>
                 </header>
 
-                <section className='edit-modal-form-container flex'>
+                <div className='edit-modal-form-container flex'>
                     <label htmlFor='edit-img'>
                         {!isChangedImg && <img
                             className='edit-form-img '
@@ -101,7 +101,7 @@ export const EditModal = ({
                             className='btn-edit-save'
                         >Save</button>
                     </form>
-                </section>
+                </div>
             </main>
         </section >
     )

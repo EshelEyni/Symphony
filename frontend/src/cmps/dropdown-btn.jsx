@@ -7,7 +7,7 @@ export const DropdownBtn = ({
     isDropdown
 }) => {
     return (
-        <section
+        <div
             className='dropdown-btn-container flex'
             ref={dropdownBtnRef}
             title={'More options for ' + name}
@@ -15,6 +15,6 @@ export const DropdownBtn = ({
             <FiberManualRecordIcon />
             <FiberManualRecordIcon />
             <FiberManualRecordIcon />
-        </section>
+        </div>
     )
 }

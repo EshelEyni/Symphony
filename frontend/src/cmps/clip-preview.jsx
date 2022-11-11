@@ -53,8 +53,7 @@ export const ClipPreview = ({
         let currTimeStamp = currClip.createdAt
         if (isRecentlyPlayed) currTimeStamp = currClip.playedAt
         if (isLike) currTimeStamp = currClip.likedAt
-        const formattedTimeStamp = +((Date.now() - currTimeStamp) / 1000).toFixed()
-        return clipService.getTimeStr(currTimeStamp, formattedTimeStamp)
+        return clipService.getTimeStr(currTimeStamp)
     }
 
     if (currClip)
@@ -67,7 +66,7 @@ export const ClipPreview = ({
             }}
             className='clip-preview'>
 
-            <section className='clip-preview-container'>
+            <div className='clip-preview-container'>
                 <div className='play-btn-container'>
                     <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                         onClick={onTogglePlay}></i>
@@ -76,9 +75,9 @@ export const ClipPreview = ({
                 </div>
 
                 <section className='clip-title flex align-center'>
-                    <section className='clip-img-container'>
+                    <div className='clip-img-container'>
                         <img src={currClip.img?.url} alt='clip-img' />
-                    </section>
+                    </div>
                     <section className='title-text flex column'>
                         <h1 style={{ color: dndStyle?.color }}>{clipService.getFormattedTitle(currClip)}</h1>
                         <p style={{ color: dndStyle?.color }}>{currClip.artist}</p>
@@ -111,6 +110,6 @@ export const ClipPreview = ({
                     onRemoveClip={onRemoveClip}
                     onAddClip={onAddClip}
                 />}
-            </section>
+            </div>
         </li >
 }

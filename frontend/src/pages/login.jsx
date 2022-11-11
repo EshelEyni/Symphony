@@ -40,7 +40,7 @@ export const Login = () => {
     }
 
     return (
-        <section className='login-signup-form-container flex column'>
+        <div className='login-signup-form-container flex column'>
             <h1>Login</h1>
             <LoginSignupForm
                 onHandleSubmit={onHandleSubmit}
@@ -49,6 +49,6 @@ export const Login = () => {
                 errorTxt={'Wrong username or password'}
                 link={{ path: '/signup', txt: 'Don\'t have an account? Sign Up!' }}
             />
-        </section>
+        </div>
     )
 }

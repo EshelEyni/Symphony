@@ -43,7 +43,7 @@ export const Queue = () => {
         <main className='queue'>
             <h1>Queue</h1>
 
-            <section className='queue-main-container'>
+            <div className='queue-main-container'>
                 <h2>Now playing</h2>
                 <article>
                     <ClipPreview
@@ -95,7 +95,7 @@ export const Queue = () => {
                         )}
                     </Droppable>
                 </DragDropContext>
-            </section>
+            </div>
         </main>
     )
 }

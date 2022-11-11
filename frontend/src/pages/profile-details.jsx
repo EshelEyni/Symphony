@@ -73,7 +73,7 @@ export const ProfileDetails = () => {
                     {loggedinUser?._id === params._id &&
                         <section className='personal-profile-content'>
                             {recentlyPlayedClips?.length > 0 &&
-                                <section className='recently-played-container'>
+                                <div className='recently-played-container'>
                                     <h1>Recently Played</h1>
                                     <ClipList
                                         clipKey={'recently-played'}
@@ -82,22 +82,22 @@ export const ProfileDetails = () => {
                                         setCurrClips={setRecentlyPlayedClips}
                                         isRecentlyPlayed={true}
                                     />
-                                </section>}
+                                </div>}
                             {profilesByLike.length > 0 &&
-                                <section className='profiles-by-like'>
+                                <div className='profiles-by-like'>
                                     <ProfileList
                                         title={'People who like the same music'}
                                         profiles={profilesByLike}
                                         profileKey={'profiles-by-like-'}
                                     />
-                                </section>}
+                                </div>}
                         </section>}
 
 
                     {/******************************** Profile Content  ********************************/}
 
                     {publicStations.length > 0 &&
-                        <section className='personal-playlist'>
+                        <div className='personal-playlist'>
                             <StationList
                                 title={watchedUser.username + ' Playlists'}
                                 stations={publicStations}
@@ -105,10 +105,10 @@ export const ProfileDetails = () => {
                                 isLimitedDisplay={true}
                                 watchedUserId={watchedUser._id}
                             />
-                        </section>}
+                        </div>}
 
                     {watchedUser.followers.length > 0 &&
-                        <section className='followers-container'>
+                        <div className='followers-container'>
                             <ProfileList
                                 title={'Followers'}
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'followers')}
@@ -116,10 +116,10 @@ export const ProfileDetails = () => {
                                 isFollowers={true}
                                 profileKey={'profile-followers-'}
                             />
-                        </section>}
+                        </div>}
 
                     {watchedUser.following.length > 0 &&
-                        <section className='following-container'>
+                        <div className='following-container'>
                             <ProfileList
                                 title={'Following'}
                                 profiles={profileService.getUserProfiles(users, watchedUser, 'following', artists)}
@@ -127,7 +127,7 @@ export const ProfileDetails = () => {
                                 isFollowing={true}
                                 profileKey={'profiles-following-'}
                             />
-                        </section>}
+                        </div>}
                 </main>
             </section>
         )

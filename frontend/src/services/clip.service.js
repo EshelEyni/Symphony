@@ -5,7 +5,8 @@ export const clipService = {
     getFormattedTitle
 }
 
-function getTimeStr(currTimeStamp, formattedTimeStamp) {
+function getTimeStr(currTimeStamp) {
+    const formattedTimeStamp = +((Date.now() - currTimeStamp) / 1000).toFixed()
     const minute = 60
     const hour = 60 * minute
     const day = 24 * hour

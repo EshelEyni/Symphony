@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { StationPreview } from './station-preview'
 import { LikedSongsPreview } from './liked-songs-preview'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 export const StationList = ({
     title,
@@ -16,8 +17,9 @@ export const StationList = ({
 }) => {
 
     const { watchedArtist } = useSelector(state => state.artistModule)
+    const [stationsForDisplay, setStationsForDisplay] = useState((stations.length > 8 && isLimitedDisplay) ? stations.slice(0, 8) : stations)
     const isSeeAllLink = stations.length > 8 ? true : false
-    const stationsForDisplay = (stations.length > 8 && isLimitedDisplay) ? stations.slice(0, 8) : stations
+    // const stationsForDisplay = (stations.length > 8 && isLimitedDisplay) ? stations.slice(0, 8) : stations
 
     const links = [
         { condition: tag, path: '/tag/' + tag },

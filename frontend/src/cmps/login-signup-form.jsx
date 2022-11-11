@@ -42,7 +42,7 @@ export const LoginSignupForm = ({
                 required
             />
             {isError && <p className='error-msg'>{errorTxt}</p>}
-            <section className='form-btn-container'>
+            <div className='form-btn-container'>
                 <button
                     onClick={onHandleSubmit}
                     className='login-signup-btn'
@@ -50,7 +50,7 @@ export const LoginSignupForm = ({
                     {isSignup ? 'Signup' : 'Login'}
                 </button>
                 <Link to={link.path}>{link.txt}</Link>
-            </section>
+            </div>
         </form>
     )
 }

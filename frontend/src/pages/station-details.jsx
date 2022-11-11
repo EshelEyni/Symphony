@@ -126,7 +126,7 @@ export const StationDetails = () => {
         return (
             <main className='station-details'
                 style={{ backgroundColor: stationBgcolor }}>
-                <section className='station-details-main-container'>
+                <div className='station-details-main-container'>
                     <StationHeader
                         currStation={currStation}
                         bgColor={stationBgcolor}
@@ -143,7 +143,7 @@ export const StationDetails = () => {
                         <AdminControlSet
                             currStation={currStation} />}
 
-                    <section className='clips-list'>
+                    <div className='clips-list'>
                         <ClipList
                             clipKey={'station-clip-'}
                             isUserCreatedStation={isUserCreatedStation}
@@ -154,14 +154,14 @@ export const StationDetails = () => {
                             onAddClip={onAddClip}
                             onRemoveClip={onRemoveClip}
                         />
-                    </section>
+                    </div>
 
                     <hr />
 
                     {/********************************* Search Bar && List  *********************************/}
 
                     {isUserCreatedStation &&
-                        <section className='station-search-container'>
+                        <div className='station-search-container'>
                             <h1 className='station-search-header'>
                                 Let's find something for your playlist
                             </h1>
@@ -191,8 +191,8 @@ export const StationDetails = () => {
                                     currStation={currStation}
                                     onAddClip={onAddClip}
                                 />}
-                        </section>}
-                </section>
+                        </div>}
+                </div>
             </main>
         )
     }

@@ -53,12 +53,12 @@ export const LikedSongsPreview = () => {
                         </p>
                     </div>
                     {loggedinUser.likedSongs.clips.length > 0 &&
-                        <section className='play-btn-container'>
+                        <div className='play-btn-container'>
                             <button className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                                 onClick={(ev) => {
                                     onTogglePlay(ev)
                                 }}></button>
-                        </section>}
+                        </div>}
                 </div>
             </main>
         </Link>

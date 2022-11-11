@@ -293,7 +293,7 @@ export const MediaPlayer = () => {
             </section>
 
             <section className='mp-controller flex column'>
-                <section className='mp-btn-container'>
+                <div className='mp-btn-container'>
                     {mainBtns.map(btn => {
                         const { className, title, style, onClickFunc, icon } = btn
                         return (
@@ -307,9 +307,9 @@ export const MediaPlayer = () => {
                             </button>
                         )
                     })}
-                </section>
+                </div>
 
-                <section className='time-line-container'>
+                <div className='time-line-container'>
                     <span className='track-time'>{mediaPlayerService.getFormattedTime(currTime || 0)}</span>
 
                     <section className='time-line-input'>
@@ -317,11 +317,11 @@ export const MediaPlayer = () => {
                     </section>
 
                     <span className='track-time'>{mediaPlayerService.getFormattedTime(clipLength || 0)}</span>
-                </section>
+                </div>
             </section>
 
             <section className='mp-2nd-controller'>
-                <section className='mp-btn-2nd-container flex'>
+                <div className='mp-btn-2nd-container flex'>
                     {currPlaylist &&
                         <span
                             className='link-to-queue'
@@ -333,13 +333,13 @@ export const MediaPlayer = () => {
                     <button className={'toggle-mute-btn ' + (!isMute ? 'toggle-mute-btn fas fa-volume-up' : 'toggle-mute-btn fas fa-volume-mute')}
                         onClick={toggleMute}>
                     </button>
-                </section>
+                </div>
 
-                <section className='volume-input-container'>
+                <div className='volume-input-container'>
                     <section className='volume-input'>
                         {setSlider('volume-indicator', currVolume, 100, 'volume', 4)}
                     </section>
-                </section>
+                </div>
             </section>
         </footer >
     )

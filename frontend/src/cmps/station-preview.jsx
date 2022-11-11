@@ -60,7 +60,7 @@ export const StationPreview = ({
                 {isSearch && <div className='recent-search-delete-btn-container'>
                     <i className='fa-solid fa-xmark'
                         onClick={onRemoveStation}></i> </div>}
-                <section className='station-preview-img-container'>
+                <div className='station-preview-img-container'>
                     <img
                         className='station-preview-img'
                         src={currStation.imgUrl}
@@ -70,11 +70,11 @@ export const StationPreview = ({
                             onClick={(ev) => {
                                 onTogglePlay(ev)
                             }} />}
-                </section>
-                <section className='desc-container'>
+                </div>
+                <div className='desc-container'>
                     <h4 title={currStation.name}>{currStation.name}</h4>
                     <p title={currStation.desc}>{currStation.desc}</p>
-                </section>
+                </div>
             </main>
         </Link>
     </article>

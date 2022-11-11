@@ -35,7 +35,7 @@ export const SymphonyApp = () => {
     if (getStationByTag?.getByTag && artists.length > 0)
         return (
             <main>
-                <section className='artists-main-container'>
+                <div className='artists-main-container'>
                     <ProfileList
                         title={'Artists'}
                         profiles={artists}
@@ -43,18 +43,18 @@ export const SymphonyApp = () => {
                         isRandomArtist={true}
                         profileKey={'hp-artists-'} />
 
-                    {artistsByLike?.length > 0 && <section>
+                    {artistsByLike?.length > 0 && <div>
                         <ProfileList
                             title={'Artists you might like'}
                             isArtistByLike={true}
                             isLimitedDisplay={true}
                             profiles={artistsByLike}
                             profileKey={'hp-artists-by-like-'} />
-                    </section>}
-                </section>
+                    </div>}
+                </div>
 
-                <section>{tags.map(tag => (
-                    <section
+                <div>{tags.map(tag => (
+                    <div
                         className='station-by-tag-container'
                         key={tag.name}
                     >
@@ -65,8 +65,8 @@ export const SymphonyApp = () => {
                             isLimitedDisplay={true}
                             stationKey={'hp-' + tag.name + '-station-'}
                         />
-                    </section>
-                ))}</section>
+                    </div>
+                ))}</div>
             </main >
         )
 }

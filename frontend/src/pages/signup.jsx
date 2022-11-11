@@ -42,7 +42,7 @@ export const Signup = () => {
     }
 
     return (
-        <section className='login-signup-form-container flex column'>
+        <div className='login-signup-form-container flex column'>
             <h1>Signup</h1>
             <LoginSignupForm
                 onHandleSubmit={onHandleSubmit}
@@ -52,6 +52,6 @@ export const Signup = () => {
                 link={{ path: '/login', txt: 'Already have an account? Login!' }}
                 isSignup={true}
             />
-        </section>
+        </div>
     )
 }

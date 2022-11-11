@@ -42,15 +42,15 @@ export const AppHeader = () => {
  
                 {/************************* GUEST MODE *************************/}
                 {!loggedinUser &&
-                    <section className='guest-mode-container '>
+                    <div className='guest-mode-container '>
                         <NavLink to='about' >About</NavLink>
                         <div className='vl'></div>
                         <NavLink to='/signup'>Sign up</NavLink>
                         <NavLink to='/login'>Log in</NavLink>
-                    </section>}
+                    </div>}
 
                 {/************************* LOGGED IN MODE *************************/}
-                {loggedinUser && <section className='user-mode-container flex'>
+                {loggedinUser && <div className='user-mode-container flex'>
                     <section
                         className='profile-details'
                         title={userToDisplay?.username}
@@ -76,7 +76,7 @@ export const AppHeader = () => {
                                 className='logout-link'
                                 onClick={logout} >Logout</div>
                         </section>}
-                </section>}
+                </div>}
             </main>
         </header>
     )

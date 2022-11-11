@@ -70,7 +70,7 @@ export const StationHeader = ({
             <header className='station-header'>
                 <section
                     className='station-header-title flex'>
-                    {<section className='station-img-container'>
+                    {<div className='station-img-container'>
                         <label htmlFor='station-header-img'>
                             {!isChangedImg &&
                                 <img
@@ -88,7 +88,7 @@ export const StationHeader = ({
                                 className='img-input'
                                 id='station-header-img'
                                 onChange={onUploadImg} type='file' />}
-                    </section>}
+                    </div>}
 
                     <section className='station-header-txt'>
                         <h5>Playlist</h5>
@@ -111,12 +111,12 @@ export const StationHeader = ({
                 </section>
 
                 <section className='playlist-btns'>
-                    {currStation.clips?.length > 0 && <section className='play-btn-container'>
+                    {currStation.clips?.length > 0 && <div className='play-btn-container'>
                         <button
                             className={'play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
                             onClick={onTogglePlay}></button>
                         {(currStation._id === currPlaylist?._id && isPlaying) && <Equalizer />}
-                    </section>}
+                    </div>}
 
                     {loggedinUser?.isAdmin &&
                         <span

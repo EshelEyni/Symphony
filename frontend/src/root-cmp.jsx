@@ -16,7 +16,7 @@ export function RootCmp() {
     }, [userMsg])
 
     return (
-        <section className='main-container main-layout'>
+        <div className='main-container main-layout'>
             <AppHeader />
             <SideBar />
             <main className='main-content'>
@@ -26,6 +26,6 @@ export function RootCmp() {
             </main>
             {isUserMsgShown && <UserMsg />}
             <MediaPlayer />
-        </section>
+        </div>
     )
 }

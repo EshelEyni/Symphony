@@ -6,7 +6,7 @@ export const PaginationBtns = () => {
     const navigate = useNavigate()
 
     return (
-        <section className='pagination-btn-container flex'>
+        <div className='pagination-btn-container flex'>
             <button
                 onClick={() => navigate(-1)}
                 className='pagination-btn'>
@@ -17,6 +17,6 @@ export const PaginationBtns = () => {
                 className='pagination-btn'>
                 <ArrowForwardIosRoundedIcon />
             </button>
-        </section>
+        </div>
     )
 }

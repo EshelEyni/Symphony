@@ -52,10 +52,10 @@ export const ProfilePreview = ({
                                 }} />}
                     </section>
 
-                    <section className='desc-container'>
+                    <div className='desc-container'>
                         <h4>{user?.username}</h4>
                         <p>{user.isArtist ? 'Artist' : 'Profile'}</p>
-                    </section>
+                    </div>
                 </main>
             </Link>
         </article>

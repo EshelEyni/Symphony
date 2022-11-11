@@ -63,10 +63,10 @@ export const SideBar = () => {
                 to='/'
                 title='Symphony'
             >
-                <section className='logo-container'>
+                <div className='logo-container'>
                     <img  className='logo-img' src={Logo} alt='Logo' />
                     <h1 className='logo-name'>Symphony</h1>
-                </section>
+                </div>
             </Link>
             <NavList
                 isAddStation={isAddStation}

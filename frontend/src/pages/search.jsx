@@ -84,22 +84,22 @@ export const Search = () => {
 
                 {(!isPostSearch && !isSearchLoading) &&
                     <section className='search-default-display'>
-                        {(loggedinUser && recentSearches.length > 0) && <section
+                        {(loggedinUser && recentSearches.length > 0) && <div
                             className='recently-search-container'>
                             <StationList
                                 title={'Recent Searches'}
                                 isSearch={true}
                                 stations={recentSearches}
                                 stationKey={'pre-search-recent-search-station'} />
-                        </section>}
+                        </div>}
 
-                        <section className='tag-list-container'>
+                        <div className='tag-list-container'>
                             <h1 className='browse-all'>Browse all</h1>
                             <TagList
                                 stations={stations}
                                 tags={tags}
                             />
-                        </section>
+                        </div>
                     </section>
                 }
 
@@ -122,10 +122,10 @@ export const Search = () => {
                     </section>}
 
                 {(isPostSearch && searchClips.length > 0) &&
-                    <section className='search-res-main-container'>
+                    <div className='search-res-main-container'>
 
                         {filterCondition('songs', searchClips) &&
-                            <section className='search-songs-container'>
+                            <div className='search-songs-container'>
                                 <h1>Songs</h1>
                                 <ClipList
                                     clipKey={'search-res'}
@@ -134,48 +134,48 @@ export const Search = () => {
                                     searchTerm={searchTerm}
                                     isSearch={true}
                                 />
-                            </section>}
+                            </div>}
 
                         {filterCondition('playlists', searchStations) &&
-                            <section className='search-playlist-container'>
+                            <div className='search-playlist-container'>
                                 <StationList
                                     title={'Playlists'}
                                     isLimitedDisplay={filterBy === 'playlists' ? false : true}
                                     stations={searchStations}
                                     stationKey={'search-station-'}
                                 />
-                            </section>}
+                            </div>}
 
                         {filterCondition('artists', searchArtists) &&
-                            <section className='search-artist-container'>
+                            <div className='search-artist-container'>
                                 <ProfileList
                                     title={'Artists'}
                                     isLimitedDisplay={filterBy === 'artists' ? false : true}
                                     profiles={searchArtists}
                                     profileKey={'search-artists-'}
                                 />
-                            </section>}
+                            </div>}
 
                         {filterCondition('profiles', searchProfiles) &&
-                            <section className='search-profiles-container'>
+                            <div className='search-profiles-container'>
                                 <ProfileList
                                     title={'Profiles'}
                                     isLimitedDisplay={filterBy === 'profiles' ? false : true}
                                     profiles={searchProfiles}
                                     profileKey={'search-profiles-'}
                                 />
-                            </section>}
+                            </div>}
 
                         {(filterCondition('searches', recentSearches) && loggedinUser) &&
-                            <section className='search-artist-container'>
+                            <div className='search-artist-container'>
                                 <StationList
                                     title={'Recent Searches'}
                                     isSearch={true}
                                     stations={recentSearches}
                                     stationKey={'recent-search-station-'} />
-                            </section>}
+                            </div>}
 
-                    </section>}
+                    </div>}
 
                 {(!isPostSearch && isSearchLoading) && <Loader
                     size={'large-loader'}
