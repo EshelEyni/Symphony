@@ -1,74 +1,48 @@
 .station-header {
     .station-header-title {
 
-        .station-img {
-            width: rem(270px);
-            height: 276px;
-            padding: 30px;
+        .station-img-container {
+            padding: rem(30px);
 
-            @include for-mobile-layout {
-                height: 230px;
-                width: 230px;
-                padding: 10px;
-
+            .station-img {
+                width: rem(350px);
+                height: rem(350px);
             }
         }
 
-        .station-header-txt {
+        .sh-title {
             display: flex;
             flex-direction: column;
+            justify-content: space-around;
+            padding: rem(30px);
 
             h5 {
-                margin: 30px 0 0;
+                margin: 0;
+                font-size: rem(20px);
             }
 
-            .station-header-name-container {
-                @include for-desktop-layout {
-                    font-size: 2.75rem;
-                    margin: 0;
-                }
+            .station-name {
+                font-size: rem(70px);
+                margin: 0;
+            }
 
-                @include for-large-desktop-layout {
-                    text-indent: -6px;
-                    margin-inline-start: 0;
-                    font-size: 5.5rem;
-                    letter-spacing: -5px;
-                }
-
-
-                @include for-mobile-layout {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    font-size: 1.4rem;
-                    letter-spacing: -1px;
-                    text-indent: -2px;
-                    width: 85%;
-                    margin-top: 0;
-                    position: absolute;
-                    top: 245px;
-                    left: 10px;
-                }
+            p {
+                font-size: rem(18px);
+                margin: 0;
             }
 
             .station-header-details {
-                font-size: 0.80em;
-
                 margin-top: 10px;
+                color: $grey-txt;
 
-                .station-user-name {
+                .user-name {
                     text-transform: capitalize;
                     font-weight: bold;
-                    font-size: 14px;
+                    font-size: rem(24px);
                 }
 
-                @include for-mobile-layout {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    font-size: 0.60em;
-                    color: $grey-txt;
-                }
+                font-size: rem(18px);
+
             }
         }
     }
@@ -76,9 +50,9 @@
     .playlist-btns {
         display: flex;
         gap: 35px;
-        height: 150px;
+        height: fit-content;
         align-items: center;
-        padding: 30px;
+        padding: rem(20px) rem(45px);
 
         & svg {
             height: 32px;
@@ -86,9 +60,9 @@
 
         .play-btn-container {
             .play-btn {
-                width: rem(65px);
-                height: rem(65px);
-                font-size: rem(25px);
+                width: rem(95px);
+                height: rem(95px);
+                font-size: rem(35px);
 
                 &.fa-pause {
                     display: none;
@@ -99,11 +73,6 @@
                     transition: 0.4s;
                 }
 
-                @include for-mobile-layout {
-                    width: rem(44px);
-                    height: rem(44px);
-                    font-size: rem(16px);
-                }
             }
 
             .equalizer-img {
@@ -130,18 +99,115 @@
         .admin-state-btn {
             font-size: 32px;
             cursor: pointer;
+            display: none;
         }
 
-        @include for-mobile-layout {
-            height: 65px;
-            gap: 20px;
-            justify-content: space-between;
-            padding: 14px;
-            flex-direction: row-reverse;
-        }
     }
 
     .dropdown {
         top: 25%;
+    }
+
+    @include for-tablet-layout {
+        .station-header-title {
+            .station-img-container {
+                padding: rem(10px);
+
+                .station-img {
+                    width: rem(150px);
+                    height: rem(150px);
+                }
+            }
+
+            .sh-title {
+                padding: rem(10px);
+
+                h5 {
+                    font-size: rem(16px);
+                }
+
+                .station-name {
+                    font-size: rem(45px);
+                }
+
+                p {
+                    font-size: rem(8px);
+                }
+
+                .station-header-details {
+                    .user-name {
+                        font-size: rem(12px);
+                    }
+
+                    font-size: rem(8px);
+                }
+            }
+        }
+
+        .playlist-btns {
+            .play-btn-container {
+                .play-btn {
+                    width: rem(65px);
+                    height: rem(65px);
+                    font-size: rem(25px);
+                }
+            }
+        }
+
+    }
+
+    @include for-desktop-layout {
+        .station-header-title {
+            .station-img-container {
+                padding: rem(20px);
+
+                .station-img {
+                    width: rem(250px);
+                    height: rem(250px);
+                }
+            }
+
+            .sh-title {
+                padding: rem(20px);
+
+                h5 {
+                    font-size: rem(16px);
+                }
+
+                .station-name {
+                    font-size: rem(55px);
+                }
+
+                p {
+                    font-size: rem(12px);
+                }
+
+                .station-header-details {
+                    .user-name {
+                        font-size: rem(16px);
+                    }
+
+                    font-size: rem(12px);
+                }
+            }
+        }
+
+        .playlist-btns {
+            .admin-state-btn {
+                display: unset;
+            }
+        }
+
+    }
+
+
+    @include for-large-desktop-layout {
+        .station-header-title {
+            .sh-title {
+                .station-name {
+                    font-size: rem(80px);
+                }
+            }
+        }
     }
 }

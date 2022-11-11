@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import React, { useRef } from "react"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { loginFirstMsgs } from "../services/user.service"
@@ -58,10 +58,14 @@ export const NavListSymbol = ({
                     className='liked-songs-playing-icon'>
                     <Equalizer />
                 </span>}
-            {isLoginMsg && <LoginFirstMsg
-                loginMsgProperties={loginMsgProperties}
-                setIsLoginMsg={setIsLoginMsg}
-            />}
+
+            {isLoginMsg && <React.Fragment>
+                <div className='main-screen'
+                    onClick={() => setIsLoginMsg(false)} ></div>
+                <LoginFirstMsg
+                    loginMsgProperties={loginMsgProperties}
+                    setIsLoginMsg={setIsLoginMsg} />
+            </React.Fragment>}
         </li>
     )
 }

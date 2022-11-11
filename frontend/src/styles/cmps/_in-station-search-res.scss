@@ -1,28 +1,32 @@
 .sd-search-res-preview {
-    max-width: 1600px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     font-size: 14px;
     height: fit-content;
     align-items: center;
-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 rem(10px);
 
     .details-container {
+        display: flex;
+        align-items: center;
         gap: 10px;
 
         .clip-img {
-            width: rem(40px);
-            height: rem(40px);
+            width: rem(70px);
+            height: rem(70px);
             clip-path: inset(12.5% 0% 12.5% 0% round 10px);
-
         }
 
         .clip-title-container {
-            justify-content: start;
 
             .clip-title {
+                font-size: rem(16px);
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                max-width: rem(200px);
             }
 
             .cp-artist-name {
@@ -34,38 +38,71 @@ border-radius: 5px;
     }
 
     .sd-search-res-add-btn {
-        height: 32px;
-        width: 100px;
+        height: rem(45px);
+        width: rem(95px);
         color: white;
         font-weight: 700;
         font-size: rem(13px);
         background-color: transparent;
         border-radius: 20px;
-        padding-inline: 15px;
         border: 1px solid #878787;
 
         &:hover {
             border: 1px solid white;
         }
+    }
 
-        @include for-mobile-layout {
-            font-size: 0.675rem;
-            min-block-size: 30px;
-            padding-inline: 12px;
+
+
+    @include for-tablet-layout {
+
+        .details-container {
+
+            .clip-img {
+                width: rem(50px);
+                height: rem(50px);
+            }
+
+            .clip-title-container {
+
+                .clip-title {
+                    font-size: rem(10px);
+                }
+
+                .cp-artist-name {
+                    display: unset;
+                    font-size: rem(8px);
+                }
+            }
+        }
+
+        .sd-search-res-add-btn {
+            height: rem(30px);
+            width: rem(55px);
+            font-size: rem(9px);
         }
     }
 
+    @include for-desktop-layout {
+
+        .sd-search-res-add-btn {
+            height: rem(40px);
+            width: rem(70px);
+            font-size: rem(12px);
+        }
+    }
+
+    @include for-large-desktop-layout {
+
+        .sd-search-res-add-btn {
+            height: rem(45px);
+            width: rem(120px);
+            border-radius: rem(30px);
+            font-size: rem(13px);
+        }
+    }
 
     &:hover {
         background-color: $grey-hover;
-    }
-
-    @include for-mobile-layout {
-        display: grid;
-        grid-template-columns: 330px 2fr minmax(50px, 1fr);
-        justify-content: space-between;
-        align-items: center;
-        font-size: 12px;
-        height: 42.3px;
     }
 }

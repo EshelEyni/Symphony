@@ -1,23 +1,22 @@
 .clip-preview {
     display: block;
     align-items: center;
-    padding: 4px;
 
     .clip-preview-container {
         display: grid;
-        grid-template-columns: 1fr 20fr 5fr 5fr 7.5fr;
+        grid-template-columns: 3fr 20fr 5fr 5fr 7.5fr;
         align-items: center;
-        padding: 5px;
         font-size: 2vw;
         height: fit-content;
 
         .play-btn-container {
             grid-column: 1/2;
-            padding: 20px;
-            font-size: 3vw;
+            padding: rem(5px) rem(10px);
+            font-size: rem(20px);
             cursor: pointer;
 
             .clip-num {
+                font-size: rem(15px);
                 display: none;
             }
 
@@ -39,8 +38,8 @@
             align-items: center;
 
             img {
-                width: 8vw;
-                height: 8vw;
+                width: rem(70px);
+                height: rem(70px);
                 clip-path: inset(12.5% 0% 12.5% 0% round 10px);
             }
         }
@@ -53,13 +52,6 @@
 
         .title-text {
             padding-inline-start: rem(15px);
-
-            &>* {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                width: fit-content;
-            }
 
             h1 {
                 font-size: 2.5vw;
@@ -104,7 +96,17 @@
             }
         }
 
-        @include for-tablet-layout {
+
+    }
+
+    @include for-tablet-layout {
+        .clip-preview-container {
+            .clip-img-container {
+                img {
+                    width: rem(50px);
+                    height: rem(50px);
+                }
+            }
 
             .play-btn-container {
                 .clip-play-btn {
@@ -118,16 +120,15 @@
 
             .title-text {
                 h1 {
-                    font-size: 14px;
+                    font-size: rem(10px);
                 }
 
                 p {
 
-                    font-size: 12px;
+                    font-size: rem(7.5px);
                 }
             }
         }
-
     }
 
     @include for-desktop-layout {
@@ -150,7 +151,12 @@
 
             .title-text {
                 h1 {
-                    font-size: 1.5vw;
+                    font-size: rem(12px);
+                }
+
+                p {
+
+                    font-size: rem(8px);
                 }
             }
 
@@ -167,8 +173,8 @@
 
             .like-icon {
                 svg {
-                    width: 5vw;
-                    height: 5vw;
+                    width: rem(45px);
+                    height: rem(45px);
                 }
             }
 
@@ -191,10 +197,29 @@
 
             .clip-img-container {
                 img {
-                    width: 85px;
-                    height: 85px;
+                    width: rem(55px);
+                    height: rem(55px);
                 }
             }
+
+            .title-text {
+                h1 {
+                    font-size: rem(15px);
+                }
+
+                p {
+
+                    font-size: rem(10px);
+                }
+            }
+
+            .like-icon {
+                svg {
+                    width: rem(55px);
+                    height: rem(55px);
+                }
+            }
+
         }
     }
 

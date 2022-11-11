@@ -42,7 +42,7 @@ export const DropdownProfile = ({
                         >Edit profile</li>
                         <li onClick={() => setIsDeleteClicked(true)}>Delete Acount</li>
 
-                        {isDeleteClicked && <div className='shadow-screen confirm-delete-profile'
+                        {isDeleteClicked && <div className='main-screen confirm-delete-profile'
                             onClick={() => setIsDeleteClicked(false)}/>}
 
                         {isDeleteClicked && <ConfirmDeleteMsg

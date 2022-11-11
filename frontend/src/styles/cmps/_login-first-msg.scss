@@ -81,6 +81,7 @@
 
     @include for-tablet-layout {
         left: 200px;
+
         .tippy {
             display: unset;
         }

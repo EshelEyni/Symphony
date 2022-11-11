@@ -8,10 +8,7 @@ export const LoginFirstMsg = ({
     const navigate = useNavigate()
 
     return <section
-        // style={{ top: loginMsgProperties.top }}
         className='login-first-msg flex column'>
-        <div className='shadow-screen'
-            onClick={() => setIsLoginMsg(false)} />
         <span className='tippy'></span>
         <div className='login-first-txt-container'>
             <p className='login-first-msg-title'>

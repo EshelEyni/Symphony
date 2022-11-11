@@ -48,7 +48,7 @@ export const EditModal = ({
 
     return (
         <section className='edit-modal' >
-            <div className='shadow-screen'
+            <div className='main-screen'
                 onClick={() => setIsEdit(false)} />
 
             <main className='edit-modal-container flex column'>

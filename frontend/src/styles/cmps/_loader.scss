@@ -6,16 +6,21 @@
 }
 
 .page-loader {
-   display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
 }
 
 .large-loader {
-    width: 35vw;
-    height: 35vw;
+    width: 90vw;
+    height: 90vw;
+    padding: 10px;
+
+    @include for-tablet-layout {
+        width: 50vw;
+        height: 50vw;
+    }
 }
 
 .medium-loader {
@@ -38,9 +43,4 @@
         }
     }
 
-    @include for-mobile-layout {
-        height: 230px;
-        width: 230px;
-        padding: 10px;
-    }
 }

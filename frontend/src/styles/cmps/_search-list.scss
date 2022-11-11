@@ -1,9 +1,0 @@
-.station-details-search-list {
-    flex-direction: column;
-    margin-inline-start: 45px;
-
-    @include for-mobile-layout {
-        text-align: center;
-        display: grid;
-    }
-}

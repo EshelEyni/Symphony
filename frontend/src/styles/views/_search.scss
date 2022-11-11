@@ -30,6 +30,7 @@
     }
 
     .recently-search-container {
+        display: none;
         .station-preview {
             .station-preview-container {
                 .recent-search-delete-btn-container {
@@ -67,6 +68,12 @@
     .browse-all {
         @include for-mobile-layout {
             padding: 0;
+        }
+    }
+
+    @include for-tablet-layout{
+        .recently-search-container {
+            display: unset;
         }
     }
 }

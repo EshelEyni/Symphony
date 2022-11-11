@@ -1,7 +1,8 @@
+
 .sidebar {
     grid-area: sidebar;
+    position: absolute;
     z-index: 10;
-    height: 100%;
 
     .logo-container {
         padding-inline-start: rem(8px);
@@ -38,8 +39,7 @@
         margin: 10px 3px;
 
         li {
-            padding: rem(20px);
-            max-height: rem(40px);
+            padding: rem(2.5px) rem(20px);
             font-size: rem(16px);
         }
     }
@@ -53,7 +53,8 @@
         top: 0;
         padding: 10px 0;
         background-color: black;
-
+        height: 150%;
+        
         &>*:not(.nav-list) {
             display: block;
         }
@@ -61,11 +62,23 @@
     }
 
     @include for-desktop-layout {
-        .user-stations-container {
+        .logo-container {
+            .logo-name {
+                left: -44%;
+            }
+        }
 
+        .user-stations-container {
             li {
-                white-space: nowrap;
-                font-size: rem(20px);
+                font-size: rem(18px);
+            }
+        }
+    }
+
+    @include for-large-desktop-layout {
+        .logo-container {
+            .logo-name {
+                left: -50%;
             }
         }
     }

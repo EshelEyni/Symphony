@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    height:10%;
+    height:12.5%;
     width: 95%;
     left: 2.5%;
     bottom: 50px;
@@ -23,7 +23,7 @@
     .media-player-clip-preview {
         position: relative;
         top: 10%;
-        left: -35%;
+        left: -30%;
         gap: 10px;
         align-items: center;
         width: fit-content;
@@ -120,7 +120,7 @@
             .time-line-input {
                 width: 90%;
                 outline: 0;
-                transform: translateY(5%);
+                transform: translateY(12.5%);
             }
 
             .track-time {

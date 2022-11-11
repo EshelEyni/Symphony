@@ -12,13 +12,14 @@
         padding: 25px 15px 0 15px;
         gap: 15px 5px;
     }
-
-
+    
+    
     @include for-tablet-layout {
         display: block;
         align-items: initial;
-
+        
         .profile-list-container {
+            grid-template-columns: repeat(auto-fit, minmax(170px, 235px));
             padding: 25px 25px 0 25px;
             gap: 10px;
         }

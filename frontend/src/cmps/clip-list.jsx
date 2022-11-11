@@ -96,8 +96,8 @@ export const ClipList = ({
                         </span>
                     })}
                 </header>
-
                 <hr />
+
 
                 <DragDropContext onDragEnd={onHandleDragEnd}>
                     <Droppable droppableId='clips-list-main-container'>

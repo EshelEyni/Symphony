@@ -12,7 +12,7 @@
     padding: 10px;
     z-index: 20;
 
-    &>*:not(.shadow-screen) {
+    &>*:not(.main-screen) {
         z-index: 20;
     }
 

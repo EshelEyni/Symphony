@@ -8,6 +8,14 @@
         }
 
         .station-search-container {
+            .station-search-header {
+                @include for-mobile-layout {
+                    font-size: 17px;
+                    margin-left: 20px;
+                }
+
+            }
+
             .search-form {
                 position: unset;
 
@@ -32,14 +40,14 @@
                     top: 2px;
                     left: 52px;
                 }
+
             }
 
-            .station-search-header {
-                @include for-mobile-layout {
-                    font-size: 17px;
-                    margin-left: 20px;
-                }
-
+            .station-details-search-list {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 rem(20px);
             }
         }
     }

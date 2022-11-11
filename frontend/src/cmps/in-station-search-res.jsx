@@ -7,8 +7,8 @@ export const InStationSearchResult = ({
 
     return (
         <li
-            className='sd-search-res-preview flex space-between'>
-            <section className='details-container flex'>
+            className='sd-search-res-preview'>
+            <section className='details-container'>
                 <img className='clip-img' src={clip.img.url} alt='clip-img' />
                 <div className='clip-title-container flex column'>
                     <span className='clip-title'>{clipService.getFormattedTitle(clip)}</span>

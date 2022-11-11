@@ -7,11 +7,12 @@
 
     .main-content {
         grid-area: main;
+        padding-bottom: 50%;
     }
 
     @include for-tablet-layout {
         grid-template-columns: 200px 1fr;
-        grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
+        grid-template-rows: 65px 1fr 90px;
         grid-template-areas:
             'sidebar header'
             'sidebar main'
@@ -21,7 +22,7 @@
 
     @include for-desktop-layout {
         grid-template-columns: 252px 1fr;
-        grid-template-rows: 65px minmax(calc(100% - 150px), 1fr) 90px;
+        grid-template-rows: 65px 1fr 90px;
         grid-template-areas:
             'sidebar header'
             'sidebar main'

@@ -7,7 +7,7 @@
         align-items: center;
         padding: 4px;
 
-        font-size: 2.5vw;
+        font-size: rem(20px);
         color: $grey-txt;
 
         .cl-play-btn {
@@ -38,16 +38,25 @@
         }
     }
 
+    hr{
+        margin-inline-start: rem(20px);
+    }
+
     .clips-list-main-container {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        // gap: 5px;
+    }
+
+    @include for-tablet-layout {
+        .clip-list-header {
+            font-size: rem(12px);
+        }
     }
 
     @include for-desktop-layout {
         .clip-list-header {
             grid-template-columns: 1fr 20fr 5fr 5fr 5fr 5fr 5fr;
-            font-size: 1.5vw;
 
             .cl-play-btn {
                 width: 80px;
@@ -72,6 +81,12 @@
                     font-size: 2.5vw;
                 }
             }
+        }
+    }
+
+    @include for-large-desktop-layout{
+        .clip-list-header {
+            font-size: rem(14px);
         }
     }
 }

@@ -10,10 +10,11 @@
         grid-template-rows: 50px 1fr;
         padding: 25px 15px 0 15px;
         gap: 15px 5px;
-
+        
     }
-
+    
     @include for-tablet-layout {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 225px));
         display: block;
         align-items: initial;
 

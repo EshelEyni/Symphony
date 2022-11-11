@@ -42,10 +42,8 @@ export const Dropdown = ({
             className='dropdown'
             style={{ left: leftPos + 'px' }}>
             {isDropdown &&
-                <div className='shadow-screen'
-                    onClick={() => {
-                        setIsDropdown(false)
-                    }}
+                <div className='main-screen'
+                    onClick={() => { setIsDropdown(false) }}
                 />}
 
             {isProfileDropDown && <DropdownProfile

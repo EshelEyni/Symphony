@@ -34,7 +34,7 @@ export const AppHeader = () => {
             style={{ backgroundColor: headerBgcolor }}
             className='app-header'>
             {isUserClicked &&
-                <div className='shadow-screen'
+                <div className='main-screen'
                     onClick={() => setUserClicked(false)}
                 />}
             <main className='app-header-main-container flex'>

@@ -90,23 +90,24 @@ export const StationHeader = ({
                                 onChange={onUploadImg} type='file' />}
                     </div>}
 
-                    <section className='station-header-txt'>
+                    <section className='sh-title'>
                         <h5>Playlist</h5>
-                        <h1 className='station-header-name-container'>{currStation.name}</h1>
-                        <section className='desc-container'>{currStation.desc}</section>
+                        <h1 className='station-name'>{currStation.name}</h1>
+                        <p >{currStation.desc}</p>
 
-                        <section>
+                        <div >
                             <p className='station-header-details'>
-                                <Link
-                                    to={'/profile/' + currStation.createdBy._id}
-                                    className='station-user-name'>{currStation.createdBy.username}</Link>
+                                <Link to={'/profile/' + currStation.createdBy._id}
+                                    className='user-name'>
+                                    {currStation.createdBy.username}
+                                </Link>
                                 {stationService.setDetails(currStation)}
                                 {currStation.likedByUsers?.length > 0 && <Link
                                     to={'/station-like-profiles/' + currStation._id}>
                                     {` ● ${currStation.likedByUsers.length} likes`}
                                 </Link>}
                             </p>
-                        </section>
+                        </div>
                     </section>
                 </section>
 
@@ -123,7 +124,7 @@ export const StationHeader = ({
                             className='admin-state-btn'
                             onClick={() => setAdminMode(!isAdminMode)}
                         >⭐</span>}
-                    
+
                     <DropdownBtn
                         dropdownBtnRef={dropdownBtnRef}
                         name={currStation?.name}
