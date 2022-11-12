@@ -133,6 +133,8 @@
             }
 
             .play-btn-container {
+                font-size: rem(15px);
+
                 .clip-play-btn {
                     display: none;
                 }
@@ -179,10 +181,6 @@
                         font-size: rem(8px);
                     }
                 }
-            }
-
-            .play-btn-container {
-                font-size: 2vw;
             }
 
             .cp-artist-name {
