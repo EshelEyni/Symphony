@@ -130,43 +130,43 @@
 
 
         .library-link .symbol-container .login-first-msg {
-            top: 21vh;
+            top: 200px;
         }
 
         .create-playlist-link .symbol-container .login-first-msg {
-            top: 24vh;
+            top: 243px;
         }
 
         .liked-songs-link .symbol-container .login-first-msg {
-            top: 28.5vh;
+            top: 286px;
         }
     }
 
     @include for-desktop-layout {
         .library-link .symbol-container .login-first-msg {
-            top: 23vh;
+            top: 230px;
         }
 
         .create-playlist-link .symbol-container .login-first-msg {
-            top: 27vh;
+            top:273px;
         }
 
         .liked-songs-link .symbol-container .login-first-msg {
-            top: 31.5vh;
+            top: 316px;
         }
     }
 
     @include for-large-desktop-layout {
         .library-link .symbol-container .login-first-msg {
-            top: 26vh;
+            top: 250px;
         }
 
         .create-playlist-link .symbol-container .login-first-msg {
-            top: 30vh;
+            top: 305px;
         }
 
         .liked-songs-link .symbol-container .login-first-msg {
-            top: 35.5vh;
+            top: 360px;
         }
     }
 }

@@ -6,6 +6,7 @@ html {
     font-family: circular;
     line-height: 1.6;
     font-size: 8px;
+    max-width: 100%;
     overflow-x: hidden;
 
     @include for-tablet-layout {
@@ -26,9 +27,10 @@ body {
     padding: 0;
     background-color: $black;
     color: white;
-
-    overflow-x: hidden;
     position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+
 }
 
 a {

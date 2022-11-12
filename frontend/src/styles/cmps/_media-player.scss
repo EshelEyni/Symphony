@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    height:7.5%;
+    height: 7.5%;
     width: 95%;
     left: 2.5%;
     bottom: 50px;
@@ -116,11 +116,12 @@
         .time-line-container {
             display: flex;
             justify-content: center;
+            position: relative;
+            top: 5%;
 
             .time-line-input {
                 width: 90%;
                 outline: 0;
-                transform: translateY(12.5%);
             }
 
             .track-time {
@@ -164,7 +165,7 @@
         flex-direction: row;
         bottom: 0;
         width: 100%;
-        height: rem(90px);
+        height: rem(80px);
         left: 0;
 
         .media-player-clip-preview {
@@ -191,8 +192,8 @@
         .mp-controller {
             position: unset;
             width: 50%;
-            margin: 15px;
-            padding-top: 20.5px;
+            padding-top: rem(10px);
+            gap: 5px;
 
             .mp-btn-container {
                 justify-content: space-between;

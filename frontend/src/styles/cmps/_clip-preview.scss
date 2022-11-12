@@ -85,7 +85,8 @@
         }
 
         .dropdown {
-            font-size: rem(16px);
+            top: 20%;
+            font-size: rem(20px);
 
             .dropdown-station-list {
                 position: absolute;
@@ -133,6 +134,10 @@
                 }
             }
 
+            .dropdown {
+                top: 27.5%;
+            }
+
         }
     }
 
@@ -168,15 +173,15 @@
                 font-size: 2vw;
             }
 
-
             .cp-artist-name {
-
+                font-size: rem(14px);
                 padding-inline-start: 5px;
                 grid-column: 3/4;
                 display: grid;
             }
 
             .cp-date-added {
+                font-size: rem(8px);
                 grid-column: 4/5;
                 display: grid;
             }
@@ -198,6 +203,9 @@
                 visibility: hidden;
             }
 
+            .dropdown {
+                top:32.5%;
+            }
         }
     }
 
@@ -232,6 +240,10 @@
                 }
             }
 
+            .dropdown {
+                top:50%;
+                font-size: rem(16px);
+            }
         }
     }
 

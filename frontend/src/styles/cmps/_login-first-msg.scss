@@ -80,7 +80,7 @@
     }
 
     @include for-tablet-layout {
-        left: 200px;
+        left: 350px;
 
         .tippy {
             display: unset;
@@ -88,7 +88,7 @@
     }
 
     @include for-desktop-layout {
-        left: 240px;
+        left: 405px;
 
         .tippy {
             left: rem(-8.4px);

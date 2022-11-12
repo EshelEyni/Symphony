@@ -75,6 +75,7 @@ export const Dropdown = ({
                 />}
 
             {!isClipDropdown && <li
+                className='share'
                 onClick={() => {
                     navigator.clipboard.writeText(window.location.href)
                     setIsDropdown(!isDropdown)

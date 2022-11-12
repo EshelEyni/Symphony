@@ -64,7 +64,7 @@ export const SideBar = () => {
                 title='Symphony'
             >
                 <div className='logo-container'>
-                    <img  className='logo-img' src={Logo} alt='Logo' />
+                    <img className='logo-img' src={Logo} alt='Logo' />
                     <h1 className='logo-name'>Symphony</h1>
                 </div>
             </Link>
@@ -73,7 +73,7 @@ export const SideBar = () => {
                 onAddStation={onAddStation}
             />
             <hr />
-            {(userStations && loggedinUser) &&
+            {(userStations.length > 0 && loggedinUser) &&
                 <DragDropContext onDragEnd={onHandleDragEnd}>
                     <Droppable droppableId='user-stations-container'>
                         {(provided) => (
