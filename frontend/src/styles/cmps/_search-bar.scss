@@ -1,44 +1,67 @@
 .search-form {
     display: flex;
-    position: absolute;
+    position: relative;
     top: 15px;
     z-index: 20;
 
     .search-btn {
         position: relative;
-        left: 12%;
+        left: rem(70px);
+        font-size: rem(35px);
         color: #000000a2;
-        font-size: 20px;
         border: none;
         background: none;
-
-        @include for-mobile-layout {
-            left: 6%;
-            top: 23px;
-            font-size: 13px;
-        }
     }
 
     .search-bar-input {
-        width: 365px;
-        height: 40px;
-        border-radius: rem(32px);
+        width: rem(500px);
+        height: rem(80px);
+        padding-left: rem(70px);
+        border-radius: rem(38px);
         background-color: white;
         border: none;
-        padding-left: 50px;
 
         &:focus {
             outline: none;
         }
 
-        @include for-mobile-layout {
-            width: 55%;
-            height: 35px;
-            text-align: center;
-            left: 10px;
-            top: 3px;
-            padding-left: 17px;
-            font-size: 13px;
+    }
+
+    @include for-tablet-layout {
+        position: absolute;
+        top: rem(18px);
+        left: rem(300px);
+
+        .search-btn {
+            left: rem(35px);
+            font-size: rem(20px);
+        }
+
+        .search-bar-input {
+            width: rem(200px);
+            height: rem(40px);
+            padding-left: rem(32px);
+            font-size: rem(10.5px);
+        }
+    }
+    
+    @include for-desktop-layout {
+        top: rem(12px);
+        left: rem(350px);
+        
+        .search-bar-input {
+            width: rem(235px);
+            font-size: rem(14px);
+            
+        }
+    }
+
+    @include for-large-desktop-layout {
+        top: rem(8px);
+        
+        .search-bar-input {
+            width: rem(285px);
+            font-size: rem(15px);
         }
     }
 }

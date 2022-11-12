@@ -1,21 +1,30 @@
 .tag-list {
     display: grid;
     padding: 0 20px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
-    gap: 14px 7px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
+    gap: rem(12px)  rem(16px);
     cursor: pointer;
-
+    
     $colors: #4e72cc #8ed9ec #25be77 #b4b4b4 #f8c69ee1 #e8115b #b4f8c9d7 #cc6b4e #dfd768 #4bbafa8a #9e6cf0c5 #f5a6fcc4 #4e43ee6b #effc7cd5 #bebebec4 #e4a7d6;
-
+    
     @each $color in $colors {
         &>*:nth-child(#{index($colors, $color)}) {
             background-color: $color;
         }
     }
+    
+    @include for-tablet-layout {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 170px));
+        gap: rem(12px) rem(20px);
+    }
+    
+    @include for-desktop-layout{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+        gap: rem(12px) rem(16px);
+    }
 
-    @include for-mobile-layout {
-        gap: 12px;
-        grid-template-columns: 0fr 0fr;
-        grid-template-rows: 1fr;
+    @include for-large-desktop-layout{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 230px));
+        gap: rem(8px) rem(10px);
     }
 }

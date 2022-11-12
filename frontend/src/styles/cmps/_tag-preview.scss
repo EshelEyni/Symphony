@@ -2,29 +2,53 @@
     border-radius: 15px;
     position: relative;
     padding: 20px;
-    height: 190px;
-    width: 190px;
+    height: rem(300px);
+    width: rem(300px);
     border-radius: 10px;
     overflow: hidden;
 
     h3 {
         margin: 0;
         text-transform: capitalize;
-    }  
-        
+    }
+
     .tag-preview-img {
         box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
         transform: rotate(25deg) translate(18%, 2%);
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 100px;
-        height: 100px;
+        width: rem(210px);
+        height: rem(210px);
         opacity: 0.8;
     }
 
-    @include for-mobile-layout {
-        height: 180px;
-        width: 180px;
+
+
+    @include for-tablet-layout {
+        height: rem(200px);
+        width: rem(200px);
+
+        .tag-preview-img {
+            height: rem(125px);
+            width: rem(125px);
+        }
     }
+
+    @include for-desktop-layout {
+
+        .tag-preview-img {
+            height: rem(125px);
+            width: rem(125px);
+        }
+    }
+
+    @include for-large-desktop-layout {
+
+        .tag-preview-img {
+            height: rem(140px);
+            width: rem(140px);
+        }
+    }
+
 }

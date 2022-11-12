@@ -1,6 +1,6 @@
 .clips-list {
     max-width: 1750px;
-
+margin-inline-start: rem(20px);
     .clip-list-header {
         display: grid;
         grid-template-columns: 1fr 20fr 5fr 5fr 7.5fr;

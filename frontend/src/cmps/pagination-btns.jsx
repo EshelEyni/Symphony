@@ -10,12 +10,16 @@ export const PaginationBtns = () => {
             <button
                 onClick={() => navigate(-1)}
                 className='pagination-btn'>
-                <ArrowBackIosNewRoundedIcon />
+                <div className='flex align-center justify-center'>
+                    <ArrowBackIosNewRoundedIcon />
+                </div>
             </button>
             <button
                 onClick={() => navigate(1)}
                 className='pagination-btn'>
-                <ArrowForwardIosRoundedIcon />
+                <div className='flex align-center justify-center'>
+                    <ArrowForwardIosRoundedIcon />
+                </div>
             </button>
         </div>
     )

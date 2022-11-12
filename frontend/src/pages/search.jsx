@@ -106,7 +106,7 @@ export const Search = () => {
                 {/***************************************** After a search is made *****************************************/}
 
                 {(isPostSearch && !isSearchLoading && searchClips.length > 0) &&
-                    <section className='search-filter-btns flex'>
+                    <section className='search-filter-btns'>
                         {searchFilterBtns.map((btn, idx) => {
                             const renderConditions = [[true], searchClips, searchStations, searchArtists, searchProfiles, recentSearches]
                             const { title, value } = btn

@@ -5,10 +5,11 @@
         padding: 0;
     }
 
-
     .search-filter-btns {
-        margin-top: 25px;
-        gap: 7.5px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: rem(40px) 0 0 rem(20px);
+        gap: rem(10px);
 
         .search-filter-btn {
             border-radius: 25px;
@@ -31,6 +32,7 @@
 
     .recently-search-container {
         display: none;
+
         .station-preview {
             .station-preview-container {
                 .recent-search-delete-btn-container {
@@ -65,15 +67,18 @@
         }
     }
 
-    .browse-all {
-        @include for-mobile-layout {
-            padding: 0;
-        }
-    }
 
-    @include for-tablet-layout{
-        .recently-search-container {
-            display: unset;
+
+    @include for-tablet-layout {
+        .search-filter-btns {
+            gap: rem(2.5px);
+            .search-filter-btn {
+                font-size: rem(14px);
+            }
+
+            .recently-search-container {
+                display: unset;
+            }
         }
     }
 }

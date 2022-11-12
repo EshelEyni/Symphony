@@ -32,39 +32,40 @@
 
         }
 
-        .clip-img-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-                width: rem(70px);
-                height: rem(70px);
-                clip-path: inset(12.5% 0% 12.5% 0% round 10px);
-            }
-        }
-
         .clip-title {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
 
-        .title-text {
-            padding-inline-start: rem(15px);
+            .clip-img-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-            h1 {
-                font-size: 2.5vw;
-                width: fit-content;
-                margin: 0;
-                padding: 0;
+                img {
+                    width: rem(70px);
+                    height: rem(70px);
+                    clip-path: inset(12.5% 0% 12.5% 0% round 10px);
+                }
             }
 
-            p {
-                margin: 0;
-                padding: 0;
-                color: #6f6969;
-                text-align: left;
+
+            .title-text {
+                padding-inline-start: rem(15px);
+
+                h1 {
+                    font-size: 2.5vw;
+                    width: fit-content;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    color: #6f6969;
+                    text-align: left;
+                }
             }
         }
 
@@ -101,10 +102,24 @@
 
     @include for-tablet-layout {
         .clip-preview-container {
-            .clip-img-container {
-                img {
-                    width: rem(50px);
-                    height: rem(50px);
+            .clip-title {
+
+                .clip-img-container {
+                    img {
+                        width: rem(50px);
+                        height: rem(50px);
+                    }
+                }
+
+                .title-text {
+                    h1 {
+                        font-size: rem(10px);
+                    }
+
+                    p {
+
+                        font-size: rem(7.5px);
+                    }
                 }
             }
 
@@ -118,16 +133,6 @@
                 }
             }
 
-            .title-text {
-                h1 {
-                    font-size: rem(10px);
-                }
-
-                p {
-
-                    font-size: rem(7.5px);
-                }
-            }
         }
     }
 
@@ -138,10 +143,24 @@
             font-size: 1vw;
             padding: 0 10px;
 
-            .clip-img-container {
-                img {
-                    width: 6vw;
-                    height: 6vw;
+            .clip-title {
+
+                .clip-img-container {
+                    img {
+                        width: 6vw;
+                        height: 6vw;
+                    }
+                }
+
+                .title-text {
+                    h1 {
+                        font-size: rem(12px);
+                    }
+
+                    p {
+
+                        font-size: rem(8px);
+                    }
                 }
             }
 
@@ -149,18 +168,9 @@
                 font-size: 2vw;
             }
 
-            .title-text {
-                h1 {
-                    font-size: rem(12px);
-                }
-
-                p {
-
-                    font-size: rem(8px);
-                }
-            }
 
             .cp-artist-name {
+
                 padding-inline-start: 5px;
                 grid-column: 3/4;
                 display: grid;
@@ -194,22 +204,24 @@
 
     @include for-large-desktop-layout {
         .clip-preview-container {
+            .clip-title {
 
-            .clip-img-container {
-                img {
-                    width: rem(55px);
-                    height: rem(55px);
-                }
-            }
-
-            .title-text {
-                h1 {
-                    font-size: rem(15px);
+                .clip-img-container {
+                    img {
+                        width: rem(55px);
+                        height: rem(55px);
+                    }
                 }
 
-                p {
+                .title-text {
+                    h1 {
+                        font-size: rem(15px);
+                    }
 
-                    font-size: rem(10px);
+                    p {
+
+                        font-size: rem(10px);
+                    }
                 }
             }
 
