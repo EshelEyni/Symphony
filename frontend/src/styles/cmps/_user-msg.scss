@@ -1,16 +1,41 @@
-.user-msg {
+.user-msg-container {
     position: fixed;
-    min-width: fit-content;
-    height: 50px;
-    background-color: $user-msg-blue;
-    bottom: 100px;
-    left: 50%;
-    transform: translate(-35%);
-    padding: 0 40px;
-    border-radius: 15px;
+    top: 83.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    z-index: 30;
 
-    @include for-mobile-layout {
-        bottom: 10px;
-        left: 13%;
+    .user-msg {
+        background-color: $user-msg-blue;
+        border-radius: rem(35px);
+        padding: 0 40px;
+        height: rem(65px);
+        min-width: fit-content;
     }
+
+    @include for-tablet-layout {
+        top: 87.5%;
+
+        .user-msg {
+            height: rem(50px);
+            font-size: rem(14px);
+        }
+    }
+
+    @include for-desktop-layout {
+        top: 86%;
+
+        .user-msg {
+            height: rem(45px);
+            font-size: rem(12px);
+        }
+    }
+
+    @include for-large-desktop-layout {
+        top: 84.5%;
+    }
+
 }

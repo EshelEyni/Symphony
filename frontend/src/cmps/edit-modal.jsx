@@ -52,7 +52,7 @@ export const EditModal = ({
                 onClick={() => setIsEdit(false)} />
 
             <main className='edit-modal-container flex column'>
-                <header className='edit-modal-header flex'>
+                <header className='edit-modal-header'>
                     <h2>{user ? 'Edit Profile' : 'Edit Playlist'}</h2>
                     < button
                         className='btn-close'
@@ -61,21 +61,23 @@ export const EditModal = ({
                     </button>
                 </header>
 
-                <div className='edit-modal-form-container flex'>
-                    <label htmlFor='edit-img'>
-                        {!isChangedImg && <img
-                            className='edit-form-img '
-                            src={imgUrl}
-                            alt='playist-img' />}
-                        {isChangedImg && <img
-                            className={'edit-form-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
-                            src={imgUrl}
-                            alt='playist-img' />}
-                    </label>
-                    <input
-                        className='img-input'
-                        id='edit-img'
-                        onChange={onUploadImgEdit} type='file' />
+                <div className='edit-modal-form-container'>
+                    <div className='img-container'>
+                        <label htmlFor='edit-img'>
+                            {!isChangedImg && <img
+                                className='edit-form-img '
+                                src={imgUrl}
+                                alt='playist-img' />}
+                            {isChangedImg && <img
+                                className={'edit-form-img ' + (imgUrl === defaultImg ? 'rotate' : '')}
+                                src={imgUrl}
+                                alt='playist-img' />}
+                        </label>
+                        <input
+                            className='img-input'
+                            id='edit-img'
+                            onChange={onUploadImgEdit} type='file' />
+                    </div>
 
                     <form
                         onSubmit={onUpdateObject}>

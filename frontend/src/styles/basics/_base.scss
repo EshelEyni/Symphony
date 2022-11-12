@@ -6,9 +6,7 @@ html {
     font-family: circular;
     line-height: 1.6;
     font-size: 8px;
-
     overflow-x: hidden;
-    // overflow-y: hidden;
 
     @include for-tablet-layout {
         font-size: 14px;
@@ -30,7 +28,6 @@ body {
     color: white;
 
     overflow-x: hidden;
-    // overflow-y: hidden;
     position: relative;
 }
 
