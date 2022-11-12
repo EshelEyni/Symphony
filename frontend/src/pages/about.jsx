@@ -38,20 +38,30 @@ export const About = () => {
         return (
             < main className='about'>
 
-                <section className='app-desc'>
+                <section className="app-description">
+                    <h1>Symphony</h1>
+                    <div className="description-container">
+                        <p>Symphony is a multilayered music app. With it's search engine and music player Symphony serves the need of the singular music lover.
+                            You can like a song,and he will be saved to your personal library under the saved playlist "Liked Songs". You can also create you own playlists, giving you the options to manage your love of music.
+                            But that's not all, Symphony also serves as a musical social network. Once you liked a song, Symphony will look for other users who like the same music and showcase them to you, in your home page. You can follow those users and expand your musical horizons. Profiles will also be showcased in the search page, if their playlists includes the search term you were looking for.
+                        </p>
+                    </div>
+                </section>
+
+                <section className='features-list'>
                     <h1>What do we offer?</h1>
                     <button
-                    className='back-btn'
-                    onClick={() => switchDesc(-1)}>
+                        className='back-btn'
+                        onClick={() => switchDesc(-1)}>
                         <KeyboardArrowLeftRoundedIcon />
                     </button>
                     <article className='desc-txt-container'>
                         <h1>{currDesc.title}</h1>
                         <p>{currDesc.txt}</p>
                     </article>
-                    <button 
-                    className='next-btn'
-                    onClick={() => switchDesc(1)}>
+                    <button
+                        className='next-btn'
+                        onClick={() => switchDesc(1)}>
                         <KeyboardArrowRightRoundedIcon />
                     </button>
                 </section>

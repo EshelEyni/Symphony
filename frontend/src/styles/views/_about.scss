@@ -1,6 +1,19 @@
 .about {
+    .app-description {
+        h1 {
+            text-align: center;
+        }
 
-    .app-desc {
+        .description-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 10%;
+        }
+    }
+
+    .features-list {
         display: grid;
         grid-template-columns: 1fr 6fr 1fr;
         grid-template-rows: 2fr 6fr;
@@ -71,7 +84,7 @@
     }
 
     @include for-tablet-layout {
-        .app-desc {
+        .features-list {
             &>button {
                 svg {
                     font-size: rem(60px);
