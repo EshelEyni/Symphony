@@ -14,14 +14,7 @@ a short amount of time using modern best practices and the power of React & Node
 - [Getting started:](#getting-started)
 - [Deployment](#deployment)
 - [Showcase](#showcase)
-  - [Homepage](#homepage)
-  - [Search page](#search-page)
-  - [Library](#library)
-  - [Create a Playlist](#create-a-playlist)
-  - [Liked Songs](#liked-songs)
-  - [Profile Page](#profile-page)
-  - [Some mobile!](#some-mobile)
-  - [Authors](#authors)
+- [Authors](#authors)
 
 ## Symphony Description
 Symphony is a multilayered music app. With it's search engine and music player Symphony serves the need of the singular music lover.

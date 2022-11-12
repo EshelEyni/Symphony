@@ -14,6 +14,9 @@
             padding: rem(5px) rem(10px);
             font-size: rem(20px);
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             .clip-num {
                 font-size: rem(15px);
@@ -21,12 +24,17 @@
             }
 
             .equalizer {
-                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: rem(12px);
+                width: rem(12px);
                 max-width: 28.3px;
                 display: none;
 
                 img {
-                    width: 150%;
+                    width: 90%;
+                    height: 90%;
                 }
             }
 
@@ -132,6 +140,10 @@
                 .clip-num {
                     display: unset;
                 }
+
+                .equalizer {
+                    display: flex;
+                }
             }
 
             .dropdown {
@@ -208,7 +220,7 @@
             }
 
             .dropdown {
-                top:32.5%;
+                top: 32.5%;
             }
         }
     }
@@ -245,7 +257,7 @@
             }
 
             .dropdown {
-                top:50%;
+                top: 50%;
                 font-size: rem(16px);
             }
         }
