@@ -101,7 +101,7 @@ function updateUserRecentlyPlayedClips(user, currClip) {
     if (existingClipEntry) return user
     currClip.playedAt = Date.now()
     clips.unshift(currClip)
-    user.recentlyPlayed.clips = clips.filter((clip, idx) => clip !== null && idx < 20)
+    user.recentlyPlayed.clips = clips.filter((clip, idx) => clip !== null && idx < 10)
     return user
 }
 

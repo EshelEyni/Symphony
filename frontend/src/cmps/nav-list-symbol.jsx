@@ -22,19 +22,22 @@ export const NavListSymbol = ({
         setIsLoginMsg(!isLoginMsg)
     }
 
-    switch (symbol.txt) {
-        case 'Your Library':
-            symbol.func = loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.library)
-            break;
-        case 'Create Playlist':
-            symbol.func = loggedinUser ? isAddStation ? () => onAddStation : null : () => setLoginMsg(loginFirstMsgs.createPlaylist)
-            break;
-        case 'Liked Songs':
-            symbol.func = loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.likedSongs)
-            break;
-        default:
-            break;
-    }
+    useEffect(() => {
+
+        switch (symbol.txt) {
+            case 'Your Library':
+                symbol.func = loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.library)
+                break;
+            case 'Create Playlist':
+                symbol.func = loggedinUser ? (isAddStation ? onAddStation : null) : () => setLoginMsg(loginFirstMsgs.createPlaylist)
+                break;
+            case 'Liked Songs':
+                symbol.func = loggedinUser ? null : () => setLoginMsg(loginFirstMsgs.likedSongs)
+                break;
+            default:
+                break;
+        }
+    }, [loggedinUser, isAddStation])
 
     useEffect(() => {
         if (!currPlaylist) return

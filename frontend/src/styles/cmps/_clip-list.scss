@@ -1,9 +1,10 @@
 .clips-list {
     max-width: 1750px;
-margin-inline-start: rem(20px);
+    margin-inline-start: rem(20px);
+
     .clip-list-header {
         display: grid;
-        grid-template-columns: 1fr 20fr 5fr 5fr 7.5fr;
+        grid-template-columns: 3fr 20fr 5fr 5fr 7.5fr;
         align-items: center;
         padding: 4px;
 
@@ -12,7 +13,8 @@ margin-inline-start: rem(20px);
 
         .cl-play-btn {
             grid-column: 1/2;
-            width: 60px;
+            grid-column: 1/2;
+            padding: rem(5px) rem(10px);
         }
 
         .artist {
@@ -30,6 +32,10 @@ margin-inline-start: rem(20px);
         }
 
         .duration {
+            display: flex;
+            justify-content: flex-start;
+            padding-inline-start: 2.5px;
+
             grid-column: 4/5;
 
             svg {
@@ -38,28 +44,34 @@ margin-inline-start: rem(20px);
         }
     }
 
-    hr{
+    hr {
         margin-inline-start: rem(20px);
     }
 
     .clips-list-main-container {
         display: flex;
         flex-direction: column;
-        // gap: 5px;
     }
 
     @include for-tablet-layout {
         .clip-list-header {
             font-size: rem(12px);
+
+            .duration {
+                svg {
+                    font-size: rem(30px);
+                }
+            }
         }
     }
 
     @include for-desktop-layout {
         .clip-list-header {
             grid-template-columns: 1fr 20fr 5fr 5fr 5fr 5fr 5fr;
+            align-items: center;
 
             .cl-play-btn {
-                width: 80px;
+                width: 30px;
             }
 
             .artist {
@@ -73,18 +85,18 @@ margin-inline-start: rem(20px);
             }
 
             .duration {
-                display: flex;
                 justify-content: flex-end;
+                margin-inline-end: rem(10px);
                 grid-column: 6;
 
                 svg {
-                    font-size: 2.5vw;
+                    font-size: rem(25px);
                 }
             }
         }
     }
 
-    @include for-large-desktop-layout{
+    @include for-large-desktop-layout {
         .clip-list-header {
             font-size: rem(14px);
         }
