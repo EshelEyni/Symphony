@@ -31,6 +31,7 @@ creating a beautifull unique visual. You can edit the playlist name, description
 - ***DND*** is applied throughout the appliction, in the side bar with the playlists list, and inside any playlist, you can use ***DND***, but it will only be saved if the user owns the playlist.
 - You can view other users profiles, and follow them.
 - Online updates using ***Web sockets***. So you can watch other users updating their profile or playlists.
+- Symphony has ***PWA*** support, and you can download the app to your mobile device or you personal computer.
  
 ## Technologies
 - MongoDB

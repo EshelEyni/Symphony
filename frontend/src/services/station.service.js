@@ -83,6 +83,7 @@ function getFilteredStations(stations, filterBy) {
 
 
 function getStationByTag(stations) {
+    console.log('stations', stations)
     let statsionByTag = stations.sort((a, b) => a.name.localeCompare(b.name)).reduce((acc, station) => {
         station.tags.forEach(tag => {
             var sbt = acc[tag] || []

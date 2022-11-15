@@ -66,6 +66,11 @@ export const appDesc = [
         Online updates using Web sockets. 
         So you can watch other users updating their profile or playlists.
     ` },
+    {
+        title: 'PWA', txt: `
+        Symphony has PWA support.
+        You can download the app to your mobile device or you personal computer.
+    ` },
 ]
 
 
