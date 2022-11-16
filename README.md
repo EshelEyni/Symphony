@@ -1,6 +1,6 @@
 <h1 align="center"> Symphony - An awesome Spotify clone </h1>
 
-<p> This application showcase how we can duplicate most of the functionality of Spottify within
+<p> This application showcase how we can duplicate most of the functionality of Spotify within
 a short amount of time using modern best practices and the power of React & Node.JS.<p>
 
  You can check it out [here ](https://symphony.onrender.com/).
