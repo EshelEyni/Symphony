@@ -23,7 +23,8 @@
     .media-player-clip-preview {
         position: relative;
         top: 10%;
-        left: -30%;
+        left: -50%;
+        transform: translate(50%, 0);
         gap: 10px;
         align-items: center;
         width: fit-content;
@@ -172,7 +173,7 @@
             display: flex;
             top: 0;
             left: 0;
-
+            transform: none;
             .media-player-clip-img {
                 margin-left: 5px;
                 width: 60px;
