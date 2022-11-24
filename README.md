@@ -6,7 +6,6 @@ a short amount of time using modern best practices and the power of React & Node
  You can check it out [here ](https://symphony.onrender.com/).
 
 ![Main board image](screenshots/main.png)
-[![Video](http://img.youtube.com/vi/Gv7paA2OOFg/0.jpg)](http://www.youtube.com/watch?v=Gv7paA2OOFg)
 
 ### Table of Contents
 - [Symphony Description](#symphony-description)
