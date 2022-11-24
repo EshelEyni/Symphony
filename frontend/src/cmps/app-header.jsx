@@ -19,9 +19,9 @@ export const AppHeader = () => {
     }, [loggedinUser])
 
     const logout = async () => {
+        navigate('/')
         await dispatch(onLogout())
         setUserClicked(false)
-        navigate('/')
     }
 
     const dropdownNavLinks = [
