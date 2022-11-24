@@ -42,8 +42,8 @@ export const ClipPreview = ({
 
     const onTogglePlay = () => {
         if (!isClicked) {
-            if (currStation._id !== currPlaylist._id) dispatch(setPlaylist(currStation))
-            if (currMediaPlayerClip._id !== currClip._id) dispatch(setMediaPlayerClip(currClip))
+            if (currStation._id !== currPlaylist?._id) dispatch(setPlaylist(currStation))
+            if (currClip._id !== currMediaPlayerClip?._id) dispatch(setMediaPlayerClip(currClip))
             setIsClicked(true)
         }
         togglePlayFunc()
@@ -93,7 +93,7 @@ export const ClipPreview = ({
                     isClipPreview={true}
                 />}
 
-                {currClip.duration ? <div className='cp-duration'>{clipService.getDuration(currClip.duration)||''}</div> : ''}
+                {currClip.duration ? <div className='cp-duration'>{clipService.getDuration(currClip.duration) || ''}</div> : ''}
 
                 <i className='dropdown-btn fa-solid fa-ellipsis'
                     ref={dropdownBtnRef}
