@@ -32,12 +32,8 @@ export const StationDetails = () => {
     const isUserCreatedStation = loggedinUser?._id === currStation?.createdBy?._id
 
     useEffect(() => {
-        setTimeout(() => {
-            window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-            
-        }, 2);
-        console.log('params', params)
         if (currStation?._id !== params._id) {
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
             dispatch(loadStation('clear-station'))
             setSearchClips([])
             setSearchTerm('')
@@ -158,9 +154,9 @@ export const StationDetails = () => {
                             onAddClip={onAddClip}
                             onRemoveClip={onRemoveClip}
                         />
+                        <hr />
                     </div>
 
-                    <hr />
 
                     {/********************************* Search Bar && List  *********************************/}
 

@@ -14,7 +14,7 @@ const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
 const cleaner = /\([^\)]*\)|\[[^\]]*\]|HD|/g
 const emojiCleaner = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
 const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
-const apostrophe = /&#39|&quot/g
+const apostrophe = /&#39|&39|&quot/g
 const ampersand = /&amp;/gi
 const artistNameCleaner = /vevo|music|-topic| - topic|official/gi
 
