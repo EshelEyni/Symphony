@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.68071480.css",
-    "main.js": "/static/js/main.62ca1603.js",
+    "main.js": "/static/js/main.b6ba61b0.js",
     "static/media/Pacifico-Regular.ttf": "/static/media/Pacifico-Regular.c0d735fc04154e03a691.ttf",
     "static/media/note-logo.png": "/static/media/note-logo.63d3d8f10afed3a814d4.png",
     "static/media/likedsongs.png": "/static/media/likedsongs.4051e5f8e18b05da446e.png",
@@ -11,10 +11,10 @@
     "static/media/library-playlist-icon.svg": "/static/media/library-playlist-icon.5ce5695b63a3f9cc35120e66dd317f47.svg",
     "index.html": "/index.html",
     "main.68071480.css.map": "/static/css/main.68071480.css.map",
-    "main.62ca1603.js.map": "/static/js/main.62ca1603.js.map"
+    "main.b6ba61b0.js.map": "/static/js/main.b6ba61b0.js.map"
   },
   "entrypoints": [
     "static/css/main.68071480.css",
-    "static/js/main.62ca1603.js"
+    "static/js/main.b6ba61b0.js"
   ]
 }

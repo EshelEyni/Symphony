@@ -22,7 +22,6 @@ export const NavList = ({
         {
             path: '/',
             className: 'home-link',
-            onClickFunc: null,
             symbol: {
                 unclicked: <HomeOutlinedIcon />,
                 clicked: <HomeRoundedIcon />,
@@ -32,7 +31,6 @@ export const NavList = ({
         {
             path: 'search',
             className: 'search-link',
-            onClickFunc: null,
             symbol: {
                 unclicked: <ScreenSearchDesktopOutlinedIcon />,
                 clicked: <ScreenSearchDesktopRoundedIcon />,
@@ -42,7 +40,6 @@ export const NavList = ({
         {
             path: 'library',
             className: 'library-link',
-            onClickFunc: null,
             symbol: {
                 unclicked: <LibraryMusicOutlinedIcon />,
                 clicked: <LibraryMusicIcon />,
@@ -52,7 +49,6 @@ export const NavList = ({
         {
             path: null,
             className: 'create-playlist-link',
-            onClickFunc: null,
             symbol: {
                 unclicked: <AddBoxIcon />,
                 clicked: null,
@@ -62,7 +58,6 @@ export const NavList = ({
         {
             path: 'liked',
             className: 'liked-songs-link',
-            onClickFunc: null,
             symbol: {
                 unclicked: <img className='nav-likes-songs-logo' src={LikedSongsLogo} alt="liked songs logo" />,
                 clicked: null,
@@ -74,7 +69,7 @@ export const NavList = ({
     return (
         <ul className='nav-list'>
             {navLinks.map((navLink, idx) => {
-                const { path, className, onClickFunc, symbol } = navLink
+                const { path, className, symbol } = navLink
                 if (!loggedinUser && idx > 1) {
                     return <span key={'nav-link-' + navLink.className} className={className} >
                         <NavListSymbol symbol={symbol} />
@@ -87,7 +82,6 @@ export const NavList = ({
                         end={true}
                         key={'nav-link-' + navLink.className}
                         className={className}
-                        onClick={onClickFunc}
                     >
                         <NavListSymbol symbol={symbol} isAddStation={isAddStation} onAddStation={onAddStation} />
                     </NavLink>
