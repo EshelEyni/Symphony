@@ -18,8 +18,18 @@
     padding: 10px;
 
     @include for-tablet-layout {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    @include for-desktop-layout {
         width: 50vw;
         height: 50vw;
+    }
+
+    @include for-large-desktop-layout {
+        width: 35vw;
+        height: 35vw;
     }
 }
 
