@@ -100,7 +100,7 @@ The Liked Songs page. When a user likes a song, the songs is saved to this playl
 ![Liked Songs image](screenshots/liked-songs.png)
 
 ### Profile Page
-The profile page contains the user public playlists, followers and followed profiled lists. In the personal profile page, recently played songs are shown, with a profile list of users who like the same music.
+The profile page contains the user public playlists, followers and followed profiles lists. In the personal profile page, recently played songs are shown, with a profile list of users who like the same music.
 
 ![Profile page image](screenshots/profile-page.png)
 
