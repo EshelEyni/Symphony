@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.a4c3895a.css",
+    "main.css": "/static/css/main.307e5104.css",
     "main.js": "/static/js/main.661616e3.js",
     "static/media/Pacifico-Regular.ttf": "/static/media/Pacifico-Regular.c0d735fc04154e03a691.ttf",
     "static/media/note-logo.png": "/static/media/note-logo.63d3d8f10afed3a814d4.png",
@@ -10,11 +10,11 @@
     "static/media/heart-icon.svg": "/static/media/heart-icon.8df6ed328f04316ecea6103a516cbfae.svg",
     "static/media/library-playlist-icon.svg": "/static/media/library-playlist-icon.5ce5695b63a3f9cc35120e66dd317f47.svg",
     "index.html": "/index.html",
-    "main.a4c3895a.css.map": "/static/css/main.a4c3895a.css.map",
+    "main.307e5104.css.map": "/static/css/main.307e5104.css.map",
     "main.661616e3.js.map": "/static/js/main.661616e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4c3895a.css",
+    "static/css/main.307e5104.css",
     "static/js/main.661616e3.js"
   ]
 }

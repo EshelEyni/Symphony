@@ -2,7 +2,6 @@ import axios from 'axios'
 import * as duration from 'duration-fns'
 import { storageService } from './storage.service'
 import { stationService } from './station.service'
-import { userService } from './user.service'
 
 export const searchService = {
     getClips,
